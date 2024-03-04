@@ -1,10 +1,7 @@
 "use client"
-
-import * as React from "react"
-import Link from "next/link"
-
-import { cn } from "@/lib/utils"
-// import { Icons } from "@/components/icons"
+import * as React from "react";
+import Link from "next/link";
+import { cn } from "@/lib/utils";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -13,58 +10,250 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
-} from "@/components/ui/navigation-menu"
+} from "@/components/ui/navigation-menu";
 
 export default function Megamenu() {
   return (
-    <div className="mega-menu">
+    <div className="mega-menu flex justify-center border-b border-background">
       <NavigationMenu>
         <NavigationMenuList>
           <NavigationMenuItem>
-            <NavigationMenuTrigger>Earrings</NavigationMenuTrigger>
+            <NavigationMenuTrigger className='menu-trigger bg-white'>Earrings</NavigationMenuTrigger>
             <NavigationMenuContent>
+              <div className="section-one grid grid-cols-12 gap-5">
+                <div className="col">
+                  <ul className="">
+                    <li className=""><Link href='/'>Hello</Link></li>
+                    <li className=""><Link href='/'>Hello</Link></li>
+                    <li className=""><Link href='/'>Hello</Link></li>
+                    <li className=""><Link href='/'>Hello</Link></li>
+                  </ul>
+                </div>
+                <div className="col">
+                  <ul className="">
+                    <li className=""><Link href='/'>Hello</Link></li>
+                    <li className=""><Link href='/'>Hello</Link></li>
+                    <li className=""><Link href='/'>Hello</Link></li>
+                    <li className=""><Link href='/'>Hello</Link></li>
+                  </ul>
+                </div>
+                <div className="col">
+                  <ul className="">
+                    <li className=""><Link href='/'>Hello</Link></li>
+                    <li className=""><Link href='/'>Hello</Link></li>
+                    <li className=""><Link href='/'>Hello</Link></li>
+                    <li className=""><Link href='/'>Hello</Link></li>
+                  </ul>
+                </div>
+                <div className="col">
+                  <ul className="">
+                    <li className=""><Link href='/'>Hello</Link></li>
+                    <li className=""><Link href='/'>Hello</Link></li>
+                    <li className=""><Link href='/'>Hello</Link></li>
+                    <li className=""><Link href='/'>Hello</Link></li>
+                  </ul>
+                </div>
+              </div>
+            </NavigationMenuContent>
+          </NavigationMenuItem>
+          <NavigationMenuItem>
+            <NavigationMenuTrigger className='menu-trigger bg-white'>Necklaces</NavigationMenuTrigger>
+            <NavigationMenuContent>
+              <div className="section-two grid grid-cols-12 gap-5">
+                <div className="col">
+                  <ul className="">
+                    <li className=""><Link href='/'>Hello</Link></li>
+                    <li className=""><Link href='/'>Hello</Link></li>
+                    <li className=""><Link href='/'>Hello</Link></li>
+                    <li className=""><Link href='/'>Hello</Link></li>
+                  </ul>
+                </div>
+                <div className="col">
+                  <ul className="">
+                    <li className=""><Link href='/'>Hello</Link></li>
+                    <li className=""><Link href='/'>Hello</Link></li>
+                    <li className=""><Link href='/'>Hello</Link></li>
+                    <li className=""><Link href='/'>Hello</Link></li>
+                  </ul>
+                </div>
+                <div className="col">
+                  <ul className="">
+                    <li className=""><Link href='/'>Hello</Link></li>
+                    <li className=""><Link href='/'>Hello</Link></li>
+                    <li className=""><Link href='/'>Hello</Link></li>
+                    <li className=""><Link href='/'>Hello</Link></li>
+                  </ul>
+                </div>
+                <div className="col">
+                  <ul className="">
+                    <li className=""><Link href='/'>Hello</Link></li>
+                    <li className=""><Link href='/'>Hello</Link></li>
+                    <li className=""><Link href='/'>Hello</Link></li>
+                    <li className=""><Link href='/'>Hello</Link></li>
+                  </ul>
+                </div>
+              </div>
+            </NavigationMenuContent>
+          </NavigationMenuItem>
+          <NavigationMenuItem>
+            <NavigationMenuTrigger className='menu-trigger bg-white'>Pendants</NavigationMenuTrigger>
+            <NavigationMenuContent>
+              <div className="section-two grid grid-cols-12 gap-5">
+                <div className="col">
+                  <ul className="">
+                    <li className=""><Link href='/'>Hello</Link></li>
+                    <li className=""><Link href='/'>Hello</Link></li>
+                    <li className=""><Link href='/'>Hello</Link></li>
+                    <li className=""><Link href='/'>Hello</Link></li>
+                  </ul>
+                </div>
+                <div className="col">
+                  <ul className="">
+                    <li className=""><Link href='/'>Hello</Link></li>
+                    <li className=""><Link href='/'>Hello</Link></li>
+                    <li className=""><Link href='/'>Hello</Link></li>
+                    <li className=""><Link href='/'>Hello</Link></li>
+                  </ul>
+                </div>
+                <div className="col">
+                  <ul className="">
+                    <li className=""><Link href='/'>Hello</Link></li>
+                    <li className=""><Link href='/'>Hello</Link></li>
+                    <li className=""><Link href='/'>Hello</Link></li>
+                    <li className=""><Link href='/'>Hello</Link></li>
+                  </ul>
+                </div>
+                <div className="col">
+                  <ul className="">
+                    <li className=""><Link href='/'>Hello</Link></li>
+                    <li className=""><Link href='/'>Hello</Link></li>
+                    <li className=""><Link href='/'>Hello</Link></li>
+                    <li className=""><Link href='/'>Hello</Link></li>
+                  </ul>
+                </div>
+              </div>
+            </NavigationMenuContent>
+          </NavigationMenuItem>
+          <NavigationMenuItem>
+            <NavigationMenuTrigger className='menu-trigger bg-white'>Bracelets</NavigationMenuTrigger>
+            <NavigationMenuContent>
+              <div className="section-two grid grid-cols-12 gap-5">
+                <div className="col">
+                  <ul className="">
+                    <li className=""><Link href='/'>Hello</Link></li>
+                    <li className=""><Link href='/'>Hello</Link></li>
+                    <li className=""><Link href='/'>Hello</Link></li>
+                    <li className=""><Link href='/'>Hello</Link></li>
+                  </ul>
+                </div>
+                <div className="col">
+                  <ul className="">
+                    <li className=""><Link href='/'>Hello</Link></li>
+                    <li className=""><Link href='/'>Hello</Link></li>
+                    <li className=""><Link href='/'>Hello</Link></li>
+                    <li className=""><Link href='/'>Hello</Link></li>
+                  </ul>
+                </div>
+                <div className="col">
+                  <ul className="">
+                    <li className=""><Link href='/'>Hello</Link></li>
+                    <li className=""><Link href='/'>Hello</Link></li>
+                    <li className=""><Link href='/'>Hello</Link></li>
+                    <li className=""><Link href='/'>Hello</Link></li>
+                  </ul>
+                </div>
+                <div className="col">
+                  <ul className="">
+                    <li className=""><Link href='/'>Hello</Link></li>
+                    <li className=""><Link href='/'>Hello</Link></li>
+                    <li className=""><Link href='/'>Hello</Link></li>
+                    <li className=""><Link href='/'>Hello</Link></li>
+                  </ul>
+                </div>
+              </div>
+            </NavigationMenuContent>
+          </NavigationMenuItem>
 
+          {/* <NavigationMenuItem>
+            <NavigationMenuTrigger className='menu-trigger bg-white'>Getting started</NavigationMenuTrigger>
+            <NavigationMenuContent>
+              <div className="section-two grid grid-cols-12 gap-5">
+                <div className="col">
+                  <ul className="">
+                    <li className=""><Link href='/'>Hello</Link></li>
+                    <li className=""><Link href='/'>Hello</Link></li>
+                    <li className=""><Link href='/'>Hello</Link></li>
+                    <li className=""><Link href='/'>Hello</Link></li>
+                  </ul>
+                </div>
+                <div className="col">
+                  <ul className="">
+                    <li className=""><Link href='/'>Hello</Link></li>
+                    <li className=""><Link href='/'>Hello</Link></li>
+                    <li className=""><Link href='/'>Hello</Link></li>
+                    <li className=""><Link href='/'>Hello</Link></li>
+                  </ul>
+                </div>
+                <div className="col">
+                  <ul className="">
+                    <li className=""><Link href='/'>Hello</Link></li>
+                    <li className=""><Link href='/'>Hello</Link></li>
+                    <li className=""><Link href='/'>Hello</Link></li>
+                    <li className=""><Link href='/'>Hello</Link></li>
+                  </ul>
+                </div>
+                <div className="col">
+                  <ul className="">
+                    <li className=""><Link href='/'>Hello</Link></li>
+                    <li className=""><Link href='/'>Hello</Link></li>
+                    <li className=""><Link href='/'>Hello</Link></li>
+                    <li className=""><Link href='/'>Hello</Link></li>
+                  </ul>
+                </div>
+              </div>
             </NavigationMenuContent>
           </NavigationMenuItem>
-          <NavigationMenuItem>
-            <NavigationMenuTrigger>Necklaces</NavigationMenuTrigger>
-            <NavigationMenuContent>
-              <ul>
-                <li>Jodha Nath</li>
-              </ul>
-            </NavigationMenuContent>
-          </NavigationMenuItem>
-          <NavigationMenuItem>
-            <NavigationMenuTrigger>Pendants</NavigationMenuTrigger>
-            <NavigationMenuContent>
 
-            </NavigationMenuContent>
-          </NavigationMenuItem>
           <NavigationMenuItem>
-            <NavigationMenuTrigger>Bangles</NavigationMenuTrigger>
+            <NavigationMenuTrigger className='menu-trigger bg-white'>Components</NavigationMenuTrigger>
             <NavigationMenuContent>
-
+              <div className="section-two grid grid-cols-12 gap-5">
+                <div className="col">
+                  <ul className="">
+                    <li className=""><Link href='/'>Hello</Link></li>
+                    <li className=""><Link href='/'>Hello</Link></li>
+                    <li className=""><Link href='/'>Hello</Link></li>
+                    <li className=""><Link href='/'>Hello</Link></li>
+                  </ul>
+                </div>
+                <div className="col">
+                  <ul className="">
+                    <li className=""><Link href='/'>Hello</Link></li>
+                    <li className=""><Link href='/'>Hello</Link></li>
+                    <li className=""><Link href='/'>Hello</Link></li>
+                    <li className=""><Link href='/'>Hello</Link></li>
+                  </ul>
+                </div>
+                <div className="col">
+                  <ul className="">
+                    <li className=""><Link href='/'>Hello</Link></li>
+                    <li className=""><Link href='/'>Hello</Link></li>
+                    <li className=""><Link href='/'>Hello</Link></li>
+                    <li className=""><Link href='/'>Hello</Link></li>
+                  </ul>
+                </div>
+                <div className="col">
+                  <ul className="">
+                    <li className=""><Link href='/'>Hello</Link></li>
+                    <li className=""><Link href='/'>Hello</Link></li>
+                    <li className=""><Link href='/'>Hello</Link></li>
+                    <li className=""><Link href='/'>Hello</Link></li>
+                  </ul>
+                </div>
+              </div>
             </NavigationMenuContent>
-          </NavigationMenuItem>
-          <NavigationMenuItem>
-            <NavigationMenuTrigger>Getting started</NavigationMenuTrigger>
-            <NavigationMenuContent>
+          </NavigationMenuItem> */}
 
-            </NavigationMenuContent>
-          </NavigationMenuItem>
-          <NavigationMenuItem>
-            <NavigationMenuTrigger>Components</NavigationMenuTrigger>
-            <NavigationMenuContent>
-
-            </NavigationMenuContent>
-          </NavigationMenuItem>
-          <NavigationMenuItem>
-            <Link href="/docs" legacyBehavior passHref>
-              <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                Documentation
-              </NavigationMenuLink>
-            </Link>
-          </NavigationMenuItem>
         </NavigationMenuList>
       </NavigationMenu>
     </div>
