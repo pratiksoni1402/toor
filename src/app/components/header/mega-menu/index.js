@@ -18,10 +18,10 @@ export default function Megamenu() {
       <NavigationMenu>
         <NavigationMenuList>
           <NavigationMenuItem>
-            <NavigationMenuTrigger className='menu-trigger bg-white'>Earrings</NavigationMenuTrigger>
-            <NavigationMenuContent>
+            <NavigationMenuTrigger  className='menu-trigger text-base  hover:font-semibold  border-b-2 border-transparent hover:bg-white rounded-none hover:border-b-2 hover:border-primary bg-white font-andika'>Earrings</NavigationMenuTrigger>
+            <NavigationMenuContent className='w-full'>
               <div className="section-one grid grid-cols-12 gap-5">
-                <div className="col">
+                <div className="col-span-3">
                   <ul className="">
                     <li className=""><Link href='/'>Hello</Link></li>
                     <li className=""><Link href='/'>Hello</Link></li>
@@ -29,7 +29,7 @@ export default function Megamenu() {
                     <li className=""><Link href='/'>Hello</Link></li>
                   </ul>
                 </div>
-                <div className="col">
+                <div className="col-span-3">
                   <ul className="">
                     <li className=""><Link href='/'>Hello</Link></li>
                     <li className=""><Link href='/'>Hello</Link></li>
@@ -37,7 +37,7 @@ export default function Megamenu() {
                     <li className=""><Link href='/'>Hello</Link></li>
                   </ul>
                 </div>
-                <div className="col">
+                <div className="col-span-3">
                   <ul className="">
                     <li className=""><Link href='/'>Hello</Link></li>
                     <li className=""><Link href='/'>Hello</Link></li>
@@ -45,46 +45,7 @@ export default function Megamenu() {
                     <li className=""><Link href='/'>Hello</Link></li>
                   </ul>
                 </div>
-                <div className="col">
-                  <ul className="">
-                    <li className=""><Link href='/'>Hello</Link></li>
-                    <li className=""><Link href='/'>Hello</Link></li>
-                    <li className=""><Link href='/'>Hello</Link></li>
-                    <li className=""><Link href='/'>Hello</Link></li>
-                  </ul>
-                </div>
-              </div>
-            </NavigationMenuContent>
-          </NavigationMenuItem>
-          <NavigationMenuItem>
-            <NavigationMenuTrigger className='menu-trigger bg-white'>Necklaces</NavigationMenuTrigger>
-            <NavigationMenuContent>
-              <div className="section-two grid grid-cols-12 gap-5">
-                <div className="col">
-                  <ul className="">
-                    <li className=""><Link href='/'>Hello</Link></li>
-                    <li className=""><Link href='/'>Hello</Link></li>
-                    <li className=""><Link href='/'>Hello</Link></li>
-                    <li className=""><Link href='/'>Hello</Link></li>
-                  </ul>
-                </div>
-                <div className="col">
-                  <ul className="">
-                    <li className=""><Link href='/'>Hello</Link></li>
-                    <li className=""><Link href='/'>Hello</Link></li>
-                    <li className=""><Link href='/'>Hello</Link></li>
-                    <li className=""><Link href='/'>Hello</Link></li>
-                  </ul>
-                </div>
-                <div className="col">
-                  <ul className="">
-                    <li className=""><Link href='/'>Hello</Link></li>
-                    <li className=""><Link href='/'>Hello</Link></li>
-                    <li className=""><Link href='/'>Hello</Link></li>
-                    <li className=""><Link href='/'>Hello</Link></li>
-                  </ul>
-                </div>
-                <div className="col">
+                <div className="col-span-3">
                   <ul className="">
                     <li className=""><Link href='/'>Hello</Link></li>
                     <li className=""><Link href='/'>Hello</Link></li>
@@ -96,10 +57,10 @@ export default function Megamenu() {
             </NavigationMenuContent>
           </NavigationMenuItem>
           <NavigationMenuItem>
-            <NavigationMenuTrigger className='menu-trigger bg-white'>Pendants</NavigationMenuTrigger>
+            <NavigationMenuTrigger  className='menu-trigger text-base  hover:font-semibold  border-b-2 border-transparent hover:bg-white rounded-none hover:border-b-2 hover:border-primary bg-white font-andika'>Necklaces</NavigationMenuTrigger>
             <NavigationMenuContent>
               <div className="section-two grid grid-cols-12 gap-5">
-                <div className="col">
+                <div className="col-span-3">
                   <ul className="">
                     <li className=""><Link href='/'>Hello</Link></li>
                     <li className=""><Link href='/'>Hello</Link></li>
@@ -107,7 +68,7 @@ export default function Megamenu() {
                     <li className=""><Link href='/'>Hello</Link></li>
                   </ul>
                 </div>
-                <div className="col">
+                <div className="col-span-3">
                   <ul className="">
                     <li className=""><Link href='/'>Hello</Link></li>
                     <li className=""><Link href='/'>Hello</Link></li>
@@ -115,7 +76,7 @@ export default function Megamenu() {
                     <li className=""><Link href='/'>Hello</Link></li>
                   </ul>
                 </div>
-                <div className="col">
+                <div className="col-span-3">
                   <ul className="">
                     <li className=""><Link href='/'>Hello</Link></li>
                     <li className=""><Link href='/'>Hello</Link></li>
@@ -123,7 +84,7 @@ export default function Megamenu() {
                     <li className=""><Link href='/'>Hello</Link></li>
                   </ul>
                 </div>
-                <div className="col">
+                <div className="col-span-3">
                   <ul className="">
                     <li className=""><Link href='/'>Hello</Link></li>
                     <li className=""><Link href='/'>Hello</Link></li>
@@ -135,10 +96,49 @@ export default function Megamenu() {
             </NavigationMenuContent>
           </NavigationMenuItem>
           <NavigationMenuItem>
-            <NavigationMenuTrigger className='menu-trigger bg-white'>Bracelets</NavigationMenuTrigger>
+            <NavigationMenuTrigger  className='menu-trigger hover:font-semibold text-base border-b-2 border-transparent hover:bg-white rounded-none hover:border-b-2 hover:border-primary bg-white font-andika'>Pendants</NavigationMenuTrigger>
+            <NavigationMenuContent>
+              <div className="section-two grid grid-cols-12 text-base  gap-5">
+                <div className="col-span-3">
+                  <ul className="">
+                    <li className=""><Link href='/'>Hello</Link></li>
+                    <li className=""><Link href='/'>Hello</Link></li>
+                    <li className=""><Link href='/'>Hello</Link></li>
+                    <li className=""><Link href='/'>Hello</Link></li>
+                  </ul>
+                </div>
+                <div className="col-span-3">
+                  <ul className="">
+                    <li className=""><Link href='/'>Hello</Link></li>
+                    <li className=""><Link href='/'>Hello</Link></li>
+                    <li className=""><Link href='/'>Hello</Link></li>
+                    <li className=""><Link href='/'>Hello</Link></li>
+                  </ul>
+                </div>
+                <div className="col-span-3">
+                  <ul className="">
+                    <li className=""><Link href='/'>Hello</Link></li>
+                    <li className=""><Link href='/'>Hello</Link></li>
+                    <li className=""><Link href='/'>Hello</Link></li>
+                    <li className=""><Link href='/'>Hello</Link></li>
+                  </ul>
+                </div>
+                <div className="col-span-3">
+                  <ul className="">
+                    <li className=""><Link href='/'>Hello</Link></li>
+                    <li className=""><Link href='/'>Hello</Link></li>
+                    <li className=""><Link href='/'>Hello</Link></li>
+                    <li className=""><Link href='/'>Hello</Link></li>
+                  </ul>
+                </div>
+              </div>
+            </NavigationMenuContent>
+          </NavigationMenuItem>
+          <NavigationMenuItem>
+            <NavigationMenuTrigger className='menu-trigger text-base hover:font-semibold border-b-2 border-transparent hover:bg-white rounded-none hover:border-b-2 hover:border-primary bg-white font-andika'>Bracelets</NavigationMenuTrigger>
             <NavigationMenuContent>
               <div className="section-two grid grid-cols-12 gap-5">
-                <div className="col">
+                <div className="col-span-3">
                   <ul className="">
                     <li className=""><Link href='/'>Hello</Link></li>
                     <li className=""><Link href='/'>Hello</Link></li>
@@ -146,7 +146,7 @@ export default function Megamenu() {
                     <li className=""><Link href='/'>Hello</Link></li>
                   </ul>
                 </div>
-                <div className="col">
+                <div className="col-span-3">
                   <ul className="">
                     <li className=""><Link href='/'>Hello</Link></li>
                     <li className=""><Link href='/'>Hello</Link></li>
@@ -154,7 +154,7 @@ export default function Megamenu() {
                     <li className=""><Link href='/'>Hello</Link></li>
                   </ul>
                 </div>
-                <div className="col">
+                <div className="col-span-3">
                   <ul className="">
                     <li className=""><Link href='/'>Hello</Link></li>
                     <li className=""><Link href='/'>Hello</Link></li>
@@ -162,7 +162,7 @@ export default function Megamenu() {
                     <li className=""><Link href='/'>Hello</Link></li>
                   </ul>
                 </div>
-                <div className="col">
+                <div className="col-span-3">
                   <ul className="">
                     <li className=""><Link href='/'>Hello</Link></li>
                     <li className=""><Link href='/'>Hello</Link></li>

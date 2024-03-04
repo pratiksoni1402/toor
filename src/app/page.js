@@ -18,7 +18,7 @@ export default function Home() {
             backgroundPosition: "center",
           }}>
 
-            <div className="hero-text absolute top-1/3 w-full text-center font-italiano text-4xl text-primary ">
+            <div className="hero-text absolute top-1/3 w-full text-center font-tangerine text-5xl text-primary ">
               <div>Jewellery for </div>
               <div>every ocassion.</div>
             </div>

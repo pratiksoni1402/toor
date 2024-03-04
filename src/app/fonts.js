@@ -1,12 +1,4 @@
-import { Italiana, Lora, Andika } from "next/font/google";
-
-export const ITALIANNO = Italiana({
-    subsets: ['latin'],
-    display: 'swap',
-    weight: [ '400' ],
-    style: ['normal'],
-    variable: '--logo-font-italiana',
-})
+import { Italiana, Lora, Andika, Tangerine } from "next/font/google";
 
 export const LORA = Lora({
     subsets: ['latin'],
@@ -22,6 +14,14 @@ export const ANDIKA = Andika({
     weight: ['400', '700'],
     style: ['normal', 'italic'],
     variable: '--text-font-andika',
+})
+
+export const TANGERINE = Tangerine({
+    subsets: ['latin'],
+    display: 'swap',
+    weight: ['400', '700'],
+    style:['normal'],
+    variable: '--logo-font-tangerine'
 })
 
 

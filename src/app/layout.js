@@ -1,4 +1,4 @@
-import { ITALIANNO, LORA, ANDIKA } from "./fonts";
+import { ITALIANNO, LORA, ANDIKA, TANGERINE } from "./fonts";
 import "./globals.css";
 import Header from "./components/header";
 export const metadata = {
@@ -9,7 +9,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${ITALIANNO.variable} ${LORA.variable} ${ANDIKA.variable}`}>
+      <body className={`${LORA.variable} ${ANDIKA.variable} ${TANGERINE.variable}`}>
         <Header/>
         {children}
       </body>

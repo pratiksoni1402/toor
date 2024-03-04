@@ -139,9 +139,9 @@ module.exports = {
         "accordion-up": "accordion-up 0.2s ease-out",
       },
       fontFamily: {
-        ['italiano']: ['var(--logo-font-italiana)'],
         ['lora']: ['var(--heading-font-lora)'],
         ['andika']: ['var(--text-font-andika)'],
+        ['tangerine']: ['var(--logo-font-tangerine)'],
       },
     },
   },
