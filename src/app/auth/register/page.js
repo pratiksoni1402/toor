@@ -11,10 +11,10 @@ export default function Login() {
   console.log(errors);
   return (
     <div className="create-account-page" style={{
-      backgroundImage: 'url(/uploads/images/auth/register-banner.jpeg)',
+      backgroundImage: 'url(/uploads/images/auth/test.jpg)',
       width: '100%',
       height: '100vh',
-      backgroundPosition: 'center',
+      backgroundPosition: 'bottom center',
       backgroundSize: 'cover',
       backgroundRepeat: 'no-repeat',
     }}>
@@ -22,12 +22,12 @@ export default function Login() {
         <section>
           <div className="register-form-wrapper lg:w-2/5 md:w-1/2 sm:w-3/4 w-full mx-auto">
             <div className='heading'>
-              <h1 className=''>
+              <h1>
                 Start your journey with exquisite jewels.
               </h1>
             </div>
             <div className="create-account-form">
-              <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col'>
+              <form onSubmit={handleSubmit(onSubmit)} className=''>
                 <input type="text" placeholder="First Name" {...register("firstName", { required: true })} />
                 <input type="text" placeholder="Last Name" {...register("lastName", { required: true })} />
                 <input type="text" placeholder="Username" {...register("username", { required: true })} />

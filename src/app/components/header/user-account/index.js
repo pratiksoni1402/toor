@@ -5,7 +5,7 @@ export default function Useraccount() {
   return (
     <div className="user-account">
       <div className='wrapper'>
-        <Link href='/'>
+        <Link href='/auth/register'>
           <CircleUserRound />
         </Link>
       </div>

@@ -10,12 +10,24 @@ export default function Login() {
   const onSubmit = data => console.log(data);
   console.log(errors);
   return (
-    <div className="login-page">
+    <div className="login-page" style={{
+      backgroundImage: 'url(/uploads/images/auth/login-banner.jpeg)',
+      width: '100%',
+      height: '100vh',
+      backgroundPosition: 'center',
+      backgroundSize: 'cover',
+      backgroundRepeat: 'no-repeat',
+    }}>
       <div className='container'>
         <section>
-          <div className="login-form-wrapper">
+          <div className="login-form-wrapper lg:w-2/5 md:w-1/2 sm:w-3/4 w-full mx-auto">
+            <div className='heading'>
+              <h1>
+                Login Here.
+              </h1>
+            </div>
             <div className="login-form">
-              <form onSubmit={handleSubmit(onSubmit)} className=' flex flex-col w-1/2 mx-auto'>
+              <form onSubmit={handleSubmit(onSubmit)} className=''>
                 <input type="text" placeholder="Username / Email" {...register("username", { required: true })} />
                 <input type="password" placeholder="Password" {...register("password", { required: true, minLength: 8 })} />
                 <Button type="submit">Login</Button>
