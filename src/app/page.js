@@ -2,18 +2,19 @@
 export const dynamic = 'force-dynamic';
 export const fetchCache = 'force-no-store';
 export const revalidate = 0;
+import Link from "next/link";
 import LazyImage from "./components/lazy-loading/lazy-image";
 import Categories from "./components/home-page/categories";
+import Featured from "./components/featured-product";
 export default function Home() {
   return (
     <div className="homepage">
-      <div className="container">
       <section>
         <div className="banner-wrapper">
           <div className="hero-image w-full" style={{
-            backgroundImage: "url(/uploads/images/homepage/temp-banner.jpg)",
+            backgroundImage: "url(/uploads/images/homepage/banner.jpg)",
             width: "100%",
-            height: "70vh",
+            height: "100vh",
             backgroundRepeat: "no-repeat",
             backgroundSize: "cover",
             backgroundPosition: "center",
@@ -21,6 +22,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+      <div className="container">
         {/* Category Section */}
         <section>
           <div className="category-wrapper">
@@ -55,29 +57,66 @@ export default function Home() {
         {/* End */}
 
       </div>
-        {/* Banner Section */}
-        <section>
-          <div className="content-wrapper relative" style={{
-             backgroundImage: "url(/uploads/images/homepage/banner.jpg)",
-             width: "100%",
-             height: "60vh",
-             backgroundRepeat: "no-repeat",
-             backgroundSize: "cover",
-             backgroundPosition: "center",
-          }}>
-            <div className="grid grid-cols-2 absolute top-[50%]  -translate-y-[50%]">
-              <div className="md:col-span-1 col-span-2"></div>
-              <div className="md:col-span-1 col-span-2">
-                <div className="trail w-3/4">
-                  <h2>Hello</h2>
-                  <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veritatis vero pariatur provident reprehenderit dicta, quae excepturi quis libero porro laboriosam.</p>
-                </div>
+      {/* Banner Section */}
+      <section>
+        <div className="content-wrapper relative" style={{
+          backgroundImage: "url(/uploads/images/homepage/temp-banner.jpg)",
+          width: "100%",
+          height: "60vh",
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}>
+          {/* <div className="grid grid-cols-2 absolute top-[50%]  -translate-y-[50%]">
+            <div className="md:col-span-1 col-span-2"></div>
+            <div className="md:col-span-1 col-span-2">
+              <div className="trail w-3/4">
+                <h2>Hello</h2>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veritatis vero pariatur provident reprehenderit dicta, quae excepturi quis libero porro laboriosam.</p>
               </div>
             </div>
+          </div> */}
+
+        </div>
+      </section>
+      {/* End */}
+
+      {/* Entique Jewelry */}
+      <section>
+        <div className="antique-banner-wrapper relative mb-14">
+          <div className="antique-jewelry" style={{
+            backgroundImage: 'url(/uploads/images/banners/antique.jpg)',
+            width: '100%',
+            height: '100vh',
+            backgroundAttachment: 'fixed',
+            backgroundPosition: 'top center',
+            backgroundSize: 'cover',
+            backgroundRepeat: 'no-repeat',
+          }}>
+
+          </div>
+          <div className="hero-text absolute w-full text-center top-1/2 -translate-y-2/4 z-[2]">
+            <h2 className="text-primary text-4xl font-lora">Antique Jewelry</h2>
+            <Link href='/'>View Collection</Link>
+          </div>
+        </div>
+
+      </section>
+      {/* End */}
+
+      <div className="container">
+        <section>
+          <div className="featured-product my-10">
+            <div className="heading pb-5 text-center text-accent text-4xl font-lora">Featured Products</div>
+            <Featured />
+          </div>
+        </section>
+        <section>
+          <div className="">
 
           </div>
         </section>
-        {/* End */}
+      </div>
     </div>
   );
 }
