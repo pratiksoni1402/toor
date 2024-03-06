@@ -6,6 +6,7 @@ import Link from "next/link";
 import LazyImage from "./components/lazy-loading/lazy-image";
 import Categories from "./components/home-page/categories";
 import Featured from "./components/featured-product";
+import Image from "next/image";
 export default function Home() {
   return (
     <div className="homepage">
@@ -76,7 +77,6 @@ export default function Home() {
               </div>
             </div>
           </div> */}
-
         </div>
       </section>
       {/* End */}
@@ -96,7 +96,7 @@ export default function Home() {
 
           </div>
           <div className="hero-text absolute w-full text-center top-1/2 -translate-y-2/4 z-[2]">
-            <h2 className="text-primary text-4xl font-lora">Antique Jewelry</h2>
+            <h2 className="text-primary text-3xl font-lora">Antique Jewelry</h2>
             <Link href='/'>View Collection</Link>
           </div>
         </div>
@@ -107,15 +107,143 @@ export default function Home() {
       <div className="container">
         <section>
           <div className="featured-product my-10">
-            <div className="heading pb-5 text-center text-accent text-4xl font-lora">Featured Products</div>
+            <div className="heading pb-5 text-center text-accent text-3xl font-lora">Featured Products</div>
             <Featured />
           </div>
         </section>
-        <section>
-          <div className="">
 
+        {/* Shop By Gender */}
+        <section>
+          <div className="shop-by-gender mt-10 pt-10">
+            <div className="heading pb-5">
+              <h2 className="text-center text-3xl text-accent font-lora">Shop by Gender</h2>
+            </div>
+            <div className="grid grid-cols-2 gap-5">
+              <div className="col">
+                <Link href='/' className="group ">
+                  <div className="gift-wrapper group-hover:overflow-hidden relative">
+                    <div className="gift-image relative h-[400px] group-hover:scale-110  group-hover:transition-all">
+                      <LazyImage src='/uploads/images/all/gender-male.jpg' alt="Image" width={400} height={400} />
+                    </div>
+                    <div className="name absolute bottom-3 text-center w-full text-base font-andika inline-block text-white">
+                      <span className="inline border px-5 py-1 bg-background text-accent group-hover:bg-primary group-hover:border-primary">Men</span>
+                    </div>
+                  </div>
+                </Link>
+              </div>
+              <div className="col">
+                <Link href='/' className="group ">
+                  <div className="gift-wrapper group-hover:overflow-hidden relative">
+                    <div className="gift-image relative h-[400px] group-hover:scale-110  group-hover:transition-all">
+                      <LazyImage src='/uploads/images/all/gender-female.jpg' alt="Image" width={400} height={400} />
+                    </div>
+                    <div className="name absolute bottom-3 text-center w-full text-base font-andika inline-block text-white">
+                      <span className="inline border px-5 py-1 bg-background text-accent group-hover:bg-primary group-hover:border-primary">Female</span>
+                    </div>
+                  </div>
+                </Link>
+              </div>
+            </div>
           </div>
         </section>
+        {/* End */}
+
+        {/* Our Commintment Section */}
+        <section>
+          <div className="our-commitment my-10">
+            <div className="heading text-3xl pb-10 text-accent font-lora text-center">
+              <h2>Our Commitments</h2>
+            </div>
+            <div className="grid grid-cols-4">
+              <div className="col">
+                <div className="content wrapper">
+                  <div className="image flex justify-center">
+                    <Image src='/uploads/images/all/certifiedgold.webp' width={25} height={25} alt="Certified Gold" />
+                  </div>
+                  <div className="title text-base text-accent font-andika text-center font-semibold">
+                    Certified Gold
+                  </div>
+                </div>
+              </div>
+              <div className="col">
+                <div className="content wrapper">
+                  <div className="image flex justify-center">
+                    <Image src='/uploads/images/all/insuredshipping.webp' width={25} height={25} alt="Certified Gold" />
+                  </div>
+                  <div className="title text-base text-accent font-andika text-center font-semibold">
+                    Free Insured Shipping
+                  </div>
+                </div>
+              </div>
+              <div className="col">
+                <div className="content wrapper">
+                  <div className="image flex justify-center">
+                    <Image src='/uploads/images/all/naturaluncutdiamond.webp' width={25} height={25} alt="Certified Gold" />
+                  </div>
+                  <div className="title text-base text-accent font-andika text-center font-semibold">
+                    Natural Uncut Diamond
+                  </div>
+                </div>
+              </div>
+              <div className="col">
+                <div className="content wrapper">
+                  <div className="image flex justify-center">
+                    <Image src='/uploads/images/all/lifetimebuyback.webp' width={25} height={25} alt="Certified Gold" />
+                  </div>
+                  <div className="title text-base text-accent font-andika text-center font-semibold">
+                    Lifetime Buyback
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        {/* End */}
+
+        {/* Signature Haritage Jewelry*/}
+        <section>
+          <div className="signature-heritage">
+            <div className="grid grid-cols-12">
+              <div className="col-span-6">
+                <div className="grid grid-cols-1">
+                  <div className="col">
+
+                  </div>
+                  <div className="col"></div>
+                </div>
+              </div>
+              <div className="col-span-6"></div>
+            </div>
+          </div>
+        </section>
+        {/* End */}
+
+        {/* We make you feel special */}
+        <section>
+          <div className="content-wrapper">
+            <div className="grid grid-cols-3">
+              <div className="col">
+                <div className="image relative h-[340px]">
+                  <LazyImage src='/uploads/images/homepage/hm-gift-img-1.jpg' alt='image' width={340} height={340} />
+                </div>
+              </div>
+              <div className="col">
+                <div className="slogan bg-background h-full font-lora text-3xl text-accent px-3 text-center flex items-center justify-center">
+                  <div>
+                    WE MAKE YOU FEEL SPECIAL
+                  </div>
+                </div>
+              </div>
+              <div className="col">
+                <div className="image relative h-[340px]">
+                  <LazyImage src='/uploads/images/homepage/hm-gift-img-2.jpg' alt='image' width={340} height={340} />
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        {/* End */}
+        
       </div>
     </div>
   );

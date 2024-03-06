@@ -9,8 +9,8 @@ export default function Featured() {
     <Swiper
       spaceBetween={20}
       slidesPerView={5}
-      navigation
-      pagination={{ clickable: true }}
+      // navigation
+      // pagination={{ clickable: true }}
       scrollbar={{ draggable: true }}
       autoplay={{ pauseOnMouseEnter: true }}
       breakpoints={{
