@@ -36,13 +36,13 @@ export default function Home() {
         {/* End */}
 
         {/* Our Brand Section */}
-        <section>
+        {/* <section>
           <div className="our-story my-20">
             <div className="grid grid-cols-12 gap-10">
               <div className="sm:col-span-6 col-span-12">
                 <div className="parent-wrapper flex justify-center">
-                  <div className="image relative h-[545px] w-96 mx-auto">
-                    <LazyImage src='/uploads/images/homepage/pendants-overlay.jpg' alt='image' width={375} className="w-2/4" height={545} />
+                  <div className="image relative h-[545px] sm:w-96 w-full sm:mx-auto mx-0">
+                    <LazyImage src='/uploads/images/homepage/pendants-overlay.jpg' alt='image' width={375} className="sm:w-2/4 w-full" height={545} />
                   </div>
                 </div>
               </div>
@@ -54,7 +54,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-        </section>
+        </section> */}
         {/* End */}
 
       </div>
@@ -119,7 +119,7 @@ export default function Home() {
               <h2 className="text-center text-3xl text-accent font-lora">Shop by Gender</h2>
             </div>
             <div className="grid grid-cols-2 gap-5">
-              <div className="col">
+              <div className="md:col-span-1 col-span-2">
                 <Link href='/' className="group ">
                   <div className="gift-wrapper group-hover:overflow-hidden relative">
                     <div className="gift-image relative h-[400px] group-hover:scale-110  group-hover:transition-all">
@@ -131,7 +131,7 @@ export default function Home() {
                   </div>
                 </Link>
               </div>
-              <div className="col">
+              <div className="md:col-span-1 col-span-2">
                 <Link href='/' className="group ">
                   <div className="gift-wrapper group-hover:overflow-hidden relative">
                     <div className="gift-image relative h-[400px] group-hover:scale-110  group-hover:transition-all">
@@ -149,7 +149,7 @@ export default function Home() {
         {/* End */}
 
         {/* Our Commintment Section */}
-        <section>
+        {/* <section>
           <div className="our-commitment my-10">
             <div className="heading text-3xl pb-10 text-accent font-lora text-center">
               <h2>Our Commitments</h2>
@@ -197,12 +197,12 @@ export default function Home() {
               </div>
             </div>
           </div>
-        </section>
+        </section> */}
         {/* End */}
 
         {/* Signature Haritage Jewelry*/}
         <section>
-          <div className="signature-heritage">
+          <div className="signature-heritage my-12">
             <div className="grid grid-cols-12">
               <div className="col-span-6">
                 <div className="grid grid-cols-1">
@@ -222,19 +222,19 @@ export default function Home() {
         <section>
           <div className="content-wrapper">
             <div className="grid grid-cols-3">
-              <div className="col">
+              <div className="sm:col-span-1 col-span-3">
                 <div className="image relative h-[340px]">
                   <LazyImage src='/uploads/images/homepage/hm-gift-img-1.jpg' alt='image' width={340} height={340} />
                 </div>
               </div>
-              <div className="col">
-                <div className="slogan bg-background h-full font-lora text-3xl text-accent px-3 text-center flex items-center justify-center">
-                  <div>
+              <div className="sm:col-span-1 col-span-3">
+                <div className="slogan bg-background sm:h-full h-20 font-lora text-3xl text-accent px-3 text-center flex items-center justify-center">
+                  <div className="">
                     WE MAKE YOU FEEL SPECIAL
                   </div>
                 </div>
               </div>
-              <div className="col">
+              <div className="sm:col-span-1 col-span-3">
                 <div className="image relative h-[340px]">
                   <LazyImage src='/uploads/images/homepage/hm-gift-img-2.jpg' alt='image' width={340} height={340} />
                 </div>

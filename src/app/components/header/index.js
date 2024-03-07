@@ -20,7 +20,7 @@ export default function Header() {
               </div>
             </div>
           </section>
-          <section className="mega-menu">
+          <section className="mega-menu lg:block md:hidden hidden">
             <Megamenu />
           </section>
         </div>

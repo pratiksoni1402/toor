@@ -26,11 +26,11 @@ export default function Categories() {
           },
           576: {
             width: 576,
-            slidesPerView: 1,
+            slidesPerView: 2,
           },
           768: {
             width: 768,
-            slidesPerView: 4,
+            slidesPerView: 3,
           },
           992: {
             width: 992,
@@ -122,8 +122,42 @@ export default function Categories() {
           </div>
         </SwiperSlide>
         <SwiperSlide>
-
+          <div className='category-wrapper'>
+            <Link href='/'>
+              <div className='category group'>
+                <div className='image relative h-[351px]'>
+                  <LazyImage src='/uploads/images/categories/sets.jpg' alt='image' width={664} height={751} className='group-hover:brightness-50' />
+                  <div className='heading absolute bottom-2 uppercase text-center w-full text-accent group-hover:text-primary font-andika group-hover:font-semibold'>Sets</div>
+                </div>
+              </div>
+            </Link>
+          </div>
         </SwiperSlide>
+        <SwiperSlide>
+          <div className='category-wrapper'>
+            <Link href='/'>
+              <div className='category group'>
+                <div className='image relative h-[351px]'>
+                  <LazyImage src='/uploads/images/categories/sets.jpg' alt='image' width={664} height={751} className='group-hover:brightness-50' />
+                  <div className='heading absolute bottom-2 uppercase text-center w-full text-accent group-hover:text-primary font-andika group-hover:font-semibold'>Sets</div>
+                </div>
+              </div>
+            </Link>
+          </div>
+        </SwiperSlide>
+        <SwiperSlide>
+          <div className='category-wrapper'>
+            <Link href='/'>
+              <div className='category group'>
+                <div className='image relative h-[351px]'>
+                  <LazyImage src='/uploads/images/categories/sets.jpg' alt='image' width={664} height={751} className='group-hover:brightness-50' />
+                  <div className='heading absolute bottom-2 uppercase text-center w-full text-accent group-hover:text-primary font-andika group-hover:font-semibold'>Sets</div>
+                </div>
+              </div>
+            </Link>
+          </div>
+        </SwiperSlide>
+        
       </Swiper>
       {/* <div className="slider-controler absolute">
         <div className="swiper-button-prev">
