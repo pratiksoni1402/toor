@@ -16,11 +16,11 @@ export default function Featured() {
       breakpoints={{
         280: {
           width: 280,
-          slidesPerView: 2,
+          slidesPerView: 1,
         },
         576: {
           width: 576,
-          slidesPerView: 3,
+          slidesPerView: 2,
         },
         768: {
           width: 768,
@@ -43,101 +43,119 @@ export default function Featured() {
 
       <SwiperSlide>
         <div className='product-wrapper'>
-          <div className='product'>
-            <div className='image relative h-[250px]'>
-              <LazyImage src='/uploads/images/products/ER001-RG.jpg' alt='image' width={250} height={250} />
+          <Link href='/featured-product'>
+            <div className='product'>
+              <div className='image relative h-[250px]'>
+                <LazyImage src='/uploads/images/products/ER001-RG.jpg' alt='image' width={250} height={250} />
+              </div>
+              <div className='name text-accent font-andika text-center'>Rose Gold Earrings</div>
+              <div className='price text-accent font-andika text-center'>45700</div>
             </div>
-            <div className='name'>Rose Gold Earrings</div>
-            <div className='price'>45700</div>
-          </div>
+          </Link>
         </div>
       </SwiperSlide>
       <SwiperSlide>
-      <div className='product-wrapper'>
-          <div className='product'>
-            <div className='image relative h-[250px]'>
-              <LazyImage src='/uploads/images/products/ER001-YG.jpg' alt='image' width={250} height={250} />
+        <div className='product-wrapper'>
+          <Link href='/featured-product'>
+            <div className='product'>
+              <div className='image relative h-[250px]'>
+                <LazyImage src='/uploads/images/products/ER001-YG.jpg' alt='image' width={250} height={250} />
+              </div>
+              <div className='name text-accent font-andika text-center'>Rose Gold Earrings</div>
+              <div className='price text-accent font-andika text-center'>45700</div>
             </div>
-            <div className='name'>Rose Gold Earrings</div>
-            <div className='price'>45700</div>
-          </div>
+          </Link>
         </div>
       </SwiperSlide>
       <SwiperSlide>
-      <div className='product-wrapper'>
-          <div className='product'>
-            <div className='image relative h-[250px]'>
-              <LazyImage src='/uploads/images/products/ER001-WG.jpg' alt='image' width={250} height={250} />
+        <div className='product-wrapper'>
+          <Link href='/featured-product'>
+            <div className='product'>
+              <div className='image relative h-[250px]'>
+                <LazyImage src='/uploads/images/products/ER001-WG.jpg' alt='image' width={250} height={250} />
+              </div>
+              <div className='text-accent font-andika text-center name'>Rose Gold Earrings</div>
+              <div className='text-accent font-andika text-center price'>45700</div>
             </div>
-            <div className='name'>Rose Gold Earrings</div>
-            <div className='price'>45700</div>
-          </div>
+          </Link>
         </div>
       </SwiperSlide>
       <SwiperSlide>
-      <div className='product-wrapper'>
-          <div className='product'>
-            <div className='image relative h-[250px]'>
-              <LazyImage src='/uploads/images/products/ER002-YG.jpg' alt='image' width={250} height={250} />
+        <div className='product-wrapper'>
+          <Link href='/featured-product'>
+            <div className='product'>
+              <div className='image relative h-[250px]'>
+                <LazyImage src='/uploads/images/products/ER002-YG.jpg' alt='image' width={250} height={250} />
+              </div>
+              <div className='text-accent font-andika text-center name'>Rose Gold Earrings</div>
+              <div className='text-accent font-andika text-center price'>45700</div>
             </div>
-            <div className='name'>Rose Gold Earrings</div>
-            <div className='price'>45700</div>
-          </div>
+          </Link>
         </div>
       </SwiperSlide>
       <SwiperSlide>
-      <div className='product-wrapper'>
-          <div className='product'>
-            <div className='image relative h-[250px]'>
-              <LazyImage src='/uploads/images/products/ER003-RG.jpg' alt='image' width={250} height={250} />
+        <div className='product-wrapper'>
+          <Link href='/featured-product'>
+            <div className='product'>
+              <div className='image relative h-[250px]'>
+                <LazyImage src='/uploads/images/products/ER003-RG.jpg' alt='image' width={250} height={250} />
+              </div>
+              <div className='text-accent font-andika text-center name'>Rose Gold Earrings</div>
+              <div className='text-accent font-andika text-center price'>45700</div>
             </div>
-            <div className='name'>Rose Gold Earrings</div>
-            <div className='price'>45700</div>
-          </div>
+          </Link>
         </div>
       </SwiperSlide>
       <SwiperSlide>
-      <div className='product-wrapper'>
-          <div className='product'>
-            <div className='image relative h-[250px]'>
-              <LazyImage src='/uploads/images/products/ER004-RG.jpg' alt='image' width={250} height={250} />
+        <div className='product-wrapper'>
+          <Link href='/featured-product'>
+            <div className='product'>
+              <div className='image relative h-[250px]'>
+                <LazyImage src='/uploads/images/products/ER004-RG.jpg' alt='image' width={250} height={250} />
+              </div>
+              <div className='text-accent font-andika text-center name'>Rose Gold Earrings</div>
+              <div className='text-accent font-andika text-center price'>45700</div>
             </div>
-            <div className='name'>Rose Gold Earrings</div>
-            <div className='price'>45700</div>
-          </div>
+          </Link>
         </div>
       </SwiperSlide>
       <SwiperSlide>
-      <div className='product-wrapper'>
-          <div className='product'>
-            <div className='image relative h-[250px]'>
-              <LazyImage src='/uploads/images/products/ER005-CRB-RG.jpg' alt='image' width={250} height={250} />
+        <div className='product-wrapper'>
+          <Link href='/featured-product'>
+            <div className='product'>
+              <div className='image relative h-[250px]'>
+                <LazyImage src='/uploads/images/products/ER005-CRB-RG.jpg' alt='image' width={250} height={250} />
+              </div>
+              <div className='text-accent font-andika text-center name'>Rose Gold Earrings</div>
+              <div className='text-accent font-andika text-center price'>45700</div>
             </div>
-            <div className='name'>Rose Gold Earrings</div>
-            <div className='price'>45700</div>
-          </div>
+          </Link>
         </div>
       </SwiperSlide>
       <SwiperSlide>
-      <div className='product-wrapper'>
-          <div className='product'>
-            <div className='image relative h-[250px]'>
-              <LazyImage src='/uploads/images/products/ER005-CRB-YG.jpg' alt='image' width={250} height={250} />
+        <div className='product-wrapper'>
+          <Link href='/featured-product'>
+            <div className='product'>
+              <div className='image relative h-[250px]'>
+                <LazyImage src='/uploads/images/products/ER005-CRB-YG.jpg' alt='image' width={250} height={250} />
+              </div>
+              <div className='text-accent font-andika text-center name'>Rose Gold Earrings</div>
+              <div className='text-accent font-andika text-center price'>45700</div>
             </div>
-            <div className='name'>Rose Gold Earrings</div>
-            <div className='price'>45700</div>
-          </div>
+          </Link>
         </div>
       </SwiperSlide>
       <SwiperSlide>
-      <div className='product-wrapper'>
-          <div className='product'>
-            <div className='image relative h-[250px]'>
-              <LazyImage src='/uploads/images/products/ER006-DT-RG.jpg' alt='image' width={250} height={250} />
+        <div className='product-wrapper'>
+          <Link href='/featured-product'>
+            <div className='product'>
+              <div className='image relative h-[250px]'>
+                <LazyImage src='/uploads/images/products/ER006-DT-RG.jpg' alt='image' width={250} height={250} />
+              </div>
+              <div className='text-accent font-andika text-center name'>Rose Gold Earrings</div>
+              <div className='text-accent font-andika text-center price'>45700</div>
             </div>
-            <div className='name'>Rose Gold Earrings</div>
-            <div className='price'>45700</div>
-          </div>
+          </Link>
         </div>
       </SwiperSlide>
     </Swiper>

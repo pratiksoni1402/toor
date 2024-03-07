@@ -1,6 +1,7 @@
 import Cartcount from "./cart-count";
 import Megamenu from "./mega-menu";
 import Wishlistcount from "./wishlist-count";
+import { Mobilemenu } from "./mobile-menu";
 import Useraccount from "./user-account";
 export default function Header() {
   return (
@@ -13,10 +14,11 @@ export default function Header() {
               <div className="brand-name">
                 <h1 className="font-tangerine text-5xl text-center text-primary">SS Jewels</h1>
               </div>
-              <div className="user-actions flex space-x-5">
+              <div className="user-actions flex items-center">
                 <div className=' hover:text-primary text-accent'><Wishlistcount /></div>
-                <div className=' hover:text-primary text-accent'><Cartcount /></div>
+                <div className=' hover:text-primary text-accent mx-3'><Cartcount /></div>
                 <div className=' hover:text-primary text-accent'><Useraccount /></div>
+                <div className='mobile-menu lg:hidden md:block block hover:text-primary text-accent'><Mobilemenu /></div>
               </div>
             </div>
           </section>
