@@ -28,48 +28,48 @@ export default function Megamenu() {
                   <h2 className="pt-5 px-5 text-accent font-semibold font-andika text-base">Shop By Style</h2>
                   <ul className="px-5 text-accent font-andika text-base">
 
-                    <li className=" hover:font-semibold hover:text-primary">
+                    <li className=" hover:font-semibold hover:text-primary py-1">
                       <Link href='/engagement-rings' className="flex items-center">
                         <Image src='/uploads/images/category-images/engagement.jpg' alt='' width={50} height={50} />
                         <span>Engagement</span>
                       </Link>
                     </li>
 
-                    <li className=" hover:font-semibold hover:text-primary">
+                    <li className=" hover:font-semibold hover:text-primary py-1">
                       <Link href='/solitaire-rings' className="flex items-center">
                         <Image src='/uploads/images/category-images/solitaire.jpg' alt='' width={50} height={50} />
                         <span>Solitaire</span>
                       </Link>
                     </li>
 
-                    <li className=" hover:font-semibold hover:text-primary">
+                    <li className=" hover:font-semibold hover:text-primary py-1">
                       <Link href='/casual-rings' className="flex items-center">
                         <Image src='/uploads/images/category-images/casual.jpg' alt='' width={50} height={50} />
                         <span>Casual</span>
                       </Link>
                     </li>
 
-                    <li className=" hover:font-semibold hover:text-primary">
+                    <li className=" hover:font-semibold hover:text-primary py-1">
                       <Link href='/mens-rings' className="flex items-center">
                         <Image src='/uploads/images/category-images/mens.jpg' alt='' width={50} height={50} />
                         <span>Mens Rings</span>
                       </Link>
                     </li>
 
-                    <li className=" hover:font-semibold hover:text-primary">
+                    <li className=" hover:font-semibold hover:text-primary py-1">
                       <Link href='/navratna-rings' className="flex items-center">
                         <Image src='/uploads/images/category-images/navratna.jpg' alt='' width={50} height={50} />
                         <span>Navratna</span>
                       </Link>
                     </li>
-                    <li className=" hover:font-semibold hover:text-primary">
+                    <li className=" hover:font-semibold hover:text-primary py-1">
                       <Link href='/mangalsutra-rings' className="flex items-center">
                         <Image src='/uploads/images/category-images/mangalsutra.jpg' alt='' width={50} height={50} />
                         <span className="whitespace-nowrap">Mangalsutra Rings</span>
                       </Link>
                     </li>
 
-                    <li className=" hover:font-semibold hover:text-primary">
+                    <li className=" hover:font-semibold hover:text-primary py-1">
                       <Link href='/couple-bands' className="flex items-center">
                         <Image src='/uploads/images/category-images/couple.jpg' alt='' width={50} height={50} />
                         <span>Couple Bands</span>
@@ -81,28 +81,28 @@ export default function Megamenu() {
                 <div className="col-span-2">
                   <h2 className="pt-5 px-5 text-accent font-semibold font-andika text-base">Shop By Metal</h2>
                   <ul className="px-5 text-accent font-andika text-base">
-                    <li className=" hover:font-semibold hover:text-primary">
+                    <li className=" hover:font-semibold hover:text-primary py-1">
                       <Link href='/' className="flex items-center">
                         <Image src='/uploads/images/category-images/platinum.jpg' alt='' width={50} height={50} />
                         <span>Platinum</span>
                       </Link>
                     </li>
 
-                    <li className=" hover:font-semibold hover:text-primary">
+                    <li className=" hover:font-semibold hover:text-primary py-1">
                       <Link href='/' className="flex items-center">
                         <Image src='/uploads/images/category-images/yellow-gold.jpg' alt='' width={50} height={50} />
                         <span>Yellow Gold</span>
                       </Link>
                     </li>
 
-                    <li className=" hover:font-semibold hover:text-primary">
+                    <li className=" hover:font-semibold hover:text-primary py-1">
                       <Link href='/' className="flex items-center">
                         <Image src='/uploads/images/category-images/rose-gold.jpg' alt='' width={50} height={50} />
                         <span>Rose Gold</span>
                       </Link>
                     </li>
 
-                    <li className=" hover:font-semibold hover:text-primary">
+                    <li className=" hover:font-semibold hover:text-primary py-1">
                       <Link href='/silver' className="flex items-center">
                         <Image src='/uploads/images/category-images/silver.jpg' alt='' width={50} height={50} />
                         <span>Silver</span>
@@ -123,33 +123,33 @@ export default function Megamenu() {
                   <h2 className="pt-5 px-5 text-accent font-semibold font-andika text-base">Shop By Occasion</h2>
                   <ul className="px-5 text-accent font-andika text-base">
 
-                    <li className=" hover:font-semibold hover:text-primary">
+                    <li className=" hover:font-semibold hover:text-primary py-1">
                       <Link href='/daily-wear' className="flex items-center">
                         <Image src='/uploads/images/category-images/daily-wear.jpg' alt='' width={50} height={50} />
                         <span>Daily Wear</span>
                       </Link>
                     </li>
 
-                    <li className=" hover:font-semibold hover:text-primary">
+                    <li className=" hover:font-semibold hover:text-primary py-1">
                       <Link href='/' className="flex items-center">
                         <Image src='/uploads/images/category-images/casual-outings.jpg' alt='' width={50} height={50} />
                         <span>Casual Outings</span>
                       </Link>
                     </li>
 
-                    <li className=" hover:font-semibold hover:text-primary">
+                    <li className=" hover:font-semibold hover:text-primary py-1">
                       <Link href='/' className="flex items-center">
                         <Image src='/uploads/images/category-images/festive.jpg' alt='' width={50} height={50} />
                         <span>Festive</span>
                       </Link>
                     </li>
-                    <li className=" hover:font-semibold hover:text-primary">
+                    <li className=" hover:font-semibold hover:text-primary py-1">
                       <Link href='/' className="flex items-center">
                         <Image src='/uploads/images/category-images/anniversary.jpg' alt='' width={50} height={50} />
                         <span>Anniversary</span>
                       </Link>
                     </li>
-                    <li className=" hover:font-semibold hover:text-primary">
+                    <li className=" hover:font-semibold hover:text-primary py-1">
                       <Link href='/' className="flex items-center">
                         <Image src='/uploads/images/category-images/wedding.jpg' alt='' width={50} height={50} />
                         <span>Wedding</span>
@@ -179,6 +179,7 @@ export default function Megamenu() {
             <NavigationMenuTrigger className='menu-trigger text-base  hover:font-semibold  border-b-2 border-transparent hover:bg-white rounded-none hover:border-b-2 hover:border-primary bg-transparent font-andika'>Earrings</NavigationMenuTrigger>
             <NavigationMenuContent className='w-full'>
               <div className="section-one grid grid-cols-12 gap-5">
+
                 <div className="col-span-2">
                   <h2 className="pt-5 px-5 text-accent font-semibold font-andika text-base">Shop By Style</h2>
                   <ul className="px-5 text-accent font-andika text-base">
@@ -240,6 +241,7 @@ export default function Megamenu() {
 
                   </ul>
                 </div>
+
                 <div className="col-span-2">
                   <h2 className="pt-5 px-5 text-accent font-semibold font-andika text-base">Shop By Metal</h2>
                   <ul className="px-5 text-accent font-andika text-base">
@@ -319,18 +321,20 @@ export default function Megamenu() {
                     </li>
                   </ul>
                 </div>
+
                 <div className="col-span-2">
-                  <ul className="p-5 text-accent font-andika text-base">
-                    <li className=" hover:font-semibold hover:text-primary"><Link href='/'>Drop</Link></li>
-                    <li className=" hover:font-semibold hover:text-primary"><Link href='/'>Hoop</Link></li>
-                    <li className=" hover:font-semibold hover:text-primary"><Link href='/'>Cluster</Link></li>
-                    <li className=" hover:font-semibold hover:text-primary"><Link href='/'>Teardrop</Link></li>
-                    <li className=" hover:font-semibold hover:text-primary"><Link href='/'>Bajoran</Link></li>
-                    <li className=" hover:font-semibold hover:text-primary"><Link href='/'>Circular Barbell</Link></li>
-                    <li className=" hover:font-semibold hover:text-primary"><Link href='/'>LeverBack</Link></li>
-                    <li className=" hover:font-semibold hover:text-primary"><Link href='/'>Mismatched</Link></li>
+                <h2 className="pt-5 px-5 text-accent font-semibold font-andika text-base">Shop By Price</h2>
+                  <ul className="px-5 text-accent font-andika text-base">
+                    <li className=" hover:font-semibold hover:text-primary pt-3"><Link href='/'>Under 10K</Link></li>
+                    <li className=" hover:font-semibold hover:text-primary pt-3"><Link href='/'>10K - 20K</Link></li>
+                    <li className=" hover:font-semibold hover:text-primary pt-3"><Link href='/'>20K - 30K</Link></li>
+                    <li className=" hover:font-semibold hover:text-primary pt-3"><Link href='/'>30K - 60K</Link></li>
+                    <li className=" hover:font-semibold hover:text-primary pt-3"><Link href='/'>60K - 90K</Link></li>
+                    <li className=" hover:font-semibold hover:text-primary pt-3"><Link href='/'>90K - 1.5L</Link></li>
+                    <li className=" hover:font-semibold hover:text-primary pt-3"><Link href='/'>Above 1.5L</Link></li>
                   </ul>
                 </div>
+                
               </div>
             </NavigationMenuContent>
           </NavigationMenuItem>
@@ -339,27 +343,75 @@ export default function Megamenu() {
             <NavigationMenuContent>
               <div className="section-two grid grid-cols-12 gap-5">
                 <div className="col-span-2">
-                  <ul className="p-5 text-accent font-andika text-base">
-                    <li className=" hover:font-semibold hover:text-primary"><Link href='/'>Chain</Link></li>
-                    <li className=" hover:font-semibold hover:text-primary"><Link href='/'>Collar</Link></li>
-                    <li className=" hover:font-semibold hover:text-primary"><Link href='/'>Bib</Link></li>
-                    <li className=" hover:font-semibold hover:text-primary"><Link href='/'>Torque</Link></li>
-                    <li className=" hover:font-semibold hover:text-primary"><Link href='/'>Twisted</Link></li>
-                    <li className=" hover:font-semibold hover:text-primary"><Link href='/'>Lariat</Link></li>
-                    <li className=" hover:font-semibold hover:text-primary"><Link href='/'>Negligee</Link></li>
-                    <li className=" hover:font-semibold hover:text-primary"><Link href='/'>Rosary</Link></li>
+                  <h2 className="pt-5 px-5 text-accent font-semibold font-andika text-base">Shop By Style</h2>
+                  <ul className="px-5 text-accent font-andika text-base">
+
+                    <li className=" hover:font-semibold hover:text-primary">
+                      <Link href='/engagement-rings' className="flex items-center">
+                        <Image src='/uploads/images/category-images/all-earrings.jpg' alt='' width={50} height={50} />
+                        <span>Collar</span>
+                      </Link>
+                    </li>
+
+                    <li className=" hover:font-semibold hover:text-primary">
+                      <Link href='/solitaire-rings' className="flex items-center">
+                        <Image src='/uploads/images/category-images/earring-drop-dangler.jpg' alt='' width={50} height={50} />
+                        <span>Layered</span>
+                      </Link>
+                    </li>
+
+                    <li className=" hover:font-semibold hover:text-primary">
+                      <Link href='/casual-rings' className="flex items-center">
+                        <Image src='/uploads/images/category-images/earring-solitaire.jpg' alt='' width={50} height={50} />
+                        <span>Locket</span>
+                      </Link>
+                    </li>
+
+                    <li className=" hover:font-semibold hover:text-primary">
+                      <Link href='/mens-rings' className="flex items-center">
+                        <Image src='/uploads/images/category-images/earring-sui-dhaga.jpg' alt='' width={50} height={50} />
+                        <span>Delicate</span>
+                      </Link>
+                    </li>
+
+                    <li className=" hover:font-semibold hover:text-primary">
+                      <Link href='/navratna-rings' className="flex items-center">
+                        <Image src='/uploads/images/category-images/earring-huggie.jpg' alt='' width={50} height={50} />
+                        <span>Rani Haar</span>
+                      </Link>
+                    </li>
+                    <li className=" hover:font-semibold hover:text-primary">
+                      <Link href='/mangalsutra-rings' className="flex items-center">
+                        <Image src='/uploads/images/category-images/earring-hoop.jpg' alt='' width={50} height={50} />
+                        <span className="whitespace-nowrap">Polki</span>
+                      </Link>
+                    </li>
+
+                    <li className=" hover:font-semibold hover:text-primary">
+                      <Link href='/couple-bands' className="flex items-center">
+                        <Image src='/uploads/images/category-images/earring-jhomka.jpg' alt='' width={50} height={50} />
+                        <span>Meenakari</span>
+                      </Link>
+                    </li>
+
+                    <li className=" hover:font-semibold hover:text-primary">
+                      <Link href='/couple-bands' className="flex items-center">
+                        <Image src='/uploads/images/category-images/earring-tops.jpg' alt='' width={50} height={50} />
+                        <span>Kundan</span>
+                      </Link>
+                    </li>
                   </ul>
                 </div>
                 <div className="col-span-2">
-                  <ul className="p-5 text-accent font-andika text-base">
-                    <li className=" hover:font-semibold hover:text-primary"><Link href='/'>Tennis</Link></li>
-                    <li className=" hover:font-semibold hover:text-primary"><Link href='/'>Pearl</Link></li>
-                    <li className=" hover:font-semibold hover:text-primary"><Link href='/'>Initial</Link></li>
-                    <li className=" hover:font-semibold hover:text-primary"><Link href='/'>Graduated</Link></li>
-                    <li className=" hover:font-semibold hover:text-primary"><Link href='/'>Multi Layer</Link></li>
-                    <li className=" hover:font-semibold hover:text-primary"><Link href='/'>Tassel</Link></li>
-                    <li className=" hover:font-semibold hover:text-primary"><Link href='/'>Bauble</Link></li>
-                    <li className=" hover:font-semibold hover:text-primary"><Link href='/'>Choker</Link></li>
+                  <h2 className="pt-5 px-5 text-accent font-semibold font-andika text-base">Shop By Price</h2>
+                  <ul className="px-5 text-accent font-andika text-base">
+                    <li className=" hover:font-semibold hover:text-primary pt-3"><Link href='/'>Under 50K</Link></li>
+                    <li className=" hover:font-semibold hover:text-primary pt-3"><Link href='/'>50K - 60K</Link></li>
+                    <li className=" hover:font-semibold hover:text-primary pt-3"><Link href='/'>60K - 70K</Link></li>
+                    <li className=" hover:font-semibold hover:text-primary pt-3"><Link href='/'>70K - 90K</Link></li>
+                    <li className=" hover:font-semibold hover:text-primary pt-3"><Link href='/'>90K - 1.5L</Link></li>
+                    <li className=" hover:font-semibold hover:text-primary pt-3"><Link href='/'>1.5L - 2.0L</Link></li>
+                    <li className=" hover:font-semibold hover:text-primary pt-3"><Link href='/'>Above 2.0L</Link></li>
                   </ul>
                 </div>
                 <div className="col-span-4">
@@ -367,30 +419,7 @@ export default function Megamenu() {
                     <Image src='/uploads/images/all/necklace.jpg' alt="Earrings" width={200} height={200} />
                   </div>
                 </div>
-                <div className="col-span-2">
-                  <ul className="p-5 text-accent font-andika text-base">
-                    <li className=" hover:font-semibold hover:text-primary"><Link href='/'>Chain</Link></li>
-                    <li className=" hover:font-semibold hover:text-primary"><Link href='/'>Collar</Link></li>
-                    <li className=" hover:font-semibold hover:text-primary"><Link href='/'>Bib</Link></li>
-                    <li className=" hover:font-semibold hover:text-primary"><Link href='/'>Torque</Link></li>
-                    <li className=" hover:font-semibold hover:text-primary"><Link href='/'>Twisted</Link></li>
-                    <li className=" hover:font-semibold hover:text-primary"><Link href='/'>Lariat</Link></li>
-                    <li className=" hover:font-semibold hover:text-primary"><Link href='/'>Negligee</Link></li>
-                    <li className=" hover:font-semibold hover:text-primary"><Link href='/'>Rosary</Link></li>
-                  </ul>
-                </div>
-                <div className="col-span-2">
-                  <ul className="p-5 text-accent font-andika text-base">
-                    <li className=" hover:font-semibold hover:text-primary"><Link href='/'>Tennis</Link></li>
-                    <li className=" hover:font-semibold hover:text-primary"><Link href='/'>Pearl</Link></li>
-                    <li className=" hover:font-semibold hover:text-primary"><Link href='/'>Initial</Link></li>
-                    <li className=" hover:font-semibold hover:text-primary"><Link href='/'>Graduated</Link></li>
-                    <li className=" hover:font-semibold hover:text-primary"><Link href='/'>Multi Layer</Link></li>
-                    <li className=" hover:font-semibold hover:text-primary"><Link href='/'>Tassel</Link></li>
-                    <li className=" hover:font-semibold hover:text-primary"><Link href='/'>Bauble</Link></li>
-                    <li className=" hover:font-semibold hover:text-primary"><Link href='/'>Choker</Link></li>
-                  </ul>
-                </div>
+
               </div>
             </NavigationMenuContent>
           </NavigationMenuItem>
@@ -421,6 +450,67 @@ export default function Megamenu() {
                     <li className=" hover:font-semibold hover:text-primary"><Link href='/'>Friendship</Link></li>
                     <li className=" hover:font-semibold hover:text-primary"><Link href='/'>Crossover</Link></li>
                     <li className=" hover:font-semibold hover:text-primary"><Link href='/'>Cage Cuff</Link></li>
+                  </ul>
+                </div>
+                <div className="col-span-4">
+                  <div className="category-wrapper py-5 flex justify-center">
+                    <Image src='/uploads/images/all/bracelets.jpg' alt="Earrings" width={200} height={200} />
+                  </div>
+                </div>
+                <div className="col-span-2">
+                  <ul className="p-5 text-accent font-andika text-base">
+                    <li className=" hover:font-semibold hover:text-primary"><Link href='/'>Chain</Link></li>
+                    <li className=" hover:font-semibold hover:text-primary"><Link href='/'>Cuff</Link></li>
+                    <li className=" hover:font-semibold hover:text-primary"><Link href='/'>Gemstone</Link></li>
+                    <li className=" hover:font-semibold hover:text-primary"><Link href='/'>Cable</Link></li>
+                    <li className=" hover:font-semibold hover:text-primary"><Link href='/'>Hinged</Link></li>
+                    <li className=" hover:font-semibold hover:text-primary"><Link href='/'>Open Bangle</Link></li>
+                    <li className=" hover:font-semibold hover:text-primary"><Link href='/'>Bangle</Link></li>
+                    <li className=" hover:font-semibold hover:text-primary"><Link href='/'>Identification</Link></li>
+                  </ul>
+                </div>
+                <div className="col-span-2">
+                  <ul className="p-5 text-accent font-andika text-base">
+                    <li className=" hover:font-semibold hover:text-primary"><Link href='/'>Wrap</Link></li>
+                    <li className=" hover:font-semibold hover:text-primary"><Link href='/'>Affirmation</Link></li>
+                    <li className=" hover:font-semibold hover:text-primary"><Link href='/'>Slider</Link></li>
+                    <li className=" hover:font-semibold hover:text-primary"><Link href='/'>Tennis</Link></li>
+                    <li className=" hover:font-semibold hover:text-primary"><Link href='/'>Charm</Link></li>
+                    <li className=" hover:font-semibold hover:text-primary"><Link href='/'>Friendship</Link></li>
+                    <li className=" hover:font-semibold hover:text-primary"><Link href='/'>Crossover</Link></li>
+                    <li className=" hover:font-semibold hover:text-primary"><Link href='/'>Cage Cuff</Link></li>
+                  </ul>
+                </div>
+              </div>
+            </NavigationMenuContent>
+          </NavigationMenuItem>
+
+          <NavigationMenuItem>
+            <NavigationMenuTrigger className='menu-trigger text-base hover:font-semibold border-b-2 border-transparent hover:bg-white rounded-none hover:border-b-2 hover:border-primary bg-transparent font-andika'>Cultural Heritage</NavigationMenuTrigger>
+            <NavigationMenuContent>
+              <div className="section-two grid grid-cols-12 gap-5">
+                <div className="col-span-2">
+                  <ul className="p-5 text-accent font-andika text-base">
+                    <li className=" hover:font-semibold hover:text-primary"><Link href='/'>Kangan</Link></li>
+                    <li className=" hover:font-semibold hover:text-primary"><Link href='/'>Bajuband</Link></li>
+                    <li className=" hover:font-semibold hover:text-primary"><Link href='/'>Kanthi</Link></li>
+                    <li className=" hover:font-semibold hover:text-primary"><Link href='/'>Meenakari</Link></li>
+                    <li className=" hover:font-semibold hover:text-primary"><Link href='/'>Jali</Link></li>
+                    <li className=" hover:font-semibold hover:text-primary"><Link href='/'>Jadau</Link></li>
+                    <li className=" hover:font-semibold hover:text-primary"><Link href='/'>Lacquer</Link></li>
+                    <li className=" hover:font-semibold hover:text-primary"><Link href='/'>Mango Mala</Link></li>
+                  </ul>
+                </div>
+                <div className="col-span-2">
+                  <ul className="p-5 text-accent font-andika text-base">
+                    <li className=" hover:font-semibold hover:text-primary"><Link href='/'>Kaasu Mala</Link></li>
+                    <li className=" hover:font-semibold hover:text-primary"><Link href='/'>Mang Tika</Link></li>
+                    <li className=" hover:font-semibold hover:text-primary"><Link href='/'>Palakka Mala</Link></li>
+                    <li className=" hover:font-semibold hover:text-primary"><Link href='/'>Nath</Link></li>
+                    <li className=" hover:font-semibold hover:text-primary"><Link href='/'>Jodha Nath</Link></li>
+                    <li className=" hover:font-semibold hover:text-primary"><Link href='/'>Anklets</Link></li>
+                    <li className=" hover:font-semibold hover:text-primary"><Link href='/'>Kamar Bandh</Link></li>
+                    <li className=" hover:font-semibold hover:text-primary"><Link href='/'>Toe Rings</Link></li>
                   </ul>
                 </div>
                 <div className="col-span-4">
