@@ -12,7 +12,6 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 import Image from "next/image";
-
 export default function Megamenu() {
   return (
     <div className="mega-menu flex justify-center border-b border-background">
@@ -20,7 +19,9 @@ export default function Megamenu() {
         <NavigationMenuList>
 
           <NavigationMenuItem>
-            <NavigationMenuTrigger className='menu-trigger hover:font-semibold text-base border-b-2 border-transparent hover:bg-white rounded-none hover:border-b-2 hover:border-primary bg-transparent font-andika'>Rings</NavigationMenuTrigger>
+            <NavigationMenuTrigger className='menu-trigger hover:font-semibold text-base border-b-2 border-transparent hover:bg-white rounded-none hover:border-b-2 hover:border-primary bg-transparent font-andika' title='Rings'>
+              <span title="Rings" className="make-bold-props ">Rings</span>
+            </NavigationMenuTrigger>
             <NavigationMenuContent>
               <div className="section-two grid grid-cols-12 text-base gap-5">
 
@@ -176,7 +177,9 @@ export default function Megamenu() {
           </NavigationMenuItem>
 
           <NavigationMenuItem>
-            <NavigationMenuTrigger className='menu-trigger text-base  hover:font-semibold  border-b-2 border-transparent hover:bg-white rounded-none hover:border-b-2 hover:border-primary bg-transparent font-andika'>Earrings</NavigationMenuTrigger>
+            <NavigationMenuTrigger className=' menu-trigger text-base  hover:font-semibold  border-b-2 border-transparent hover:bg-white rounded-none hover:border-b-2 hover:border-primary bg-transparent font-andika'>
+            <span title="Earrings" className="make-bold-props ">Earrings</span>
+            </NavigationMenuTrigger>
             <NavigationMenuContent className='w-full'>
               <div className="section-one grid grid-cols-12 gap-5">
 
@@ -323,7 +326,7 @@ export default function Megamenu() {
                 </div>
 
                 <div className="col-span-2">
-                <h2 className="pt-5 px-5 text-accent font-semibold font-andika text-base">Shop By Price</h2>
+                  <h2 className="pt-5 px-5 text-accent font-semibold font-andika text-base">Shop By Price</h2>
                   <ul className="px-5 text-accent font-andika text-base">
                     <li className=" hover:font-semibold hover:text-primary pt-3"><Link href='/'>Under 10K</Link></li>
                     <li className=" hover:font-semibold hover:text-primary pt-3"><Link href='/'>10K - 20K</Link></li>
@@ -334,12 +337,15 @@ export default function Megamenu() {
                     <li className=" hover:font-semibold hover:text-primary pt-3"><Link href='/'>Above 1.5L</Link></li>
                   </ul>
                 </div>
-                
+
               </div>
             </NavigationMenuContent>
           </NavigationMenuItem>
+
           <NavigationMenuItem>
-            <NavigationMenuTrigger className='menu-trigger text-base  hover:font-semibold  border-b-2 border-transparent hover:bg-white rounded-none hover:border-b-2 hover:border-primary bg-transparent font-andika'>Necklaces</NavigationMenuTrigger>
+            <NavigationMenuTrigger className='menu-trigger text-base  hover:font-semibold  border-b-2 border-transparent hover:bg-white rounded-none hover:border-b-2 hover:border-primary bg-transparent font-andika'>
+            <span title="Necklaces" className="make-bold-props ">Necklaces</span>
+            </NavigationMenuTrigger>
             <NavigationMenuContent>
               <div className="section-two grid grid-cols-12 gap-5">
                 <div className="col-span-2">
@@ -425,7 +431,9 @@ export default function Megamenu() {
           </NavigationMenuItem>
 
           <NavigationMenuItem>
-            <NavigationMenuTrigger className='menu-trigger text-base hover:font-semibold border-b-2 border-transparent hover:bg-white rounded-none hover:border-b-2 hover:border-primary bg-transparent font-andika'>Bracelets</NavigationMenuTrigger>
+            <NavigationMenuTrigger className='menu-trigger text-base hover:font-semibold border-b-2 border-transparent hover:bg-white rounded-none hover:border-b-2 hover:border-primary bg-transparent font-andika'>
+            <span title="Bracelets" className="make-bold-props ">Bracelets</span>
+            </NavigationMenuTrigger>
             <NavigationMenuContent>
               <div className="section-two grid grid-cols-12 gap-5">
                 <div className="col-span-2">
@@ -486,61 +494,96 @@ export default function Megamenu() {
           </NavigationMenuItem>
 
           <NavigationMenuItem>
-            <NavigationMenuTrigger className='menu-trigger text-base hover:font-semibold border-b-2 border-transparent hover:bg-white rounded-none hover:border-b-2 hover:border-primary bg-transparent font-andika'>Cultural Heritage</NavigationMenuTrigger>
+            <NavigationMenuTrigger className='menu-trigger text-base hover:font-semibold border-b-2 border-transparent hover:bg-white rounded-none hover:border-b-2 hover:border-primary bg-transparent font-andika'>              
+              <span title="Cultural Heritage" className="make-bold-props ">Cultural Heritage</span>
+              </NavigationMenuTrigger>
             <NavigationMenuContent>
               <div className="section-two grid grid-cols-12 gap-5">
                 <div className="col-span-2">
                   <ul className="p-5 text-accent font-andika text-base">
-                    <li className=" hover:font-semibold hover:text-primary"><Link href='/'>Kangan</Link></li>
-                    <li className=" hover:font-semibold hover:text-primary"><Link href='/'>Bajuband</Link></li>
-                    <li className=" hover:font-semibold hover:text-primary"><Link href='/'>Kanthi</Link></li>
-                    <li className=" hover:font-semibold hover:text-primary"><Link href='/'>Meenakari</Link></li>
-                    <li className=" hover:font-semibold hover:text-primary"><Link href='/'>Jali</Link></li>
-                    <li className=" hover:font-semibold hover:text-primary"><Link href='/'>Jadau</Link></li>
-                    <li className=" hover:font-semibold hover:text-primary"><Link href='/'>Lacquer</Link></li>
-                    <li className=" hover:font-semibold hover:text-primary"><Link href='/'>Mango Mala</Link></li>
+                    <li className=" hover:font-semibold hover:text-primary py-1">
+                      <Link href='/' className=" flex items-center">
+                        <Image src='/uploads/images/category-images/kanngan.jpg' alt='' width={50} height={50} />
+                        <span className="px-1">Kangan</span>
+                      </Link>
+                    </li>
+
+                    <li className=" hover:font-semibold hover:text-primary py-1">
+                      <Link href='/' className=" flex items-center">
+                        <Image src='/uploads/images/category-images/bajubandh.jpg' alt='' width={50} height={50} />
+                        <span className="px-1">Bajubandh</span>
+                      </Link>
+                    </li>
+                    <li className=" hover:font-semibold hover:text-primary py-1">
+                      <Link href='/' className=" flex items-center">
+                        <Image src='/uploads/images/category-images/kanthi.jpg' alt='' width={50} height={50} />
+                        <span className="px-1">Kanthi</span>
+                      </Link>
+                    </li>
+                    <li className=" hover:font-semibold hover:text-primary py-1">
+                      <Link href='/' className=" flex items-center">
+                        <Image src='/uploads/images/category-images/meenakari.jpg' alt='' width={50} height={50} />
+                        <span className="px-1">Meenakari</span>
+                      </Link>
+                    </li>
+                    <li className=" hover:font-semibold hover:text-primary py-1">
+                      <Link href='/' className=" flex items-center">
+                        <Image src='/uploads/images/category-images/jali.jpg' alt='' width={50} height={50} />
+                        <span className="px-1">Jali</span>
+                      </Link>
+                    </li>
+                    <li className=" hover:font-semibold hover:text-primary py-1">
+                      <Link href='/' className=" flex items-center">
+                        <Image src='/uploads/images/category-images/jadau.jpg' alt='' width={50} height={50} />
+                        <span className="px-1">Jadau</span>
+                      </Link>
+                    </li>
+                    <li className=" hover:font-semibold hover:text-primary py-1">
+                      <Link href='/' className=" flex items-center">
+                        <Image src='/uploads/images/category-images/mango-mala.jpg' alt='' width={50} height={50} />
+                        <span className="px-1">Mango Mala</span>
+                      </Link>
+                    </li>
                   </ul>
                 </div>
                 <div className="col-span-2">
                   <ul className="p-5 text-accent font-andika text-base">
-                    <li className=" hover:font-semibold hover:text-primary"><Link href='/'>Kaasu Mala</Link></li>
-                    <li className=" hover:font-semibold hover:text-primary"><Link href='/'>Mang Tika</Link></li>
-                    <li className=" hover:font-semibold hover:text-primary"><Link href='/'>Palakka Mala</Link></li>
-                    <li className=" hover:font-semibold hover:text-primary"><Link href='/'>Nath</Link></li>
-                    <li className=" hover:font-semibold hover:text-primary"><Link href='/'>Jodha Nath</Link></li>
-                    <li className=" hover:font-semibold hover:text-primary"><Link href='/'>Anklets</Link></li>
-                    <li className=" hover:font-semibold hover:text-primary"><Link href='/'>Kamar Bandh</Link></li>
-                    <li className=" hover:font-semibold hover:text-primary"><Link href='/'>Toe Rings</Link></li>
+                    <li className=" hover:font-semibold hover:text-primary">
+                      <Link href='/' className=" flex items-center">
+                        <Image src='/uploads/images/category-images/maang-tika.jpg' alt='' width={50} height={50} />
+                        <span>Maang Tika</span>
+                      </Link>
+                    </li>
+                    <li className=" hover:font-semibold hover:text-primary">
+                      <Link href='/' className=" flex items-center">
+                        <Image src='/uploads/images/category-images/palakka-mala.jpg' alt='' width={50} height={50} />
+                        <span>Palakka Mala</span>
+                      </Link>
+                    </li>
+                    <li className=" hover:font-semibold hover:text-primary">
+                      <Link href='/' className=" flex items-center">
+                        <Image src='/uploads/images/category-images/nath.jpg' alt='' width={50} height={50} />
+                        <span>Nath</span>
+                      </Link>
+                    </li>
+                    <li className=" hover:font-semibold hover:text-primary">
+                      <Link href='/' className=" flex items-center">
+                        <Image src='/uploads/images/category-images/jodha-nath.jpg' alt='' width={50} height={50} />
+                        <span>Jodha Nath</span>
+                      </Link>
+                    </li>
+                    <li className=" hover:font-semibold hover:text-primary">
+                      <Link href='/' className=" flex items-center">
+                      <Image src='/uploads/images/category-images/anklets.jpg' alt='' width={50} height={50} />
+                        <span>Anklets</span>
+                      </Link>
+                    </li>
                   </ul>
                 </div>
                 <div className="col-span-4">
                   <div className="category-wrapper py-5 flex justify-center">
                     <Image src='/uploads/images/all/bracelets.jpg' alt="Earrings" width={200} height={200} />
                   </div>
-                </div>
-                <div className="col-span-2">
-                  <ul className="p-5 text-accent font-andika text-base">
-                    <li className=" hover:font-semibold hover:text-primary"><Link href='/'>Chain</Link></li>
-                    <li className=" hover:font-semibold hover:text-primary"><Link href='/'>Cuff</Link></li>
-                    <li className=" hover:font-semibold hover:text-primary"><Link href='/'>Gemstone</Link></li>
-                    <li className=" hover:font-semibold hover:text-primary"><Link href='/'>Cable</Link></li>
-                    <li className=" hover:font-semibold hover:text-primary"><Link href='/'>Hinged</Link></li>
-                    <li className=" hover:font-semibold hover:text-primary"><Link href='/'>Open Bangle</Link></li>
-                    <li className=" hover:font-semibold hover:text-primary"><Link href='/'>Bangle</Link></li>
-                    <li className=" hover:font-semibold hover:text-primary"><Link href='/'>Identification</Link></li>
-                  </ul>
-                </div>
-                <div className="col-span-2">
-                  <ul className="p-5 text-accent font-andika text-base">
-                    <li className=" hover:font-semibold hover:text-primary"><Link href='/'>Wrap</Link></li>
-                    <li className=" hover:font-semibold hover:text-primary"><Link href='/'>Affirmation</Link></li>
-                    <li className=" hover:font-semibold hover:text-primary"><Link href='/'>Slider</Link></li>
-                    <li className=" hover:font-semibold hover:text-primary"><Link href='/'>Tennis</Link></li>
-                    <li className=" hover:font-semibold hover:text-primary"><Link href='/'>Charm</Link></li>
-                    <li className=" hover:font-semibold hover:text-primary"><Link href='/'>Friendship</Link></li>
-                    <li className=" hover:font-semibold hover:text-primary"><Link href='/'>Crossover</Link></li>
-                    <li className=" hover:font-semibold hover:text-primary"><Link href='/'>Cage Cuff</Link></li>
-                  </ul>
                 </div>
               </div>
             </NavigationMenuContent>

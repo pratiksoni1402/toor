@@ -163,3 +163,13 @@ html {
 }
 
 /* End */
+/* Global */
+.make-bold-props {
+  @apply before:block
+  before:content-[attr(title)]
+  before:font-bold
+  before:h-0
+  before:overflow-hidden
+  before:invisible;
+}
+/* End */

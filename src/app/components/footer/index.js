@@ -5,9 +5,9 @@ export default function Footer() {
   return (
     <div className="footer mt-20">
       <div className="container">
-        <div className="upper-footer border-t py-12">
+        <div className="upper-footer-wrapper border-t py-12">
           <section>
-            <div className="upper-footer-wrapper">
+            <div className="upper-footer">
               <div className="grid grid-cols-12 items-center">
                 <div className="md:col-span-3 sm:col-span-6 col-span-6">
                   <div className="about-brand flex justify-center">
