@@ -17,7 +17,6 @@ export default function Megamenu() {
     <div className="mega-menu flex justify-center border-b border-background">
       <NavigationMenu>
         <NavigationMenuList>
-
           <NavigationMenuItem>
             <NavigationMenuTrigger className='menu-trigger hover:font-semibold text-base border-b-2 border-transparent hover:bg-white rounded-none hover:border-b-2 hover:border-primary bg-transparent font-andika' title='Rings'>
               <span title="Rings" className="make-bold-props ">Rings</span>
@@ -354,59 +353,67 @@ export default function Megamenu() {
 
                     <li className=" hover:font-semibold hover:text-primary">
                       <Link href='/engagement-rings' className="flex items-center">
-                        <Image src='/uploads/images/category-images/all-earrings.jpg' alt='' width={50} height={50} />
+                        <Image src='/uploads/images/category-images/necklace-collar.jpg' alt='' width={50} height={50} />
                         <span>Collar</span>
                       </Link>
                     </li>
 
                     <li className=" hover:font-semibold hover:text-primary">
                       <Link href='/solitaire-rings' className="flex items-center">
-                        <Image src='/uploads/images/category-images/earring-drop-dangler.jpg' alt='' width={50} height={50} />
+                        <Image src='/uploads/images/category-images/necklace-layered.jpg' alt='' width={50} height={50} />
                         <span>Layered</span>
                       </Link>
                     </li>
 
                     <li className=" hover:font-semibold hover:text-primary">
                       <Link href='/casual-rings' className="flex items-center">
-                        <Image src='/uploads/images/category-images/earring-solitaire.jpg' alt='' width={50} height={50} />
+                        <Image src='/uploads/images/category-images/necklace-locket.jpg' alt='' width={50} height={50} />
                         <span>Locket</span>
                       </Link>
                     </li>
 
                     <li className=" hover:font-semibold hover:text-primary">
                       <Link href='/mens-rings' className="flex items-center">
-                        <Image src='/uploads/images/category-images/earring-sui-dhaga.jpg' alt='' width={50} height={50} />
+                        <Image src='/uploads/images/category-images/necklace-delicate.jpg' alt='' width={50} height={50} />
                         <span>Delicate</span>
                       </Link>
                     </li>
 
                     <li className=" hover:font-semibold hover:text-primary">
                       <Link href='/navratna-rings' className="flex items-center">
-                        <Image src='/uploads/images/category-images/earring-huggie.jpg' alt='' width={50} height={50} />
+                        <Image src='/uploads/images/category-images/necklace-rani-haar.jpg' alt='' width={50} height={50} />
                         <span>Rani Haar</span>
                       </Link>
                     </li>
                     <li className=" hover:font-semibold hover:text-primary">
                       <Link href='/mangalsutra-rings' className="flex items-center">
-                        <Image src='/uploads/images/category-images/earring-hoop.jpg' alt='' width={50} height={50} />
+                        <Image src='/uploads/images/category-images/necklace-polki.jpg' alt='' width={50} height={50} />
                         <span className="whitespace-nowrap">Polki</span>
                       </Link>
                     </li>
 
                     <li className=" hover:font-semibold hover:text-primary">
                       <Link href='/couple-bands' className="flex items-center">
-                        <Image src='/uploads/images/category-images/earring-jhomka.jpg' alt='' width={50} height={50} />
+                        <Image src='/uploads/images/category-images/necklace-meenakari.jpg' alt='' width={50} height={50} />
                         <span>Meenakari</span>
                       </Link>
                     </li>
 
-                    <li className=" hover:font-semibold hover:text-primary">
-                      <Link href='/couple-bands' className="flex items-center">
-                        <Image src='/uploads/images/category-images/earring-tops.jpg' alt='' width={50} height={50} />
-                        <span>Kundan</span>
-                      </Link>
-                    </li>
                   </ul>
+                </div>
+                <div className="col-span-2">
+                  <h2 className="pt-5 px-5 text-accent font-semibold font-andika text-base">Shop By Metal</h2>
+                  <ul className="px-5 text-accent font-andika text-base">
+                    <li className=" hover:font-semibold hover:text-primary pt-3"><Link href='/'>Platinum</Link></li>
+                    <li className=" hover:font-semibold hover:text-primary pt-3"><Link href='/'>Yellow Gold</Link></li>
+                    <li className=" hover:font-semibold hover:text-primary pt-3"><Link href='/'>Rose Gold</Link></li>
+                    <li className=" hover:font-semibold hover:text-primary pt-3"><Link href='/'>White Gold</Link></li>
+                  </ul>
+                </div>
+                <div className="col-span-4">
+                  <div className="category-wrapper py-5 flex justify-center">
+                    <Image src='/uploads/images/all/necklace.jpg' alt="Earrings" width={200} height={200} />
+                  </div>
                 </div>
                 <div className="col-span-2">
                   <h2 className="pt-5 px-5 text-accent font-semibold font-andika text-base">Shop By Price</h2>
@@ -419,11 +426,6 @@ export default function Megamenu() {
                     <li className=" hover:font-semibold hover:text-primary pt-3"><Link href='/'>1.5L - 2.0L</Link></li>
                     <li className=" hover:font-semibold hover:text-primary pt-3"><Link href='/'>Above 2.0L</Link></li>
                   </ul>
-                </div>
-                <div className="col-span-4">
-                  <div className="category-wrapper py-5 flex justify-center">
-                    <Image src='/uploads/images/all/necklace.jpg' alt="Earrings" width={200} height={200} />
-                  </div>
                 </div>
 
               </div>
