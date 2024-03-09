@@ -88,12 +88,12 @@ html {
   @apply text-accent font-lora text-center my-10 text-2xl
 }
 
-.create-account-page section{
-@apply pt-14
+.create-account-page section {
+  @apply pt-14
 }
 
 .create-account-page .register-form-wrapper {
-  
+
   background: rgba(209, 173, 143, 0.58);
   border-radius: 16px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -102,36 +102,38 @@ html {
   border: 1px solid rgba(209, 173, 143, 1);
 }
 
-.create-account-page .register-form-wrapper .create-account-form form{
+.create-account-page .register-form-wrapper .create-account-form form {
   @apply mx-5 flex flex-col
 }
 
-.create-account-page .register-form-wrapper .create-account-form form input{
+.create-account-page .register-form-wrapper .create-account-form form input {
   @apply h-10 px-2 mb-3 bg-background border-t-0 border-l-0 border-r-0 font-andika
 }
 
-.create-account-page .register-form-wrapper .create-account-form form input:focus{
+.create-account-page .register-form-wrapper .create-account-form form input:focus {
   @apply outline-0
 }
 
-.create-account-page .register-form-wrapper .create-account-form form button{
+.create-account-page .register-form-wrapper .create-account-form form button {
   @apply mt-10 mb-3 rounded-none font-andika text-base bg-accent text-white
 }
 
-.create-account-page .register-form-wrapper .create-account-form form button:hover{
+.create-account-page .register-form-wrapper .create-account-form form button:hover {
   @apply bg-primary
 }
+
 /* End */
 
 /* Login Form Styling */
-.login-page section{
+.login-page section {
   @apply pt-14
 }
+
 .login-page .login-form-wrapper .heading h1 {
   @apply text-accent font-lora text-center text-2xl py-5
 }
 
-.login-page .login-form-wrapper{
+.login-page .login-form-wrapper {
   background: rgba(209, 173, 143, 0.58);
   border-radius: 16px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -140,23 +142,34 @@ html {
   border: 1px solid rgba(209, 173, 143, 1);
 }
 
-.login-page .login-form-wrapper .login-form form{
-  @apply mx-5  flex flex-col
+.login-page .login-form-wrapper .login-form form {
+  @apply mx-5 flex flex-col
 }
 
-.login-page .login-form-wrapper .login-form form input{
+.login-page .login-form-wrapper .login-form form input {
   @apply h-10 px-2 mb-3 bg-background border-t-0 border-l-0 border-r-0 font-andika
 }
 
-.login-page .login-form-wrapper .login-form form input:focus{
+.login-page .login-form-wrapper .login-form form input:focus {
   @apply outline-0
 }
 
-.login-page .login-form-wrapper .login-form form button{
+.login-page .login-form-wrapper .login-form form button {
   @apply mt-8 mb-3 rounded-none font-andika text-base bg-accent text-white
 }
 
-.login-page .login-form-wrapper .login-form form button:hover{
+.login-page .login-form-wrapper .login-form form button:hover {
   @apply bg-primary
+}
+
+/* End */
+/* Global */
+.make-bold-props {
+  @apply before:block
+  before:content-[attr(title)]
+  before:font-bold
+  before:h-0
+  before:overflow-hidden
+  before:invisible;
 }
 /* End */

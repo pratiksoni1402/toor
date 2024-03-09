@@ -36,9 +36,9 @@ export default function Home() {
         {/* End */}
 
         {/* Our Brand Section */}
-        {/* <section>
+        <section>
           <div className="our-story my-20">
-            <div className="grid grid-cols-12 gap-10">
+            <div className="grid grid-cols-12 sm:gap-10 gap-0">
               <div className="sm:col-span-6 col-span-12">
                 <div className="parent-wrapper flex justify-center">
                   <div className="image relative h-[545px] sm:w-96 w-full sm:mx-auto mx-0">
@@ -48,13 +48,13 @@ export default function Home() {
               </div>
               <div className="sm:col-span-6 col-span-12">
                 <div className="content-wrapper text-accent h-full flex flex-col justify-center">
-                  <h2 className="font-lora text-4xl">Story of Our Brand</h2>
+                  <h2 className="font-lora md:text-4xl sm:text-3xl text-2xl font-semibold sm:pt-0 pt-4">Story of Our Brand</h2>
                   <p className="font-andika text-base">We’re passionate about creating beautiful, high-quality jewelry that reflects your unique style. Our founder, Pratik Soni, has been creating jewelry since He was young and started the brand to share his passion with the world. We hand-select the finest materials to create stylish designs that are both beautiful and affordable.</p>
                 </div>
               </div>
             </div>
           </div>
-        </section> */}
+        </section>
         {/* End */}
 
       </div>
@@ -107,7 +107,7 @@ export default function Home() {
       <div className="container">
         <section>
           <div className="featured-product my-10">
-            <div className="heading pb-5 text-center text-accent text-3xl font-lora">Featured Products</div>
+            <div className="heading pb-5 text-center text-accent sm:text-3xl text-2xl font-lora">Featured Products</div>
             <Featured />
           </div>
         </section>
@@ -243,7 +243,7 @@ export default function Home() {
           </div>
         </section>
         {/* End */}
-        
+
       </div>
     </div>
   );
