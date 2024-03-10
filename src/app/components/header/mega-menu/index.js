@@ -281,8 +281,10 @@ export default function Megamenu() {
                 </div>
 
                 <div className="col-span-4">
-                  <div className="category-wrapper py-5 flex justify-center">
-                    <Image src='/uploads/images/all/earrings.jpg' alt="Earrings" width={200} height={200} />
+                  <div className="category-wrapper py-5 flex justify-center items-center h-full">
+                    <div className="image">
+                      <Image src='/uploads/images/categories/earrings.png' alt="Earrings" width={200} height={200} />
+                    </div>
                   </div>
                 </div>
 
@@ -348,6 +350,7 @@ export default function Megamenu() {
             </NavigationMenuTrigger>
             <NavigationMenuContent>
               <div className="section-two grid grid-cols-12 gap-5">
+
                 <div className="col-span-2">
                   <h2 className="pt-5 px-5 text-accent font-semibold font-andika text-base">Shop By Style</h2>
                   <ul className="px-5 text-accent font-andika text-base">
@@ -401,6 +404,7 @@ export default function Megamenu() {
                     </li>
                   </ul>
                 </div>
+
                 <div className="col-span-2">
                   <h2 className="pt-5 px-5 text-accent font-semibold font-andika text-base">Shop By Metal</h2>
                   <ul className="px-5 text-accent font-andika text-base">
@@ -434,11 +438,15 @@ export default function Megamenu() {
                     </li>
                   </ul>
                 </div>
+
                 <div className="col-span-4">
-                  <div className="category-wrapper py-5 flex justify-center">
-                    <Image src='/uploads/images/categories/necklace.jpg' alt="Earrings" width={200} height={200} />
+                  <div className="category-wrapper py-5 flex justify-center h-full items-center">
+                    <div className="image">
+                      <Image src='/uploads/images/categories/necklace.png' alt="Earrings" width={200} height={200} />
+                    </div>
                   </div>
                 </div>
+
                 <div className="col-span-2">
                   <h2 className="pt-5 px-5 text-accent font-semibold font-andika text-base">Shop By Price</h2>
                   <ul className="px-5 text-accent font-andika text-base">
@@ -462,6 +470,7 @@ export default function Megamenu() {
             </NavigationMenuTrigger>
             <NavigationMenuContent>
               <div className="section-two grid grid-cols-12 gap-5">
+
                 <div className="col-span-2">
                   <h2 className="pt-5 px-5 text-accent font-semibold font-andika text-base">Shop By Style</h2>
                   <ul className="px-5 text-accent font-andika text-base">
@@ -509,8 +518,9 @@ export default function Megamenu() {
                     </li>
                   </ul>
                 </div>
+
                 <div className="col-span-2">
-                <h2 className="pt-5 px-5 text-accent font-semibold font-andika text-base">Shop By Metal</h2>
+                  <h2 className="pt-5 px-5 text-accent font-semibold font-andika text-base">Shop By Metal</h2>
                   <ul className="px-5 text-accent font-andika text-base">
 
                     <li className=" hover:font-semibold hover:text-primary pt-3">
@@ -542,11 +552,15 @@ export default function Megamenu() {
                     </li>
                   </ul>
                 </div>
+
                 <div className="col-span-4">
-                  <div className="category-wrapper py-5 flex justify-center">
-                    <Image src='/uploads/images/categories/bracelets.jpg' alt="Earrings" width={200} height={200} />
+                  <div className="category-wrapper py-5 flex justify-center h-full items-center">
+                    <div className="image">
+                      <Image src='/uploads/images/categories/bracelet.png' alt="Earrings" width={200} height={200} />
+                    </div>
                   </div>
                 </div>
+
                 <div className="col-span-2">
                   <h2 className="pt-5 px-5 text-accent font-semibold font-andika text-base">Shop By Price</h2>
                   <ul className="px-5 text-accent font-andika text-base">
@@ -559,7 +573,7 @@ export default function Megamenu() {
                     <li className=" hover:font-semibold hover:text-primary pt-3"><Link href='/'>Above 2.0L</Link></li>
                   </ul>
                 </div>
-                
+
               </div>
             </NavigationMenuContent>
           </NavigationMenuItem>
@@ -570,6 +584,7 @@ export default function Megamenu() {
             </NavigationMenuTrigger>
             <NavigationMenuContent>
               <div className="section-two grid grid-cols-12 gap-5">
+
                 <div className="col-span-2">
                   <ul className="p-5 text-accent font-andika text-base">
                     <li className=" hover:font-semibold hover:text-primary py-1">
@@ -617,6 +632,7 @@ export default function Megamenu() {
                     </li>
                   </ul>
                 </div>
+
                 <div className="col-span-2">
                   <ul className="p-5 text-accent font-andika text-base">
                     <li className=" hover:font-semibold hover:text-primary">
@@ -651,11 +667,15 @@ export default function Megamenu() {
                     </li>
                   </ul>
                 </div>
+
                 <div className="col-span-4">
-                  <div className="category-wrapper py-5 flex justify-center">
-                    <Image src='/uploads/images/categories/cultural-heritage.png' alt="Earrings" width={200} height={200} />
+                  <div className="category-wrapper py-5 flex justify-center h-full items-center">
+                    <div className="image">
+                      <Image src='/uploads/images/categories/cultural-heritage.png' alt="Earrings" width={200} height={200} />
+                    </div>
                   </div>
                 </div>
+
               </div>
             </NavigationMenuContent>
           </NavigationMenuItem>
