@@ -163,7 +163,8 @@ html {
 }
 
 /* End */
-/* Global */
+
+/* Global (For width ) */
 .make-bold-props {
   @apply before:block
   before:content-[attr(title)]
