@@ -1,9 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -39,11 +33,11 @@ model Product {
   description    String? @db.Text
   filterByGender String? @map("filter_by_gender") @db.VarChar(20)
   metalType      String? @map("metal_type") @db.VarChar(30)
-  price          Int     @db.Int
-  salePrice      Int     @map("sale_price") @db.Int
+  price          Int?     @db.Int
+  salePrice      Int?    @map("sale_price") @db.Int
   metalColor     String? @map("metal_color") @db.VarChar(50)
-  ringSize       Int?    @map("ring_size") @db.Int
-  totalWeight    Decimal @map("total_weight") @db.Decimal()
+  // ringSize       String   @map("ring_size") @db.Text
+  totalWeight    Decimal? @map("total_weight") @db.Decimal()
   type           String  @db.VarChar(20)
 
   @@map("product")

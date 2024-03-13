@@ -5,7 +5,7 @@ export const productSelect = {
   sku: true,
   name: true,
   description: true,
-  filtebby_gender: true,
+  filter_by_gender: true,
   metal_type: true,
   price: true,
   sale_price: true,
@@ -15,7 +15,7 @@ export const productSelect = {
   type: true,
 }
 
-export async function Products(){
-  const getproduct = await prisma.$queryRawUnsafe(`SELECT * FROM `)
+export async function Products() {
+ return await prisma.$queryRawUnsafe(`SELECT * FROM product`);
 }
 
