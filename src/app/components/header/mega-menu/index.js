@@ -600,36 +600,36 @@ export default function Megamenu() {
                         <span className="px-1">Bajubandh</span>
                       </Link>
                     </li>
-                    <li className=" hover:font-semibold hover:text-primary py-1">
+                    {/* <li className=" hover:font-semibold hover:text-primary py-1">
                       <Link href='/' className=" flex items-center">
                         <Image src='/uploads/images/category-images/kanthi.png' alt='' width={50} height={50} />
                         <span className="px-1">Kanthi</span>
                       </Link>
-                    </li>
-                    <li className=" hover:font-semibold hover:text-primary py-1">
+                    </li> */}
+                    {/* <li className=" hover:font-semibold hover:text-primary py-1">
                       <Link href='/' className=" flex items-center">
                         <Image src='/uploads/images/category-images/meenakari.png' alt='' width={50} height={50} />
                         <span className="px-1">Meenakari</span>
                       </Link>
-                    </li>
-                    <li className=" hover:font-semibold hover:text-primary py-1">
+                    </li> */}
+                    {/* <li className=" hover:font-semibold hover:text-primary py-1">
                       <Link href='/' className=" flex items-center">
                         <Image src='/uploads/images/category-images/jali.jpg' alt='' width={50} height={50} />
                         <span className="px-1">Jali</span>
                       </Link>
-                    </li>
-                    <li className=" hover:font-semibold hover:text-primary py-1">
+                    </li> */}
+                    {/* <li className=" hover:font-semibold hover:text-primary py-1">
                       <Link href='/' className=" flex items-center">
                         <Image src='/uploads/images/category-images/jadau.png' alt='' width={50} height={50} />
                         <span className="px-1">Jadau</span>
                       </Link>
-                    </li>
-                    <li className=" hover:font-semibold hover:text-primary py-1">
+                    </li> */}
+                    {/* <li className=" hover:font-semibold hover:text-primary py-1">
                       <Link href='/' className=" flex items-center">
                         <Image src='/uploads/images/category-images/mango-mala.png' alt='' width={50} height={50} />
                         <span className="px-1">Mango Mala</span>
                       </Link>
-                    </li>
+                    </li> */}
                   </ul>
                 </div>
 
@@ -641,13 +641,13 @@ export default function Megamenu() {
                         <span>Maang Tika</span>
                       </Link>
                     </li>
-                    <li className=" hover:font-semibold hover:text-primary">
+                    {/* <li className=" hover:font-semibold hover:text-primary">
                       <Link href='/' className=" flex items-center">
                         <Image src='/uploads/images/category-images/palakka-mala.png' alt='' width={50} height={50} />
                         <span>Palakka Mala</span>
                       </Link>
-                    </li>
-                    <li className=" hover:font-semibold hover:text-primary">
+                    </li> */}
+                    {/* <li className=" hover:font-semibold hover:text-primary">
                       <Link href='/' className=" flex items-center">
                         <Image src='/uploads/images/category-images/nath.png' alt='' width={50} height={50} />
                         <span>Nath</span>
@@ -664,7 +664,7 @@ export default function Megamenu() {
                         <Image src='/uploads/images/category-images/anklets.png' alt='' width={50} height={50} />
                         <span>Anklets</span>
                       </Link>
-                    </li>
+                    </li> */}
                   </ul>
                 </div>
 
