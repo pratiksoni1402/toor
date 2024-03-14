@@ -13,6 +13,7 @@ import {
 } from "@/components/ui/navigation-menu";
 import Image from "next/image";
 export default function Megamenu() {
+
   return (
     <div className="mega-menu flex justify-center border-b border-background">
       <NavigationMenu>
@@ -63,7 +64,7 @@ export default function Megamenu() {
                         <span>Navratna</span>
                       </Link>
                     </li>
-                    
+
                     <li className=" hover:font-semibold hover:text-primary py-1">
                       <Link href='/mangalsutra-rings' className="flex items-center">
                         <Image src='/uploads/images/category-images/mangalsutra.png' alt='' width={50} height={50} />

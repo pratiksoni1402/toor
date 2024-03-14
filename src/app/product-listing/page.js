@@ -2,12 +2,28 @@
 export const dynamic = 'force-dynamic';
 export const fetchCache = 'force-no-store';
 export const revalidate = 0;
+import React from "react";
+import { useEffect, useRef } from "react";
+import ScrollReveal from "scrollreveal";
 import LazyImage from "../components/lazy-loading/lazy-image";
 import { Heart } from 'lucide-react';
 import { IndianRupee } from 'lucide-react';
 import Link from "next/link";
+import { useQuery } from "@tanstack/react-query";
 import { Button } from "@/components/ui/button";
+import axios from "axios";
+import { PRODUCT_MEDIA } from "@/lib/constants/images";
 export default function Listing({ params }) {
+  const { isPending, data:products, isError } = useQuery({
+    queryKey: ['product'],
+    queryFn: () =>
+      axios.get('/product-listing/api/get-products')
+        .then((response) => {
+          console.log("This is all products", response.data.allProduct)
+          return response.data.allProduct
+        })
+  })
+  
   return (
     <div className="product-listing-page">
       <div className="container">
@@ -260,190 +276,37 @@ export default function Listing({ params }) {
               <section>
                 <div className="listing my-10">
                   <div className="grid grid-cols-3 gap-5">
-                    <div className="col">
-                      <div className="product-wrapper relative">
-                              <span className="absolute right-5 top-5">
-                                <Button className='bg-transparent border-0'>
-                                  <Heart size={20} />
-                                </Button>
-                              </span>
-                        <Link href='/ghgfhfgh'>
-                          <div className="product">
-                            <div className="image relative h-72">
-                              <LazyImage src='/uploads/images/products/RNG-MEN-RG-010.jpg' alt='image' width={288} height={288} />
-                            </div>
-                            <div className="name">
-                              <span className="text-accent text-base font-andika block text-center">Lorem, ipsum dolor.</span>
-                            </div>
-                            <div className="price flex items-center justify-center">
-                              <span><IndianRupee size={14} /></span>
-                              <span className="text-accent text-base font-andika font-semibold block text-center">546546</span>
-                            </div>
+                    {
+                    
+                      products?.map((item) => (
+                        <div className="col" key={item.id}>
+                          <div className="product-wrapper">
+                            <Link href='/ghgfhfgh' >
+                              <div className="product">
+                                <div className="image relative h-72">
+                                  <LazyImage src={`${PRODUCT_MEDIA}/${item.image}`} alt='image' width={288} height={288} />
+                                  <span className="absolute right-5 top-5">
+                                    <Button className='bg-transparent border-0'>
+                                      <Heart size={20} />
+                                    </Button>
+                                  </span>
+                                </div>
+                                <div className="name">
+                                  <span className="text-accent text-base font-andika block text-center">{item?.name}</span>
+                                </div>
+                                <div className="price flex items-center justify-center">
+                                  <span><IndianRupee size={14} /></span>
+                                  <span className="text-accent text-base font-andika font-semibold block text-center">{item?.price}</span>
+                                </div>
+                              </div>
+                            </Link>
+
                           </div>
-                        </Link>
-                      </div>
-                    </div>
-                    <div className="col">
-                      <div className="product-wrapper relative">
-                              <span className="absolute right-5 top-5">
-                                <Button className='bg-transparent border-0'>
-                                  <Heart size={20} />
-                                </Button>
-                              </span>
-                        <Link href='/ghgfhfgh'>
-                          <div className="product">
-                            <div className="image relative h-72">
-                              <LazyImage src='/uploads/images/products/RNG-MEN-RG-010.jpg' alt='image' width={288} height={288} />
-                            </div>
-                            <div className="name">
-                              <span className="text-accent text-base font-andika block text-center">Lorem, ipsum dolor.</span>
-                            </div>
-                            <div className="price flex items-center justify-center">
-                              <span><IndianRupee size={14} /></span>
-                              <span className="text-accent text-base font-andika font-semibold block text-center">546546</span>
-                            </div>
-                          </div>
-                        </Link>
-                      </div>
-                    </div>
-                    <div className="col">
-                      <div className="product-wrapper relative">
-                              <span className="absolute right-5 top-5">
-                                <Button className='bg-transparent border-0'>
-                                  <Heart size={20} />
-                                </Button>
-                              </span>
-                        <Link href='/ghgfhfgh'>
-                          <div className="product">
-                            <div className="image relative h-72">
-                              <LazyImage src='/uploads/images/products/RNG-MEN-RG-010.jpg' alt='image' width={288} height={288} />
-                            </div>
-                            <div className="name">
-                              <span className="text-accent text-base font-andika block text-center">Lorem, ipsum dolor.</span>
-                            </div>
-                            <div className="price flex items-center justify-center">
-                              <span><IndianRupee size={14} /></span>
-                              <span className="text-accent text-base font-andika font-semibold block text-center">546546</span>
-                            </div>
-                          </div>
-                        </Link>
-                      </div>
-                    </div>
-                    <div className="col">
-                      <div className="product-wrapper relative">
-                              <span className="absolute right-5 top-5">
-                                <Button className='bg-transparent border-0'>
-                                  <Heart size={20} />
-                                </Button>
-                              </span>
-                        <Link href='/ghgfhfgh'>
-                          <div className="product">
-                            <div className="image relative h-72">
-                              <LazyImage src='/uploads/images/products/RNG-MEN-RG-010.jpg' alt='image' width={288} height={288} />
-                            </div>
-                            <div className="name">
-                              <span className="text-accent text-base font-andika block text-center">Lorem, ipsum dolor.</span>
-                            </div>
-                            <div className="price flex items-center justify-center">
-                              <span><IndianRupee size={14} /></span>
-                              <span className="text-accent text-base font-andika font-semibold block text-center">546546</span>
-                            </div>
-                          </div>
-                        </Link>
-                      </div>
-                    </div>
-                    <div className="col">
-                      <div className="product-wrapper relative">
-                              <span className="absolute right-5 top-5">
-                                <Button className='bg-transparent border-0'>
-                                  <Heart size={20} />
-                                </Button>
-                              </span>
-                        <Link href='/ghgfhfgh'>
-                          <div className="product">
-                            <div className="image relative h-72">
-                              <LazyImage src='/uploads/images/products/RNG-MEN-RG-010.jpg' alt='image' width={288} height={288} />
-                            </div>
-                            <div className="name">
-                              <span className="text-accent text-base font-andika block text-center">Lorem, ipsum dolor.</span>
-                            </div>
-                            <div className="price flex items-center justify-center">
-                              <span><IndianRupee size={14} /></span>
-                              <span className="text-accent text-base font-andika font-semibold block text-center">546546</span>
-                            </div>
-                          </div>
-                        </Link>
-                      </div>
-                    </div>
-                    <div className="col">
-                      <div className="product-wrapper relative">
-                              <span className="absolute right-5 top-5">
-                                <Button className='bg-transparent border-0'>
-                                  <Heart size={20} />
-                                </Button>
-                              </span>
-                        <Link href='/ghgfhfgh'>
-                          <div className="product">
-                            <div className="image relative h-72">
-                              <LazyImage src='/uploads/images/products/RNG-MEN-RG-010.jpg' alt='image' width={288} height={288} />
-                            </div>
-                            <div className="name">
-                              <span className="text-accent text-base font-andika block text-center">Lorem, ipsum dolor.</span>
-                            </div>
-                            <div className="price flex items-center justify-center">
-                              <span><IndianRupee size={14} /></span>
-                              <span className="text-accent text-base font-andika font-semibold block text-center">546546</span>
-                            </div>
-                          </div>
-                        </Link>
-                      </div>
-                    </div>
-                    <div className="col">
-                      <div className="product-wrapper relative">
-                              <span className="absolute right-5 top-5">
-                                <Button className='bg-transparent border-0'>
-                                  <Heart size={20} />
-                                </Button>
-                              </span>
-                        <Link href='/ghgfhfgh'>
-                          <div className="product">
-                            <div className="image relative h-72">
-                              <LazyImage src='/uploads/images/products/RNG-MEN-RG-010.jpg' alt='image' width={288} height={288} />
-                            </div>
-                            <div className="name">
-                              <span className="text-accent text-base font-andika block text-center">Lorem, ipsum dolor.</span>
-                            </div>
-                            <div className="price flex items-center justify-center">
-                              <span><IndianRupee size={14} /></span>
-                              <span className="text-accent text-base font-andika font-semibold block text-center">546546</span>
-                            </div>
-                          </div>
-                        </Link>
-                      </div>
-                    </div>
-                    <div className="col">
-                      <div className="product-wrapper relative">
-                              <span className="absolute right-5 top-5">
-                                <Button className='bg-transparent border-0'>
-                                  <Heart size={20} />
-                                </Button>
-                              </span>
-                        <Link href='/ghgfhfgh'>
-                          <div className="product">
-                            <div className="image relative h-72">
-                              <LazyImage src='/uploads/images/products/RNG-MEN-RG-010.jpg' alt='image' width={288} height={288} />
-                            </div>
-                            <div className="name">
-                              <span className="text-accent text-base font-andika block text-center">Lorem, ipsum dolor.</span>
-                            </div>
-                            <div className="price flex items-center justify-center">
-                              <span><IndianRupee size={14} /></span>
-                              <span className="text-accent text-base font-andika font-semibold block text-center">546546</span>
-                            </div>
-                          </div>
-                        </Link>
-                      </div>
-                    </div>
+                        </div>
+
+                      ))
+                    }
+
                   </div>
                 </div>
               </section>

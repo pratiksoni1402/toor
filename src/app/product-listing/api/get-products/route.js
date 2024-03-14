@@ -4,7 +4,7 @@ export const revalidate = 0;
 import { Products } from "@/db/repositories/product";
 
 export async function GET() {
-  const trail = await Products();
-  console.log({trail})
-  return Response.json({ trail });
+  const allProduct = await Products();
+  // console.log({trail})
+  return Response.json({ allProduct });
 }
