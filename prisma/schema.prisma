@@ -27,18 +27,36 @@ model Useraccount {
 
 // All Products Model
 model Product {
-  id             Int     @id @default(autoincrement())
-  sku            String  @db.VarChar(50)
-  name           String  @db.VarChar(100)
-  description    String? @db.Text
-  filterByGender String? @map("filter_by_gender") @db.VarChar(20)
-  metalType      String? @map("metal_type") @db.VarChar(30)
-  price          Int?     @db.Int
-  salePrice      Int?    @map("sale_price") @db.Int
-  metalColor     String? @map("metal_color") @db.VarChar(50)
-  // ringSize       String   @map("ring_size") @db.Text
-  totalWeight    Decimal? @map("total_weight") @db.Decimal()
-  type           String  @db.VarChar(20)
-
+  id                   Int     @id @default(autoincrement())
+  sku                  String  @db.VarChar(50)
+  name                 String  @db.VarChar(100)
+  totalWeight          Decimal @map("total_weight") @db.Decimal()
+  makingChargesPerGram Int     @map("making_charges_per_gram") @db.Int
+  goldRate             Int     @map("gold_rate") @db.Int
+  price                Int     @db.Int
+  description          String  @db.Text
+  filterByGender       String  @map("filter_by_gender") @db.VarChar(20)
+  metalType            String  @map("metal_type") @db.VarChar(30)
+  metalColor           String? @map("metal_color") @db.VarChar(50)
+  ringSize             String  @map("ring_size") @db.Text
+  type                 String  @db.VarChar(20)
+  image                String  @db.VarChar(30)
   @@map("product")
 }
+
+model Country {
+  id Int @id @default(autoincrement())
+  name  String @db.VarChar(100)
+  @@map("country")
+}
+
+model State {
+  id Int @id @default(autoincrement())
+  name String @db.VarChar(100)
+  countryId Int @db.Int @map("country_id")
+  @@map("state") 
+}
+
+
+
+

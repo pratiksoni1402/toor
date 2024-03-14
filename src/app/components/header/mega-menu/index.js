@@ -63,6 +63,7 @@ export default function Megamenu() {
                         <span>Navratna</span>
                       </Link>
                     </li>
+                    
                     <li className=" hover:font-semibold hover:text-primary py-1">
                       <Link href='/mangalsutra-rings' className="flex items-center">
                         <Image src='/uploads/images/category-images/mangalsutra.png' alt='' width={50} height={50} />
@@ -82,22 +83,23 @@ export default function Megamenu() {
                 <div className="col-span-2">
                   <h2 className="pt-5 px-5 text-accent font-semibold font-andika text-base">Shop By Metal</h2>
                   <ul className="px-5 text-accent font-andika text-base">
+
                     <li className=" hover:font-semibold hover:text-primary py-1">
-                      <Link href='/' className="flex items-center">
+                      <Link href='/platinum' className="flex items-center">
                         <Image src='/uploads/images/category-images/platinum.png' alt='' width={50} height={50} />
                         <span>Platinum</span>
                       </Link>
                     </li>
 
                     <li className=" hover:font-semibold hover:text-primary py-1">
-                      <Link href='/' className="flex items-center">
+                      <Link href='/yellow-gold' className="flex items-center">
                         <Image src='/uploads/images/category-images/yellow-gold.png' alt='' width={50} height={50} />
                         <span>Yellow Gold</span>
                       </Link>
                     </li>
 
                     <li className=" hover:font-semibold hover:text-primary py-1">
-                      <Link href='/' className="flex items-center">
+                      <Link href='/rose-gold' className="flex items-center">
                         <Image src='/uploads/images/category-images/rose-gold.png' alt='' width={50} height={50} />
                         <span>Rose Gold</span>
                       </Link>
@@ -109,9 +111,9 @@ export default function Megamenu() {
                         <span>Silver</span>
                       </Link>
                     </li>
+
                   </ul>
                 </div>
-
                 <div className="col-span-4">
                   <div className="category-image-wrapper py-5 h-full flex items-center justify-center">
                     <div className="image flex justify-center items-center">
@@ -144,18 +146,21 @@ export default function Megamenu() {
                         <span>Festive</span>
                       </Link>
                     </li>
+
                     <li className=" hover:font-semibold hover:text-primary py-1">
                       <Link href='/' className="flex items-center">
                         <Image src='/uploads/images/category-images/anniversary.png' alt='' width={50} height={50} />
                         <span>Anniversary</span>
                       </Link>
                     </li>
+
                     <li className=" hover:font-semibold hover:text-primary py-1">
                       <Link href='/' className="flex items-center">
                         <Image src='/uploads/images/category-images/wedding.png' alt='' width={50} height={50} />
                         <span>Wedding</span>
                       </Link>
                     </li>
+
                   </ul>
                 </div>
 
