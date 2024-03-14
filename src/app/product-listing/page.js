@@ -3,8 +3,6 @@ export const dynamic = 'force-dynamic';
 export const fetchCache = 'force-no-store';
 export const revalidate = 0;
 import React from "react";
-import { useEffect, useRef } from "react";
-import ScrollReveal from "scrollreveal";
 import LazyImage from "../components/lazy-loading/lazy-image";
 import { Heart } from 'lucide-react';
 import { IndianRupee } from 'lucide-react';
@@ -117,7 +115,6 @@ export default function Listing({ params }) {
                           Silver
                         </label>
                       </div>
-
                     </div>
                   </div>
                   <div className="metal-type">
