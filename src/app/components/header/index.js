@@ -12,7 +12,7 @@ export default function Header() {
             <div className="top-bar bg-transparent flex justify-between items-center">
               <div></div>
               <div className="brand-name">
-                <h1 className="font-tangerine text-5xl text-center text-primary">SS Jewels</h1>
+                <h1 className="font-lora text-5xl text-center text-primary">Brand Name</h1>
               </div>
               <div className="user-actions flex items-center">
                 <div className=' hover:text-primary text-accent'><Wishlistcount /></div>
