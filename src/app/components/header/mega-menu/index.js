@@ -12,8 +12,21 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 import Image from "next/image";
+import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
+import { useState } from "react";
+import { CATEGORY_MEDIA } from "@/lib/constants/images";
 export default function Megamenu() {
-
+  const [hoveredImage, setHoveredImage] = useState(`${CATEGORY_MEDIA}`);
+  const { isPending, data: category, isError } = useQuery({
+    queryKey: ['images'],
+    queryFn: () =>
+      axios.get('/components/header/mega-menu/api/category-images')
+        .then((response) => {
+          console.log(response.data.categoryImages)
+          return response.data.categoryImages
+        })
+  })
   return (
     <div className="mega-menu flex justify-center border-b border-background">
       <NavigationMenu>
@@ -23,6 +36,7 @@ export default function Megamenu() {
             <NavigationMenuTrigger className='menu-trigger hover:font-semibold text-base border-b-2 border-transparent hover:bg-white rounded-none hover:border-b-2 hover:border-primary bg-transparent font-andika' title='Rings'>
               <span title="Rings" className="make-bold-props ">Rings</span>
             </NavigationMenuTrigger>
+
             <NavigationMenuContent>
               <div className="section-two grid grid-cols-12 text-base gap-5">
 
@@ -30,49 +44,49 @@ export default function Megamenu() {
                   <h2 className="pt-5 px-5 text-accent font-semibold font-andika text-base">Shop By Style</h2>
                   <ul className="px-5 text-accent font-andika text-base">
 
-                    <li className=" hover:font-semibold hover:text-primary py-1">
+                    <li className=" hover:font-semibold hover:text-primary py-1" onMouseEnter={() => setHoveredImage(`${CATEGORY_MEDIA}/ring-engagement.jpg`)}>
                       <Link href='/engagement-rings' className="flex items-center">
                         <Image src='/uploads/images/category-images/engagement.png' alt='' width={50} height={50} />
                         <span>Engagement</span>
                       </Link>
                     </li>
 
-                    <li className=" hover:font-semibold hover:text-primary py-1">
+                    <li className=" hover:font-semibold hover:text-primary py-1" onMouseEnter={() => setHoveredImage(`${CATEGORY_MEDIA}/ring-solitaire.jpg`)}>
                       <Link href='/solitaire-rings' className="flex items-center">
                         <Image src='/uploads/images/category-images/solitaire.png' alt='' width={50} height={50} />
                         <span>Solitaire</span>
                       </Link>
                     </li>
 
-                    <li className=" hover:font-semibold hover:text-primary py-1">
+                    <li className=" hover:font-semibold hover:text-primary py-1" onMouseEnter={() => setHoveredImage(`${CATEGORY_MEDIA}/ring-casual.jpg`)}>
                       <Link href='/casual-rings' className="flex items-center">
                         <Image src='/uploads/images/category-images/casual.png' alt='' width={50} height={50} />
                         <span>Casual</span>
                       </Link>
                     </li>
 
-                    <li className=" hover:font-semibold hover:text-primary py-1">
+                    <li className=" hover:font-semibold hover:text-primary py-1" onMouseEnter={() => setHoveredImage(`${CATEGORY_MEDIA}/ring-men.jpg`)}>
                       <Link href='/mens-rings' className="flex items-center">
                         <Image src='/uploads/images/category-images/mens.png' alt='' width={50} height={50} />
                         <span>Mens Rings</span>
                       </Link>
                     </li>
 
-                    <li className=" hover:font-semibold hover:text-primary py-1">
+                    <li className=" hover:font-semibold hover:text-primary py-1" onMouseEnter={() => setHoveredImage(`${CATEGORY_MEDIA}/ring-navratna.jpg`)}>
                       <Link href='/navratna-rings' className="flex items-center">
                         <Image src='/uploads/images/category-images/navratna.png' alt='' width={50} height={50} />
                         <span>Navratna</span>
                       </Link>
                     </li>
 
-                    <li className=" hover:font-semibold hover:text-primary py-1">
+                    <li className=" hover:font-semibold hover:text-primary py-1" onMouseEnter={() => setHoveredImage(`${CATEGORY_MEDIA}/ring-mangalsutra.jpg`)}>
                       <Link href='/mangalsutra-rings' className="flex items-center">
                         <Image src='/uploads/images/category-images/mangalsutra.png' alt='' width={50} height={50} />
                         <span className="whitespace-nowrap">Mangalsutra Rings</span>
                       </Link>
                     </li>
 
-                    <li className=" hover:font-semibold hover:text-primary py-1">
+                    <li className=" hover:font-semibold hover:text-primary py-1" onMouseEnter={() => setHoveredImage(`${CATEGORY_MEDIA}/ring-couple.jpg`)}>
                       <Link href='/couple-bands' className="flex items-center">
                         <Image src='/uploads/images/category-images/couple.png' alt='' width={50} height={50} />
                         <span>Couple Bands</span>
@@ -85,28 +99,28 @@ export default function Megamenu() {
                   <h2 className="pt-5 px-5 text-accent font-semibold font-andika text-base">Shop By Metal</h2>
                   <ul className="px-5 text-accent font-andika text-base">
 
-                    <li className=" hover:font-semibold hover:text-primary py-1">
+                    <li className=" hover:font-semibold hover:text-primary py-1" onMouseEnter={() => setHoveredImage(`${CATEGORY_MEDIA}/ring-platinum.jpg`)}>
                       <Link href='/platinum' className="flex items-center">
                         <Image src='/uploads/images/category-images/platinum.png' alt='' width={50} height={50} />
                         <span>Platinum</span>
                       </Link>
                     </li>
 
-                    <li className=" hover:font-semibold hover:text-primary py-1">
+                    <li className=" hover:font-semibold hover:text-primary py-1" onMouseEnter={() => setHoveredImage(`${CATEGORY_MEDIA}/ring-yellow-gold.jpg`)}>
                       <Link href='/yellow-gold' className="flex items-center">
                         <Image src='/uploads/images/category-images/yellow-gold.png' alt='' width={50} height={50} />
                         <span>Yellow Gold</span>
                       </Link>
                     </li>
 
-                    <li className=" hover:font-semibold hover:text-primary py-1">
+                    <li className=" hover:font-semibold hover:text-primary py-1" onMouseEnter={() => setHoveredImage(`${CATEGORY_MEDIA}/ring-rose-gold.jpg`)}>
                       <Link href='/rose-gold' className="flex items-center">
                         <Image src='/uploads/images/category-images/rose-gold.png' alt='' width={50} height={50} />
                         <span>Rose Gold</span>
                       </Link>
                     </li>
 
-                    <li className=" hover:font-semibold hover:text-primary py-1">
+                    <li className=" hover:font-semibold hover:text-primary py-1" onMouseEnter={() => setHoveredImage(`${CATEGORY_MEDIA}/ring-silver.jpg`)}>
                       <Link href='/silver' className="flex items-center">
                         <Image src='/uploads/images/category-images/silver.png' alt='' width={50} height={50} />
                         <span>Silver</span>
@@ -115,15 +129,16 @@ export default function Megamenu() {
 
                   </ul>
                 </div>
+
                 <div className="col-span-4">
                   <div className="category-image-wrapper py-5 h-full flex items-center justify-center">
                     <div className="image flex justify-center items-center">
-                      <Image src='/uploads/images/all/rings.jpg' alt="Earrings" width={200} height={200} />
+                      <Image src={hoveredImage} alt="Earrings" width={400} height={400} />
                     </div>
                   </div>
                 </div>
 
-                <div className="col-span-2">
+                {/* <div className="col-span-2">
                   <h2 className="pt-5 px-5 text-accent font-semibold font-andika text-base">Shop By Occasion</h2>
                   <ul className="px-5 text-accent font-andika text-base">
 
@@ -163,7 +178,7 @@ export default function Megamenu() {
                     </li>
 
                   </ul>
-                </div>
+                </div> */}
 
                 <div className="col-span-2">
                   <h2 className="pt-5 px-5 text-accent font-semibold font-andika text-base">Shop By Price</h2>
@@ -180,6 +195,7 @@ export default function Megamenu() {
 
               </div>
             </NavigationMenuContent>
+
           </NavigationMenuItem>
 
           <NavigationMenuItem>
@@ -289,12 +305,12 @@ export default function Megamenu() {
                 <div className="col-span-4">
                   <div className="category-wrapper py-5 flex justify-center items-center h-full">
                     <div className="image">
-                      <Image src='/uploads/images/categories/earrings.png' alt="Earrings" width={200} height={200} />
+                      <Image src='/uploads/images/categories/earrings.png' alt="Earrings" width={400} height={400} />
                     </div>
                   </div>
                 </div>
 
-                <div className="col-span-2">
+                {/* <div className="col-span-2">
                   <h2 className="pt-5 px-5 text-accent font-semibold font-andika text-base">Shop By Occasion</h2>
                   <ul className="px-5 text-accent font-andika text-base">
 
@@ -331,7 +347,7 @@ export default function Megamenu() {
                       </Link>
                     </li>
                   </ul>
-                </div>
+                </div> */}
 
                 <div className="col-span-2">
                   <h2 className="pt-5 px-5 text-accent font-semibold font-andika text-base">Shop By Price</h2>
