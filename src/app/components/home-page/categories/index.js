@@ -66,7 +66,7 @@ export default function Categories() {
             <Link href='/'>
               <div className='category group'>
                 <div className='image relative h-[351px]'>
-                  <LazyImage src='/uploads/images/categories/earrings.jpg' alt='image' width={664} height={751} className='group-hover:brightness-50' />
+                  <LazyImage src='/uploads/images/categories/cat-earrings.jpg' alt='image' width={664} height={751} className='group-hover:brightness-50' />
                   <div className='group-hover:text-primary heading absolute group-hover:font-semibold  bottom-2 uppercase text-center w-full text-accent font-andika'>Earrings</div>
                 </div>
               </div>
@@ -78,7 +78,7 @@ export default function Categories() {
             <Link href='/'>
               <div className='category group'>
                 <div className='image relative h-[351px]'>
-                  <LazyImage src='/uploads/images/categories/bracelets.jpg' alt='image' width={664} height={751} className='group-hover:brightness-50' />
+                  <LazyImage src='/uploads/images/categories/cat-bracelets.jpg' alt='image' width={664} height={751} className='group-hover:brightness-50' />
                   <div className='group-hover:text-primary heading absolute group-hover:font-semibold  bottom-2 uppercase text-center w-full text-accent font-andika'>Bracelets</div>
                 </div>
               </div>
@@ -90,7 +90,7 @@ export default function Categories() {
             <Link href='/'>
               <div className='category group'>
                 <div className='image relative h-[351px]'>
-                  <LazyImage src='/uploads/images/categories/pendants.jpg' alt='image' width={664} height={751} className='group-hover:brightness-50' />
+                  <LazyImage src='/uploads/images/categories/cat-pendants.jpg' alt='image' width={664} height={751} className='group-hover:brightness-50' />
                   <div className='group-hover:text-primary heading absolute group-hover:font-semibold  bottom-2 uppercase text-center w-full text-accent font-andika'>Pendants</div>
                 </div>
               </div>
@@ -102,7 +102,7 @@ export default function Categories() {
             <Link href='/'>
               <div className='category group'>
                 <div className='image relative h-[351px]'>
-                  <LazyImage src='/uploads/images/categories/rings.jpg' alt='image' width={664} height={751} className='group-hover:brightness-50' />
+                  <LazyImage src='/uploads/images/categories/cat-rings.jpg' alt='image' width={664} height={751} className='group-hover:brightness-50' />
                   <div className='heading group-hover:font-semibold absolute bottom-2 group-hover:text-primary uppercase text-center w-full text-accent font-andika'>Rings</div>
                 </div>
               </div>
@@ -114,8 +114,8 @@ export default function Categories() {
             <Link href='/'>
               <div className='category group'>
                 <div className='image relative h-[351px]'>
-                  <LazyImage src='/uploads/images/categories/sets.jpg' alt='image' width={664} height={751} className='group-hover:brightness-50' />
-                  <div className='heading absolute bottom-2 uppercase text-center w-full text-accent group-hover:text-primary font-andika group-hover:font-semibold'>Sets</div>
+                  <LazyImage src='/uploads/images/categories/mangalsutra.jpg' alt='image' width={664} height={751} className='group-hover:brightness-50' />
+                  <div className='heading absolute bottom-2 uppercase text-center w-full text-accent group-hover:text-primary font-andika group-hover:font-semibold'>Mangalsutra</div>
                 </div>
               </div>
             </Link>
@@ -126,8 +126,8 @@ export default function Categories() {
             <Link href='/'>
               <div className='category group'>
                 <div className='image relative h-[351px]'>
-                  <LazyImage src='/uploads/images/categories/sets.jpg' alt='image' width={664} height={751} className='group-hover:brightness-50' />
-                  <div className='heading absolute bottom-2 uppercase text-center w-full text-accent group-hover:text-primary font-andika group-hover:font-semibold'>Sets</div>
+                  <LazyImage src='/uploads/images/categories/maang-tika.jpg' alt='image' width={664} height={751} className='group-hover:brightness-50' />
+                  <div className='heading absolute bottom-2 uppercase text-center w-full text-accent group-hover:text-primary font-andika group-hover:font-semibold'>Mang Tika</div>
                 </div>
               </div>
             </Link>
@@ -138,8 +138,8 @@ export default function Categories() {
             <Link href='/'>
               <div className='category group'>
                 <div className='image relative h-[351px]'>
-                  <LazyImage src='/uploads/images/categories/sets.jpg' alt='image' width={664} height={751} className='group-hover:brightness-50' />
-                  <div className='heading absolute bottom-2 uppercase text-center w-full text-accent group-hover:text-primary font-andika group-hover:font-semibold'>Sets</div>
+                  <LazyImage src='/uploads/images/categories/sui-dhaga.jpg' alt='image' width={664} height={751} className='group-hover:brightness-50' />
+                  <div className='heading absolute bottom-2 uppercase text-center w-full text-accent group-hover:text-primary font-andika group-hover:font-semibold'>Sui Dhaga</div>
                 </div>
               </div>
             </Link>
@@ -150,8 +150,8 @@ export default function Categories() {
             <Link href='/'>
               <div className='category group'>
                 <div className='image relative h-[351px]'>
-                  <LazyImage src='/uploads/images/categories/sets.jpg' alt='image' width={664} height={751} className='group-hover:brightness-50' />
-                  <div className='heading absolute bottom-2 uppercase text-center w-full text-accent group-hover:text-primary font-andika group-hover:font-semibold'>Sets</div>
+                  <LazyImage src='/uploads/images/categories/navratna-rings.jpg' alt='image' width={664} height={751} className='group-hover:brightness-50' />
+                  <div className='heading absolute bottom-2 uppercase text-center w-full text-accent group-hover:text-primary font-andika group-hover:font-semibold'>Navratna Rings</div>
                 </div>
               </div>
             </Link>
