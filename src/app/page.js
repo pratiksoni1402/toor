@@ -7,6 +7,7 @@ import LazyImage from "./components/lazy-loading/lazy-image";
 import Categories from "./components/home-page/categories";
 import Featured from "./components/featured-product";
 import Image from "next/image";
+
 export default function Home() {
   return (
     <div className="homepage">

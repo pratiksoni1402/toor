@@ -1,9 +1,16 @@
 export const dynamic = 'force-dynamic';
 export const fetchCache = 'force-no-store';
 export const revalidate = 0;
+
+import Dynamic from 'next/dynamic'
 import React from "react";
 import Productlisting from "./_components/product-listing";
-import Filters from "./_components/filters";
+
+const Filters = Dynamic(() => import("./_components/filters"), {
+  ssr: false,
+  loading: <div className=''>Loading...</div>
+})
+
 export default function Listing({ params }) {
   return (
     <div className="product-listing-page">

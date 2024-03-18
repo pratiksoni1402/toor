@@ -33,7 +33,7 @@ export default function Productlisting() {
                 products?.map((item) => (
                   <div className="col" key={item.id}>
                     <div className="product-wrapper">
-                      <Link href='/ghgfhfgh' className="group transition duration-300 ease-in-out hover:outline-blue-500/50" >
+                      <Link href='/' className="group transition duration-300 ease-in-out hover:outline-blue-500/50" >
                         <div className="product">
                           <div className="image relative h-72">
                             <LazyImage src={`${PRODUCT_MEDIA}/${item.image}`} alt='image' width={288} height={288} className="hover:scale-110 hover:ease-in-out hover:transition-all" />

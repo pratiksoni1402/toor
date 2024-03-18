@@ -7,6 +7,7 @@ import React from "react";
 
 export default function QueryClientProviders({ children }) {
   const [queryClient] = useState(() => new QueryClient());
+
   return (
     React.createElement(QueryClientProvider, { client: queryClient },
       children,
