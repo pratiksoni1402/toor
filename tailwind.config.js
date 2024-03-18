@@ -85,6 +85,7 @@ module.exports = {
     },
     extend: {
       colors: {
+        shadow: "var(--box-shadow)",
         border: "var(--border)",
         input: "var(--input)",
         ring: "var(--ring)",

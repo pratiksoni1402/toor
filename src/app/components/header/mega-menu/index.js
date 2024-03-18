@@ -73,7 +73,7 @@ export default function Megamenu() {
 
                     <li className=" hover:font-semibold hover:text-primary py-1" onMouseEnter={() => setRingHovered(`${CATEGORY_MEDIA}/ring-couple.jpg`)} onMouseLeave={() => setRingHovered('/uploads/images/category-images/silver.png')} >
                       <Link href='/couple-bands' className="flex items-center">
-                        <span>Couple Bands</span>
+                        <span>Couple Rings</span>
                       </Link>
                     </li>
                   </ul>

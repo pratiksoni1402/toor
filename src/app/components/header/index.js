@@ -9,12 +9,12 @@ export default function Header() {
       <div className="container">
         <div className="header-wrapper border-b">
           <section>
-            <div className="top-bar bg-transparent flex justify-between items-center">
-              <div></div>
-              <div className="brand-name">
-                <h1 className="font-lora text-5xl text-center text-primary">Brand Name</h1>
+            <div className="top-bar bg-transparent grid grid-cols-3 justify-between items-center">
+              <div className="col"></div>
+              <div className=" col brand-name">
+                <h1 className="font-lora text-4xl text-center text-primary">SS Jewels</h1>
               </div>
-              <div className="user-actions flex items-center">
+              <div className="col user-actions flex justify-end">
                 <div className=' hover:text-primary text-accent'><Wishlistcount /></div>
                 <div className=' hover:text-primary text-accent mx-3'><Cartcount /></div>
                 <div className=' hover:text-primary text-accent'><Useraccount /></div>
