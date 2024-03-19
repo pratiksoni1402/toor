@@ -21,8 +21,12 @@ export const productSelect = {
 export async function Products(filters = {}) {
   let where = `1=1`
 
-  if (filters?.gender || filters?.metal_type) {
+  if (filters?.gender) {
     where += ` AND filter_by_gender = '${filters.gender}'`
+  }
+
+  if (filters?.['metal-type']) {
+    where += ` AND metal_type = '${filters['metal-type']}'`
   }
 
   return await prisma.$queryRawUnsafe(`SELECT * FROM product WHERE ${where}`);
