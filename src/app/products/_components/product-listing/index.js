@@ -8,16 +8,25 @@ import { useQuery } from "@tanstack/react-query";
 import { Button } from "@/components/ui/button";
 import axios from "axios";
 import { PRODUCT_MEDIA } from "@/lib/constants/images";
+import { useSearchParams, usePathname, useRouter } from "next/navigation";
+
 export default function Productlisting() {
+  const searchParams = useSearchParams()
+
   const { isPending, data: products, isError } = useQuery({
-    queryKey: ['product'],
-    queryFn: () =>
-      axios.get('/products/api/get-products')
+    queryKey: ['products', {
+      'gender': searchParams.get('gender'),
+      'metal-type': searchParams.get('metal-type')
+    }],
+    queryFn: ({ queryKey }) =>
+      axios.post('/products/api/get-products', {
+        filters: queryKey[1]
+      })
         .then((response) => {
-          console.log("This is all products", response.data.allProduct)
           return response.data.allProduct
         })
   })
+
   const addToWishlist = (event) => {
     event.preventDefault()
     alert('Default action prevented')
@@ -51,7 +60,7 @@ export default function Productlisting() {
                               <span className="group-hover:text-primary group-hover:font-semibold "><IndianRupee size={14} /></span>
                               <span className="group-hover:text-primary group-hover:font-semibold text-accent text-base font-andika font-semibold block text-center">{item?.price}</span>
                             </div>
-                    
+
                           </div>
                         </div>
                       </Link>

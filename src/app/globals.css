@@ -176,3 +176,12 @@ html {
   before:invisible;
 }
 /* End */
+
+/* Filter Component Styling */
+/* .filter-component .customization section .gender input[type="radio"]{
+  @apply hidden
+} */
+/* .filter-component .customization section .gender .custom-radio{
+  @apply
+} */
+/* End */
