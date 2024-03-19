@@ -5,10 +5,11 @@ export const revalidate = 0;
 import Dynamic from 'next/dynamic'
 import React from "react";
 import Productlisting from "./_components/product-listing";
+import { Skeleton } from '@/components/ui/skeleton';
+// import Productfilters from './_components/filters';
 
-const Filters = Dynamic(() => import("./_components/filters"), {
+const Productfilters = Dynamic(() => import("./_components/filters"), {
   ssr: false,
-  loading: <div className=''>Loading...</div>
 })
 
 export default function Listing({ params }) {
@@ -19,7 +20,7 @@ export default function Listing({ params }) {
           <div className="grid grid-cols-12">
             <div className="col-span-12">
               <div className="component-wrapper mt-5">
-                <Filters />
+                <Productfilters />
               </div>
             </div>
             <div className="col-span-12">
