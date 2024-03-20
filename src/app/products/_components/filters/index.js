@@ -29,6 +29,7 @@ export default function Productfilters({ className, ...props }) {
       weight: (searchParams.get('weight') || '').split(',').filter(y => y)
     }
 
+    // Price Filter
     if (type == 'price') {
       let priceIndex = filters['price'].findIndex(z => z == value)
 
@@ -38,11 +39,15 @@ export default function Productfilters({ className, ...props }) {
         filters['price'].splice(priceIndex, 1)
       }
     }
+    // End
 
+    // Gender Filter
     if (type == 'gender') {
       filters.gender = value
     }
+    // End
 
+    // Metal Color Filter
     if (type == 'metal-color') {
       let index = filters["metal-color"].findIndex(v => v == value)
 
@@ -52,8 +57,9 @@ export default function Productfilters({ className, ...props }) {
         filters['metal-color'].splice(index, 1)
       }
     }
+    // End
 
-
+    // Metal Type Filter
     if (type == 'metal-type') {
       let metalIndex = filters["metal-type"].findIndex(x => x == value)
       if (metalIndex == -1) {
@@ -62,7 +68,9 @@ export default function Productfilters({ className, ...props }) {
         filters['metal-type'].splice(metalIndex, 1)
       }
     }
+    // End
 
+    // Product Weight Filter
     if (type == 'weight') {
       let metalWeight = filters['weight'].findIndex(y => y == value)
       console.log(metalWeight)
@@ -72,12 +80,17 @@ export default function Productfilters({ className, ...props }) {
         filters['weight'].splice(metalWeight, 1);
       }
     }
+    // End
 
+    // Params Updating in URl
     const params = new URLSearchParams(searchParams)
     if (filters[type]) {
-      console.log(filters[type])
+      console.log("Before sending to URL",filters[type])
       if (Array.isArray(filters[type])) {
+      console.log("Checking inside Array Before sending to URL",filters[type])
         if (filters[type].length > 0) {
+      console.log("Checking Length Before sending to URL",filters[type])
+
           params.set(type, filters[type].join(','))
 
         } else {
@@ -92,9 +105,8 @@ export default function Productfilters({ className, ...props }) {
 
     router.replace(pathname + '?' + params.toString())
   }
-  const clearFilter = () =>{
-  
-  }
+  // End
+
   return (
     <div className="filter-component">
       <div className="customization">
@@ -269,7 +281,7 @@ export default function Productfilters({ className, ...props }) {
 
                 </div>
                 <div className="clear-filter-btn text-center pt-5 mb-5 mt-7 border-t" >
-                  <Button className='rounded-none bg-primary text-accent text-base font-andika' onClick={clearFilter}>Clear Filter</Button>
+                  <Button className='rounded-none bg-primary text-accent text-base font-andika'>Clear Filter</Button>
                 </div>
               </section>
               <SheetFooter>

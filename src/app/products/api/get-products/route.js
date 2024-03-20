@@ -5,13 +5,21 @@ import { Products } from "@/db/repositories/product";
 
 export async function POST(request) {
   const requestBody = await request.json();
-  console.log("This is requestbody", requestBody)
+  console.log("Received data from URL in requestBody", requestBody)
   let filters = {}
 
   console.log("requestbody", requestBody)
 
   if (requestBody?.filters?.gender) {
     filters.gender = requestBody.filters.gender
+  }
+
+  if(requestBody?.filters['metal-type']){
+    filters['metal-type'] = requestBody.filters['metal-type']
+  }
+
+  if(requestBody?.filters['metal-color']){
+    filters['metal-color'] = requestBody.filters['metal-color']
   }
 
   const allProduct = await Products(filters);
