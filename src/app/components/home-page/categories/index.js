@@ -14,6 +14,8 @@ export default function Categories() {
   return (
     <div className='categories-swiper'>
       <Swiper
+        // spaceBetween={30}
+        centerInsufficientSlides={true}
         effect={'coverflow'}
         grabCursor={true}
         centeredSlides={true}
@@ -157,7 +159,7 @@ export default function Categories() {
             </Link>
           </div>
         </SwiperSlide>
-        
+
       </Swiper>
       {/* <div className="slider-controler absolute">
         <div className="swiper-button-prev">

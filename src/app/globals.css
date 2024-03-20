@@ -185,3 +185,59 @@ html {
   @apply
 } */
 /* End */
+/* Hide the default radio button */
+input[type="radio"] {
+  display: none;
+}
+
+/* Define custom appearance for the radio button */
+.custom-radio {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid #ccc;
+  position: relative;
+  margin-right: 5px;
+}
+
+/* Define appearance when radio button is checked */
+input[type="radio"]:checked + .radio-label .custom-radio:after {
+  content: '';
+  width: 10px;
+  height: 10px;
+  background-color: var(--primary);
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Hide the default checkbox */
+input[type="checkbox"] {
+  display: none;
+}
+
+/* Define custom appearance for the checkbox */
+.custom-checkbox {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid #ccc;
+  position: relative;
+  margin-right: 8px;
+}
+
+/* Define appearance when checkbox is checked */
+/* Define appearance when checkbox is checked */
+input[type="checkbox"]:checked + .checkbox-label .custom-checkbox:after {
+  content: '\2713'; /* Unicode character for checkmark */
+  font-size: 12px; /* Adjust size as needed */
+  color: var(--primary); /* Color of the checkmark */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+

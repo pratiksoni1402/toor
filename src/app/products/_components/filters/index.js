@@ -135,15 +135,19 @@ export default function Productfilters({ className, ...props }) {
                       <div className="column-heading font-semibold font-lora text-accent text-lg py-2">
                         Gender
                       </div>
-                      <div className="flex items-center">
-                        <input type="radio" id="male" name="gender" value="male" onChange={() => filterProducts('gender', 'male')} />
-                        <label htmlFor="male" className=" hover:cursor-pointer font-andika text-sm items-center px-1">
+                      <div class="flex items-center">
+                        <input type="radio" id="male" hidden name="gender" value="male" onChange={() => filterProducts('gender', 'male')} />
+                        <label for="male" class="flex radio-label hover:cursor-pointer font-andika text-sm items-center px-1">
+                          <span class="custom-radio"></span>
                           Men
                         </label>
                       </div>
+
                       <div className="flex items-center">
-                        <input type="radio" id="female" name="gender" value="female" onChange={() => filterProducts('gender', 'female')} />
-                        <label htmlFor="female" className="font-andika text-sm  hover:cursor-pointer items-center px-1">
+                        <input type="radio" id="female" name="gender" hidden value="female" onChange={() => filterProducts('gender', 'female')} />
+                        <label htmlFor="female" className="flex radio-label hover:cursor-pointer font-andika text-sm items-center px-1">
+                          <span class="custom-radio"></span>
+
                           Women
                         </label>
                       </div>
@@ -157,43 +161,57 @@ export default function Productfilters({ className, ...props }) {
                       </div>
                       <div className="flex items-center">
                         <input type="radio" id="under-10k" name="price" value="10k" onChange={() => filterProducts('price', '0, 10000')} />
-                        <label htmlFor="under-10k" className=" hover:cursor-pointer font-andika text-sm items-center px-1">
+                        <label htmlFor="under-10k" className="flex radio-label  hover:cursor-pointer font-andika text-sm items-center px-1">
+                          <span class="custom-radio"></span>
+
                           Under 10,000
                         </label>
                       </div>
                       <div className="flex items-center">
                         <input type="radio" id="under-20k" name="price" value="20k" onChange={() => filterProducts('price', '10000, 20000')} />
-                        <label htmlFor="under-20k" className=" hover:cursor-pointer font-andika text-sm items-center px-1">
+                        <label htmlFor="under-20k" className="flex radio-label  hover:cursor-pointer font-andika text-sm items-center px-1">
+                          <span class="custom-radio"></span>
+
                           10,000 - 20,000
                         </label>
                       </div>
                       <div className="flex items-center">
                         <input type="radio" id="under-40k" name="price" value="40k" onChange={() => filterProducts('price', '20000, 40000')} />
-                        <label htmlFor="under-40k" className=" hover:cursor-pointer font-andika text-sm items-center px-1">
+                        <label htmlFor="under-40k" className="flex radio-label  hover:cursor-pointer font-andika text-sm items-center px-1">
+                          <span class="custom-radio"></span>
+
                           20,000 - 40,000
                         </label>
                       </div>
                       <div className="flex items-center">
                         <input type="radio" id="under-60k" name="price" value="60k" onChange={() => filterProducts('price', '40000, 60000')} />
-                        <label htmlFor="under-60k" className=" hover:cursor-pointer font-andika text-sm items-center px-1">
+                        <label htmlFor="under-60k" className="flex radio-label  hover:cursor-pointer font-andika text-sm items-center px-1">
+                          <span class="custom-radio"></span>
+
                           40,000 - 60,000
                         </label>
                       </div>
                       <div className="flex items-center">
                         <input type="radio" id="under-80k" name="price" value="80k" onChange={() => filterProducts('price', '60000, 80000')} />
-                        <label htmlFor="under-80k" className=" hover:cursor-pointer font-andika text-sm items-center px-1">
+                        <label htmlFor="under-80k" className="flex radio-label  hover:cursor-pointer font-andika text-sm items-center px-1">
+                          <span class="custom-radio"></span>
+
                           60,000 - 80,000
                         </label>
                       </div>
                       <div className="flex items-center">
                         <input type="radio" id="under-100k" name="price" value="100k" onChange={() => filterProducts('price', '80000 ,100000')} />
-                        <label htmlFor="under-100k" className=" hover:cursor-pointer font-andika text-sm items-center px-1">
+                        <label htmlFor="under-100k" className="flex radio-label  hover:cursor-pointer font-andika text-sm items-center px-1">
+                          <span class="custom-radio"></span>
+
                           80,000 - 1,00,000
                         </label>
                       </div>
                       <div className="flex items-center">
                         <input type="radio" id="above-100k" name="price" value="101k" onChange={() => filterProducts('price', '100000')} />
-                        <label htmlFor="above-100k" className=" hover:cursor-pointer font-andika text-sm items-center px-1">
+                        <label htmlFor="above-100k" className="flex radio-label  hover:cursor-pointer font-andika text-sm items-center px-1">
+                          <span class="custom-radio"></span>
+
                           Above 1,00,000
                         </label>
                       </div>
@@ -205,12 +223,14 @@ export default function Productfilters({ className, ...props }) {
                       <div className="column-heading font-semibold  font-lora text-accent text-lg py-2">
                         Metal Color
                       </div>
-                      <div className="flex items-center">
+                      <div class="flex items-center">
                         <input type="checkbox" id="platinum" name="gender" value="platinum" onChange={() => filterProducts('metal-color', 'platinum')} />
-                        <label htmlFor="platinum" className=" hover:cursor-pointer font-andika text-sm items-center px-1">
+                        <label for="platinum" class="flex checkbox-label hover:cursor-pointer font-andika text-sm items-center px-1">
+                          <span class="custom-checkbox"></span>
                           Platinum
                         </label>
                       </div>
+
                       <div className="flex items-center">
                         <input type="checkbox" id="yellow-gold" name="gender" value="yellow-gold" onChange={() => filterProducts('metal-color', 'yellow-gold')} />
                         <label htmlFor="yellow-gold" className=" hover:cursor-pointer font-andika text-sm items-center px-1">
@@ -259,25 +279,33 @@ export default function Productfilters({ className, ...props }) {
                       </div>
                       <div className="flex items-center">
                         <input type="radio" id="weight-3gm" name="gender" value="3gm" onChange={() => filterProducts('weight', '1, 3')} />
-                        <label htmlFor="weight-3gm" className=" hover:cursor-pointer font-andika text-sm items-center px-1">
+                        <label htmlFor="weight-3gm" className="flex radio-label  hover:cursor-pointer font-andika text-sm items-center px-1">
+                          <span class="custom-radio"></span>
+
                           1.0 gm - 3.0 gm
                         </label>
                       </div>
                       <div className="flex items-center">
                         <input type="radio" id="weight-5gm" name="gender" value="5gm" onChange={() => filterProducts('weight', '3.0, 5.0')} />
-                        <label htmlFor="weight-5gm" className=" hover:cursor-pointer font-andika text-sm items-center px-1">
+                        <label htmlFor="weight-5gm" className="flex radio-label  hover:cursor-pointer font-andika text-sm items-center px-1">
+                          <span class="custom-radio"></span>
+
                           3.0 gm - 5.0 gm
                         </label>
                       </div>
                       <div className="flex items-center">
                         <input type="radio" id="weight-8gm" name="gender" value="8gm" onChange={() => filterProducts('weight', '5.0, 8.0')} />
-                        <label htmlFor="weight-8gm" className=" hover:cursor-pointer font-andika text-sm items-center px-1">
+                        <label htmlFor="weight-8gm" className="flex radio-label  hover:cursor-pointer font-andika text-sm items-center px-1">
+                          <span class="custom-radio"></span>
+
                           5.0 gm - 8.0 gm
                         </label>
                       </div>
                       <div className="flex items-center">
                         <input type="radio" id="weight-12gm" name="gender" value="12gm" onChange={() => filterProducts('weight', '8.0, 12.0')} />
-                        <label htmlFor="weight-12gm" className=" hover:cursor-pointer font-andika text-sm items-center px-1">
+                        <label htmlFor="weight-12gm" className="flex radio-label  hover:cursor-pointer font-andika text-sm items-center px-1">
+                          <span class="custom-radio"></span>
+
                           8.0 gm - 12.0 gm
                         </label>
                       </div>

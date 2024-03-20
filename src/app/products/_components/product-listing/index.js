@@ -47,8 +47,8 @@ export default function Productlisting() {
                     <div className="product-wrapper">
                       <Link href='/' className="group transition duration-300 ease-in-out hover:outline-blue-500/50" >
                         <div className="product">
-                          <div className="image relative h-72">
-                            <LazyImage src={`${PRODUCT_MEDIA}/${item.image}`} alt='image' width={288} height={288} className="hover:scale-110 hover:ease-in-out hover:transition-all" />
+                          <div className="image relative sm:h-72 h-32">
+                            <LazyImage src={`${PRODUCT_MEDIA}/${item.image}`} alt='image' width={288} height={288} className="hover:scale-110 hover:ease-in-out hover:transition-all sm:w-[288px] sm:h-[288px] h-[300px]" />
                             {/* <span className="absolute right-5 top-5">
                               <Button className='bg-transparent border-0' type='button' onClick={addToWishlist}>
                                 <Heart size={20} />
