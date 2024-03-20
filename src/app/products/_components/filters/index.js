@@ -23,21 +23,22 @@ export default function Productfilters({ className, ...props }) {
   const filterProducts = (type, value) => {
     let filters = {
       gender: searchParams.get('gender'),
-      price: (searchParams.get('price') || '').split(',').filter(z => z),
+      price: searchParams.get('price'),
       'metal-color': (searchParams.get('metal-color') || '').split(',').filter(v => v),
       'metal-type': (searchParams.get('metal-type') || '').split(',').filter(x => x),
-      weight: (searchParams.get('weight') || '').split(',').filter(y => y)
+      weight: searchParams.get('weight')
     }
 
     // Price Filter
     if (type == 'price') {
-      let priceIndex = filters['price'].findIndex(z => z == value)
+      filters['price'] = value
+      // let priceIndex = filters['price'].findIndex(z => z == value)
 
-      if (priceIndex == -1) {
-        filters['price'].push(value);
-      } else {
-        filters['price'].splice(priceIndex, 1)
-      }
+      // if (priceIndex == -1) {
+      //   filters['price'].push(value);
+      // } else {
+      //   filters['price'].splice(priceIndex, 1)
+      // }
     }
     // End
 
@@ -72,24 +73,25 @@ export default function Productfilters({ className, ...props }) {
 
     // Product Weight Filter
     if (type == 'weight') {
-      let metalWeight = filters['weight'].findIndex(y => y == value)
-      console.log(metalWeight)
-      if (metalWeight == -1) {
-        filters['weight'].push(value);
-      } else {
-        filters['weight'].splice(metalWeight, 1);
-      }
+      filters['weight'] = value
+      // let metalWeight = filters['weight'].findIndex(y => y == value)
+      // console.log(metalWeight)
+      // if (metalWeight == -1) {
+      //   filters['weight'].push(value);
+      // } else {
+      //   filters['weight'].splice(metalWeight, 1);
+      // }
     }
     // End
 
     // Params Updating in URl
     const params = new URLSearchParams(searchParams)
     if (filters[type]) {
-      console.log("Before sending to URL",filters[type])
+      console.log("Before sending to URL", filters[type])
       if (Array.isArray(filters[type])) {
-      console.log("Checking inside Array Before sending to URL",filters[type])
+        console.log("Checking inside Array Before sending to URL", filters[type])
         if (filters[type].length > 0) {
-      console.log("Checking Length Before sending to URL",filters[type])
+          console.log("Checking Length Before sending to URL", filters[type])
 
           params.set(type, filters[type].join(','))
 
@@ -106,6 +108,10 @@ export default function Productfilters({ className, ...props }) {
     router.replace(pathname + '?' + params.toString())
   }
   // End
+  // Reset Filter Button
+  const resetFilter = () => {
+    router.replace(pathname)
+  }
 
   return (
     <div className="filter-component">
@@ -150,43 +156,43 @@ export default function Productfilters({ className, ...props }) {
                         Price
                       </div>
                       <div className="flex items-center">
-                        <input type="checkbox" id="under-10k" name="price" value="10k" onChange={() => filterProducts('price', 10000)} />
+                        <input type="radio" id="under-10k" name="price" value="10k" onChange={() => filterProducts('price', '0, 10000')} />
                         <label htmlFor="under-10k" className=" hover:cursor-pointer font-andika text-sm items-center px-1">
                           Under 10,000
                         </label>
                       </div>
                       <div className="flex items-center">
-                        <input type="checkbox" id="under-20k" name="price" value="20k"  onChange={() => filterProducts('price', 20000)}/>
+                        <input type="radio" id="under-20k" name="price" value="20k" onChange={() => filterProducts('price', '10000, 20000')} />
                         <label htmlFor="under-20k" className=" hover:cursor-pointer font-andika text-sm items-center px-1">
                           10,000 - 20,000
                         </label>
                       </div>
                       <div className="flex items-center">
-                        <input type="checkbox" id="under-40k" name="price" value="40k"  onChange={() => filterProducts('price', 40000)}/>
+                        <input type="radio" id="under-40k" name="price" value="40k" onChange={() => filterProducts('price', '20000, 40000')} />
                         <label htmlFor="under-40k" className=" hover:cursor-pointer font-andika text-sm items-center px-1">
                           20,000 - 40,000
                         </label>
                       </div>
                       <div className="flex items-center">
-                        <input type="checkbox" id="under-60k" name="price" value="60k"  onChange={() => filterProducts('price', 60000)}/>
+                        <input type="radio" id="under-60k" name="price" value="60k" onChange={() => filterProducts('price', '40000, 60000')} />
                         <label htmlFor="under-60k" className=" hover:cursor-pointer font-andika text-sm items-center px-1">
                           40,000 - 60,000
                         </label>
                       </div>
                       <div className="flex items-center">
-                        <input type="checkbox" id="under-80k" name="price" value="80k"  onChange={() => filterProducts('price', 80000)}/>
+                        <input type="radio" id="under-80k" name="price" value="80k" onChange={() => filterProducts('price', '60000, 80000')} />
                         <label htmlFor="under-80k" className=" hover:cursor-pointer font-andika text-sm items-center px-1">
                           60,000 - 80,000
                         </label>
                       </div>
                       <div className="flex items-center">
-                        <input type="checkbox" id="under-100k" name="price" value="100k"  onChange={() => filterProducts('price', 100000)}/>
+                        <input type="radio" id="under-100k" name="price" value="100k" onChange={() => filterProducts('price', '80000 ,100000')} />
                         <label htmlFor="under-100k" className=" hover:cursor-pointer font-andika text-sm items-center px-1">
                           80,000 - 1,00,000
                         </label>
                       </div>
                       <div className="flex items-center">
-                        <input type="checkbox" id="above-100k" name="price" value="101k"  onChange={() => filterProducts('price', 100000)}/>
+                        <input type="radio" id="above-100k" name="price" value="101k" onChange={() => filterProducts('price', '100000')} />
                         <label htmlFor="above-100k" className=" hover:cursor-pointer font-andika text-sm items-center px-1">
                           Above 1,00,000
                         </label>
@@ -252,27 +258,27 @@ export default function Productfilters({ className, ...props }) {
                         Weight
                       </div>
                       <div className="flex items-center">
-                        <input type="checkbox" id="weight-3gm" name="gender" value="3gm" onChange={() => filterProducts('weight', '3.0')} />
+                        <input type="radio" id="weight-3gm" name="gender" value="3gm" onChange={() => filterProducts('weight', '1, 3')} />
                         <label htmlFor="weight-3gm" className=" hover:cursor-pointer font-andika text-sm items-center px-1">
                           1.0 gm - 3.0 gm
                         </label>
                       </div>
                       <div className="flex items-center">
-                        <input type="checkbox" id="weight-5gm" name="gender" value="5gm" onChange={() => filterProducts('weight', '5.0')} />
+                        <input type="radio" id="weight-5gm" name="gender" value="5gm" onChange={() => filterProducts('weight', '3.0, 5.0')} />
                         <label htmlFor="weight-5gm" className=" hover:cursor-pointer font-andika text-sm items-center px-1">
-                          3.0 (gm) - 5.0 (gm)
+                          3.0 gm - 5.0 gm
                         </label>
                       </div>
                       <div className="flex items-center">
-                        <input type="checkbox" id="weight-8gm" name="gender" value="8gm" onChange={() => filterProducts('weight', '8.0')} />
+                        <input type="radio" id="weight-8gm" name="gender" value="8gm" onChange={() => filterProducts('weight', '5.0, 8.0')} />
                         <label htmlFor="weight-8gm" className=" hover:cursor-pointer font-andika text-sm items-center px-1">
-                          5.0 (gm) - 8.0 (gm)
+                          5.0 gm - 8.0 gm
                         </label>
                       </div>
                       <div className="flex items-center">
-                        <input type="checkbox" id="weight-12gm" name="gender" value="12gm" onChange={() => filterProducts('weight', '12.0')} />
+                        <input type="radio" id="weight-12gm" name="gender" value="12gm" onChange={() => filterProducts('weight', '8.0, 12.0')} />
                         <label htmlFor="weight-12gm" className=" hover:cursor-pointer font-andika text-sm items-center px-1">
-                          8.0 (gm) - 12.0 (gm)
+                          8.0 gm - 12.0 gm
                         </label>
                       </div>
 
@@ -281,7 +287,7 @@ export default function Productfilters({ className, ...props }) {
 
                 </div>
                 <div className="clear-filter-btn text-center pt-5 mb-5 mt-7 border-t" >
-                  <Button className='rounded-none bg-primary text-accent text-base font-andika'>Clear Filter</Button>
+                  <Button className='rounded-none bg-primary text-accent text-base font-andika' onClick={resetFilter}>Clear Filter</Button>
                 </div>
               </section>
               <SheetFooter>

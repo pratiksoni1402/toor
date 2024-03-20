@@ -18,12 +18,18 @@ export const productSelect = {
 }
 
 export async function Products(filters = {}) {
-  console.log('This is filter',filters)
+  console.log('This is filter', filters)
   let where = `1=1`;
 
   // Gender Query
   if (filters?.gender) {
     where += ` AND filter_by_gender = '${filters.gender}'`;
+  }
+  // End
+
+  // Filter by Price
+  if (filters['price']) {
+    where += `AND price  >= '${filters['price'].split(',')[0]}' AND price <= '${filters['price'].split(',')[1]}'`;
   }
   // End
 
@@ -34,12 +40,16 @@ export async function Products(filters = {}) {
   // End
 
   // Metal Color Query
-  if(filters['metal-color']) {
+  if (filters['metal-color']) {
     where += `AND metal_color in (${filters['metal-color'].split(',').map(x => `'${x}'`).join(',')})`;
   }
   // End
-  
-  
+
+  // Filter by Weight
+  if (filters['weight']) {
+    where += `AND total_weight >= '${filters['weight'].split(',')[0]}' AND total_weight <= '${filters['weight'].split(',')[1]}'`;
+  }
+  // End
 
   return await prisma.$queryRawUnsafe(`SELECT * FROM product WHERE ${where}`);
 }

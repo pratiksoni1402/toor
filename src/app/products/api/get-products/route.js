@@ -14,12 +14,20 @@ export async function POST(request) {
     filters.gender = requestBody.filters.gender
   }
 
-  if(requestBody?.filters['metal-type']){
+  if (requestBody?.filters['metal-type']) {
     filters['metal-type'] = requestBody.filters['metal-type']
   }
 
-  if(requestBody?.filters['metal-color']){
+  if (requestBody?.filters['metal-color']) {
     filters['metal-color'] = requestBody.filters['metal-color']
+  }
+
+  if (requestBody?.filters['price']) {
+    filters['price'] = requestBody.filters['price']
+  }
+
+  if (requestBody?.filters['weight']) {
+    filters['weight'] = requestBody.filters['weight']
   }
 
   const allProduct = await Products(filters);

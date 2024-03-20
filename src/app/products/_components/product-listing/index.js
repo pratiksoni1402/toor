@@ -17,7 +17,9 @@ export default function Productlisting() {
     queryKey: ['products', {
       'gender': searchParams.get('gender'),
       'metal-type': searchParams.get('metal-type'),
-      'metal-color': searchParams.get('metal-color')
+      'metal-color': searchParams.get('metal-color'),
+      'price': searchParams.get('price'),
+      'weight': searchParams.get('weight')
     }],
     queryFn: ({ queryKey }) =>
       axios.post('/products/api/get-products', {
