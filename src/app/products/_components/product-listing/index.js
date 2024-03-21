@@ -57,7 +57,7 @@ export default function Productlisting() {
                           </div>
                           <div className="detail">
                             <div className="name">
-                              <span className="group-hover:text-primary group-hover:font-semibold text-accent text-base font-andika block text-center">{item?.name}</span>
+                              <span className="group-hover:text-primary group-hover:font-semibold text-accent leading-[21px] text-base font-andika block text-center">{item?.name}</span>
                             </div>
                             <div className="price flex items-center justify-center">
                               <span className="group-hover:text-primary group-hover:font-semibold "><IndianRupee size={14} /></span>

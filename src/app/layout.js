@@ -2,7 +2,7 @@ import QueryClientProvider from "@/provider/query-client";
 import Header from "./components/header";
 import Footer from "./components/footer";
 
-import { ITALIANNO, LORA, ANDIKA, TANGERINE } from "./fonts";
+import { ITALIANNO, LORA, ANDIKA, TANGERINE, CRIMSON, ROBOTO } from "./fonts";
 
 import "./globals.css";
 
@@ -14,7 +14,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${LORA.variable} ${ANDIKA.variable} ${TANGERINE.variable}`}>
+      <body className={`${CRIMSON.variable} ${ROBOTO.variable} ${TANGERINE.variable}`}>
         <QueryClientProvider>
           <Header />
           {children}

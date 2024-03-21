@@ -18,8 +18,16 @@ export default function Listing({ params }) {
       <div className="container">
         <div className="customization">
           <div className="grid grid-cols-12">
-            <div className="col-span-12">
-              <div className="component-wrapper mt-5">
+            <div className='col-span-12'>
+              <div className='product-category-name'>
+                <div className='name text-center font-lora text-3xl pb-3 text-accent'>
+                  <h1>Engagement Rings</h1>
+                </div>
+                <div className='description text-center font-andika text-base text-accent'>Discover captivating designs adorned with rare gemstones, intricate detailing, and unconventional settings that defy tradition. Each ring is a statement of love as unique as your bond, promising a lifetime of enchantment and admiration.</div>
+              </div>
+            </div>
+            <div className="col-span-12 sticky top-0 bg-white z-[2]">
+              <div className="component-wrapper my-3">
                 <Productfilters />
               </div>
             </div>

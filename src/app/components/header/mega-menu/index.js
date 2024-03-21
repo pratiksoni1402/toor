@@ -25,15 +25,15 @@ export default function Megamenu() {
         <NavigationMenuList>
 
           <NavigationMenuItem>
-            <NavigationMenuTrigger className='menu-trigger hover:font-semibold text-base border-b-2 border-transparent hover:bg-white rounded-none hover:border-b-2 hover:border-primary bg-transparent font-andika' title='Rings'>
-              <span title="Rings" className="make-bold-props ">Rings</span>
+            <NavigationMenuTrigger className='menu-trigger text-base border-b-2 border-transparent hover:bg-white rounded-none hover:border-b-2 hover:border-primary bg-transparent' title='Rings'>
+              <span title="Rings" className="make-bold-props font-normal text-base">Rings</span>
             </NavigationMenuTrigger>
             <NavigationMenuContent>
               <div className="section-two grid grid-cols-12 text-base gap-5">
 
                 <div className="col-span-2">
-                  <h2 className="pt-5 px-5 text-accent font-semibold font-andika text-base">Shop By Style</h2>
-                  <ul className="px-5 text-accent font-andika text-base">
+                  <h2 className="pt-5 px-5 text-accent font-semibold font-roboto text-base">Shop By Style</h2>
+                  <ul className="px-5 text-accent font-roboto text-base">
 
                     <li className=" hover:font-semibold hover:text-primary py-1" onMouseEnter={() => setRingHovered(`${CATEGORY_MEDIA}/ring-engagement.jpg`)} onMouseLeave={() => setRingHovered('/uploads/images/category-images/silver.png')} >
                       <Link href='/engagement-rings' className="flex items-center">
@@ -80,8 +80,8 @@ export default function Megamenu() {
                 </div>
 
                 <div className="col-span-2">
-                  <h2 className="pt-5 px-5 text-accent font-semibold font-andika text-base">Shop By Metal</h2>
-                  <ul className="px-5 text-accent font-andika text-base">
+                  <h2 className="pt-5 px-5 text-accent font-semibold font-roboto text-base">Shop By Metal</h2>
+                  <ul className="px-5 text-accent font-roboto text-base">
 
                     <li className=" hover:font-semibold hover:text-primary py-1" onMouseEnter={() => setRingHovered(`${CATEGORY_MEDIA}/ring-platinum.jpg`)} onMouseLeave={() => setRingHovered('/uploads/images/category-images/silver.png')} >
                       <Link href='/platinum' className="flex items-center">
@@ -129,8 +129,8 @@ export default function Megamenu() {
                   }
                 </div>
                 <div className="col-span-2">
-                  <h2 className="pt-5 px-5 text-accent font-semibold font-andika text-base">Shop By Price</h2>
-                  <ul className="px-5 text-accent font-andika text-base">
+                  <h2 className="pt-5 px-5 text-accent font-semibold font-roboto text-base">Shop By Price</h2>
+                  <ul className="px-5 text-accent font-roboto text-base">
                     <li className=" hover:font-semibold hover:text-primary pt-3"><Link href='/'>Under 10K</Link></li>
                     <li className=" hover:font-semibold hover:text-primary pt-3"><Link href='/'>10K - 20K</Link></li>
                     <li className=" hover:font-semibold hover:text-primary pt-3"><Link href='/'>20K - 30K</Link></li>
@@ -146,15 +146,15 @@ export default function Megamenu() {
           </NavigationMenuItem>
 
           <NavigationMenuItem>
-            <NavigationMenuTrigger className=' menu-trigger text-base  hover:font-semibold  border-b-2 border-transparent hover:bg-white rounded-none hover:border-b-2 hover:border-primary bg-transparent font-andika'>
+            <NavigationMenuTrigger className=' menu-trigger text-base  hover:font-semibold  border-b-2 border-transparent hover:bg-white rounded-none hover:border-b-2 hover:border-primary bg-transparent font-roboto'>
               <span title="Earrings" className="make-bold-props ">Earrings</span>
             </NavigationMenuTrigger>
             <NavigationMenuContent className='w-full'>
               <div className="section-one grid grid-cols-12 gap-5">
 
                 <div className="col-span-2">
-                  <h2 className="pt-5 px-5 text-accent font-semibold font-andika text-base">Shop By Style</h2>
-                  <ul className="px-5 text-accent font-andika text-base">
+                  <h2 className="pt-5 px-5 text-accent font-semibold font-roboto text-base">Shop By Style</h2>
+                  <ul className="px-5 text-accent font-roboto text-base">
 
                     <li className=" hover:font-semibold hover:text-primary">
                       <Link href='/engagement-rings' className="flex items-center" onMouseEnter={() => setEarringHovered(`${CATEGORY_MEDIA}/all-earring.jpg`)} onMouseLeave={() => setEarringHovered('/uploads/images/mega-menu/earring.jpg')} >
@@ -207,8 +207,8 @@ export default function Megamenu() {
                 </div>
 
                 <div className="col-span-2">
-                  <h2 className="pt-5 px-5 text-accent font-semibold font-andika text-base">Shop By Metal</h2>
-                  <ul className="px-5 text-accent font-andika text-base">
+                  <h2 className="pt-5 px-5 text-accent font-semibold font-roboto text-base">Shop By Metal</h2>
+                  <ul className="px-5 text-accent font-roboto text-base">
                     <li className=" hover:font-semibold hover:text-primary" onMouseEnter={() => setEarringHovered(`${CATEGORY_MEDIA}/earring-platinum.jpg`)} onMouseLeave={() => setEarringHovered('/uploads/images/mega-menu/earring.jpg')} >
                       <Link href='/' className="flex items-center">
                         <span>Platinum</span>
@@ -255,8 +255,8 @@ export default function Megamenu() {
                 </div>
 
                 <div className="col-span-2">
-                  <h2 className="pt-5 px-5 text-accent font-semibold font-andika text-base">Shop By Price</h2>
-                  <ul className="px-5 text-accent font-andika text-base">
+                  <h2 className="pt-5 px-5 text-accent font-semibold font-roboto text-base">Shop By Price</h2>
+                  <ul className="px-5 text-accent font-roboto text-base">
                     <li className=" hover:font-semibold hover:text-primary pt-3"><Link href='/'>Under 10K</Link></li>
                     <li className=" hover:font-semibold hover:text-primary pt-3"><Link href='/'>10K - 20K</Link></li>
                     <li className=" hover:font-semibold hover:text-primary pt-3"><Link href='/'>20K - 30K</Link></li>
@@ -271,15 +271,15 @@ export default function Megamenu() {
           </NavigationMenuItem>
 
           <NavigationMenuItem>
-            <NavigationMenuTrigger className='menu-trigger text-base  hover:font-semibold  border-b-2 border-transparent hover:bg-white rounded-none hover:border-b-2 hover:border-primary bg-transparent font-andika'>
+            <NavigationMenuTrigger className='menu-trigger text-base  hover:font-semibold  border-b-2 border-transparent hover:bg-white rounded-none hover:border-b-2 hover:border-primary bg-transparent font-roboto'>
               <span title="Necklaces" className="make-bold-props ">Necklaces</span>
             </NavigationMenuTrigger>
             <NavigationMenuContent>
               <div className="section-two grid grid-cols-12 gap-5">
 
                 <div className="col-span-2">
-                  <h2 className="pt-5 px-5 text-accent font-semibold font-andika text-base">Shop By Style</h2>
-                  <ul className="px-5 text-accent font-andika text-base">
+                  <h2 className="pt-5 px-5 text-accent font-semibold font-roboto text-base">Shop By Style</h2>
+                  <ul className="px-5 text-accent font-roboto text-base">
 
                     <li className=" hover:font-semibold hover:text-primary" onMouseEnter={() => setNecklaceHovered(`${CATEGORY_MEDIA}/necklace-collar.jpg`)} onMouseLeave={() => setNecklaceHovered('/uploads/images/mega-menu/necklace.jpg')}>
                       <Link href='/' className="flex items-center">
@@ -308,8 +308,8 @@ export default function Megamenu() {
                 </div>
 
                 <div className="col-span-2">
-                  <h2 className="pt-5 px-5 text-accent font-semibold font-andika text-base">Shop By Metal</h2>
-                  <ul className="px-5 text-accent font-andika text-base">
+                  <h2 className="pt-5 px-5 text-accent font-semibold font-roboto text-base">Shop By Metal</h2>
+                  <ul className="px-5 text-accent font-roboto text-base">
 
                     <li className=" hover:font-semibold hover:text-primary pt-3" onMouseEnter={() => setNecklaceHovered(`${CATEGORY_MEDIA}/necklace-platinum.jpg`)} onMouseLeave={() => setNecklaceHovered('/uploads/images/mega-menu/necklace.jpg')}>
                       <Link href='/' className="flex items-center">
@@ -357,8 +357,8 @@ export default function Megamenu() {
                 </div>
 
                 <div className="col-span-2">
-                  <h2 className="pt-5 px-5 text-accent font-semibold font-andika text-base">Shop By Price</h2>
-                  <ul className="px-5 text-accent font-andika text-base">
+                  <h2 className="pt-5 px-5 text-accent font-semibold font-roboto text-base">Shop By Price</h2>
+                  <ul className="px-5 text-accent font-roboto text-base">
                     <li className=" hover:font-semibold hover:text-primary pt-3"><Link href='/'>Under 50K</Link></li>
                     <li className=" hover:font-semibold hover:text-primary pt-3"><Link href='/'>50K - 60K</Link></li>
                     <li className=" hover:font-semibold hover:text-primary pt-3"><Link href='/'>60K - 70K</Link></li>
@@ -374,15 +374,15 @@ export default function Megamenu() {
           </NavigationMenuItem>
 
           <NavigationMenuItem>
-            <NavigationMenuTrigger className='menu-trigger text-base hover:font-semibold border-b-2 border-transparent hover:bg-white rounded-none hover:border-b-2 hover:border-primary bg-transparent font-andika'>
+            <NavigationMenuTrigger className='menu-trigger text-base hover:font-semibold border-b-2 border-transparent hover:bg-white rounded-none hover:border-b-2 hover:border-primary bg-transparent font-roboto'>
               <span title="Bracelets" className="make-bold-props ">Bracelets</span>
             </NavigationMenuTrigger>
             <NavigationMenuContent>
               <div className="section-two grid grid-cols-12 gap-5">
 
                 <div className="col-span-2">
-                  <h2 className="pt-5 px-5 text-accent font-semibold font-andika text-base">Shop By Style</h2>
-                  <ul className="px-5 text-accent font-andika text-base">
+                  <h2 className="pt-5 px-5 text-accent font-semibold font-roboto text-base">Shop By Style</h2>
+                  <ul className="px-5 text-accent font-roboto text-base">
 
                     <li className=" hover:font-semibold hover:text-primary" onMouseEnter={() => setBraceletHovered(`${CATEGORY_MEDIA}/bracelet-chain.jpg`)} onMouseLeave={() => setBraceletHovered('/uploads/images/mega-menu/bracelet.jpg')}>
                       <Link href='/' className="flex items-center">
@@ -423,8 +423,8 @@ export default function Megamenu() {
                 </div>
 
                 <div className="col-span-2">
-                  <h2 className="pt-5 px-5 text-accent font-semibold font-andika text-base">Shop By Metal</h2>
-                  <ul className="px-5 text-accent font-andika text-base">
+                  <h2 className="pt-5 px-5 text-accent font-semibold font-roboto text-base">Shop By Metal</h2>
+                  <ul className="px-5 text-accent font-roboto text-base">
 
                     <li className=" hover:font-semibold hover:text-primary pt-3" onMouseEnter={() => setBraceletHovered(`${CATEGORY_MEDIA}/bracelet-platinum.jpg`)} onMouseLeave={() => setBraceletHovered('/uploads/images/mega-menu/bracelet.jpg')}>
                       <Link href='/' className="flex items-center">
@@ -472,8 +472,8 @@ export default function Megamenu() {
                 </div>
 
                 <div className="col-span-2">
-                  <h2 className="pt-5 px-5 text-accent font-semibold font-andika text-base">Shop By Price</h2>
-                  <ul className="px-5 text-accent font-andika text-base">
+                  <h2 className="pt-5 px-5 text-accent font-semibold font-roboto text-base">Shop By Price</h2>
+                  <ul className="px-5 text-accent font-roboto text-base">
                     <li className=" hover:font-semibold hover:text-primary pt-3"><Link href='/'>Under 50K</Link></li>
                     <li className=" hover:font-semibold hover:text-primary pt-3"><Link href='/'>50K - 60K</Link></li>
                     <li className=" hover:font-semibold hover:text-primary pt-3"><Link href='/'>60K - 70K</Link></li>

@@ -5,7 +5,7 @@ export default function Wishlistcount() {
   return (
     <div className="wishlist-count">
       <div className="wrapper">
-        <Link href='/'>
+        <Link href='/wishlist'>
         <Heart />
         </Link>
       </div>

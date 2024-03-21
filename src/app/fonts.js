@@ -1,20 +1,4 @@
-import { Italiana, Lora, Andika, Tangerine } from "next/font/google";
-
-export const LORA = Lora({
-    subsets: ['latin'],
-    display: 'swap',
-    weight: ['400', '500', '600', '700'],
-    style: ['normal', 'italic'],
-    variable: '--heading-font-lora',
-})
-
-export const ANDIKA = Andika({
-    subsets: ['latin'],
-    display: 'swap',
-    weight: ['400', '700'],
-    style: ['normal', 'italic'],
-    variable: '--text-font-andika',
-})
+import {Tangerine, Crimson_Pro, Roboto } from "next/font/google";
 
 export const TANGERINE = Tangerine({
     subsets: ['latin'],
@@ -22,6 +6,22 @@ export const TANGERINE = Tangerine({
     weight: ['400', '700'],
     style:['normal'],
     variable: '--logo-font-tangerine'
+})
+
+export const CRIMSON = Crimson_Pro({
+    subsets: ['latin'],
+    display: 'swap',
+    weight: ['200', '300', '400', '500', '600', '700', '800', '900'],
+    style:['normal'],
+    variable: '--heading-font-crimson',
+})
+
+export const ROBOTO = Roboto({
+    subsets:['latin'],
+    display:'swap',
+    weight:['400', '500', '700', '900'],
+    style:['normal'],
+    variable: '--text-font-roboto',
 })
 
 

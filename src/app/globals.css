@@ -75,19 +75,11 @@ html {
   }
 }
 
-/* @layer base {
-  * {
-    @apply border-border;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
-} */
-
+/* Mega Menu Styling */
 
 /* Create Account Form Styling */
 .create-account-page .register-form-wrapper .heading h1 {
-  @apply text-accent font-lora text-center my-10 text-2xl
+  @apply text-accent font-crimson text-center my-10 text-2xl
 }
 
 .create-account-page section {
@@ -109,7 +101,7 @@ html {
 }
 
 .create-account-page .register-form-wrapper .create-account-form form input {
-  @apply h-10 px-2 mb-3 bg-background border-t-0 border-l-0 border-r-0 font-andika
+  @apply h-10 px-2 mb-3 bg-background border-t-0 border-l-0 border-r-0 font-roboto
 }
 
 .create-account-page .register-form-wrapper .create-account-form form input:focus {
@@ -117,7 +109,7 @@ html {
 }
 
 .create-account-page .register-form-wrapper .create-account-form form button {
-  @apply mt-10 mb-3 rounded-none font-andika text-base bg-accent text-white
+  @apply mt-10 mb-3 rounded-none font-roboto text-base bg-accent text-white
 }
 
 .create-account-page .register-form-wrapper .create-account-form form button:hover {
@@ -132,7 +124,7 @@ html {
 }
 
 .login-page .login-form-wrapper .heading h1 {
-  @apply text-accent font-lora text-center text-2xl py-5
+  @apply text-accent font-crimson text-center text-2xl py-5
 }
 
 .login-page .login-form-wrapper {
@@ -149,7 +141,7 @@ html {
 }
 
 .login-page .login-form-wrapper .login-form form input {
-  @apply h-10 px-2 mb-3 bg-background border-t-0 border-l-0 border-r-0 font-andika
+  @apply h-10 px-2 mb-3 bg-background border-t-0 border-l-0 border-r-0 font-roboto
 }
 
 .login-page .login-form-wrapper .login-form form input:focus {
@@ -157,7 +149,7 @@ html {
 }
 
 .login-page .login-form-wrapper .login-form form button {
-  @apply mt-8 mb-3 rounded-none font-andika text-base bg-accent text-white
+  @apply mt-8 mb-3 rounded-none font-roboto text-base bg-accent text-white
 }
 
 .login-page .login-form-wrapper .login-form form button:hover {
@@ -170,74 +162,43 @@ html {
 .make-bold-props {
   @apply before:block
   before:content-[attr(title)]
-  before:font-bold
   before:h-0
   before:overflow-hidden
   before:invisible;
 }
 /* End */
 
-/* Filter Component Styling */
-/* .filter-component .customization section .gender input[type="radio"]{
-  @apply hidden
-} */
-/* .filter-component .customization section .gender .custom-radio{
-  @apply
-} */
-/* End */
-/* Hide the default radio button */
+/* Filter Component Radio Button Styling */
 input[type="radio"] {
-  display: none;
+  @apply hidden
 }
 
-/* Define custom appearance for the radio button */
+
 .custom-radio {
-  display: inline-block;
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  border: 2px solid #ccc;
-  position: relative;
-  margin-right: 5px;
+  @apply inline-block w-4 h-4 border-2 border-[#ccc] rounded-full relative mr-1
 }
 
-/* Define appearance when radio button is checked */
-input[type="radio"]:checked + .radio-label .custom-radio:after {
-  content: '';
-  width: 10px;
-  height: 10px;
-  background-color: var(--primary);
-  border-radius: 50%;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+
+input[type="radio"]:checked + .radio-label .custom-radio{
+  @apply after:content-[''] after:w-[10px] after:h-[10px] after:bg-primary after:rounded-full after:absolute after:top-1/2 after:left-1/2 after:-translate-x-1/2 after:-translate-y-1/2  
 }
 
-/* Hide the default checkbox */
+/* Filter Component Checkbox Styling */
 input[type="checkbox"] {
-  display: none;
+  @apply hidden
 }
 
-/* Define custom appearance for the checkbox */
 .custom-checkbox {
-  display: inline-block;
-  width: 16px;
-  height: 16px;
-  border: 2px solid #ccc;
-  position: relative;
-  margin-right: 8px;
+  @apply inline-block w-4 h-4 border-2 border-[#ccc] relative mr-1
+
+}
+input[type="checkbox"]:checked + .checkbox-label .custom-checkbox {
+  @apply bg-primary 
+
 }
 
-/* Define appearance when checkbox is checked */
-/* Define appearance when checkbox is checked */
-input[type="checkbox"]:checked + .checkbox-label .custom-checkbox:after {
-  content: '\2713'; /* Unicode character for checkmark */
-  font-size: 12px; /* Adjust size as needed */
-  color: var(--primary); /* Color of the checkmark */
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+input[type="checkbox"]:checked + .checkbox-label .custom-checkbox{
+  @apply after:content-[''] after:text-sm after:text-accent after:absolute after:bg-primary after:top-1/2 after:left-1/2 after:-translate-x-1/2 after:-translate-y-1/2
+
 }
 
