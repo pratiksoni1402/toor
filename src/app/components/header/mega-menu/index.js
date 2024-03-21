@@ -26,7 +26,7 @@ export default function Megamenu() {
 
           <NavigationMenuItem>
             <NavigationMenuTrigger className='menu-trigger text-base border-b-2 border-transparent hover:bg-white rounded-none hover:border-b-2 hover:border-primary bg-transparent' title='Rings'>
-              <span title="Rings" className="make-bold-props font-normal text-base">Rings</span>
+              <span title="Rings" className="make-bold-props font-normal">Rings</span>
             </NavigationMenuTrigger>
             <NavigationMenuContent>
               <div className="section-two grid grid-cols-12 text-base gap-5">
@@ -147,7 +147,7 @@ export default function Megamenu() {
 
           <NavigationMenuItem>
             <NavigationMenuTrigger className=' menu-trigger text-base  hover:font-semibold  border-b-2 border-transparent hover:bg-white rounded-none hover:border-b-2 hover:border-primary bg-transparent font-roboto'>
-              <span title="Earrings" className="make-bold-props ">Earrings</span>
+              <span title="Earrings" className="make-bold-props  font-normal">Earrings</span>
             </NavigationMenuTrigger>
             <NavigationMenuContent className='w-full'>
               <div className="section-one grid grid-cols-12 gap-5">
@@ -272,7 +272,7 @@ export default function Megamenu() {
 
           <NavigationMenuItem>
             <NavigationMenuTrigger className='menu-trigger text-base  hover:font-semibold  border-b-2 border-transparent hover:bg-white rounded-none hover:border-b-2 hover:border-primary bg-transparent font-roboto'>
-              <span title="Necklaces" className="make-bold-props ">Necklaces</span>
+              <span title="Necklaces" className="make-bold-props  font-normal">Necklaces</span>
             </NavigationMenuTrigger>
             <NavigationMenuContent>
               <div className="section-two grid grid-cols-12 gap-5">
@@ -375,7 +375,7 @@ export default function Megamenu() {
 
           <NavigationMenuItem>
             <NavigationMenuTrigger className='menu-trigger text-base hover:font-semibold border-b-2 border-transparent hover:bg-white rounded-none hover:border-b-2 hover:border-primary bg-transparent font-roboto'>
-              <span title="Bracelets" className="make-bold-props ">Bracelets</span>
+              <span title="Bracelets" className="make-bold-props  font-normal">Bracelets</span>
             </NavigationMenuTrigger>
             <NavigationMenuContent>
               <div className="section-two grid grid-cols-12 gap-5">
