@@ -20,8 +20,8 @@ html {
     --primary-text: #353535;
     --secondary-text: #d1ad8f;
 
-    --primary: #d1ad8f;
-    --primary-foreground: 210 40% 98%;
+    --primary: #754b2f;
+    --primary-foreground: #f0e6e0;
 
     --box-shadow: #d1ad8f;
 
@@ -162,6 +162,7 @@ html {
   @apply before:block
   before:content-[attr(title)]
   before:h-0
+  before:font-bold
   before:overflow-hidden
   before:invisible;
 }

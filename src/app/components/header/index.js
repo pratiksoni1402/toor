@@ -22,7 +22,7 @@ export default function Header() {
                   <div className=' hover:text-primary text-accent'>
                       <Wishlistcount size={14} />
                   </div>
-                  <div className=' hover:text-primary text-accent mx-3'><Cartcount size={14} /></div>
+                  <div className=' hover:text-primary text-accent mx-3'><Cartcount size={14}/></div>
                   <div className=' hover:text-primary text-accent'><Useraccount size={14} /></div>
                   <div className='mobile-menu lg:hidden md:block block hover:text-primary text-accent'><Mobilemenu /></div>
                 </div>

@@ -3,158 +3,94 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import LazyImage from "@/app/components/lazy-loading/lazy-image";
 import { IndianRupee } from "lucide-react";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog";
+import './style.css'
 export default function Wishlistproduct() {
   return (
     <div className="wishlist-product-component">
       <div className="content-wrapper">
-        <div className="page-heading border-b text-center font-crimson text-accent text-3xl">
+        <div className="page-heading">
           <h1>Your Wishlist</h1>
         </div>
         <div className="wishlist-items ">
-          <div className="product-wrapper py-10 border-b">
+          <div className="product-wrapper">
             <div className="grid grid-cols-12 gap-5">
               <div className="col-span-3">
-                <div className="image relative h-60 ">
+                <div className="image-wrapper ">
                   <LazyImage src='/uploads/images/products/SOL-RG-003.jpg' width={160} height={160} alt='Image' />
                 </div>
               </div>
               <div className="col-span-7">
-                <div className="detail text-accent text-base">
+                <div className="detail">
                   <div className="name">
-                    <h2 className="font-crimson text-2xl font-semibold">Lorem ipsum dolor sit amet consectetur adipisicing elit.</h2>
+                    <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h2>
                   </div>
                   <div className="description">
-                    <p className="leading-5 mr-5 font-roboto py-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni vel molestias distinctio nisi cumque voluptatum cum error ratione natus non.</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni vel molestias distinctio nisi cumque voluptatum cum error ratione natus non.</p>
                   </div>
-                  <div className="sku font-roboto text-base">
-                    <span className="font-semibold pr-1">SKU:</span>
-                    <span>RG-001</span>
+                  <div className="attribute">
+                    <span className="caption">SKU:</span>
+                    <span className="value">RG-001</span>
                   </div>
-                  <div className="metal-color font-roboto text-base">
-                    <span className="font-semibold pr-1">Metal Color:</span>
-                    <span>Rose Gold</span>
+                  <div className="attribute">
+                    <span className="caption">Metal Color:</span>
+                    <span className="value">Rose Gold</span>
                   </div>
-                  <div className="metal-type font-roboto text-base">
-                    <span className="font-semibold pr-1">Metal Type:</span>
-                    <span>22K</span>
+                  <div className="attribute">
+                    <span className="caption">Metal Type:</span>
+                    <span className="value">22K</span>
                   </div>
-                  <div className="weight font-roboto text-base">
-                    <span className="font-semibold pr-1">Weight:</span>
-                    <span>4.150gm</span>
+                  <div className="attribute">
+                    <span className="caption">Weight:</span>
+                    <span className="value">4.150gm</span>
                   </div>
                 </div>
               </div>
               <div className="col-span-2">
                 <div>
-                  <div className="pricing flex items-center font-semibold text-base justify-end font-roboto text-accent">
+                  <div className="pricing">
                     <span><IndianRupee size={14} /></span>
                     <span>56,250</span>
                   </div>
-                  <div className="user-actions mt-20 text-right flex flex-col">
-                    <Button className='rounded-none inline bg-white pr-0 font-roboto justify-end font-normal text-base text-accent text-right hover:underline hover:text-primary'>View</Button>
-                    <Button className='mt-[-10px] rounded-none inline bg-white pr-0 font-roboto justify-end font-normal text-base text-accent text-right hover:underline hover:text-primary'>Move to cart</Button>
-                    <Button className='mt-[-10px] rounded-none inline bg-white pr-0 font-roboto justify-end font-normal text-base text-accent text-right hover:underline hover:text-primary'>Delete from wishlist</Button>
+                  <div className="user-actions">
+                    <Button>View</Button>
+                    <Button>Move to cart</Button>
+                    <AlertDialog >
+                      <AlertDialogTrigger>
+                        Delete from Wishlist
+                      </AlertDialogTrigger>
+                      <AlertDialogContent className=' bg-white rounded-none w-72'>
+                        <AlertDialogHeader>
+                          <AlertDialogTitle className='font-roboto text-center text-base text-accent'>
+                            Are you absolutely sure?
+                          </AlertDialogTitle>
+                        </AlertDialogHeader>
+                        <AlertDialogFooter className=' flex sm:justify-start justify-start flex-col space-x-0 sm:flex-col sm:space-x-0'>
+                          <AlertDialogAction className='rounded-none sm:mb-3 mb-2 hover:font-semibold inline bg-white font-roboto justify-end font-normal text-base text-accent bg-primary hover:text-accent hover:bg-primary-foreground text-white py-0'>
+                            Remove
+                          </AlertDialogAction>
+                          <AlertDialogCancel className='rounded-none inline bg-white font-roboto hover:font-semibold  justify-end font-normal text-base text-accent bg-primary-foreground border-0 hover:bg-primary hover:text-white py-0'>
+                            Cancel
+                          </AlertDialogCancel>
+                        </AlertDialogFooter>
+                      </AlertDialogContent>
+                    </AlertDialog>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <div className="product-wrapper py-10 border-b">
-            <div className="grid grid-cols-12 gap-5">
-              <div className="col-span-3">
-                <div className="image relative h-60 ">
-                  <LazyImage src='/uploads/images/products/SOL-RG-003.jpg' width={160} height={160} alt='Image' />
-                </div>
-              </div>
-              <div className="col-span-7">
-                <div className="detail text-accent text-base">
-                  <div className="name">
-                    <h2 className="font-crimson text-2xl font-semibold">Lorem ipsum dolor sit amet consectetur adipisicing elit.</h2>
-                  </div>
-                  <div className="description">
-                    <p className="leading-5 mr-5 font-roboto py-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni vel molestias distinctio nisi cumque voluptatum cum error ratione natus non.</p>
-                  </div>
-                  <div className="sku font-roboto text-base">
-                    <span className="font-semibold pr-1">SKU:</span>
-                    <span>RG-001</span>
-                  </div>
-                  <div className="metal-color font-roboto text-base">
-                    <span className="font-semibold pr-1">Metal Color:</span>
-                    <span>Rose Gold</span>
-                  </div>
-                  <div className="metal-type font-roboto text-base">
-                    <span className="font-semibold pr-1">Metal Type:</span>
-                    <span>22K</span>
-                  </div>
-                  <div className="weight font-roboto text-base">
-                    <span className="font-semibold pr-1">Weight:</span>
-                    <span>4.150gm</span>
-                  </div>
-                </div>
-              </div>
-              <div className="col-span-2">
-                <div>
-                  <div className="pricing flex items-center font-semibold text-base justify-end font-roboto text-accent">
-                    <span><IndianRupee size={14} /></span>
-                    <span>56,250</span>
-                  </div>
-                  <div className="user-actions mt-20 text-right flex flex-col">
-                    <Button className='rounded-none inline bg-white pr-0 font-roboto justify-end font-normal text-base text-accent text-right hover:underline hover:text-primary'>View</Button>
-                    <Button className='mt-[-10px] rounded-none inline bg-white pr-0 font-roboto justify-end font-normal text-base text-accent text-right hover:underline hover:text-primary'>Move to cart</Button>
-                    <Button className='mt-[-10px] rounded-none inline bg-white pr-0 font-roboto justify-end font-normal text-base text-accent text-right hover:underline hover:text-primary'>Delete from wishlist</Button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="product-wrapper py-10 border-b">
-            <div className="grid grid-cols-12 gap-5">
-              <div className="col-span-3">
-                <div className="image relative h-60 ">
-                  <LazyImage src='/uploads/images/products/SOL-RG-003.jpg' width={160} height={160} alt='Image' />
-                </div>
-              </div>
-              <div className="col-span-7">
-                <div className="detail text-accent text-base">
-                  <div className="name">
-                    <h2 className="font-crimson text-2xl font-semibold">Lorem ipsum dolor sit amet consectetur adipisicing elit.</h2>
-                  </div>
-                  <div className="description">
-                    <p className="leading-5 mr-5 font-roboto py-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni vel molestias distinctio nisi cumque voluptatum cum error ratione natus non.</p>
-                  </div>
-                  <div className="sku font-roboto text-base">
-                    <span className="font-semibold pr-1">SKU:</span>
-                    <span>RG-001</span>
-                  </div>
-                  <div className="metal-color font-roboto text-base">
-                    <span className="font-semibold pr-1">Metal Color:</span>
-                    <span>Rose Gold</span>
-                  </div>
-                  <div className="metal-type font-roboto text-base">
-                    <span className="font-semibold pr-1">Metal Type:</span>
-                    <span>22K</span>
-                  </div>
-                  <div className="weight font-roboto text-base">
-                    <span className="font-semibold pr-1">Weight:</span>
-                    <span>4.150gm</span>
-                  </div>
-                </div>
-              </div>
-              <div className="col-span-2">
-                <div>
-                  <div className="pricing flex items-center font-semibold text-base justify-end font-roboto text-accent">
-                    <span><IndianRupee size={14} /></span>
-                    <span>56,250</span>
-                  </div>
-                  <div className="user-actions mt-20 text-right flex flex-col">
-                    <Button className='rounded-none inline bg-white pr-0 font-roboto justify-end font-normal text-base text-accent text-right hover:underline hover:text-primary'>View</Button>
-                    <Button className='mt-[-10px] rounded-none inline bg-white pr-0 font-roboto justify-end font-normal text-base text-accent text-right hover:underline hover:text-primary'>Move to cart</Button>
-                    <Button className='mt-[-10px] rounded-none inline bg-white pr-0 font-roboto justify-end font-normal text-base text-accent text-right hover:underline hover:text-primary'>Delete from wishlist</Button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+
         </div>
 
       </div>
