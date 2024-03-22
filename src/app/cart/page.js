@@ -1,3 +1,6 @@
+export const dynamic = 'force-dynamic';
+export const fetchCache = 'force-no-store';
+export const revalidate = 0;
 import Cartproduct from "./_component/cart-product";
 import Bill from "./_component/bill";
 export default function Cart() {

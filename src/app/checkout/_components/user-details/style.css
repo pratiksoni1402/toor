@@ -1,0 +1,18 @@
+.user-details-component .form-wrapper form input{
+  @apply w-full h-10 outline-0 border my-3 px-3 text-accent font-roboto placeholder:font-roboto
+}
+
+.user-details-component .form-wrapper form input:focus{
+  @apply border border-primary
+}
+.user-details-component .form-wrapper form select{
+  @apply w-full h-10 placeholder:text-accent font-roboto  bg-white border px-2 text-accent hover:cursor-pointer
+}
+
+.user-details-component .form-wrapper form select:focus{
+  @apply outline-0 cursor-pointer border border-primary
+}
+
+.user-details-component .form-wrapper form select option{
+  @apply  hover:cursor-pointer
+}

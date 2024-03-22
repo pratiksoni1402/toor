@@ -2,7 +2,7 @@ import QueryClientProvider from "@/provider/query-client";
 import Header from "./components/header";
 import Footer from "./components/footer";
 
-import { ITALIANNO, LORA, ANDIKA, TANGERINE, CRIMSON, ROBOTO } from "./fonts";
+import { TANGERINE, CRIMSON, ROBOTO } from "./fonts";
 
 import "./globals.css";
 

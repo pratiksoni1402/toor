@@ -8,21 +8,21 @@ export default function Header() {
   return (
     <div className="app-header">
       <div className="container">
-        <div className="header-wrapper py-3">
+        <div className="header-wrapper pt-3">
           <section>
             <div className="top-bar bg-transparent grid sm:grid-cols-3 grid-cols-2 justify-between items-center">
               <div className="col sm:block hidden"></div>
               <div className=" col">
                 <Link href='/'>
-                  <h1 className="font-lora sm:text-4xl text-2xl sm:text-center text-left text-primary">SS Jewels</h1>
+                  <h1 className="font-crimson sm:text-4xl text-2xl sm:text-center text-left text-primary">SS Jewels</h1>
                 </Link>
               </div>
               <div className="col">
                 <div className=" user-actions flex justify-end items-center">
                   <div className=' hover:text-primary text-accent'>
-                      <Wishlistcount size={14} />
+                    <Wishlistcount size={14} />
                   </div>
-                  <div className=' hover:text-primary text-accent mx-3'><Cartcount size={14}/></div>
+                  <div className=' hover:text-primary text-accent mx-3'><Cartcount size={14} /></div>
                   <div className=' hover:text-primary text-accent'><Useraccount size={14} /></div>
                   <div className='mobile-menu lg:hidden md:block block hover:text-primary text-accent'><Mobilemenu /></div>
                 </div>

@@ -3,20 +3,19 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import LazyImage from '@/app/components/lazy-loading/lazy-image';
 import Link from 'next/link';
+import './style.css';
+import { EffectCoverflow, Pagination, Navigation, Autoplay} from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
-import { EffectCoverflow, Pagination, Navigation } from 'swiper/modules';
-import { ArrowLeftCircle } from 'lucide-react';
-import { ArrowRightCircle } from 'lucide-react';
+ 
 export default function Categories() {
   return (
     <div className='categories-swiper'>
       <Swiper
-        // spaceBetween={30}
-        centerInsufficientSlides={true}
-        effect={'coverflow'}
+        spaceBetween={10}
+        effect={'EffectCoverflow'}
         grabCursor={true}
         centeredSlides={true}
         loop={true}
@@ -47,19 +46,22 @@ export default function Categories() {
             slidesPerView: 5,
           },
         }}
-        coverflowEffect={{
-          rotate: 0,
-          stretch: 0,
-          depth: 100,
-          modifier: 2.5,
+
+        autoplay={{
+          delay: 3000, 
+          disableOnInteraction: false,
+          stopOnLastSlide: false, 
+          reverseDirection: false,
         }}
+
         pagination={{ el: '.swiper-pagination', clickable: true }}
         navigation={{
           nextEl: '.swiper-button-next',
           prevEl: '.swiper-button-prev',
           clickable: true,
+
         }}
-        modules={[EffectCoverflow, Pagination, Navigation]}
+        modules={[EffectCoverflow, Pagination, Navigation, Autoplay]}
         className="swiper_container"
       >
 
@@ -75,6 +77,7 @@ export default function Categories() {
             </Link>
           </div>
         </SwiperSlide>
+
         <SwiperSlide>
           <div className='category-wrapper'>
             <Link href='/'>
@@ -87,6 +90,7 @@ export default function Categories() {
             </Link>
           </div>
         </SwiperSlide>
+
         <SwiperSlide>
           <div className='category-wrapper'>
             <Link href='/'>
@@ -99,6 +103,7 @@ export default function Categories() {
             </Link>
           </div>
         </SwiperSlide>
+
         <SwiperSlide>
           <div className='category-wrapper'>
             <Link href='/'>
@@ -111,6 +116,7 @@ export default function Categories() {
             </Link>
           </div>
         </SwiperSlide>
+
         <SwiperSlide>
           <div className='category-wrapper'>
             <Link href='/'>
@@ -123,6 +129,7 @@ export default function Categories() {
             </Link>
           </div>
         </SwiperSlide>
+
         <SwiperSlide>
           <div className='category-wrapper'>
             <Link href='/'>
@@ -135,6 +142,7 @@ export default function Categories() {
             </Link>
           </div>
         </SwiperSlide>
+
         <SwiperSlide>
           <div className='category-wrapper'>
             <Link href='/'>
@@ -147,6 +155,7 @@ export default function Categories() {
             </Link>
           </div>
         </SwiperSlide>
+
         <SwiperSlide>
           <div className='category-wrapper'>
             <Link href='/'>
@@ -159,17 +168,8 @@ export default function Categories() {
             </Link>
           </div>
         </SwiperSlide>
-
+        
       </Swiper>
-      {/* <div className="slider-controler absolute">
-        <div className="swiper-button-prev">
-          <ArrowLeftCircle />
-        </div>
-        <div className="swiper-button-next">
-          <ArrowRightCircle size={14}/>
-        </div>
-        <div className="swiper-pagination"></div>
-      </div> */}
     </div>
 
   );
