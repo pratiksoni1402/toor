@@ -15,6 +15,7 @@ import {
 } from "@/components/ui/sheet";
 import { useRouter } from "next/navigation";
 import { usePathname, useSearchParams } from "next/navigation";
+import './style.css';
 export default function Productfilters({ className, ...props }) {
   const router = useRouter();
   const pathname = usePathname();
