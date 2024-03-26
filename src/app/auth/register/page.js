@@ -36,6 +36,11 @@ export default function Login() {
                 })} />
                 <input type="password" placeholder="Password" {...register("password", { required: true, minLength: 8, maxLength: 20 })} />
                 <input type="password" placeholder="Confirm Password" {...register("confirmPassword", { required: true, minLength: 8, maxLength: 20 })} />
+
+                <div className='password-standard font-andika text-accent text-base leading-5'>
+                  <span className='block'>Password must be minimum 8 character long</span>
+                  <span className='block'>Password must contain numbers, alphabets, special characters</span>
+                </div>
                 <Button type="submit">Create Account</Button>
               </form>
 

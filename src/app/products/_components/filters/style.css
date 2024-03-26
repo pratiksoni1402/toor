@@ -1,0 +1,33 @@
+/* Filter Component Radio Button Styling */
+input[type="radio"] {
+  @apply hidden
+}
+
+
+.custom-radio {
+  @apply inline-block w-4 h-4 border-2 border-[#ccc] rounded-full relative mr-1
+}
+
+
+input[type="radio"]:checked + .radio-label .custom-radio{
+  @apply after:content-[''] after:w-[10px] after:h-[10px] after:bg-primary after:rounded-full after:absolute after:top-1/2 after:left-1/2 after:-translate-x-1/2 after:-translate-y-1/2  
+}
+
+/* Filter Component Checkbox Styling */
+input[type="checkbox"] {
+  @apply hidden
+}
+
+.custom-checkbox {
+  @apply inline-block w-4 h-4 border-2 border-[#ccc] relative mr-1
+
+}
+input[type="checkbox"]:checked + .checkbox-label .custom-checkbox {
+  @apply bg-primary 
+
+}
+
+input[type="checkbox"]:checked + .checkbox-label .custom-checkbox{
+  @apply after:content-[''] after:text-sm after:text-accent after:absolute after:bg-primary after:top-1/2 after:left-1/2 after:-translate-x-1/2 after:-translate-y-1/2
+
+}

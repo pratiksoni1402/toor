@@ -85,6 +85,7 @@ module.exports = {
     },
     extend: {
       colors: {
+        shadow: "var(--box-shadow)",
         border: "var(--border)",
         input: "var(--input)",
         ring: "var(--ring)",
@@ -139,8 +140,8 @@ module.exports = {
         "accordion-up": "accordion-up 0.2s ease-out",
       },
       fontFamily: {
-        ['lora']: ['var(--heading-font-lora)'],
-        ['andika']: ['var(--text-font-andika)'],
+        ['crimson']: ['var(--heading-font-crimson)'],
+        ['roboto']: ['var(--text-font-roboto)'],
         ['tangerine']: ['var(--logo-font-tangerine)'],
       },
     },

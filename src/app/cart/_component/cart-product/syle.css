@@ -1,0 +1,65 @@
+.cart-product-component .cart-items .product-wrapper{
+  @apply  py-10 border-b
+}
+
+.cart-product-component .cart-items .product-wrapper .image-wrapper{
+  @apply  relative h-60 
+}
+
+/* ----------------------------------- */
+/* Item Detail Styling */
+.cart-product-component .cart-items .product-wrapper .detail{
+  @apply  text-accent text-base
+}
+
+.cart-product-component .cart-items .product-wrapper .detail .name h2{ 
+  @apply font-crimson text-2xl font-semibold
+}
+
+.cart-product-component .cart-items .product-wrapper .detail .description p{
+  @apply leading-5 mr-5 font-roboto py-1
+}
+
+.cart-product-component .cart-items .product-wrapper .detail .attribute{
+  @apply font-roboto text-base
+}
+
+.cart-product-component .cart-items .product-wrapper .detail .attribute .caption{
+  @apply font-semibold pr-1
+}
+
+.cart-product-component .cart-items .product-wrapper .quantity-wrapper{
+  @apply  text-accent font-roboto text-base
+}
+
+.cart-product-component .cart-items .product-wrapper .quantity-wrapper .caption{
+  @apply font-semibold text-accent font-roboto text-base
+}
+
+.cart-product-component .cart-items .product-wrapper .quantity-wrapper .quantity-variation span{
+@apply w-5 mx-5 font-semibold
+}
+
+.cart-product-component .cart-items .product-wrapper .quantity-wrapper .quantity-variation button{
+  @apply rounded-none w-[33px] h-[33px] items-center text-2xl bg-primary-foreground text-accent hover:bg-primary hover:text-white
+}
+/* Item Detail Styling End*/
+/* --------------------------------- */
+
+/* ---------------------------------- */
+/* Pricing and Button Styling */
+.cart-product-component .cart-items .product-wrapper .pricing{
+  @apply flex items-center font-semibold text-base justify-end font-roboto text-accent
+}
+
+.cart-product-component .cart-items .product-wrapper .user-actions{
+  @apply  mt-20 text-right flex flex-col
+}
+
+.cart-product-component .cart-items .product-wrapper .user-actions button{
+  @apply rounded-none inline bg-white pr-0 font-roboto justify-end font-normal text-base text-accent text-right hover:underline hover:text-primary py-0
+}
+
+/* Pricing and Button Styling End */
+/* --------------------------------- */
+

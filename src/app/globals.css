@@ -20,8 +20,10 @@ html {
     --primary-text: #353535;
     --secondary-text: #d1ad8f;
 
-    --primary: #d1ad8f;
-    --primary-foreground: 210 40% 98%;
+    --primary: #754b2f;
+    --primary-foreground: #f0e6e0;
+
+    --box-shadow: #d1ad8f;
 
     --secondary: #d1ad8f;
     --secondary-foreground: 222.2 47.4% 11.2%;
@@ -29,7 +31,7 @@ html {
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
 
-    --accent: #353535;
+    --accent: #4b4537;
     --accent-foreground: 222.2 47.4% 11.2%;
 
     --destructive: 0 84.2% 60.2%;
@@ -73,19 +75,10 @@ html {
   }
 }
 
-/* @layer base {
-  * {
-    @apply border-border;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
-} */
-
 
 /* Create Account Form Styling */
 .create-account-page .register-form-wrapper .heading h1 {
-  @apply text-accent font-lora text-center my-10 text-2xl
+  @apply text-accent font-crimson text-center my-10 text-2xl
 }
 
 .create-account-page section {
@@ -107,7 +100,7 @@ html {
 }
 
 .create-account-page .register-form-wrapper .create-account-form form input {
-  @apply h-10 px-2 mb-3 bg-background border-t-0 border-l-0 border-r-0 font-andika
+  @apply h-10 px-2 mb-3 bg-background border-t-0 border-l-0 border-r-0 font-roboto
 }
 
 .create-account-page .register-form-wrapper .create-account-form form input:focus {
@@ -115,7 +108,7 @@ html {
 }
 
 .create-account-page .register-form-wrapper .create-account-form form button {
-  @apply mt-10 mb-3 rounded-none font-andika text-base bg-accent text-white
+  @apply mt-10 mb-3 rounded-none font-roboto text-base bg-accent text-white
 }
 
 .create-account-page .register-form-wrapper .create-account-form form button:hover {
@@ -130,7 +123,7 @@ html {
 }
 
 .login-page .login-form-wrapper .heading h1 {
-  @apply text-accent font-lora text-center text-2xl py-5
+  @apply text-accent font-crimson text-center text-2xl py-5
 }
 
 .login-page .login-form-wrapper {
@@ -147,7 +140,7 @@ html {
 }
 
 .login-page .login-form-wrapper .login-form form input {
-  @apply h-10 px-2 mb-3 bg-background border-t-0 border-l-0 border-r-0 font-andika
+  @apply h-10 px-2 mb-3 bg-background border-t-0 border-l-0 border-r-0 font-roboto
 }
 
 .login-page .login-form-wrapper .login-form form input:focus {
@@ -155,7 +148,7 @@ html {
 }
 
 .login-page .login-form-wrapper .login-form form button {
-  @apply mt-8 mb-3 rounded-none font-andika text-base bg-accent text-white
+  @apply mt-8 mb-3 rounded-none font-roboto text-base bg-accent text-white
 }
 
 .login-page .login-form-wrapper .login-form form button:hover {
@@ -168,9 +161,11 @@ html {
 .make-bold-props {
   @apply before:block
   before:content-[attr(title)]
-  before:font-bold
   before:h-0
+  before:font-bold
   before:overflow-hidden
   before:invisible;
 }
 /* End */
+
+

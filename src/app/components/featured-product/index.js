@@ -48,8 +48,8 @@ export default function Featured() {
               <div className='image relative h-[250px]'>
                 <LazyImage src='/uploads/images/products/ER001-RG.jpg' alt='image' width={250} height={250} />
               </div>
-              <div className='name text-accent font-andika text-center'>Rose Gold Earrings</div>
-              <div className='price text-accent font-andika text-center'>45700</div>
+              <div className='name text-accent text-base font-roboto text-center'>Rose Gold Earrings</div>
+              <div className='price text-accent font-roboto text-base  text-center'>45700</div>
             </div>
           </Link>
         </div>
@@ -61,8 +61,8 @@ export default function Featured() {
               <div className='image relative h-[250px]'>
                 <LazyImage src='/uploads/images/products/ER001-YG.jpg' alt='image' width={250} height={250} />
               </div>
-              <div className='name text-accent font-andika text-center'>Rose Gold Earrings</div>
-              <div className='price text-accent font-andika text-center'>45700</div>
+              <div className='name text-accent font-roboto  text-base text-center'>Rose Gold Earrings</div>
+              <div className='price text-accent font-roboto  text-base text-center'>45700</div>
             </div>
           </Link>
         </div>
@@ -74,8 +74,8 @@ export default function Featured() {
               <div className='image relative h-[250px]'>
                 <LazyImage src='/uploads/images/products/ER001-WG.jpg' alt='image' width={250} height={250} />
               </div>
-              <div className='text-accent font-andika text-center name'>Rose Gold Earrings</div>
-              <div className='text-accent font-andika text-center price'>45700</div>
+              <div className='text-accent font-roboto text-center text-base  name'>Rose Gold Earrings</div>
+              <div className='text-accent font-roboto text-center  text-base price'>45700</div>
             </div>
           </Link>
         </div>
@@ -87,8 +87,8 @@ export default function Featured() {
               <div className='image relative h-[250px]'>
                 <LazyImage src='/uploads/images/products/ER002-YG.jpg' alt='image' width={250} height={250} />
               </div>
-              <div className='text-accent font-andika text-center name'>Rose Gold Earrings</div>
-              <div className='text-accent font-andika text-center price'>45700</div>
+              <div className='text-accent font-roboto text-center  text-base name'>Rose Gold Earrings</div>
+              <div className='text-accent font-roboto text-center text-base  price'>45700</div>
             </div>
           </Link>
         </div>
@@ -100,8 +100,8 @@ export default function Featured() {
               <div className='image relative h-[250px]'>
                 <LazyImage src='/uploads/images/products/ER003-RG.jpg' alt='image' width={250} height={250} />
               </div>
-              <div className='text-accent font-andika text-center name'>Rose Gold Earrings</div>
-              <div className='text-accent font-andika text-center price'>45700</div>
+              <div className='text-accent font-roboto text-center  text-base name'>Rose Gold Earrings</div>
+              <div className='text-accent font-roboto text-center  text-base price'>45700</div>
             </div>
           </Link>
         </div>
@@ -113,8 +113,8 @@ export default function Featured() {
               <div className='image relative h-[250px]'>
                 <LazyImage src='/uploads/images/products/ER004-RG.jpg' alt='image' width={250} height={250} />
               </div>
-              <div className='text-accent font-andika text-center name'>Rose Gold Earrings</div>
-              <div className='text-accent font-andika text-center price'>45700</div>
+              <div className='text-accent font-roboto text-center  text-base name'>Rose Gold Earrings</div>
+              <div className='text-accent font-roboto text-center text-base  price'>45700</div>
             </div>
           </Link>
         </div>
@@ -126,8 +126,8 @@ export default function Featured() {
               <div className='image relative h-[250px]'>
                 <LazyImage src='/uploads/images/products/ER005-CRB-RG.jpg' alt='image' width={250} height={250} />
               </div>
-              <div className='text-accent font-andika text-center name'>Rose Gold Earrings</div>
-              <div className='text-accent font-andika text-center price'>45700</div>
+              <div className='text-accent font-roboto text-center  text-base name'>Rose Gold Earrings</div>
+              <div className='text-accent font-roboto text-center  text-base price'>45700</div>
             </div>
           </Link>
         </div>
@@ -139,8 +139,8 @@ export default function Featured() {
               <div className='image relative h-[250px]'>
                 <LazyImage src='/uploads/images/products/ER005-CRB-YG.jpg' alt='image' width={250} height={250} />
               </div>
-              <div className='text-accent font-andika text-center name'>Rose Gold Earrings</div>
-              <div className='text-accent font-andika text-center price'>45700</div>
+              <div className='text-accent font-roboto text-center  text-base name'>Rose Gold Earrings</div>
+              <div className='text-accent font-roboto text-center  text-base price'>45700</div>
             </div>
           </Link>
         </div>
@@ -152,8 +152,8 @@ export default function Featured() {
               <div className='image relative h-[250px]'>
                 <LazyImage src='/uploads/images/products/ER006-DT-RG.jpg' alt='image' width={250} height={250} />
               </div>
-              <div className='text-accent font-andika text-center name'>Rose Gold Earrings</div>
-              <div className='text-accent font-andika text-center price'>45700</div>
+              <div className='text-accent font-roboto text-center text-base name'>Rose Gold Earrings</div>
+              <div className='text-accent font-roboto text-center text-base price'>45700</div>
             </div>
           </Link>
         </div>

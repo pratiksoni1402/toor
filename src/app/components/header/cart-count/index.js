@@ -5,7 +5,7 @@ export default function Cartcount() {
   return (
     <div className="cart-count">
       <div className="wrapper">
-        <Link href='/'>
+        <Link href='/cart'>
           <ShoppingBag />
         </Link>
       </div>
