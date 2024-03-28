@@ -7,13 +7,13 @@ export default function Checkout() {
   return (
     <div className="checkout-page">
       <div className="container">
-        <div className="grid grid-cols-12 gap-5">
-          <div className="col-span-5">
+        <div className="grid grid-cols-12 md:gap-5 sm:gap-0 gap-0">
+          <div className="md:col-span-5 sm:col-span-12 col-span-12 md:order-1 sm:order-2 order-2">
             <div className="component-wrapper">
               <Userdetails />
             </div>
           </div>
-          <div className="col-span-7">
+          <div className="md:col-span-7 sm:col-span-12 col-span-12 md:order-2 sm:order-1 order-1">
             <div className="component-wrapper">
               <Orderbag />
             </div>

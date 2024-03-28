@@ -28,7 +28,7 @@ export default function Home() {
         {/* Category Section */}
         <section>
           <div className="category-wrapper">
-            <h2 className="text-center mt-10 text-4xl text-accent font-crimson mb-5">Shop by Category</h2>
+            <h2 className="text-center mt-10 text-4xl text-primary font-crimson mb-5">Shop by Category</h2>
             <div className="mb-10">
               <Categories />
             </div>
@@ -49,7 +49,7 @@ export default function Home() {
               </div>
               <div className="sm:col-span-6 col-span-12">
                 <div className="content-wrapper text-accent h-full flex flex-col justify-center">
-                  <h2 className="font-crimson md:text-4xl sm:text-3xl text-2xl font-semibold sm:pt-0 pt-4">Story of Our Brand</h2>
+                  <h2 className="font-crimson md:text-4xl sm:text-3xl text-2xl text-primary sm:pt-0 pt-4">Story of Our Brand</h2>
                   <p className="font-roboto text-base">We are passionate about creating beautiful, high-quality jewelry that reflects your unique style. Our founder, Pratik Soni, has been creating jewelry since He was young and started the brand to share his passion with the world. We hand-select the finest materials to create stylish designs that are both beautiful and affordable.</p>
                 </div>
               </div>
@@ -77,7 +77,7 @@ export default function Home() {
       <div className="container">
         <section>
           <div className="featured-product my-10">
-            <div className="heading pb-5 text-center text-accent sm:text-3xl text-2xl font-crimson">Featured Products</div>
+          <h2 className="font-crimson md:text-4xl sm:text-3xl text-2xl text-primary sm:pt-0 text-center py-4">Featured Product</h2>
             <Featured />
           </div>
         </section>
@@ -105,7 +105,7 @@ export default function Home() {
         <section>
           <div className="shop-by-gender mt-10 pt-10">
             <div className="heading pb-5">
-              <h2 className="text-center text-3xl text-accent font-crimson">Shop by Gender</h2>
+            <h2 className="font-crimson md:text-4xl sm:text-3xl text-2xl text-primary sm:pt-0 text-center py-4">Shop By Gender</h2>
             </div>
             <div className="grid grid-cols-2 gap-5">
               <div className="md:col-span-1 col-span-2">
