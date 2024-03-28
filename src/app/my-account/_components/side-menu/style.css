@@ -1,0 +1,15 @@
+.side-menu-component .menu-wrapper .menu{
+  @apply pt-5
+}
+
+.side-menu-component .menu-wrapper .menu ul{
+  @apply text-xl text-accent font-crimson
+}
+
+.side-menu-component .menu-wrapper .menu ul li{
+  @apply py-2 hover:cursor-pointer  hover:font-semibold border-b-2 border-primary-foreground
+}
+
+.side-menu-component .menu-wrapper .menu ul li a{
+  @apply block
+}

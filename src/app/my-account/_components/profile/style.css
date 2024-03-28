@@ -1,0 +1,22 @@
+.profile-component .profile-wrapper .heading h1{
+@apply text-center text-primary font-crimson text-3xl my-3
+}
+.profile-component .profile-wrapper form input, select{ 
+@apply w-full h-10 border my-3 outline-0 px-2 font-roboto text-accent
+}
+
+.profile-component .profile-wrapper form input:focus{
+@apply border border-primary
+}
+
+.profile-component .profile-wrapper form select{ 
+@apply bg-white outline-0 text-accent hover:cursor-pointer
+}
+
+.profile-component .profile-wrapper form select:focus{
+  @apply border border-primary
+}
+
+.profile-component .profile-wrapper form button{
+  @apply rounded-none w-full mt-5 bg-primary-foreground text-accent hover:bg-primary hover:text-white font-roboto text-base hover:transition hover:duration-500 
+}
