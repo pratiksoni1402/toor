@@ -1,11 +1,11 @@
 export const dynamic = 'force-dynamic';
 export const fetchCache = 'force-no-store';
 export const revalidate = 0;
-import Profile from "./_components/profile";
-export default function Myaccount() {
+import Orderhistory from "../_components/order-history";
+export default function Previousorders() {
   return (
     <div>
-      <Profile/>
+      <Orderhistory/>
     </div>
   )
 }

@@ -1,11 +1,11 @@
 export const dynamic = 'force-dynamic';
 export const fetchCache = 'force-no-store';
 export const revalidate = 0;
-import Profile from "./_components/profile";
-export default function Myaccount() {
+import Wishlistproduct from "../_components/wishlist";
+export default function Userwishlist() {
   return (
     <div>
-      <Profile/>
+      <Wishlistproduct />
     </div>
   )
 }

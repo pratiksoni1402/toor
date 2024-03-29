@@ -12,8 +12,9 @@ export default function Myaccount({ children }) {
           </div>
           <div className="col-span-9">
             <div className="component-wrapper">
-              <div className="child-wrapper"></div>
-              {children}
+              <div className="child-wrapper">
+                {children}
+              </div>
             </div>
           </div>
         </div>

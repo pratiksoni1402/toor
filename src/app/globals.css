@@ -75,6 +75,27 @@ html {
   }
 }
 
+/* width */
+::-webkit-scrollbar {
+  @apply w-3
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+ @apply bg-primary-foreground
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  @apply bg-primary rounded-none
+  /* background: #b2937e;
+  border-radius: 5px; */
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background:#b2937e;
+}
 
 /* Create Account Form Styling */
 .create-account-page .register-form-wrapper .heading h1 {
