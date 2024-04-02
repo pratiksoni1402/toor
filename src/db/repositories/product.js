@@ -51,6 +51,6 @@ export async function Products(filters = {}) {
   }
   // End
 
-  return await prisma.$queryRawUnsafe(`SELECT * FROM product WHERE ${where}`);
+    return await prisma.$queryRawUnsafe(`SELECT * FROM product WHERE ${where}`);
 }
 

@@ -30,10 +30,10 @@ export default function Productlisting() {
         })
   })
 
-  const addToWishlist = (event) => {
-    event.preventDefault()
-    alert('Default action prevented')
-  }
+  // const addToWishlist = (event) => {
+  //   event.preventDefault()
+  //   alert('Default action prevented')
+  // }
 
   return (
     <div className="product-listing-component">

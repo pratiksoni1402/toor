@@ -72,7 +72,7 @@ export default function Bill() {
           </div>
         </div>
         <div className='checkout'>
-          <Link href='/' className='checkout-link'>Proceed to Checkout</Link>
+          <Link href='/checkout' className='checkout-link'>Proceed to Checkout</Link>
         </div>
       </div>
     </div>

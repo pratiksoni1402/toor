@@ -1,15 +1,20 @@
 'use client'
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Switch } from '@/components/ui/switch';
 import { Label } from '@/components/ui/label';
 import { Button } from '@/components/ui/button';
+import { useQuery } from '@tanstack/react-query';
 import './style.css'
+import axios from 'axios';
 export default function Userdetails() {
   const [upiForm, setUpiForm] = useState(false);
   const [cardForm, setCardForm] = useState(false);
   const [showForm, setShowForm] = useState(false);
-  const { register, handleSubmit, formState: { errors } } = useForm();
+  const [province, setProvince] = useState();
+  const { register, watch, handleSubmit, formState: { errors } } = useForm();
+  const selectedCountry = watch("country");
+
   const onSubmit = data => console.log(data);
   console.log(errors);
 
@@ -27,6 +32,39 @@ export default function Userdetails() {
     setCardForm(!cardForm)
   }
 
+  // Fetch Country 
+  const { isPending, data: fetchCountry, isError } = useQuery({
+    queryKey: ['country'],
+    queryFn: () =>
+      axios.get('/checkout/api/get-country')
+        .then((response) => {
+          return response.data.getCountry
+        })
+        .catch((error) => {
+          console.log("Error occured while fetching country", error)
+        })
+  })
+  // End
+
+  useEffect(() => {
+
+    if (selectedCountry) {
+      getStatesByCountry(selectedCountry);
+    }
+  }, [selectedCountry]);
+
+  const getStatesByCountry = (selectedCountry) => {
+    axios.post('/checkout/api/get-state', { country: selectedCountry })
+      .then((response) => {
+        return setProvince(response.data.getState)
+      })
+      .catch((error) => {
+        console.log("Error while fetching state", error)
+      })
+  };
+
+
+
   return (
     <div className="user-details-component">
       <div className='form-wrapper'>
@@ -35,30 +73,59 @@ export default function Userdetails() {
           <div className='Shipping-detail-form'>
             <div className='title text-accent text-2xl font-crimson'>Shipping Detail</div>
             <input type="text" placeholder="First Name" {...register("firstName", { required: true })} />
+            {errors.firstName && <span className='error-message'>This field is required</span>}
             <input type="text" placeholder="Last Name" {...register("Last Name", { required: true })} />
+            {errors.firstName && <span className='error-message'>This field is required</span>}
+
             <input type="email" placeholder="Email " {...register("Email ", {
               required: true, pattern: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/i
             })} />
+            {errors.firstName && <span className='error-message'>This field is required</span>}
+
             <input type="text" placeholder="Address Line One" {...register("Address Line One", { required: true })} />
-            <input type="text" placeholder="Address Line Two" {...register("Address Line Two", {})} />
+            {errors.firstName && <span className='error-message'>This field is required</span>}
+            <input type="text" placeholder="Address Line Two" {...register("Address Line Two", {})} className='mb-5' />
             <div className='grid grid-cols-2 gap-5'>
               <div className='sm:col-span-1 col-span-2'>
-                <select {...register("Country", { required: true })}>
-                  <option value="country">Select Country</option>
-                  <option value="Female">Female</option>
+
+                <select {...register("country", { required: true })}>
+                  <option value="Female" disabled={true}>Select Country</option>
+                  {
+                    fetchCountry && fetchCountry?.map((country) => (
+                      <option value={country.name} key={country.id} >{country.name}</option>
+                    ))
+                  }
                 </select>
+                {errors.firstName && <span className='error-message'>This field is required</span>}
+
               </div>
               <div className='sm:col-span-1 col-span-2'>
+
                 <select {...register("State", { required: true })}>
                   <option value="state">Select State</option>
-                  <option value="Female">Female</option>
+                  {
+                    province && province.map((state) => (
+                      <option value={state.name} key={state.id}>{state.name}</option>
+
+                    ))
+                  }
                 </select>
+                {errors.firstName && <span className='error-message'>This field is required</span>}
+
               </div>
             </div>
             <input type="text" placeholder="City" {...register("City", { required: true })} />
+            {errors.firstName && <span className='error-message'>This field is required</span>}
+
             <input type="text" placeholder="Nearest Landmark" {...register("Nearest Landmark", { required: true })} />
+            {errors.firstName && <span className='error-message'>This field is required</span>}
+
             <input type="text" placeholder="Phone Number" {...register("Phone Number", { required: true })} />
+            {errors.firstName && <span className='error-message'>This field is required</span>}
+
             <input type="text" placeholder="Area Pin Code" {...register("Area Pin Code", { required: true })} />
+            {errors.firstName && <span className='error-message'>This field is required</span>}
+
           </div>
 
           <div className='prompt-button my-5'>
@@ -77,30 +144,59 @@ export default function Userdetails() {
               <div className='Shipping-detail-form'>
                 <div className='title text-accent text-2xl font-crimson'>Billing Detail</div>
                 <input type="text" placeholder="First Name" {...register("firstName", { required: true })} />
+                {errors.firstName && <span className='error-message'>This field is required</span>}
+
                 <input type="text" placeholder="Last Name" {...register("Last Name", { required: true })} />
+                {errors.firstName && <span className='error-message'>This field is required</span>}
+
                 <input type="email" placeholder="Email " {...register("Email ", {
                   required: true, pattern: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/i
                 })} />
+                {errors.firstName && <span className='error-message'>This field is required</span>}
+
                 <input type="text" placeholder="Address Line One" {...register("Address Line One", { required: true })} />
+                {errors.firstName && <span className='error-message'>This field is required</span>}
+
                 <input type="text" placeholder="Address Line Two" {...register("Address Line Two", {})} />
                 <div className='grid grid-cols-2 gap-5'>
                   <div className='sm:col-span-1 col-span-2'>
-                    <select {...register("Country", { required: true })}>
-                      <option value="country">Select Country</option>
-                      <option value="Female">Female</option>
+                    <select {...register("country", { required: true })}>
+                      <option value="Female" disabled={true}>Select Country</option>
+                      {
+                        fetchCountry && fetchCountry?.map((country) => (
+                          <option value={country.name} key={country.id} >{country.name}</option>
+                        ))
+                      }
                     </select>
+                    {errors.firstName && <span className='error-message'>This field is required</span>}
+
                   </div>
                   <div className='sm:col-span-1 col-span-2'>
                     <select {...register("State", { required: true })}>
                       <option value="state">Select State</option>
-                      <option value="Female">Female</option>
+                      {
+                        province && province.map((state) => (
+                          <option value={state.name} key={state.id}>{state.name}</option>
+
+                        ))
+                      }
                     </select>
+                    {errors.firstName && <span className='error-message'>This field is required</span>}
+
                   </div>
                 </div>
                 <input type="text" placeholder="City" {...register("City", { required: true })} />
+                {errors.firstName && <span className='error-message'>This field is required</span>}
+
                 <input type="text" placeholder="Nearest Landmark" {...register("Nearest Landmark", { required: true })} />
+                {errors.firstName && <span className='error-message'>This field is required</span>}
+
                 <input type="text" placeholder="Phone Number" {...register("Phone Number", { required: true })} />
+                {errors.firstName && <span className='error-message'>This field is required</span>}
+
                 <input type="text" placeholder="Area Pin Code" {...register("Area Pin Code", { required: true })} />
+                {errors.firstName && <span className='error-message'>This field is required</span>}
+
               </div>
             )}
           </div>
@@ -113,7 +209,7 @@ export default function Userdetails() {
 
               <div className='upi-payment-method'>
                 <div>
-                  <input {...register("testingOne")} id='upi' name='payment-method-group' type="radio" value="testingOne" onClick={showUpiForm}/>
+                  <input {...register("testingOne")} id='upi' name='payment-method-group' type="radio" value="testingOne" onClick={showUpiForm} />
                   <label htmlFor="upi" className=' px-1 font-roboto text-accent text-base'>UPI</label>
                 </div>
                 <div className='payment-form'>
@@ -134,7 +230,7 @@ export default function Userdetails() {
               </div>
 
               <div className='card-payment-method'>
-                <div>
+                <div className='flex items-center'>
                   <input {...register("testingThree")} id='card' name='payment-method-group' type="radio" value="testingThree" onClick={showCardForm} />
                   <label htmlFor="card" className=' px-1 font-roboto text-accent text-base'>Credit/Debit Card</label>
                 </div>

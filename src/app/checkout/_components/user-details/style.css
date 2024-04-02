@@ -1,5 +1,5 @@
 .user-details-component .form-wrapper form input[type='text'], input[type='email']{
-  @apply w-full h-10 outline-0 border my-3 px-3 text-accent font-roboto placeholder:font-roboto
+  @apply w-full h-10 outline-0 border my-3 px-3 text-accent font-roboto placeholder:font-roboto bg-white
 }
 
 .user-details-component .form-wrapper form input:focus{
@@ -15,4 +15,8 @@
 
 .user-details-component .form-wrapper form select option{
   @apply  hover:cursor-pointer
+}
+
+.user-details-component .form-wrapper form .error-message{
+  @apply  font-roboto text-sm text-red-600  block
 }

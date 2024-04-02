@@ -30,6 +30,7 @@ model Megamenu {
   id          Int    @id @default(autoincrement())
   description String @db.VarChar(200)
   image       String @db.VarChar(50)
+
   @@map("mega_menu")
 }
 
@@ -54,16 +55,18 @@ model Product {
 }
 
 model Country {
-  id   Int    @id @default(autoincrement())
-  name String @db.VarChar(100)
+  id     Int     @id @default(autoincrement())
+  name   String  @db.VarChar(100)
+  states State[]
 
   @@map("country")
 }
 
 model State {
-  id        Int    @id @default(autoincrement())
-  name      String @db.VarChar(100)
-  countryId Int    @map("country_id") @db.Int
+  id          Int     @id @default(autoincrement())
+  name        String  @db.VarChar(100)
+  country     Country @relation(fields: [id], references: [id])
+  countryName String  @map("countryname") @db.VarChar(50)
 
   @@map("state")
 }
