@@ -13,6 +13,16 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { ChevronDown } from 'lucide-react';
 import { useRouter } from "next/navigation";
 import { usePathname, useSearchParams } from "next/navigation";
 import './style.css';
@@ -117,10 +127,10 @@ export default function Productfilters({ className, ...props }) {
   return (
     <div className="filter-component">
       <div className="customization">
-        <div className="col-span-3">
-          <Sheet className='bg-white'>
+        <div className="">
+          {/* <Sheet className='bg-white'>
             <SheetTrigger asChild>
-              <Button variant="outline" className='rounded-none hover:bg-accent font-andika text-base bg-primary border-primary text-white hover:text-white hover:border-accent'>Filters</Button>
+              <Button variant="outline" className='rounded-none hover:bg-accent font-roboto text-base bg-primary border-primary text-white hover:text-white hover:border-accent'>Filters</Button>
             </SheetTrigger>
             <SheetContent>
               <SheetHeader>
@@ -139,14 +149,14 @@ export default function Productfilters({ className, ...props }) {
                       <div className=" pt-1 pb-4">
                         <div class="flex items-center">
                           <input type="radio" id="male" hidden name="gender" value="male" onChange={() => filterProducts('gender', 'male')} />
-                          <label for="male" class="flex radio-label hover:cursor-pointer font-andika text-sm items-center px-1">
+                          <label for="male" class="flex radio-label hover:cursor-pointer font-roboto text-sm items-center px-1">
                             <span class="custom-radio"></span>
                             Men
                           </label>
                         </div>
                         <div className="flex items-center">
                           <input type="radio" id="female" name="gender" hidden value="female" onChange={() => filterProducts('gender', 'female')} />
-                          <label htmlFor="female" className="flex radio-label hover:cursor-pointer font-andika text-sm items-center px-1">
+                          <label htmlFor="female" className="flex radio-label hover:cursor-pointer font-roboto text-sm items-center px-1">
                             <span class="custom-radio"></span>
                             Women
                           </label>
@@ -163,7 +173,7 @@ export default function Productfilters({ className, ...props }) {
                       <div className=" pt-1 pb-4">
                         <div className="flex items-center">
                           <input type="radio" id="under-10k" name="price" value="10k" onChange={() => filterProducts('price', '0, 10000')} />
-                          <label htmlFor="under-10k" className="flex radio-label  hover:cursor-pointer font-andika text-sm items-center px-1">
+                          <label htmlFor="under-10k" className="flex radio-label  hover:cursor-pointer font-roboto text-sm items-center px-1">
                             <span class="custom-radio"></span>
 
                             Under 10,000
@@ -171,7 +181,7 @@ export default function Productfilters({ className, ...props }) {
                         </div>
                         <div className="flex items-center">
                           <input type="radio" id="under-20k" name="price" value="20k" onChange={() => filterProducts('price', '10000, 20000')} />
-                          <label htmlFor="under-20k" className="flex radio-label  hover:cursor-pointer font-andika text-sm items-center px-1">
+                          <label htmlFor="under-20k" className="flex radio-label  hover:cursor-pointer font-roboto text-sm items-center px-1">
                             <span class="custom-radio"></span>
 
                             10,000 - 20,000
@@ -179,7 +189,7 @@ export default function Productfilters({ className, ...props }) {
                         </div>
                         <div className="flex items-center">
                           <input type="radio" id="under-40k" name="price" value="40k" onChange={() => filterProducts('price', '20000, 40000')} />
-                          <label htmlFor="under-40k" className="flex radio-label  hover:cursor-pointer font-andika text-sm items-center px-1">
+                          <label htmlFor="under-40k" className="flex radio-label  hover:cursor-pointer font-roboto text-sm items-center px-1">
                             <span class="custom-radio"></span>
 
                             20,000 - 40,000
@@ -187,7 +197,7 @@ export default function Productfilters({ className, ...props }) {
                         </div>
                         <div className="flex items-center">
                           <input type="radio" id="under-60k" name="price" value="60k" onChange={() => filterProducts('price', '40000, 60000')} />
-                          <label htmlFor="under-60k" className="flex radio-label  hover:cursor-pointer font-andika text-sm items-center px-1">
+                          <label htmlFor="under-60k" className="flex radio-label  hover:cursor-pointer font-roboto text-sm items-center px-1">
                             <span class="custom-radio"></span>
 
                             40,000 - 60,000
@@ -195,7 +205,7 @@ export default function Productfilters({ className, ...props }) {
                         </div>
                         <div className="flex items-center">
                           <input type="radio" id="under-80k" name="price" value="80k" onChange={() => filterProducts('price', '60000, 80000')} />
-                          <label htmlFor="under-80k" className="flex radio-label  hover:cursor-pointer font-andika text-sm items-center px-1">
+                          <label htmlFor="under-80k" className="flex radio-label  hover:cursor-pointer font-roboto text-sm items-center px-1">
                             <span class="custom-radio"></span>
 
                             60,000 - 80,000
@@ -203,7 +213,7 @@ export default function Productfilters({ className, ...props }) {
                         </div>
                         <div className="flex items-center">
                           <input type="radio" id="under-100k" name="price" value="100k" onChange={() => filterProducts('price', '80000 ,100000')} />
-                          <label htmlFor="under-100k" className="flex radio-label  hover:cursor-pointer font-andika text-sm items-center px-1">
+                          <label htmlFor="under-100k" className="flex radio-label  hover:cursor-pointer font-roboto text-sm items-center px-1">
                             <span class="custom-radio"></span>
 
                             80,000 - 1,00,000
@@ -211,7 +221,7 @@ export default function Productfilters({ className, ...props }) {
                         </div>
                         <div className="flex items-center">
                           <input type="radio" id="above-100k" name="price" value="101k" onChange={() => filterProducts('price', '100000')} />
-                          <label htmlFor="above-100k" className="flex radio-label  hover:cursor-pointer font-andika text-sm items-center px-1">
+                          <label htmlFor="above-100k" className="flex radio-label  hover:cursor-pointer font-roboto text-sm items-center px-1">
                             <span class="custom-radio"></span>
 
                             Above 1,00,000
@@ -229,28 +239,28 @@ export default function Productfilters({ className, ...props }) {
                       <div className=" pt-1 pb-4">
                         <div class="flex items-center">
                           <input type="checkbox" id="platinum" name="gender" value="platinum" onChange={() => filterProducts('metal-color', 'platinum')} />
-                          <label for="platinum" class="flex checkbox-label hover:cursor-pointer font-andika text-sm items-center px-1">
+                          <label for="platinum" class="flex checkbox-label hover:cursor-pointer font-roboto text-sm items-center px-1">
                             <span class="custom-checkbox"></span>
                             Platinum
                           </label>
                         </div>
                         <div className="flex items-center">
                           <input type="checkbox" id="yellow-gold" name="gender" value="yellow-gold" onChange={() => filterProducts('metal-color', 'yellow-gold')} />
-                          <label htmlFor="yellow-gold" className="flex checkbox-label hover:cursor-pointer font-andika text-sm items-center px-1">
+                          <label htmlFor="yellow-gold" className="flex checkbox-label hover:cursor-pointer font-roboto text-sm items-center px-1">
                             <span class="custom-checkbox"></span>
                             Yellow Gold
                           </label>
                         </div>
                         <div className="flex items-center">
                           <input type="checkbox" id="rose-gold" name="gender" value="rose-gold" onChange={() => filterProducts('metal-color', 'rose-gold')} />
-                          <label htmlFor="rose-gold" className="flex checkbox-label hover:cursor-pointer font-andika text-sm items-center px-1">
+                          <label htmlFor="rose-gold" className="flex checkbox-label hover:cursor-pointer font-roboto text-sm items-center px-1">
                             <span class="custom-checkbox"></span>
                             Rose Gold
                           </label>
                         </div>
                         <div className="flex items-center">
                           <input type="checkbox" id="silver" name="gender" value="silver" onChange={() => filterProducts('metal-color', 'silver')} />
-                          <label htmlFor="silver" className="flex checkbox-label hover:cursor-pointer font-andika text-sm items-center px-1">
+                          <label htmlFor="silver" className="flex checkbox-label hover:cursor-pointer font-roboto text-sm items-center px-1">
                             <span class="custom-checkbox"></span>
                             Silver
                           </label>
@@ -267,14 +277,14 @@ export default function Productfilters({ className, ...props }) {
                       <div className=" pt-1 pb-4">
                         <div className="flex items-center">
                           <input type="checkbox" id="18k" name="gender" value="18k" onChange={() => filterProducts('metal-type', '18k')} />
-                          <label htmlFor="18k" className="flex checkbox-label hover:cursor-pointer font-andika text-sm items-center px-1">
+                          <label htmlFor="18k" className="flex checkbox-label hover:cursor-pointer font-roboto text-sm items-center px-1">
                             <span class="custom-checkbox"></span>
                             18k
                           </label>
                         </div>
                         <div className="flex items-center">
                           <input type="checkbox" id="22k" name="gender" value="22k" onChange={() => filterProducts('metal-type', '22k')} />
-                          <label htmlFor="22k" className="flex checkbox-label hover:cursor-pointer font-andika text-sm items-center px-1">
+                          <label htmlFor="22k" className="flex checkbox-label hover:cursor-pointer font-roboto text-sm items-center px-1">
                             <span class="custom-checkbox"></span>
                             22k
                           </label>
@@ -291,7 +301,7 @@ export default function Productfilters({ className, ...props }) {
                       <div className=" pt-1 pb-4">
                         <div className="flex items-center">
                           <input type="radio" id="weight-3gm" name="gender" value="3gm" onChange={() => filterProducts('weight', '1, 3')} />
-                          <label htmlFor="weight-3gm" className="flex radio-label  hover:cursor-pointer font-andika text-sm items-center px-1">
+                          <label htmlFor="weight-3gm" className="flex radio-label  hover:cursor-pointer font-roboto text-sm items-center px-1">
                             <span class="custom-radio"></span>
 
                             1.0 gm - 3.0 gm
@@ -299,7 +309,7 @@ export default function Productfilters({ className, ...props }) {
                         </div>
                         <div className="flex items-center">
                           <input type="radio" id="weight-5gm" name="gender" value="5gm" onChange={() => filterProducts('weight', '3.0, 5.0')} />
-                          <label htmlFor="weight-5gm" className="flex radio-label  hover:cursor-pointer font-andika text-sm items-center px-1">
+                          <label htmlFor="weight-5gm" className="flex radio-label  hover:cursor-pointer font-roboto text-sm items-center px-1">
                             <span class="custom-radio"></span>
 
                             3.0 gm - 5.0 gm
@@ -307,7 +317,7 @@ export default function Productfilters({ className, ...props }) {
                         </div>
                         <div className="flex items-center">
                           <input type="radio" id="weight-8gm" name="gender" value="8gm" onChange={() => filterProducts('weight', '5.0, 8.0')} />
-                          <label htmlFor="weight-8gm" className="flex radio-label  hover:cursor-pointer font-andika text-sm items-center px-1">
+                          <label htmlFor="weight-8gm" className="flex radio-label  hover:cursor-pointer font-roboto text-sm items-center px-1">
                             <span class="custom-radio"></span>
 
                             5.0 gm - 8.0 gm
@@ -315,7 +325,7 @@ export default function Productfilters({ className, ...props }) {
                         </div>
                         <div className="flex items-center">
                           <input type="radio" id="weight-12gm" name="gender" value="12gm" onChange={() => filterProducts('weight', '8.0, 12.0')} />
-                          <label htmlFor="weight-12gm" className="flex radio-label  hover:cursor-pointer font-andika text-sm items-center px-1">
+                          <label htmlFor="weight-12gm" className="flex radio-label  hover:cursor-pointer font-roboto text-sm items-center px-1">
                             <span class="custom-radio"></span>
 
                             8.0 gm - 12.0 gm
@@ -327,7 +337,7 @@ export default function Productfilters({ className, ...props }) {
 
                 </div>
                 <div className="clear-filter-btn text-center pt-5 mb-5 mt-7" >
-                  <Button className='rounded-none bg-primary text-white text-base font-andika hover:bg-accent hover:text-white' onClick={resetFilter}>Clear Filter</Button>
+                  <Button className='rounded-none bg-primary text-white text-base font-roboto hover:bg-accent hover:text-white' onClick={resetFilter}>Clear Filter</Button>
                 </div>
               </section>
               <SheetFooter>
@@ -335,7 +345,307 @@ export default function Productfilters({ className, ...props }) {
                 </SheetClose>
               </SheetFooter>
             </SheetContent>
-          </Sheet>
+          </Sheet> */}
+          <section>
+            <div className="customization">
+              <div className="grid grid-cols-5 gap-5">
+                <div className="col">
+                  <div className="dropdown-wrapper">
+                    <DropdownMenu>
+                      <DropdownMenuTrigger className="flex items-center justify-between w-full px-5 py-4 focus:outline-0 focus-visible:outline-0 hover:text-white hover:bg-primary text-accent">
+                        <div>Gender</div>
+                        <ChevronDown />
+                      </DropdownMenuTrigger>
+                      <DropdownMenuContent>
+                        <DropdownMenuItem className='hover:bg-white'>
+                          <div class="flex items-center">
+                            <input type="radio" id="male" hidden name="gender" value="male" onChange={() => filterProducts('gender', 'male')} />
+                            <label for="male" class="flex radio-label hover:cursor-pointer font-roboto text-sm items-center px-1">
+                              <span class="custom-radio"></span>
+                              Men
+                            </label>
+                          </div>
+                        </DropdownMenuItem>
+                        <DropdownMenuItem>
+                          <div className="flex items-center">
+                            <input type="radio" id="female" name="gender" hidden value="female" onChange={() => filterProducts('gender', 'female')} />
+                            <label htmlFor="female" className="flex radio-label hover:cursor-pointer font-roboto text-sm items-center px-1">
+                              <span class="custom-radio"></span>
+                              Women
+                            </label>
+                          </div>
+                        </DropdownMenuItem>
+                      </DropdownMenuContent>
+                    </DropdownMenu>
+                  </div>
+                </div>
+                <div className="col">
+                  <div className="dropdown-wrapper">
+                    <DropdownMenu>
+                      <DropdownMenuTrigger className="flex items-center justify-between w-full px-5 py-4 focus:outline-0 focus-visible:outline-0 hover:text-white hover:bg-primary text-accent">
+                        <div>Price</div>
+                        <ChevronDown />
+                      </DropdownMenuTrigger>
+                      <DropdownMenuContent>
+                        <DropdownMenuItem>
+                          <div className="flex items-center">
+                            <input type="radio" id="under-10k" name="price" value="10k" onChange={() => filterProducts('price', '0, 10000')} />
+                            <label htmlFor="under-10k" className="flex radio-label  hover:cursor-pointer font-roboto text-sm items-center px-1">
+                              <span class="custom-radio"></span>
+                              Under 10,000
+                            </label>
+                          </div>
+                        </DropdownMenuItem>
+                        <DropdownMenuItem>
+                          <div className="flex items-center">
+                            <input type="radio" id="under-20k" name="price" value="20k" onChange={() => filterProducts('price', '10000, 20000')} />
+                            <label htmlFor="under-20k" className="flex radio-label  hover:cursor-pointer font-roboto text-sm items-center px-1">
+                              <span class="custom-radio"></span>
+                              10,000 - 20,000
+                            </label>
+                          </div>
+                        </DropdownMenuItem>
+                        <DropdownMenuItem>
+                          <div className="flex items-center">
+                            <input type="radio" id="under-40k" name="price" value="40k" onChange={() => filterProducts('price', '20000, 40000')} />
+                            <label htmlFor="under-40k" className="flex radio-label  hover:cursor-pointer font-roboto text-sm items-center px-1">
+                              <span class="custom-radio"></span>
+                              20,000 - 40,000
+                            </label>
+                          </div>
+                        </DropdownMenuItem>
+                        <DropdownMenuItem>
+                          <div className="flex items-center">
+                            <input type="radio" id="under-60k" name="price" value="60k" onChange={() => filterProducts('price', '40000, 60000')} />
+                            <label htmlFor="under-60k" className="flex radio-label  hover:cursor-pointer font-roboto text-sm items-center px-1">
+                              <span class="custom-radio"></span>
+                              40,000 - 60,000
+                            </label>
+                          </div>
+                        </DropdownMenuItem>
+                        <DropdownMenuItem>
+                          <div className="flex items-center">
+                            <input type="radio" id="under-80k" name="price" value="80k" onChange={() => filterProducts('price', '60000, 80000')} />
+                            <label htmlFor="under-80k" className="flex radio-label  hover:cursor-pointer font-roboto text-sm items-center px-1">
+                              <span class="custom-radio"></span>
+                              60,000 - 80,000
+                            </label>
+                          </div>
+                        </DropdownMenuItem>
+                        <DropdownMenuItem><div className="flex items-center">
+                          <input type="radio" id="under-100k" name="price" value="100k" onChange={() => filterProducts('price', '80000 ,100000')} />
+                          <label htmlFor="under-100k" className="flex radio-label  hover:cursor-pointer font-roboto text-sm items-center px-1">
+                            <span class="custom-radio"></span>
+                            80,000 - 1,00,000
+                          </label>
+                        </div></DropdownMenuItem>
+                        <DropdownMenuItem>
+                          <div className="flex items-center">
+                            <input type="radio" id="above-100k" name="price" value="101k" onChange={() => filterProducts('price', '100000')} />
+                            <label htmlFor="above-100k" className="flex radio-label  hover:cursor-pointer font-roboto text-sm items-center px-1">
+                              <span class="custom-radio"></span>
+                              Above 1,00,000
+                            </label>
+                          </div>
+                        </DropdownMenuItem>
+                      </DropdownMenuContent>
+                    </DropdownMenu>
+                  </div>
+                </div>
+                <div className="col">
+                  <div className="dropdown-wrapper">
+                    <DropdownMenu>
+                      <DropdownMenuTrigger className="flex items-center justify-between w-full px-5 py-4 focus:outline-0 focus-visible:outline-0 hover:text-white hover:bg-primary text-accent">
+                        <div>Metal Color</div>
+                        <ChevronDown />
+                      </DropdownMenuTrigger>
+                      <DropdownMenuContent>
+                        <DropdownMenuItem>
+                          <div class="flex items-center">
+                            <input type="checkbox" id="platinum" name="gender" value="platinum" onChange={() => filterProducts('metal-color', 'platinum')} />
+                            <label for="platinum" class="flex checkbox-label hover:cursor-pointer font-roboto text-sm items-center px-1">
+                              <span class="custom-checkbox"></span>
+                              Platinum
+                            </label>
+                          </div>
+                        </DropdownMenuItem>
+                        <DropdownMenuItem>
+                          <div className="flex items-center">
+                            <input type="checkbox" id="yellow-gold" name="gender" value="yellow-gold" onChange={() => filterProducts('metal-color', 'yellow-gold')} />
+                            <label htmlFor="yellow-gold" className="flex checkbox-label hover:cursor-pointer font-roboto text-sm items-center px-1">
+                              <span class="custom-checkbox"></span>
+                              Yellow Gold
+                            </label>
+                          </div>
+                        </DropdownMenuItem>
+                        <DropdownMenuItem>
+                          <div className="flex items-center">
+                            <input type="checkbox" id="rose-gold" name="gender" value="rose-gold" onChange={() => filterProducts('metal-color', 'rose-gold')} />
+                            <label htmlFor="rose-gold" className="flex checkbox-label hover:cursor-pointer font-roboto text-sm items-center px-1">
+                              <span class="custom-checkbox"></span>
+                              Rose Gold
+                            </label>
+                          </div>
+                        </DropdownMenuItem>
+                        <DropdownMenuItem>
+                          <div className="flex items-center">
+                            <input type="checkbox" id="silver" name="gender" value="silver" onChange={() => filterProducts('metal-color', 'silver')} />
+                            <label htmlFor="silver" className="flex checkbox-label hover:cursor-pointer font-roboto text-sm items-center px-1">
+                              <span class="custom-checkbox"></span>
+                              Silver
+                            </label>
+                          </div>
+                        </DropdownMenuItem>
+                      </DropdownMenuContent>
+                    </DropdownMenu>
+                  </div>
+                </div>
+                <div className="col">
+                  <div className="dropdown-wrapper">
+                    <DropdownMenu>
+                      <DropdownMenuTrigger className="flex items-center justify-between w-full px-5 py-4 focus:outline-0 focus-visible:outline-0 hover:text-white hover:bg-primary text-accent">
+                        <div>Metal Type</div>
+                        <ChevronDown />
+                      </DropdownMenuTrigger>
+                      <DropdownMenuContent>
+                        <DropdownMenuItem>
+                          <div className="flex items-center">
+                            <input type="checkbox" id="18k" name="gender" value="18k" onChange={() => filterProducts('metal-type', '18k')} />
+                            <label htmlFor="18k" className="flex checkbox-label hover:cursor-pointer font-roboto text-sm items-center px-1">
+                              <span class="custom-checkbox"></span>
+                              18k
+                            </label>
+                          </div>
+                        </DropdownMenuItem>
+                        <DropdownMenuItem>
+                          <div className="flex items-center">
+                            <input type="checkbox" id="22k" name="gender" value="22k" onChange={() => filterProducts('metal-type', '22k')} />
+                            <label htmlFor="22k" className="flex checkbox-label hover:cursor-pointer font-roboto text-sm items-center px-1">
+                              <span class="custom-checkbox"></span>
+                              22k
+                            </label>
+                          </div>
+                        </DropdownMenuItem>
+                      </DropdownMenuContent>
+                    </DropdownMenu>
+                  </div>
+                </div>
+                <div className="col">
+                  <div className="dropdown-wrapper">
+                    <DropdownMenu>
+                      <DropdownMenuTrigger className="flex items-center justify-between w-full px-5 py-4 focus:outline-0 focus-visible:outline-0 hover:text-white hover:bg-primary text-accent">
+                        <div>Weight</div>
+                        <ChevronDown />
+                      </DropdownMenuTrigger>
+                      <DropdownMenuContent>
+                        <DropdownMenuItem>
+                          <div className="flex items-center">
+                            <input type="radio" id="weight-3gm" name="gender" value="3gm" onChange={() => filterProducts('weight', '1, 3')} />
+                            <label htmlFor="weight-3gm" className="flex radio-label  hover:cursor-pointer font-roboto text-sm items-center px-1">
+                              <span class="custom-radio"></span>
+
+                              1.0 gm - 3.0 gm
+                            </label>
+                          </div>
+                        </DropdownMenuItem>
+                        <DropdownMenuItem>
+                          <div className="flex items-center">
+                            <input type="radio" id="weight-5gm" name="gender" value="5gm" onChange={() => filterProducts('weight', '3.0, 5.0')} />
+                            <label htmlFor="weight-5gm" className="flex radio-label  hover:cursor-pointer font-roboto text-sm items-center px-1">
+                              <span class="custom-radio"></span>
+                              3.0 gm - 5.0 gm
+                            </label>
+                          </div>
+                        </DropdownMenuItem>
+                        <DropdownMenuItem>
+                          <div className="flex items-center">
+                            <input type="radio" id="weight-8gm" name="gender" value="8gm" onChange={() => filterProducts('weight', '5.0, 8.0')} />
+                            <label htmlFor="weight-8gm" className="flex radio-label  hover:cursor-pointer font-roboto text-sm items-center px-1">
+                              <span class="custom-radio"></span>
+                              5.0 gm - 8.0 gm
+                            </label>
+                          </div>
+                        </DropdownMenuItem>
+                        <DropdownMenuItem>
+                          <div className="flex items-center">
+                            <input type="radio" id="weight-12gm" name="gender" value="12gm" onChange={() => filterProducts('weight', '8.0, 12.0')} />
+                            <label htmlFor="weight-12gm" className="flex radio-label  hover:cursor-pointer font-roboto text-sm items-center px-1">
+                              <span class="custom-radio"></span>
+                              8.0 gm - 12.0 gm
+                            </label>
+                          </div>
+                        </DropdownMenuItem>
+                      </DropdownMenuContent>
+                    </DropdownMenu>
+                  </div>
+                </div>
+              </div>
+
+
+
+              {/* <div className="gender border-b border-primary">
+                <div className="">
+                  <div className="column-heading font-semibold pt-2 font-lora text-accent text-lg">
+                    Gender
+                  </div>
+                  <div className=" pt-1 pb-4">
+                  </div>
+                </div>
+              </div> */}
+
+
+
+              {/* <div className="price  border-b border-primary">
+                <div className="">
+                  <div className="column-heading font-lora pt-2 font-semibold text-accent text-lg">
+                    Price
+                  </div>
+                  <div className=" pt-1 pb-4">
+                  </div>
+                </div>
+              </div> */}
+
+
+
+              {/* <div className="metal-color  border-b border-primary">
+                <div className="">
+                  <div className="column-heading font-semibold pt-2 font-lora text-accent text-lg">
+                    Metal Color
+                  </div>
+                  <div className=" pt-1 pb-4">
+                  </div>
+                </div>
+              </div> */}
+
+
+
+              {/* <div className="metal-type  border-b border-primary">
+                <div className="">
+                  <div className="column-heading font-lora pt-2 font-semibold text-accent text-lg">
+                    Metal Type
+                  </div>
+                  <div className=" pt-1 pb-4">
+                  </div>
+                </div>
+              </div> */}
+
+
+
+              {/* <div className="weight-range  border-b border-primary">
+                <div className="">
+                  <div className="column-heading font-lora text-accent text-lg pt-2 font-semibold ">
+                    Weight
+                  </div>
+                  <div className=" pt-1 pb-4">
+                  </div>
+                </div>
+              </div> */}
+
+            </div>
+            {/* <div className="clear-filter-btn text-center pt-5 mb-5 mt-7" >
+              <Button className='rounded-none bg-primary text-white text-base font-roboto hover:bg-accent hover:text-white' onClick={resetFilter}>Clear Filter</Button>
+            </div> */}
+          </section>
         </div>
       </div>
     </div >
