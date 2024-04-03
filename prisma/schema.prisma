@@ -10,8 +10,9 @@ datasource db {
 // User Detail Model
 model Useraccount {
   id             Int     @id @default(autoincrement())
-  firstNname     String  @map("first_name") @db.VarChar(50)
-  lastNname      String  @map("last_name") @db.VarChar(50)
+  firstName     String  @map("first_name") @db.VarChar(50)
+  lastName      String  @map("last_name") @db.VarChar(50)
+  userName       String  @map("username") @db.VarChar(50)
   email          String  @db.VarChar(100)
   password       String  @db.VarChar(100)
   phoneNumber    String? @map("phonenumber") @db.VarChar(20)
@@ -21,6 +22,8 @@ model Useraccount {
   state          String? @db.VarChar(50)
   city           String? @db.VarChar(50)
   pinCode        Int?    @map("pin_code") @db.Int
+  sessionId      String  @map("sessionid") @db.VarChar(100)
+  sessionEmail   String  @map("sessionemail") @db.VarChar(100)
 
   @@map("user_account")
 }

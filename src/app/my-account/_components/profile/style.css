@@ -20,3 +20,7 @@
 .profile-component .profile-wrapper form button{
   @apply rounded-none w-full mt-5 bg-primary-foreground text-accent hover:bg-primary hover:text-white font-roboto text-base hover:transition hover:duration-500 
 }
+
+.profile-component .profile-wrapper form .error-message{
+  @apply  font-roboto text-sm text-red-600  block
+}

@@ -3,7 +3,7 @@ import Header from "./components/header";
 import Footer from "./components/footer";
 
 import { TANGERINE, CRIMSON, ROBOTO } from "./fonts";
-
+import { Toaster } from "react-hot-toast";
 import "./globals.css";
 
 export const metadata = {
@@ -16,6 +16,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={`${CRIMSON.variable} ${ROBOTO.variable} ${TANGERINE.variable}`}>
         <QueryClientProvider>
+          <Toaster />
           <Header />
           {children}
           <Footer />

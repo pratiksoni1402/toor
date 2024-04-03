@@ -5,8 +5,8 @@ import { Switch } from '@/components/ui/switch';
 import { Label } from '@/components/ui/label';
 import { Button } from '@/components/ui/button';
 import { useQuery } from '@tanstack/react-query';
-import './style.css'
 import axios from 'axios';
+import './style.css'
 export default function Userdetails() {
   const [upiForm, setUpiForm] = useState(false);
   const [cardForm, setCardForm] = useState(false);
@@ -36,7 +36,7 @@ export default function Userdetails() {
   const { isPending, data: fetchCountry, isError } = useQuery({
     queryKey: ['country'],
     queryFn: () =>
-      axios.get('/checkout/api/get-country')
+      axios.get('/api/common/get-country')
         .then((response) => {
           return response.data.getCountry
         })
@@ -54,7 +54,7 @@ export default function Userdetails() {
   }, [selectedCountry]);
 
   const getStatesByCountry = (selectedCountry) => {
-    axios.post('/checkout/api/get-state', { country: selectedCountry })
+    axios.post('/api/common/get-state', { country: selectedCountry })
       .then((response) => {
         return setProvince(response.data.getState)
       })
