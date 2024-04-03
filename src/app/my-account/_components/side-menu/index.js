@@ -9,7 +9,7 @@ export default function Sidemenu() {
             <li><Link href='/my-account'>Edit Profile</Link></li>
             <li><Link href='/my-account/previous-orders'>Order History</Link></li>
             <li><Link href='/my-account/change-password'>Change Password</Link></li>
-            <li><Link href='/'>Manage Addresses</Link></li>
+            {/* <li><Link href='/'>Manage Addresses</Link></li> */}
             <li><Link href='/'>Logout</Link></li>
           </ul>
         </div>
