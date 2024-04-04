@@ -13,15 +13,17 @@ export default function RegisterForm() {
   const { register, handleSubmit, formState: { errors } } = useForm();
   const [isProcessing, setIsProcessing] = useState(false);
   const router = useRouter();
+
+  // User Registration
   const onSubmit = (data) => {
     if (data.password === data.confirmPassword) {
       setIsProcessing(true)
       axios.post('/auth/register/api/register-user', data)
         .then((response) => {
-          if (response.data.success) {
+          if (response.data) {
             router.push('/my-account');
           } else {
-            toast.error("Email already exist");
+            toast.error(response.data.message);
           }
         })
         .catch((error) => {
@@ -34,6 +36,37 @@ export default function RegisterForm() {
       toast.error('Password and Confirm Password Mismatch');
     }
   };
+  // End
+
+  // Checking Username
+  const handleUsername = () => {
+    const userNameValue = event.target.value
+    console.log("User name value", userNameValue)
+    axios.post('/auth/register/api/validate-username', { userName: userNameValue })
+      .then((response) => {
+        toast.error(response.data.message)
+      })
+      .catch((error) => {
+        console.log("Error Occured", error)
+      })
+  }
+  // End
+
+  // Checking Email Address
+  const handleEmail = (event) => {
+    const emailValue = event.target.value
+    axios.post('/auth/register/api/register-user', { email: emailValue })
+      .then((response) => {
+        toast.error(response.data.message)
+      })
+      .catch((error) => {
+        console.log("Error Ocurred", error)
+      })
+  }
+  // End
+
+
+
 
 
   console.log(errors);
@@ -57,12 +90,12 @@ export default function RegisterForm() {
               <input type="text" placeholder="Last Name" {...register("lastName", { required: true })} />
               {errors.lastName && <span className='error-message'>This field is required</span>}
 
-              <input type="text" placeholder="Username" {...register("userName", { required: true, pattern: /^[a-zA-Z0-9]+([._]?[a-zA-Z0-9]+)*$/ })} />
+              <input type="text" placeholder="Username" {...register("userName", { required: true, pattern: /^[a-zA-Z0-9]+([._]?[a-zA-Z0-9]+)*$/ })} onBlur={(event) => handleUsername(event.target.value)} />
               {errors.userName && <span className='error-message'>This field is required</span>}
 
               <input type="email" placeholder="Email" {...register("email", {
                 required: true, pattern: /^[a-z0-9]+@[a-z]+\.[a-z]{2,3}$/i
-              })} />
+              })} onBlur={handleEmail} />
               {errors.email && <span className='error-message'>This field is required</span>}
 
               <input type="password" placeholder="Password" {...register("password", { required: true, })} />

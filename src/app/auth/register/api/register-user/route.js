@@ -1,13 +1,14 @@
 export const dynamic = 'force-dynamic';
 export const fetchCache = 'force-no-store';
 export const revalidate = 0;
-import { NextResponse } from 'next/server';
 import prisma from "@/db";
+import { NextResponse } from 'next/server';
 import { getSession } from "@/lib/session";
 import bcrypt from 'bcrypt';
 export async function POST(request) {
   const session = await getSession();
   let isUserRegistered
+  let isUsernameTaken
   let fnSuccess = true
   let message = null
   let response = {}
@@ -16,9 +17,12 @@ export async function POST(request) {
 
   try {
     const requestBody = await request.json();
-    const saltRound = 17;
-    const encryptedPassword = await bcrypt.hash(requestBody.password, saltRound);
+    // const saltRound = 10;
+    // const encryptedPassword = await bcrypt.hash(requestBody.password, saltRound);
 
+    
+
+    // Validate Email Address
     if (fnSuccess == true) {
        isUserRegistered = await prisma.useraccount.findFirst({
         where: {
@@ -34,11 +38,12 @@ export async function POST(request) {
     if (fnSuccess) {
       if (isUserRegistered) {
         fnSuccess = false
-        message = 'User already registered'
+        message = 'Email Already Exist'
       }
     }
+    // End
 
-
+    // Creating User Account
     if (fnSuccess) {
       registerUser = await prisma.useraccount.create({
         data: {
@@ -46,12 +51,14 @@ export async function POST(request) {
           lastName: requestBody.lastName,
           userName: requestBody.userName,
           email: requestBody.email,
-          password: encryptedPassword,
+          password: requestBody.password,
           sessionEmail: requestBody.email,
         }
       });
     }
+    // End
 
+    // Creating User Session if User Registered Successfully
     if (fnSuccess) {
       if (registerUser) {
         session.user = {
@@ -69,6 +76,8 @@ export async function POST(request) {
         message="Unable to create an account"
       }
     }
+    // End
+    
   } catch (error) {
     console.log("Error occured", error)
   }
