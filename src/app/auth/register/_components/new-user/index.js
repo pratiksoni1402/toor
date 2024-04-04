@@ -44,7 +44,19 @@ export default function RegisterForm() {
     console.log("User name value", userNameValue)
     axios.post('/auth/register/api/validate-username', { userName: userNameValue })
       .then((response) => {
-        toast.error(response.data.message)
+        toast.error(response.data.message, {
+          duration: 3000,
+          style: {
+            border: '1px solid #754b2f',
+            padding: '8px',
+            color: '#f0e6e0',
+            backgroundColor: '#754b2f',
+          },
+          iconTheme: {
+            primary: '#f0e6e0',
+            secondary: '#754b2f',
+          },
+        })
       })
       .catch((error) => {
         console.log("Error Occured", error)
@@ -53,21 +65,29 @@ export default function RegisterForm() {
   // End
 
   // Checking Email Address
-  const handleEmail = (event) => {
+  const handleEmail = () => {
     const emailValue = event.target.value
-    axios.post('/auth/register/api/register-user', { email: emailValue })
+    axios.post('/auth/register/api/validate-emailaddress', { email: emailValue })
       .then((response) => {
-        toast.error(response.data.message)
+        toast.error(response.data.message, {
+          duration: 3000,
+          style: {
+            border: '1px solid #754b2f',
+            padding: '8px',
+            color: '#f0e6e0',
+            backgroundColor: '#754b2f',
+          },
+          iconTheme: {
+            primary: '#f0e6e0',
+            secondary: '#754b2f',
+          },
+        })
       })
       .catch((error) => {
         console.log("Error Ocurred", error)
       })
   }
   // End
-
-
-
-
 
   console.log(errors);
   return (
@@ -95,7 +115,7 @@ export default function RegisterForm() {
 
               <input type="email" placeholder="Email" {...register("email", {
                 required: true, pattern: /^[a-z0-9]+@[a-z]+\.[a-z]{2,3}$/i
-              })} onBlur={handleEmail} />
+              })} onBlur={(event) => handleEmail(event.target.value)} />
               {errors.email && <span className='error-message'>This field is required</span>}
 
               <input type="password" placeholder="Password" {...register("password", { required: true, })} />

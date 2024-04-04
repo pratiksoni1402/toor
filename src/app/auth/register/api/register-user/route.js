@@ -7,8 +7,6 @@ import { getSession } from "@/lib/session";
 import bcrypt from 'bcrypt';
 export async function POST(request) {
   const session = await getSession();
-  let isUserRegistered
-  let isUsernameTaken
   let fnSuccess = true
   let message = null
   let response = {}
@@ -17,31 +15,8 @@ export async function POST(request) {
 
   try {
     const requestBody = await request.json();
-    // const saltRound = 10;
-    // const encryptedPassword = await bcrypt.hash(requestBody.password, saltRound);
-
-    
-
-    // Validate Email Address
-    if (fnSuccess == true) {
-       isUserRegistered = await prisma.useraccount.findFirst({
-        where: {
-          email: requestBody.email,
-        }
-      })
-        .catch((error) => {
-          fnSuccess = false
-          return null
-        })
-    }
-
-    if (fnSuccess) {
-      if (isUserRegistered) {
-        fnSuccess = false
-        message = 'Email Already Exist'
-      }
-    }
-    // End
+    const saltRound = 10;
+    const encryptedPassword = await bcrypt.hash(requestBody.password, saltRound);
 
     // Creating User Account
     if (fnSuccess) {
@@ -51,7 +26,7 @@ export async function POST(request) {
           lastName: requestBody.lastName,
           userName: requestBody.userName,
           email: requestBody.email,
-          password: requestBody.password,
+          password: encryptedPassword,
           sessionEmail: requestBody.email,
         }
       });
@@ -85,7 +60,6 @@ export async function POST(request) {
   if (fnSuccess) {
     responseData = {
       success:true,
-    
       message:message,
       data: {
         //

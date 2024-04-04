@@ -5,6 +5,10 @@ import prisma from "@/db";
 import { NextResponse } from 'next/server';
 export async function POST(request) {
   let isUsernameTaken
+  let fnSuccess = true
+  let message
+  let responseData = {}
+
   try {
     const requestBody = await request.json();
     if (fnSuccess == true) {
@@ -26,7 +30,7 @@ export async function POST(request) {
     }
 
   } catch (error) {
-    console.log("Error Ocurred", error)
+    // console.log("Error Ocurred", error)
   }
 
   if (fnSuccess) {

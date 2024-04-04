@@ -99,11 +99,11 @@ html {
 
 /* Create Account Form Styling */
 .create-account-page .register-form-wrapper .heading h1 {
-  @apply text-accent font-crimson text-center my-10 text-2xl
+  @apply text-accent font-crimson text-center py-3 text-2xl
 }
 
 .create-account-page section {
-  @apply pt-14
+  @apply pt-3
 }
 
 .create-account-page .register-form-wrapper {
