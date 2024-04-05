@@ -8,7 +8,7 @@ import { Button } from '@/components/ui/button';
 import axios from 'axios';
 import { toast } from 'react-hot-toast';
 import { useRouter } from 'next/navigation';
-
+import './style.css';
 export default function RegisterForm() {
   const { register, handleSubmit, formState: { errors } } = useForm();
   const [isProcessing, setIsProcessing] = useState(false);
@@ -93,22 +93,29 @@ export default function RegisterForm() {
   return (
 
     <div className="create-account-page">
-      <section>
-        <div className="register-form-wrapper lg:w-2/5 md:w-1/2 sm:w-3/4 w-full mx-auto">
-
-          <div className='heading'>
-            <h1>
-              Start your journey with exquisite jewelry.
-            </h1>
-          </div>
+      <section className='pb-20'>
+        <div className="register-form-wrapper lg:w-3/4 sm:w-3/4 w-full mx-auto">
           <div className="create-account-form">
-            <form onSubmit={handleSubmit(onSubmit)} className=''>
+            <form onSubmit={handleSubmit(onSubmit)}>
 
-              <input type="text" placeholder="First Name" {...register("firstName", { required: true })} />
-              {errors.firstName && <span className='error-message'>This field is required</span>}
+              <div className='grid grid-cols-2 gap-5'>
+                <div className='col'>
+                  <div>
 
-              <input type="text" placeholder="Last Name" {...register("lastName", { required: true })} />
-              {errors.lastName && <span className='error-message'>This field is required</span>}
+                  <input type="text" placeholder="First Name" {...register("firstName", { required: true })} />
+                  {errors.firstName && <span className='error-message'>This field is required</span>}
+                  </div>
+                </div>
+                <div className='col'>
+                  <div>
+
+                  <input type="text" placeholder="Last Name" {...register("lastName", { required: true })} />
+                  {errors.lastName && <span className='error-message'>This field is required</span>}
+                  </div>
+                </div>
+              </div>
+
+
 
               <input type="text" placeholder="Username" {...register("userName", { required: true, pattern: /^[a-zA-Z0-9]+([._]?[a-zA-Z0-9]+)*$/ })} onBlur={(event) => handleUsername(event.target.value)} />
               {errors.userName && <span className='error-message'>This field is required</span>}
@@ -124,7 +131,7 @@ export default function RegisterForm() {
               <input type="password" placeholder="Confirm Password" {...register("confirmPassword", { required: true, })} />
               {errors.confirmPassword && <span className='error-message'>This field is required</span>}
 
-              <div className='password-standard font-andika text-accent text-base leading-5'>
+              <div className='password-standard font-andika text-accent text-base leading-5 md:hidden'>
                 <span className="block">Password must be minimum 8 characters long</span>
                 <span className='block'>Password must contain numbers, alphabets, special characters</span>
               </div>

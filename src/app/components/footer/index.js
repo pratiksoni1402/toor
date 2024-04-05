@@ -3,7 +3,7 @@ import Link from "next/link"
 import LazyImage from "../lazy-loading/lazy-image"
 export default function Footer() {
   return (
-    <div className="footer mt-20">
+    <div className="footer">
       <div className="container">
         <div className="upper-footer-wrapper border-t py-12">
           <section>

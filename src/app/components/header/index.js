@@ -6,7 +6,7 @@ import Useraccount from "./user-account";
 import Link from "next/link";
 export default function Header() {
   return (
-    <div className="app-header">
+    <div className="app-header bg-background">
       <div className="container">
         <div className="header-wrapper pt-3">
           <section>
