@@ -14,64 +14,64 @@ import {
 import Image from "next/image";
 import { useState } from "react";
 import { CATEGORY_MEDIA } from "@/lib/constants/images";
+import './style.css';
 export default function Megamenu() {
   const [ringhovered, setRingHovered] = useState();
   const [earringHovered, setEarringHovered] = useState();
   const [necklaceHovered, setNecklaceHovered] = useState();
   const [braceletHovered, setBraceletHovered] = useState();
   return (
-    <div className="mega-menu flex justify-center border-b border-background">
+    <div className="mega-menu">
       <NavigationMenu>
         <NavigationMenuList>
 
           <NavigationMenuItem>
-            <NavigationMenuTrigger className=' menu-trigger text-base  hover:font-semibold  border-b-2 border-transparent hover:bg-white rounded-none hover:border-b-2 hover:border-primary bg-transparent font-roboto text-accent' title='Rings'>
-              <span title="Rings" className="make-bold-props ">Rings</span>
+            <NavigationMenuTrigger className='menu-trigger' title='Rings'>
+              <span title="Rings" className="make-bold-props">Rings</span>
             </NavigationMenuTrigger>
-            <NavigationMenuContent>
-              <div className="section-two grid grid-cols-12 text-base gap-5">
-
+            <NavigationMenuContent className='menu-content'>
+              <div className=" grid grid-cols-12 gap-5">
                 <div className="col-span-2">
-                  <h2 className="pt-5 px-5 text-accent font-semibold font-roboto text-base">Shop By Style</h2>
-                  <ul className="px-5 text-accent font-roboto text-base">
+                  <h2 className="inner-heading">Shop By Style</h2>
+                  <ul className="product-list-wrapper">
 
-                    <li className=" hover:font-semibold hover:text-primary py-1" onMouseEnter={() => setRingHovered(`${CATEGORY_MEDIA}/ring-engagement.jpg`)} onMouseLeave={() => setRingHovered('/uploads/images/category-images/silver.png')} >
+                    <li className="product-list" onMouseEnter={() => setRingHovered(`${CATEGORY_MEDIA}/ring-engagement.jpg`)} onMouseLeave={() => setRingHovered('/uploads/images/category-images/silver.png')} >
                       <Link href='/engagement-rings' className="flex items-center">
                         <span>Engagement</span>
                       </Link>
                     </li>
 
-                    <li className=" hover:font-semibold hover:text-primary py-1" onMouseEnter={() => setRingHovered(`${CATEGORY_MEDIA}/ring-solitaire.jpg`)} onMouseLeave={() => setRingHovered('/uploads/images/category-images/silver.png')} >
+                    <li className="product-list" onMouseEnter={() => setRingHovered(`${CATEGORY_MEDIA}/ring-solitaire.jpg`)} onMouseLeave={() => setRingHovered('/uploads/images/category-images/silver.png')} >
                       <Link href='/solitaire-rings' className="flex items-center">
                         <span>Solitaire</span>
                       </Link>
                     </li>
 
-                    <li className=" hover:font-semibold hover:text-primary py-1" onMouseEnter={() => setRingHovered(`${CATEGORY_MEDIA}/ring-casual.jpg`)} onMouseLeave={() => setRingHovered('/uploads/images/category-images/silver.png')} >
+                    <li className="product-list" onMouseEnter={() => setRingHovered(`${CATEGORY_MEDIA}/ring-casual.jpg`)} onMouseLeave={() => setRingHovered('/uploads/images/category-images/silver.png')} >
                       <Link href='/casual-rings' className="flex items-center">
                         <span>Casual</span>
                       </Link>
                     </li>
 
-                    <li className=" hover:font-semibold hover:text-primary py-1" onMouseEnter={() => setRingHovered(`${CATEGORY_MEDIA}/ring-men.jpg`)} onMouseLeave={() => setRingHovered('/uploads/images/category-images/silver.png')} >
+                    <li className="product-list" onMouseEnter={() => setRingHovered(`${CATEGORY_MEDIA}/ring-men.jpg`)} onMouseLeave={() => setRingHovered('/uploads/images/category-images/silver.png')} >
                       <Link href='/mens-rings' className="flex items-center">
                         <span>Mens Rings</span>
                       </Link>
                     </li>
 
-                    <li className=" hover:font-semibold hover:text-primary py-1" onMouseEnter={() => setRingHovered(`${CATEGORY_MEDIA}/ring-navratna.jpg`)} onMouseLeave={() => setRingHovered('/uploads/images/category-images/silver.png')} >
+                    <li className="product-list" onMouseEnter={() => setRingHovered(`${CATEGORY_MEDIA}/ring-navratna.jpg`)} onMouseLeave={() => setRingHovered('/uploads/images/category-images/silver.png')} >
                       <Link href='/navratna-rings' className="flex items-center">
                         <span>Navratna</span>
                       </Link>
                     </li>
 
-                    <li className=" hover:font-semibold hover:text-primary py-1" onMouseEnter={() => setRingHovered(`${CATEGORY_MEDIA}/ring-mangalsutra.jpg`)} onMouseLeave={() => setRingHovered('/uploads/images/category-images/silver.png')} >
+                    <li className="product-list" onMouseEnter={() => setRingHovered(`${CATEGORY_MEDIA}/ring-mangalsutra.jpg`)} onMouseLeave={() => setRingHovered('/uploads/images/category-images/silver.png')} >
                       <Link href='/mangalsutra-rings' className="flex items-center">
                         <span className="whitespace-nowrap">Mangalsutra Rings</span>
                       </Link>
                     </li>
 
-                    <li className=" hover:font-semibold hover:text-primary py-1" onMouseEnter={() => setRingHovered(`${CATEGORY_MEDIA}/ring-couple.jpg`)} onMouseLeave={() => setRingHovered('/uploads/images/category-images/silver.png')} >
+                    <li className="product-list" onMouseEnter={() => setRingHovered(`${CATEGORY_MEDIA}/ring-couple.jpg`)} onMouseLeave={() => setRingHovered('/uploads/images/category-images/silver.png')} >
                       <Link href='/couple-bands' className="flex items-center">
                         <span>Couple Rings</span>
                       </Link>
@@ -83,25 +83,25 @@ export default function Megamenu() {
                   <h2 className="pt-5 px-5 text-accent font-semibold font-roboto text-base">Shop By Metal</h2>
                   <ul className="px-5 text-accent font-roboto text-base">
 
-                    <li className=" hover:font-semibold hover:text-primary py-1" onMouseEnter={() => setRingHovered(`${CATEGORY_MEDIA}/ring-platinum.jpg`)} onMouseLeave={() => setRingHovered('/uploads/images/category-images/silver.png')} >
+                    <li className="product-list" onMouseEnter={() => setRingHovered(`${CATEGORY_MEDIA}/ring-platinum.jpg`)} onMouseLeave={() => setRingHovered('/uploads/images/category-images/silver.png')} >
                       <Link href='/platinum' className="flex items-center">
                         <span>Platinum</span>
                       </Link>
                     </li>
 
-                    <li className=" hover:font-semibold hover:text-primary py-1" onMouseEnter={() => setRingHovered(`${CATEGORY_MEDIA}/ring-yellow-gold.jpg`)} onMouseLeave={() => setRingHovered('/uploads/images/category-images/silver.png')} >
+                    <li className="product-list" onMouseEnter={() => setRingHovered(`${CATEGORY_MEDIA}/ring-yellow-gold.jpg`)} onMouseLeave={() => setRingHovered('/uploads/images/category-images/silver.png')} >
                       <Link href='/yellow-gold' className="flex items-center">
                         <span>Yellow Gold</span>
                       </Link>
                     </li>
 
-                    <li className=" hover:font-semibold hover:text-primary py-1" onMouseEnter={() => setRingHovered(`${CATEGORY_MEDIA}/ring-rose-gold.jpg`)} onMouseLeave={() => setRingHovered('/uploads/images/category-images/silver.png')} >
+                    <li className="product-list" onMouseEnter={() => setRingHovered(`${CATEGORY_MEDIA}/ring-rose-gold.jpg`)} onMouseLeave={() => setRingHovered('/uploads/images/category-images/silver.png')} >
                       <Link href='/rose-gold' className="flex items-center">
                         <span>Rose Gold</span>
                       </Link>
                     </li>
 
-                    <li className=" hover:font-semibold hover:text-primary py-1" onMouseEnter={() => setRingHovered(`${CATEGORY_MEDIA}/ring-silver.jpg`)} onMouseLeave={() => setRingHovered('/uploads/images/category-images/silver.png')} >
+                    <li className="product-list" onMouseEnter={() => setRingHovered(`${CATEGORY_MEDIA}/ring-silver.jpg`)} onMouseLeave={() => setRingHovered('/uploads/images/category-images/silver.png')} >
                       <Link href='/silver' className="flex items-center">
                         <span>Silver</span>
                       </Link>

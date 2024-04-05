@@ -1,0 +1,19 @@
+.mega-menu{
+  @apply flex justify-center border-b border-primary
+} 
+
+.mega-menu .menu-trigger{
+  @apply text-base  hover:font-semibold  border-b-2 border-transparent hover:bg-white rounded-none hover:border-b-2 hover:border-primary bg-transparent font-roboto text-accent
+}
+
+.mega-menu .menu-content .inner-heading{
+@apply pt-5 px-5 text-accent font-semibold font-roboto text-base
+}
+
+.mega-menu .menu-content .product-list-wrapper{
+  @apply px-5 text-accent font-roboto text-base
+}
+
+.mega-menu.mega-menu .product-list-wrapper .product-list{
+  @apply hover:font-semibold hover:text-accent py-1
+}

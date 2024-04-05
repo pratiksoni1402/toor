@@ -7,10 +7,12 @@ export default function TermsCondition() {
     <div className="terms-condition">
       <div className="container">
         <div className='content-wrapper'>
+
           <section>
             <h1>Terms and Conditions</h1>
             <p>Welcome to SS Jewels. These Terms and Conditions govern your use of our website and the purchase of products from us. By accessing or using our website, you agree to be bound by these Terms and Conditions, including any additional terms and policies referenced herein.</p>
           </section>
+
           <section>
             <h2>Website Use</h2>
             <ul>
@@ -27,6 +29,7 @@ export default function TermsCondition() {
               </li>
             </ul>
           </section>
+
           <section>
             <h2>Product Purchases</h2>
             <ul>
@@ -36,6 +39,7 @@ export default function TermsCondition() {
               <li><span>Shipping and Delivery:</span>We will make reasonable efforts to fulfill and deliver your order in a timely manner. However, we are not responsible for delays or failures in delivery caused by events beyond our control.</li>
             </ul>
           </section>
+
           <section>
             <h2>Intellectual Property</h2>
             <ul>
@@ -43,6 +47,7 @@ export default function TermsCondition() {
               <li><span>Use Restrictions:</span>You may not reproduce, distribute, modify, or create derivative works of any content from our website without our prior written consent.</li>
             </ul>
           </section>
+
           <section>
             <h2>Limitation of Liability</h2>
             <ul>
@@ -50,18 +55,22 @@ export default function TermsCondition() {
               <li><span>Limitation of Liability:</span>In no event shall SS Jewels, its directors, officers, employees, or affiliates be liable for any indirect, incidental, special, or consequential damages arising out of or in connection with your use of our website or products, even if advised of the possibility of such damages.</li>
             </ul>
           </section>
+
           <section>
             <h2>Indemnification</h2>
             <p>You agree to indemnify and hold harmless SS Jewels and its affiliates, directors, officers, and employees from any claims, liabilities, damages, losses, or expenses arising out of or in connection with your use of our website, violation of these Terms and Conditions, or infringement of any third-party rights.</p>
           </section>
+
           <section>
             <h2>Governing Law</h2>
-            <p>These Terms and Conditions shall be governed by and construed in accordance with the laws of [Your Jurisdiction], without regard to its conflict of law principles.</p>
+            <p>These Terms and Conditions shall be governed by and construed in accordance with the laws of Jodhpur Jurisdiction, without regard to its conflict of law principles.</p>
           </section>
+
           <section>
             <h2>Changes to Terms and Conditions</h2>
             <p>We reserve the right to update or modify these Terms and Conditions at any time without prior notice. Any changes will be effective immediately upon posting on our website. Your continued use of our website after the posting of revised Terms and Conditions constitutes your acceptance of the changes.</p>
           </section>
+
           <section>
             <h2>Contact Us</h2>
             <p>If you have any questions, concerns, or feedback regarding these Terms and Conditions, please contact us at ssjewels@example.com.</p>
