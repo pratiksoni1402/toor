@@ -103,7 +103,7 @@ export default function Home() {
       <div className="container">
         {/* Shop By Gender */}
         <section>
-          <div className="shop-by-gender mt-10 pt-10">
+          <div className="shop-by-gender my-10 pt-10">
             <div className="heading pb-5">
             <h2 className="font-crimson md:text-4xl sm:text-3xl text-2xl text-primary sm:pt-0 text-center py-4">Shop By Gender</h2>
             </div>
@@ -139,7 +139,7 @@ export default function Home() {
 
         {/* We make you feel special */}
         <section>
-          <div className="content-wrapper">
+          <div className="content-wrapper my-10">
             <div className="grid grid-cols-3">
               <div className="sm:col-span-1 col-span-3">
                 <div className="image relative h-[340px]">

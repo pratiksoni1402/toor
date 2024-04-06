@@ -9,7 +9,6 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
-  navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 import Image from "next/image";
 import { useState } from "react";
@@ -80,8 +79,8 @@ export default function Megamenu() {
                 </div>
 
                 <div className="col-span-2">
-                  <h2 className="pt-5 px-5 text-accent font-semibold font-roboto text-base">Shop By Metal</h2>
-                  <ul className="px-5 text-accent font-roboto text-base">
+                  <h2 className="inner-heading">Shop By Metal</h2>
+                  <ul className="product-list-wrapper">
 
                     <li className="product-list" onMouseEnter={() => setRingHovered(`${CATEGORY_MEDIA}/ring-platinum.jpg`)} onMouseLeave={() => setRingHovered('/uploads/images/category-images/silver.png')} >
                       <Link href='/platinum' className="flex items-center">
@@ -129,15 +128,15 @@ export default function Megamenu() {
                   }
                 </div>
                 <div className="col-span-2">
-                  <h2 className="pt-5 px-5 text-accent font-semibold font-roboto text-base">Shop By Price</h2>
-                  <ul className="px-5 text-accent font-roboto text-base">
-                    <li className=" hover:font-semibold hover:text-primary pt-3"><Link href='/'>Under 10K</Link></li>
-                    <li className=" hover:font-semibold hover:text-primary pt-3"><Link href='/'>10K - 20K</Link></li>
-                    <li className=" hover:font-semibold hover:text-primary pt-3"><Link href='/'>20K - 30K</Link></li>
-                    <li className=" hover:font-semibold hover:text-primary pt-3"><Link href='/'>30K - 60K</Link></li>
-                    <li className=" hover:font-semibold hover:text-primary pt-3"><Link href='/'>60K - 90K</Link></li>
-                    <li className=" hover:font-semibold hover:text-primary pt-3"><Link href='/'>90K - 1.5L</Link></li>
-                    <li className=" hover:font-semibold hover:text-primary pt-3"><Link href='/'>Above 1.5L</Link></li>
+                  <h2 className="inner-heading">Shop By Price</h2>
+                  <ul className="product-list-wrapper">
+                    <li className="product-list"><Link href='/'>Under 10K</Link></li>
+                    <li className="product-list"><Link href='/'>10K - 20K</Link></li>
+                    <li className="product-list"><Link href='/'>20K - 30K</Link></li>
+                    <li className="product-list"><Link href='/'>30K - 60K</Link></li>
+                    <li className="product-list"><Link href='/'>60K - 90K</Link></li>
+                    <li className="product-list"><Link href='/'>90K - 1.5L</Link></li>
+                    <li className="product-list"><Link href='/'>Above 1.5L</Link></li>
                   </ul>
                 </div>
 
@@ -146,58 +145,58 @@ export default function Megamenu() {
           </NavigationMenuItem>
 
           <NavigationMenuItem>
-            <NavigationMenuTrigger className=' menu-trigger text-base  hover:font-semibold  border-b-2 border-transparent hover:bg-white rounded-none hover:border-b-2 hover:border-primary bg-transparent font-roboto text-accent'>
+            <NavigationMenuTrigger className=' menu-trigger'>
               <span title="Earrings" className="make-bold-props ">Earrings</span>
             </NavigationMenuTrigger>
-            <NavigationMenuContent className='w-full'>
+            <NavigationMenuContent className='w-full menu-content'>
               <div className="section-one grid grid-cols-12 gap-5">
 
                 <div className="col-span-2">
-                  <h2 className="pt-5 px-5 text-accent font-semibold font-roboto text-base">Shop By Style</h2>
-                  <ul className="px-5 text-accent font-roboto text-base">
+                  <h2 className="inner-heading">Shop By Style</h2>
+                  <ul className="product-list-wrapper">
 
-                    <li className=" hover:font-semibold hover:text-primary">
+                    <li className="product-list">
                       <Link href='/engagement-rings' className="flex items-center" onMouseEnter={() => setEarringHovered(`${CATEGORY_MEDIA}/all-earring.jpg`)} onMouseLeave={() => setEarringHovered('/uploads/images/mega-menu/earring.jpg')} >
                         <span>All Earrings</span>
                       </Link>
                     </li>
 
-                    <li className=" hover:font-semibold hover:text-primary" onMouseEnter={() => setEarringHovered(`${CATEGORY_MEDIA}/earring-drop.jpg`)} onMouseLeave={() => setEarringHovered('/uploads/images/mega-menu/earring.jpg')} >
+                    <li className="product-list" onMouseEnter={() => setEarringHovered(`${CATEGORY_MEDIA}/earring-drop.jpg`)} onMouseLeave={() => setEarringHovered('/uploads/images/mega-menu/earring.jpg')} >
                       <Link href='/solitaire-rings' className="flex items-center">
                         <span>Drop n Dangler</span>
                       </Link>
                     </li>
 
-                    <li className=" hover:font-semibold hover:text-primary" onMouseEnter={() => setEarringHovered(`${CATEGORY_MEDIA}/earring-solitaire.jpg`)} onMouseLeave={() => setEarringHovered('/uploads/images/mega-menu/earring.jpg')} >
+                    <li className="product-list" onMouseEnter={() => setEarringHovered(`${CATEGORY_MEDIA}/earring-solitaire.jpg`)} onMouseLeave={() => setEarringHovered('/uploads/images/mega-menu/earring.jpg')} >
                       <Link href='/casual-rings' className="flex items-center">
                         <span>Solitaire</span>
                       </Link>
                     </li>
 
-                    <li className=" hover:font-semibold hover:text-primary" onMouseEnter={() => setEarringHovered(`${CATEGORY_MEDIA}/earring-sui-dhaga.jpg`)} onMouseLeave={() => setEarringHovered('/uploads/images/mega-menu/earring.jpg')} >
+                    <li className="product-list" onMouseEnter={() => setEarringHovered(`${CATEGORY_MEDIA}/earring-sui-dhaga.jpg`)} onMouseLeave={() => setEarringHovered('/uploads/images/mega-menu/earring.jpg')} >
                       <Link href='/mens-rings' className="flex items-center">
                         <span>Sui Dhaga</span>
                       </Link>
                     </li>
 
-                    <li className=" hover:font-semibold hover:text-primary" onMouseEnter={() => setEarringHovered(`${CATEGORY_MEDIA}/earring-huggie.jpg`)} onMouseLeave={() => setEarringHovered('/uploads/images/mega-menu/earring.jpg')} >
+                    <li className="product-list" onMouseEnter={() => setEarringHovered(`${CATEGORY_MEDIA}/earring-huggie.jpg`)} onMouseLeave={() => setEarringHovered('/uploads/images/mega-menu/earring.jpg')} >
                       <Link href='/navratna-rings' className="flex items-center">
                         <span>Huggie</span>
                       </Link>
                     </li>
-                    <li className=" hover:font-semibold hover:text-primary" onMouseEnter={() => setEarringHovered(`${CATEGORY_MEDIA}/earring-hoop.jpg`)} onMouseLeave={() => setEarringHovered('/uploads/images/mega-menu/earring.jpg')} >
+                    <li className="product-list" onMouseEnter={() => setEarringHovered(`${CATEGORY_MEDIA}/earring-hoop.jpg`)} onMouseLeave={() => setEarringHovered('/uploads/images/mega-menu/earring.jpg')} >
                       <Link href='/mangalsutra-rings' className="flex items-center">
                         <span className="whitespace-nowrap">Hoop</span>
                       </Link>
                     </li>
 
-                    <li className=" hover:font-semibold hover:text-primary" onMouseEnter={() => setEarringHovered(`${CATEGORY_MEDIA}/earring-jhomka.jpg`)} onMouseLeave={() => setEarringHovered('/uploads/images/mega-menu/earring.jpg')} >
+                    <li className="product-list" onMouseEnter={() => setEarringHovered(`${CATEGORY_MEDIA}/earring-jhomka.jpg`)} onMouseLeave={() => setEarringHovered('/uploads/images/mega-menu/earring.jpg')} >
                       <Link href='/couple-bands' className="flex items-center">
                         <span>Jhomkas</span>
                       </Link>
                     </li>
 
-                    <li className=" hover:font-semibold hover:text-primary" onMouseEnter={() => setEarringHovered(`${CATEGORY_MEDIA}/earring-tops.jpg`)} onMouseLeave={() => setEarringHovered('/uploads/images/mega-menu/earring.jpg')} >
+                    <li className="product-list" onMouseEnter={() => setEarringHovered(`${CATEGORY_MEDIA}/earring-tops.jpg`)} onMouseLeave={() => setEarringHovered('/uploads/images/mega-menu/earring.jpg')} >
                       <Link href='/couple-bands' className="flex items-center">
                         <span>Tops</span>
                       </Link>
@@ -207,27 +206,27 @@ export default function Megamenu() {
                 </div>
 
                 <div className="col-span-2">
-                  <h2 className="pt-5 px-5 text-accent font-semibold font-roboto text-base">Shop By Metal</h2>
-                  <ul className="px-5 text-accent font-roboto text-base">
-                    <li className=" hover:font-semibold hover:text-primary" onMouseEnter={() => setEarringHovered(`${CATEGORY_MEDIA}/earring-platinum.jpg`)} onMouseLeave={() => setEarringHovered('/uploads/images/mega-menu/earring.jpg')} >
+                  <h2 className="inner-heading">Shop By Metal</h2>
+                  <ul className="product-list-wrapper">
+                    <li className="product-list" onMouseEnter={() => setEarringHovered(`${CATEGORY_MEDIA}/earring-platinum.jpg`)} onMouseLeave={() => setEarringHovered('/uploads/images/mega-menu/earring.jpg')} >
                       <Link href='/' className="flex items-center">
                         <span>Platinum</span>
                       </Link>
                     </li>
 
-                    <li className=" hover:font-semibold hover:text-primary" onMouseEnter={() => setEarringHovered(`${CATEGORY_MEDIA}/earring-yellow-gold.jpg`)} onMouseLeave={() => setEarringHovered('/uploads/images/mega-menu/earring.jpg')} >
+                    <li className="product-list" onMouseEnter={() => setEarringHovered(`${CATEGORY_MEDIA}/earring-yellow-gold.jpg`)} onMouseLeave={() => setEarringHovered('/uploads/images/mega-menu/earring.jpg')} >
                       <Link href='/' className="flex items-center">
                         <span>Yellow Gold</span>
                       </Link>
                     </li>
 
-                    <li className=" hover:font-semibold hover:text-primary" onMouseEnter={() => setEarringHovered(`${CATEGORY_MEDIA}/earring-rose-gold.jpg`)} onMouseLeave={() => setEarringHovered('/uploads/images/mega-menu/earring.jpg')} >
+                    <li className="product-list" onMouseEnter={() => setEarringHovered(`${CATEGORY_MEDIA}/earring-rose-gold.jpg`)} onMouseLeave={() => setEarringHovered('/uploads/images/mega-menu/earring.jpg')} >
                       <Link href='/' className="flex items-center">
                         <span>Rose Gold</span>
                       </Link>
                     </li>
 
-                    <li className=" hover:font-semibold hover:text-primary" onMouseEnter={() => setEarringHovered(`${CATEGORY_MEDIA}/earring-silver.jpg`)} onMouseLeave={() => setEarringHovered('/uploads/images/mega-menu/earring.jpg')} >
+                    <li className="product-list" onMouseEnter={() => setEarringHovered(`${CATEGORY_MEDIA}/earring-silver.jpg`)} onMouseLeave={() => setEarringHovered('/uploads/images/mega-menu/earring.jpg')} >
                       <Link href='/silver' className="flex items-center">
                         <span>Silver</span>
                       </Link>
@@ -255,15 +254,15 @@ export default function Megamenu() {
                 </div>
 
                 <div className="col-span-2">
-                  <h2 className="pt-5 px-5 text-accent font-semibold font-roboto text-base">Shop By Price</h2>
-                  <ul className="px-5 text-accent font-roboto text-base">
-                    <li className=" hover:font-semibold hover:text-primary pt-3"><Link href='/'>Under 10K</Link></li>
-                    <li className=" hover:font-semibold hover:text-primary pt-3"><Link href='/'>10K - 20K</Link></li>
-                    <li className=" hover:font-semibold hover:text-primary pt-3"><Link href='/'>20K - 30K</Link></li>
-                    <li className=" hover:font-semibold hover:text-primary pt-3"><Link href='/'>30K - 60K</Link></li>
-                    <li className=" hover:font-semibold hover:text-primary pt-3"><Link href='/'>60K - 90K</Link></li>
-                    <li className=" hover:font-semibold hover:text-primary pt-3"><Link href='/'>90K - 1.5L</Link></li>
-                    <li className=" hover:font-semibold hover:text-primary pt-3"><Link href='/'>Above 1.5L</Link></li>
+                  <h2 className="inner-heading">Shop By Price</h2>
+                  <ul className="product-list-wrapper">
+                    <li className="product-list pt-3"><Link href='/'>Under 10K</Link></li>
+                    <li className="product-list pt-3"><Link href='/'>10K - 20K</Link></li>
+                    <li className="product-list pt-3"><Link href='/'>20K - 30K</Link></li>
+                    <li className="product-list pt-3"><Link href='/'>30K - 60K</Link></li>
+                    <li className="product-list pt-3"><Link href='/'>60K - 90K</Link></li>
+                    <li className="product-list pt-3"><Link href='/'>90K - 1.5L</Link></li>
+                    <li className="product-list pt-3"><Link href='/'>Above 1.5L</Link></li>
                   </ul>
                 </div>
               </div>
@@ -271,35 +270,35 @@ export default function Megamenu() {
           </NavigationMenuItem>
 
           <NavigationMenuItem>
-            <NavigationMenuTrigger className='menu-trigger text-base  hover:font-semibold  border-b-2 border-transparent hover:bg-white rounded-none hover:border-b-2 hover:border-primary bg-transparent font-roboto text-accent'>
+            <NavigationMenuTrigger className='menu-trigger'>
               <span title="Necklaces" className="make-bold-props ">Necklaces</span>
             </NavigationMenuTrigger>
-            <NavigationMenuContent>
+            <NavigationMenuContent className=' menu-content'>
               <div className="section-two grid grid-cols-12 gap-5">
 
                 <div className="col-span-2">
-                  <h2 className="pt-5 px-5 text-accent font-semibold font-roboto text-base">Shop By Style</h2>
-                  <ul className="px-5 text-accent font-roboto text-base">
+                  <h2 className="inner-heading">Shop By Style</h2>
+                  <ul className="product-list-wrapper">
 
-                    <li className=" hover:font-semibold hover:text-primary" onMouseEnter={() => setNecklaceHovered(`${CATEGORY_MEDIA}/necklace-collar.jpg`)} onMouseLeave={() => setNecklaceHovered('/uploads/images/mega-menu/necklace.jpg')}>
+                    <li className="product-list" onMouseEnter={() => setNecklaceHovered(`${CATEGORY_MEDIA}/necklace-collar.jpg`)} onMouseLeave={() => setNecklaceHovered('/uploads/images/mega-menu/necklace.jpg')}>
                       <Link href='/' className="flex items-center">
                         <span>Collar</span>
                       </Link>
                     </li>
 
-                    <li className=" hover:font-semibold hover:text-primary" onMouseEnter={() => setNecklaceHovered(`${CATEGORY_MEDIA}/necklace-layered.jpg`)} onMouseLeave={() => setNecklaceHovered('/uploads/images/mega-menu/necklace.jpg')}>
+                    <li className="product-list" onMouseEnter={() => setNecklaceHovered(`${CATEGORY_MEDIA}/necklace-layered.jpg`)} onMouseLeave={() => setNecklaceHovered('/uploads/images/mega-menu/necklace.jpg')}>
                       <Link href='/' className="flex items-center">
                         <span>Layered</span>
                       </Link>
                     </li>
 
-                    <li className=" hover:font-semibold hover:text-primary" onMouseEnter={() => setNecklaceHovered(`${CATEGORY_MEDIA}/necklace-locket.jpg`)} onMouseLeave={() => setNecklaceHovered('/uploads/images/mega-menu/necklace.jpg')}>
+                    <li className="product-list" onMouseEnter={() => setNecklaceHovered(`${CATEGORY_MEDIA}/necklace-locket.jpg`)} onMouseLeave={() => setNecklaceHovered('/uploads/images/mega-menu/necklace.jpg')}>
                       <Link href='/' className="flex items-center">
                         <span>Locket</span>
                       </Link>
                     </li>
 
-                    <li className=" hover:font-semibold hover:text-primary" onMouseEnter={() => setNecklaceHovered(`${CATEGORY_MEDIA}/necklace-delicate.jpg`)} onMouseLeave={() => setNecklaceHovered('/uploads/images/mega-menu/necklace.jpg')}>
+                    <li className="product-list" onMouseEnter={() => setNecklaceHovered(`${CATEGORY_MEDIA}/necklace-delicate.jpg`)} onMouseLeave={() => setNecklaceHovered('/uploads/images/mega-menu/necklace.jpg')}>
                       <Link href='/' className="flex items-center">
                         <span>Delicate</span>
                       </Link>
@@ -308,28 +307,28 @@ export default function Megamenu() {
                 </div>
 
                 <div className="col-span-2">
-                  <h2 className="pt-5 px-5 text-accent font-semibold font-roboto text-base">Shop By Metal</h2>
-                  <ul className="px-5 text-accent font-roboto text-base">
+                  <h2 className="inner-heading">Shop By Metal</h2>
+                  <ul className="product-list-wrapper">
 
-                    <li className=" hover:font-semibold hover:text-primary pt-3" onMouseEnter={() => setNecklaceHovered(`${CATEGORY_MEDIA}/necklace-platinum.jpg`)} onMouseLeave={() => setNecklaceHovered('/uploads/images/mega-menu/necklace.jpg')}>
+                    <li className="product-list pt-3" onMouseEnter={() => setNecklaceHovered(`${CATEGORY_MEDIA}/necklace-platinum.jpg`)} onMouseLeave={() => setNecklaceHovered('/uploads/images/mega-menu/necklace.jpg')}>
                       <Link href='/' className="flex items-center">
                         <span>Platinum</span>
                       </Link>
                     </li>
 
-                    <li className=" hover:font-semibold hover:text-primary pt-3" onMouseEnter={() => setNecklaceHovered(`${CATEGORY_MEDIA}/necklace-yellow-gold.jpg`)} onMouseLeave={() => setNecklaceHovered('/uploads/images/mega-menu/necklace.jpg')}>
+                    <li className="product-list pt-3" onMouseEnter={() => setNecklaceHovered(`${CATEGORY_MEDIA}/necklace-yellow-gold.jpg`)} onMouseLeave={() => setNecklaceHovered('/uploads/images/mega-menu/necklace.jpg')}>
                       <Link href='/' className="flex items-center">
                         <span>Yellow Gold</span>
                       </Link>
                     </li>
 
-                    <li className=" hover:font-semibold hover:text-primary pt-3" onMouseEnter={() => setNecklaceHovered(`${CATEGORY_MEDIA}/necklace-rose-gold.jpg`)} onMouseLeave={() => setNecklaceHovered('/uploads/images/mega-menu/necklace.jpg')}>
+                    <li className="product-list pt-3" onMouseEnter={() => setNecklaceHovered(`${CATEGORY_MEDIA}/necklace-rose-gold.jpg`)} onMouseLeave={() => setNecklaceHovered('/uploads/images/mega-menu/necklace.jpg')}>
                       <Link href='/' className="flex items-center">
                         <span>Rose Gold</span>
                       </Link>
                     </li>
 
-                    <li className=" hover:font-semibold hover:text-primary pt-3" onMouseEnter={() => setNecklaceHovered(`${CATEGORY_MEDIA}/necklace-silver.jpg`)} onMouseLeave={() => setNecklaceHovered('/uploads/images/mega-menu/necklace.jpg')}>
+                    <li className="product-list pt-3" onMouseEnter={() => setNecklaceHovered(`${CATEGORY_MEDIA}/necklace-silver.jpg`)} onMouseLeave={() => setNecklaceHovered('/uploads/images/mega-menu/necklace.jpg')}>
                       <Link href='/' className="flex items-center">
                         <span>Silver</span>
                       </Link>
@@ -357,15 +356,15 @@ export default function Megamenu() {
                 </div>
 
                 <div className="col-span-2">
-                  <h2 className="pt-5 px-5 text-accent font-semibold font-roboto text-base">Shop By Price</h2>
-                  <ul className="px-5 text-accent font-roboto text-base">
-                    <li className=" hover:font-semibold hover:text-primary pt-3"><Link href='/'>Under 50K</Link></li>
-                    <li className=" hover:font-semibold hover:text-primary pt-3"><Link href='/'>50K - 60K</Link></li>
-                    <li className=" hover:font-semibold hover:text-primary pt-3"><Link href='/'>60K - 70K</Link></li>
-                    <li className=" hover:font-semibold hover:text-primary pt-3"><Link href='/'>70K - 90K</Link></li>
-                    <li className=" hover:font-semibold hover:text-primary pt-3"><Link href='/'>90K - 1.5L</Link></li>
-                    <li className=" hover:font-semibold hover:text-primary pt-3"><Link href='/'>1.5L - 2.0L</Link></li>
-                    <li className=" hover:font-semibold hover:text-primary pt-3"><Link href='/'>Above 2.0L</Link></li>
+                  <h2 className="inner-heading">Shop By Price</h2>
+                  <ul className="product-list-wrapper">
+                    <li className="product-list pt-3"><Link href='/'>Under 50K</Link></li>
+                    <li className="product-list pt-3"><Link href='/'>50K - 60K</Link></li>
+                    <li className="product-list pt-3"><Link href='/'>60K - 70K</Link></li>
+                    <li className="product-list pt-3"><Link href='/'>70K - 90K</Link></li>
+                    <li className="product-list pt-3"><Link href='/'>90K - 1.5L</Link></li>
+                    <li className="product-list pt-3"><Link href='/'>1.5L - 2.0L</Link></li>
+                    <li className="product-list pt-3"><Link href='/'>Above 2.0L</Link></li>
                   </ul>
                 </div>
 
@@ -374,47 +373,47 @@ export default function Megamenu() {
           </NavigationMenuItem>
 
           <NavigationMenuItem>
-            <NavigationMenuTrigger className='menu-trigger text-base hover:font-semibold border-b-2 border-transparent hover:bg-white rounded-none hover:border-b-2 hover:border-primary bg-transparent font-roboto text-accent '>
+            <NavigationMenuTrigger className='menu-trigger'>
               <span title="Bracelets" className="make-bold-props ">Bracelets</span>
             </NavigationMenuTrigger>
-            <NavigationMenuContent>
+            <NavigationMenuContent className='menu-content'>
               <div className="section-two grid grid-cols-12 gap-5">
 
                 <div className="col-span-2">
-                  <h2 className="pt-5 px-5 text-accent font-semibold font-roboto text-base">Shop By Style</h2>
-                  <ul className="px-5 text-accent font-roboto text-base">
+                  <h2 className="inner-heading">Shop By Style</h2>
+                  <ul className="product-list-wrapper">
 
-                    <li className=" hover:font-semibold hover:text-primary" onMouseEnter={() => setBraceletHovered(`${CATEGORY_MEDIA}/bracelet-chain.jpg`)} onMouseLeave={() => setBraceletHovered('/uploads/images/mega-menu/bracelet.jpg')}>
+                    <li className="product-list" onMouseEnter={() => setBraceletHovered(`${CATEGORY_MEDIA}/bracelet-chain.jpg`)} onMouseLeave={() => setBraceletHovered('/uploads/images/mega-menu/bracelet.jpg')}>
                       <Link href='/' className="flex items-center">
                         <span>Chain</span>
                       </Link>
                     </li>
-                    <li className=" hover:font-semibold hover:text-primary" onMouseEnter={() => setBraceletHovered(`${CATEGORY_MEDIA}/cuff-bracelet.jpg`)} onMouseLeave={() => setBraceletHovered('/uploads/images/mega-menu/bracelet.jpg')}>
+                    <li className="product-list" onMouseEnter={() => setBraceletHovered(`${CATEGORY_MEDIA}/cuff-bracelet.jpg`)} onMouseLeave={() => setBraceletHovered('/uploads/images/mega-menu/bracelet.jpg')}>
                       <Link href='/' className="flex items-center" >
                         <span>Cuff</span>
                       </Link>
                     </li>
-                    <li className=" hover:font-semibold hover:text-primary" onMouseEnter={() => setBraceletHovered(`${CATEGORY_MEDIA}/bracelet-gemstone.jpg`)} onMouseLeave={() => setBraceletHovered('/uploads/images/mega-menu/bracelet.jpg')}>
+                    <li className="product-list" onMouseEnter={() => setBraceletHovered(`${CATEGORY_MEDIA}/bracelet-gemstone.jpg`)} onMouseLeave={() => setBraceletHovered('/uploads/images/mega-menu/bracelet.jpg')}>
                       <Link href='/' className="flex items-center" >
                         <span>Gemstone</span>
                       </Link>
                     </li>
-                    <li className=" hover:font-semibold hover:text-primary" onMouseEnter={() => setBraceletHovered(`${CATEGORY_MEDIA}/bracelet-cable.jpg`)} onMouseLeave={() => setBraceletHovered('/uploads/images/mega-menu/bracelet.jpg')}>
+                    <li className="product-list" onMouseEnter={() => setBraceletHovered(`${CATEGORY_MEDIA}/bracelet-cable.jpg`)} onMouseLeave={() => setBraceletHovered('/uploads/images/mega-menu/bracelet.jpg')}>
                       <Link href='/' className="flex items-center" >
                         <span>Cable</span>
                       </Link>
                     </li>
-                    <li className=" hover:font-semibold hover:text-primary" onMouseEnter={() => setBraceletHovered(`${CATEGORY_MEDIA}/bracelet-hinged.jpg`)} onMouseLeave={() => setBraceletHovered('/uploads/images/mega-menu/bracelet.jpg')}>
+                    <li className="product-list" onMouseEnter={() => setBraceletHovered(`${CATEGORY_MEDIA}/bracelet-hinged.jpg`)} onMouseLeave={() => setBraceletHovered('/uploads/images/mega-menu/bracelet.jpg')}>
                       <Link href='/' className="flex items-center" >
                         <span>Hinged</span>
                       </Link>
                     </li>
-                    <li className=" hover:font-semibold hover:text-primary" onMouseEnter={() => setBraceletHovered(`${CATEGORY_MEDIA}/bracelet-open-bangle.jpg`)} onMouseLeave={() => setBraceletHovered('/uploads/images/mega-menu/bracelet.jpg')}>
+                    <li className="product-list" onMouseEnter={() => setBraceletHovered(`${CATEGORY_MEDIA}/bracelet-open-bangle.jpg`)} onMouseLeave={() => setBraceletHovered('/uploads/images/mega-menu/bracelet.jpg')}>
                       <Link href='/' className="flex items-center" >
                         <span>Open Bangle</span>
                       </Link>
                     </li>
-                    <li className=" hover:font-semibold hover:text-primary" onMouseEnter={() => setBraceletHovered(`${CATEGORY_MEDIA}/bracelet-bangle.jpg`)} onMouseLeave={() => setBraceletHovered('/uploads/images/mega-menu/bracelet.jpg')}>
+                    <li className="product-list" onMouseEnter={() => setBraceletHovered(`${CATEGORY_MEDIA}/bracelet-bangle.jpg`)} onMouseLeave={() => setBraceletHovered('/uploads/images/mega-menu/bracelet.jpg')}>
                       <Link href='/' className="flex items-center" >
                         <span>Bangle</span>
                       </Link>
@@ -423,28 +422,28 @@ export default function Megamenu() {
                 </div>
 
                 <div className="col-span-2">
-                  <h2 className="pt-5 px-5 text-accent font-semibold font-roboto text-base">Shop By Metal</h2>
-                  <ul className="px-5 text-accent font-roboto text-base">
+                  <h2 className="inner-heading">Shop By Metal</h2>
+                  <ul className="product-list-wrapper">
 
-                    <li className=" hover:font-semibold hover:text-primary pt-3" onMouseEnter={() => setBraceletHovered(`${CATEGORY_MEDIA}/bracelet-platinum.jpg`)} onMouseLeave={() => setBraceletHovered('/uploads/images/mega-menu/bracelet.jpg')}>
+                    <li className="product-list pt-3" onMouseEnter={() => setBraceletHovered(`${CATEGORY_MEDIA}/bracelet-platinum.jpg`)} onMouseLeave={() => setBraceletHovered('/uploads/images/mega-menu/bracelet.jpg')}>
                       <Link href='/' className="flex items-center">
                         <span>Platinum</span>
                       </Link>
                     </li>
 
-                    <li className=" hover:font-semibold hover:text-primary pt-3" onMouseEnter={() => setBraceletHovered(`${CATEGORY_MEDIA}/bracelet-yellow-gold.jpg`)} onMouseLeave={() => setBraceletHovered('/uploads/images/mega-menu/bracelet.jpg')}>
+                    <li className="product-list pt-3" onMouseEnter={() => setBraceletHovered(`${CATEGORY_MEDIA}/bracelet-yellow-gold.jpg`)} onMouseLeave={() => setBraceletHovered('/uploads/images/mega-menu/bracelet.jpg')}>
                       <Link href='/' className="flex items-center">
                         <span>Yellow Gold</span>
                       </Link>
                     </li>
 
-                    <li className=" hover:font-semibold hover:text-primary pt-3" onMouseEnter={() => setBraceletHovered(`${CATEGORY_MEDIA}/bracelet-rose-gold.jpg`)} onMouseLeave={() => setBraceletHovered('/uploads/images/mega-menu/bracelet.jpg')}>
+                    <li className="product-list pt-3" onMouseEnter={() => setBraceletHovered(`${CATEGORY_MEDIA}/bracelet-rose-gold.jpg`)} onMouseLeave={() => setBraceletHovered('/uploads/images/mega-menu/bracelet.jpg')}>
                       <Link href='/' className="flex items-center">
                         <span>Rose Gold</span>
                       </Link>
                     </li>
 
-                    <li className=" hover:font-semibold hover:text-primary pt-3" onMouseEnter={() => setBraceletHovered(`${CATEGORY_MEDIA}/bracelet-silver.jpg`)} onMouseLeave={() => setBraceletHovered('/uploads/images/mega-menu/bracelet.jpg')}>
+                    <li className="product-list pt-3" onMouseEnter={() => setBraceletHovered(`${CATEGORY_MEDIA}/bracelet-silver.jpg`)} onMouseLeave={() => setBraceletHovered('/uploads/images/mega-menu/bracelet.jpg')}>
                       <Link href='/' className="flex items-center">
                         <span>Silver</span>
                       </Link>
@@ -472,15 +471,15 @@ export default function Megamenu() {
                 </div>
 
                 <div className="col-span-2">
-                  <h2 className="pt-5 px-5 text-accent font-semibold font-roboto text-base">Shop By Price</h2>
-                  <ul className="px-5 text-accent font-roboto text-base">
-                    <li className=" hover:font-semibold hover:text-primary pt-3"><Link href='/'>Under 50K</Link></li>
-                    <li className=" hover:font-semibold hover:text-primary pt-3"><Link href='/'>50K - 60K</Link></li>
-                    <li className=" hover:font-semibold hover:text-primary pt-3"><Link href='/'>60K - 70K</Link></li>
-                    <li className=" hover:font-semibold hover:text-primary pt-3"><Link href='/'>70K - 90K</Link></li>
-                    <li className=" hover:font-semibold hover:text-primary pt-3"><Link href='/'>90K - 1.5L</Link></li>
-                    <li className=" hover:font-semibold hover:text-primary pt-3"><Link href='/'>1.5L - 2.0L</Link></li>
-                    <li className=" hover:font-semibold hover:text-primary pt-3"><Link href='/'>Above 2.0L</Link></li>
+                  <h2 className="inner-heading">Shop By Price</h2>
+                  <ul className="product-list-wrapper">
+                    <li className="product-list pt-3"><Link href='/'>Under 50K</Link></li>
+                    <li className="product-list pt-3"><Link href='/'>50K - 60K</Link></li>
+                    <li className="product-list pt-3"><Link href='/'>60K - 70K</Link></li>
+                    <li className="product-list pt-3"><Link href='/'>70K - 90K</Link></li>
+                    <li className="product-list pt-3"><Link href='/'>90K - 1.5L</Link></li>
+                    <li className="product-list pt-3"><Link href='/'>1.5L - 2.0L</Link></li>
+                    <li className="product-list pt-3"><Link href='/'>Above 2.0L</Link></li>
                   </ul>
                 </div>
 

@@ -44,7 +44,7 @@ export default function Footer() {
                   <div className="info-section">
                     <ul>
                       <li><Link href='/' title="FAQs">FAQs</Link></li>
-                      <li><Link href='/' title="Jewelry Care">Jewelery Care</Link></li>
+                      <li><Link href='/jewelry-care' title="Jewelry Care">Jewelery Care</Link></li>
                       <li><Link href='/' title="Gold Rate Guide">Gold Rate Guide</Link></li>
                       <li><Link href='/' title="Our Promise">Our Promise</Link></li>
                     </ul>
