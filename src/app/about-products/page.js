@@ -6,7 +6,7 @@ export default function AboutProducts(){
   return(
     <div className="about-products">
       <div className="container">
-        <h1 className="text-center text-3xl text-primary">Coming Soon</h1>
+        <h1 className="text-center text-3xl text-primary">Coming Soon...</h1>
       </div>
     </div>
   )
