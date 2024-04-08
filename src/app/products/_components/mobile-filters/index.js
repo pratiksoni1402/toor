@@ -9,6 +9,7 @@ import {
   DrawerTitle,
   DrawerTrigger,
 } from "@/components/ui/drawer";
+import { SlidersHorizontal } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
 import { usePathname, useSearchParams } from "next/navigation";
@@ -113,12 +114,15 @@ export default function MobileFilters({ className, ...props }) {
   return (
     <div className="mobile-drawer">
       <div className="container">
-        <div className="drawer-wrapper">
+        <div className="drawer-wrapper text-center bg-primary-foreground flex justify-center">
           <Drawer>
-            <DrawerTrigger>Open</DrawerTrigger>
+            <DrawerTrigger className="drawer-trigger text-base flex items-center justify-center font-roboto text-accent py-2">
+              <span>Filters</span>
+              <SlidersHorizontal />
+              </DrawerTrigger>
             <DrawerContent>
               <DrawerHeader className='flex justify-between'>
-                <DrawerTitle className='font-crimson text-3xl font-normal text-primary'>Filters</DrawerTitle>
+                {/* <DrawerTitle className='font-crimson text-3xl font-normal text-primary'>Filters</DrawerTitle> */}
                 {/* <DrawerDescription>This action cannot be undone.</DrawerDescription> */}
                 <div className="clear-filter-btn text-center" >
                   <Button className='rounded-none bg-primary-foreground text-accent text-base font-roboto hover:bg-primary hover:text-white' onClick={resetFilter}>Clear Filter</Button>

@@ -4,27 +4,30 @@ import Wishlistcount from "./wishlist-count";
 import { Mobilemenu } from "./mobile-menu";
 import Useraccount from "./user-account";
 import Link from "next/link";
+import './style.css'
 export default function Header() {
   return (
     <div className="app-header bg-background">
       <div className="container">
         <div className="header-wrapper pt-3">
           <section>
-            <div className="top-bar bg-transparent grid sm:grid-cols-3 grid-cols-2 justify-between items-center">
-              <div className="col sm:block hidden"></div>
-              <div className=" col">
+            <div className="top-bar bg-transparent grid grid-cols-3  justify-between items-center">
+              <div className="col-span-1">
+                <div className='mobile-menu'><Mobilemenu /></div>
+              </div>
+              <div className=" col-span-1">
                 <Link href='/'>
-                  <h1 className="font-crimson sm:text-4xl text-2xl sm:text-center text-left text-primary">SS Jewels</h1>
+                  <h1 className="font-crimson sm:text-4xl text-center text-2xl sm:text-center text-primary">SS Jewels</h1>
                 </Link>
               </div>
-              <div className="col">
+              <div className="col-span-1">
                 <div className=" user-actions flex justify-end items-center">
-                  <div className=' hover:text-primary text-accent'>
+                  <div className='text-primary hover:border hover:border-primary rounded-full p-1 hover:bg-primary-foreground border border-transparent'>
                     <Wishlistcount size={14} />
                   </div>
-                  <div className=' hover:text-primary text-accent mx-3'><Cartcount size={14} /></div>
-                  <div className=' hover:text-primary text-accent'><Useraccount size={14} /></div>
-                  <div className='mobile-menu lg:hidden md:block block hover:text-primary text-accent'><Mobilemenu /></div>
+                  <div className=' hover:border hover:border-primary rounded-full p-1 hover:bg-primary-foreground border border-transparent text-primary mx-3'><Cartcount size={14} /></div>
+                  <div className=' hover:border hover:border-primary rounded-full p-1 hover:bg-primary-foreground border border-transparent text-primary'><Useraccount size={14} /></div>
+
                 </div>
               </div>
             </div>
