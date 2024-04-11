@@ -6,24 +6,17 @@ import Link from "next/link";
 import LazyImage from "./components/lazy-loading/lazy-image";
 import Categories from "./components/home-page/categories";
 import Featured from "./components/featured-product";
+import Banner from "./(home)/_components/banner";
+import { Button } from "@/components/ui/button";
 import Image from "next/image";
-
 export default function Home() {
   return (
     <div className="homepage">
-      <section>
-        <div className="banner-wrapper">
-          <div className="hero-image w-full" style={{
-            backgroundImage: "url(/uploads/images/homepage/banner.jpg)",
-            width: "100%",
-            height: "100vh",
-            backgroundRepeat: "no-repeat",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-          }}>
-          </div>
-        </div>
-      </section>
+
+      <div className="component-wrapper">
+        <Banner/>
+      </div>
+      
       <div className="container">
         {/* Category Section */}
         <section>
@@ -77,7 +70,7 @@ export default function Home() {
       <div className="container">
         <section>
           <div className="featured-product my-10">
-          <h2 className="font-crimson md:text-4xl sm:text-3xl text-2xl text-primary sm:pt-0 text-center py-4">Featured Product</h2>
+            <h2 className="font-crimson md:text-4xl sm:text-3xl text-2xl text-primary sm:pt-0 text-center py-4">Featured Product</h2>
             <Featured />
           </div>
         </section>
@@ -105,7 +98,7 @@ export default function Home() {
         <section>
           <div className="shop-by-gender my-10 pt-10">
             <div className="heading pb-5">
-            <h2 className="font-crimson md:text-4xl sm:text-3xl text-2xl text-primary sm:pt-0 text-center py-4">Shop By Gender</h2>
+              <h2 className="font-crimson md:text-4xl sm:text-3xl text-2xl text-primary sm:pt-0 text-center py-4">Shop By Gender</h2>
             </div>
             <div className="grid grid-cols-2 gap-5">
               <div className="md:col-span-1 col-span-2">
