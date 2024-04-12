@@ -1,8 +1,9 @@
 "use client"
+import React from "react";
+
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import './style.css';
-Button
 export default function SingleSignIn() {
   return (
     <div className="single-sign-on">

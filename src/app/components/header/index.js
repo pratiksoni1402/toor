@@ -14,7 +14,7 @@ export default function Header() {
           <section>
             <div className="top-bar bg-transparent grid grid-cols-3  justify-between items-center">
               <div className="col-span-1">
-                <div className='mobile-menu'>
+                <div className='mobile-menu '>
                     <Mobilemenu />
                 </div>
               </div>

@@ -3,5 +3,5 @@
 }
 
 .app-header .header-wrapper .top-bar .mobile-menu button{
-  @apply hover:bg-primary bg-primary-foreground
+  @apply hover:bg-primary bg-white 
 }

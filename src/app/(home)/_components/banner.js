@@ -13,8 +13,8 @@ export default function Banner(){
               <Image
                 priority={true}
                 src='/uploads/images/homepage/homepage-banner.jpeg'
-                layout="fill"
-                objectFit="cover"
+                fill
+                style={{objectFit:"cover"}}
                 quality={100}
                 alt="SHOP ENGAGEMENT RINGS"
 
