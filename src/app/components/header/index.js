@@ -9,7 +9,7 @@ import './style.css'
 
 export default function Header() {
   return (
-    <div className="app-header bg-background">
+    <div className="app-header ">
       <div className="container">
         <div className="header-wrapper pt-3">
           <section>

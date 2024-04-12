@@ -3,58 +3,53 @@ export const fetchCache = 'force-no-store';
 export const revalidate = 0;
 import bcrypt from 'bcrypt';
 import { getSession } from '@/lib/session';
-export async function POST(request) {
-  let fnStatus = true
-  let responseData = {}
-  let message = null
-  try {
 
+export async function POST(request) {
+  let fnStatus = true;
+  let authorization;
+
+  try {
     const session = await getSession();
     const requestBody = await request.json();
     console.log("Email and password received", requestBody);
+
     if (fnStatus) {
-      const authorization = await prisma.useraccount.findFirst({
+      authorization = await prisma.useraccount.findFirst({
         where: {
           email: requestBody.email,
         }
-      })
+      });
 
-      if (authorization == null) {
-        fnStatus = false
-        message = "No record found"
-        console.log("No record found")
+      if (!authorization) {
+        fnStatus = false;
+        // Changed to proper response format
+        return new Response(JSON.stringify({ errorMessage: "Invalid Email" }));
       }
     }
 
-    const verfiyPassword = await bcrypt.compare(requestBody.password, authorization.password)
-    
-    if (!verfiyPassword) {
+    const verifyPassword = await bcrypt.compare(requestBody.password, authorization.password);
+
+    if (!verifyPassword) {
       console.log("Invalid password");
-      return Response.json({ error: "Invalid Password" }, { status: 401 });
+      // Changed to proper response format
+      return new Response(JSON.stringify({ errorMessage: "Invalid Password" }));
     }
 
-    // If no user found
-    if (!authorization) {
-      console.log("User not found");
-      return Response.json({ error: "Invalid Email" }, { status: 402 });
-    }
-    // End
-
-    if (authorization && verfiyPassword) {
+    if (authorization && verifyPassword) {
       session.user = {
         id: authorization.id,
         name: authorization.name,
-      }
-      await session.save()
+      };
+      await session.save();
     }
 
-
     console.log("Login successful", { authorization: authorization });
-    return Response.json({ success: "Login successful" });
+    // Changed to proper response format
+    return new Response(JSON.stringify({ successMessage: "Login successful" }));
 
   } catch (error) {
-
     console.error("Error:", error);
-    return Response.json({ error: "Internal Server Error" }, { status: 500 });
+    // Returning error message in response
+    return new Response(JSON.stringify({ errorMessage: "Internal Server Error" }));
   }
 }

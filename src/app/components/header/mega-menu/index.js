@@ -487,6 +487,121 @@ export default function Megamenu() {
             </NavigationMenuContent>
           </NavigationMenuItem>
 
+          <NavigationMenuItem>
+            <NavigationMenuTrigger className='menu-trigger'>
+              <span title="Bracelets" className="make-bold-props ">Pure Metals</span>
+            </NavigationMenuTrigger>
+            <NavigationMenuContent className='menu-content'>
+              <div className="section-two grid grid-cols-12 gap-5">
+
+                <div className="col-span-2">
+                  <h2 className="inner-heading">Shop By Style</h2>
+                  <ul className="product-list-wrapper">
+
+                    <li className="product-list" onMouseEnter={() => setBraceletHovered(`${CATEGORY_MEDIA}/bracelet-chain.jpg`)} onMouseLeave={() => setBraceletHovered('/uploads/images/mega-menu/bracelet.jpg')}>
+                      <Link href='/' className="flex items-center">
+                        <span>Chain</span>
+                      </Link>
+                    </li>
+                    <li className="product-list" onMouseEnter={() => setBraceletHovered(`${CATEGORY_MEDIA}/cuff-bracelet.jpg`)} onMouseLeave={() => setBraceletHovered('/uploads/images/mega-menu/bracelet.jpg')}>
+                      <Link href='/' className="flex items-center" >
+                        <span>Cuff</span>
+                      </Link>
+                    </li>
+                    <li className="product-list" onMouseEnter={() => setBraceletHovered(`${CATEGORY_MEDIA}/bracelet-gemstone.jpg`)} onMouseLeave={() => setBraceletHovered('/uploads/images/mega-menu/bracelet.jpg')}>
+                      <Link href='/' className="flex items-center" >
+                        <span>Gemstone</span>
+                      </Link>
+                    </li>
+                    <li className="product-list" onMouseEnter={() => setBraceletHovered(`${CATEGORY_MEDIA}/bracelet-cable.jpg`)} onMouseLeave={() => setBraceletHovered('/uploads/images/mega-menu/bracelet.jpg')}>
+                      <Link href='/' className="flex items-center" >
+                        <span>Cable</span>
+                      </Link>
+                    </li>
+                    <li className="product-list" onMouseEnter={() => setBraceletHovered(`${CATEGORY_MEDIA}/bracelet-hinged.jpg`)} onMouseLeave={() => setBraceletHovered('/uploads/images/mega-menu/bracelet.jpg')}>
+                      <Link href='/' className="flex items-center" >
+                        <span>Hinged</span>
+                      </Link>
+                    </li>
+                    <li className="product-list" onMouseEnter={() => setBraceletHovered(`${CATEGORY_MEDIA}/bracelet-open-bangle.jpg`)} onMouseLeave={() => setBraceletHovered('/uploads/images/mega-menu/bracelet.jpg')}>
+                      <Link href='/' className="flex items-center" >
+                        <span>Open Bangle</span>
+                      </Link>
+                    </li>
+                    <li className="product-list" onMouseEnter={() => setBraceletHovered(`${CATEGORY_MEDIA}/bracelet-bangle.jpg`)} onMouseLeave={() => setBraceletHovered('/uploads/images/mega-menu/bracelet.jpg')}>
+                      <Link href='/' className="flex items-center" >
+                        <span>Bangle</span>
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
+
+                <div className="col-span-2">
+                  <h2 className="inner-heading">Shop By Metal</h2>
+                  <ul className="product-list-wrapper">
+
+                    <li className="product-list pt-3" onMouseEnter={() => setBraceletHovered(`${CATEGORY_MEDIA}/bracelet-platinum.jpg`)} onMouseLeave={() => setBraceletHovered('/uploads/images/mega-menu/bracelet.jpg')}>
+                      <Link href='/' className="flex items-center">
+                        <span>Platinum</span>
+                      </Link>
+                    </li>
+
+                    <li className="product-list pt-3" onMouseEnter={() => setBraceletHovered(`${CATEGORY_MEDIA}/bracelet-yellow-gold.jpg`)} onMouseLeave={() => setBraceletHovered('/uploads/images/mega-menu/bracelet.jpg')}>
+                      <Link href='/' className="flex items-center">
+                        <span>Yellow Gold</span>
+                      </Link>
+                    </li>
+
+                    <li className="product-list pt-3" onMouseEnter={() => setBraceletHovered(`${CATEGORY_MEDIA}/bracelet-rose-gold.jpg`)} onMouseLeave={() => setBraceletHovered('/uploads/images/mega-menu/bracelet.jpg')}>
+                      <Link href='/' className="flex items-center">
+                        <span>Rose Gold</span>
+                      </Link>
+                    </li>
+
+                    <li className="product-list pt-3" onMouseEnter={() => setBraceletHovered(`${CATEGORY_MEDIA}/bracelet-silver.jpg`)} onMouseLeave={() => setBraceletHovered('/uploads/images/mega-menu/bracelet.jpg')}>
+                      <Link href='/' className="flex items-center">
+                        <span>Silver</span>
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
+
+                <div className="col-span-4">
+                  {
+                    braceletHovered ? (
+
+                      <div className="category-wrapper py-5 flex justify-center h-full items-center">
+                        <div className="image">
+                          <Image src={braceletHovered} alt="Earrings" width={400} height={400} />
+                        </div>
+                      </div>
+                    ) : (
+                      <div className="category-wrapper py-5 flex justify-center h-full items-center">
+                        <div className="image">
+                          <Image src='/uploads/images/mega-menu/bracelet.jpg' alt="Bracelets" width={400} height={400} />
+                        </div>
+                      </div>
+                    )
+                  }
+                </div>
+
+                <div className="col-span-2">
+                  <h2 className="inner-heading">Shop By Price</h2>
+                  <ul className="product-list-wrapper">
+                    <li className="product-list pt-3"><Link href='/'>Under 50K</Link></li>
+                    <li className="product-list pt-3"><Link href='/'>50K - 60K</Link></li>
+                    <li className="product-list pt-3"><Link href='/'>60K - 70K</Link></li>
+                    <li className="product-list pt-3"><Link href='/'>70K - 90K</Link></li>
+                    <li className="product-list pt-3"><Link href='/'>90K - 1.5L</Link></li>
+                    <li className="product-list pt-3"><Link href='/'>1.5L - 2.0L</Link></li>
+                    <li className="product-list pt-3"><Link href='/'>Above 2.0L</Link></li>
+                  </ul>
+                </div>
+
+              </div>
+            </NavigationMenuContent>
+          </NavigationMenuItem>
+
         </NavigationMenuList>
       </NavigationMenu>
     </div>

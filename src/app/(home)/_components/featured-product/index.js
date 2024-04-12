@@ -42,7 +42,7 @@ export default function Featured() {
     >
 
       <SwiperSlide>
-        <div className='product-wrapper'>
+        <div className='product-wrapper w-full'>
           <Link href='/featured-product'>
             <div className='product'>
               <div className='image relative h-[250px]'>
@@ -55,7 +55,7 @@ export default function Featured() {
         </div>
       </SwiperSlide>
       <SwiperSlide>
-        <div className='product-wrapper'>
+        <div className='product-wrapper w-full'>
           <Link href='/featured-product'>
             <div className='product'>
               <div className='image relative h-[250px]'>
@@ -68,7 +68,7 @@ export default function Featured() {
         </div>
       </SwiperSlide>
       <SwiperSlide>
-        <div className='product-wrapper'>
+        <div className='product-wrapper w-full'>
           <Link href='/featured-product'>
             <div className='product'>
               <div className='image relative h-[250px]'>
@@ -81,7 +81,7 @@ export default function Featured() {
         </div>
       </SwiperSlide>
       <SwiperSlide>
-        <div className='product-wrapper'>
+        <div className='product-wrapper w-full'>
           <Link href='/featured-product'>
             <div className='product'>
               <div className='image relative h-[250px]'>
@@ -94,7 +94,7 @@ export default function Featured() {
         </div>
       </SwiperSlide>
       <SwiperSlide>
-        <div className='product-wrapper'>
+        <div className='product-wrapper w-full'>
           <Link href='/featured-product'>
             <div className='product'>
               <div className='image relative h-[250px]'>
@@ -107,7 +107,7 @@ export default function Featured() {
         </div>
       </SwiperSlide>
       <SwiperSlide>
-        <div className='product-wrapper'>
+        <div className='product-wrapper w-full'>
           <Link href='/featured-product'>
             <div className='product'>
               <div className='image relative h-[250px]'>
@@ -120,7 +120,7 @@ export default function Featured() {
         </div>
       </SwiperSlide>
       <SwiperSlide>
-        <div className='product-wrapper'>
+        <div className='product-wrapper w-full'>
           <Link href='/featured-product'>
             <div className='product'>
               <div className='image relative h-[250px]'>
@@ -133,7 +133,7 @@ export default function Featured() {
         </div>
       </SwiperSlide>
       <SwiperSlide>
-        <div className='product-wrapper'>
+        <div className='product-wrapper w-full'>
           <Link href='/featured-product'>
             <div className='product'>
               <div className='image relative h-[250px]'>
@@ -146,7 +146,7 @@ export default function Featured() {
         </div>
       </SwiperSlide>
       <SwiperSlide>
-        <div className='product-wrapper'>
+        <div className='product-wrapper w-full'>
           <Link href='/featured-product'>
             <div className='product'>
               <div className='image relative h-[250px]'>

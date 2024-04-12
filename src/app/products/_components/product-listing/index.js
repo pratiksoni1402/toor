@@ -30,11 +30,6 @@ export default function Productlisting() {
         })
   })
 
-  // const addToWishlist = (event) => {
-  //   event.preventDefault()
-  //   alert('Default action prevented')
-  // }
-
   return (
     <div className="product-listing-component">
       <div className="listing">
@@ -63,7 +58,6 @@ export default function Productlisting() {
                               <span className="group-hover:text-primary group-hover:font-semibold "><IndianRupee size={14} /></span>
                               <span className="group-hover:text-primary group-hover:font-semibold text-accent text-base font-roboto font-semibold block text-center">{item?.price}</span>
                             </div>
-
                           </div>
                         </div>
                       </Link>

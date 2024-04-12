@@ -2,17 +2,37 @@
 export const dynamic = 'force-dynamic';
 export const fetchCache = 'force-no-store';
 export const revalidate = 0;
-import prisma from '@/db';
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { Button } from '@/components/ui/button';
 import axios from 'axios';
+import { toast } from 'react-hot-toast';
+import { useRouter } from 'next/navigation';
+import './style.css';
 export default function LoginUser() {
   const { register, handleSubmit, formState: { errors } } = useForm();
+  const router = useRouter();
   const onSubmit = (data) => {
     axios.post('/auth/login/api/authorization', data)
       .then((response) => {
-        console.log("Status OK", response.data.authorization)
+        if (response.data.successMessage) {
+          router.push('/my-account')
+        } else if (response.data.errorMessage) {
+          console.log(response.data.errorMessage)
+          toast.error(response.data.errorMessage,{
+            duration: 3000,
+            style: {
+              border: '1px solid #754b2f',
+              padding: '8px',
+              color: '#f0e6e0',
+              backgroundColor: '#754b2f',
+            },
+            iconTheme: {
+              primary: '#f0e6e0',
+              secondary: '#754b2f',
+            },
+          })
+        }
       })
       .catch((error) => {
         console.log('Error occured while login', error)
@@ -23,7 +43,7 @@ export default function LoginUser() {
   return (
     <div className="login-page">
       <section>
-        <div className="login-form-wrapper lg:w-2/5 md:w-1/2 sm:w-3/4 w-full mx-auto">
+        <div className="login-form-wrapper  lg:w-3/4 sm:w-3/4 w-full mx-auto">
           <div className='heading'>
             <h1>
               Login Here.

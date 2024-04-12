@@ -4,65 +4,34 @@ export const fetchCache = 'force-no-store';
 export const revalidate = 0;
 import Link from "next/link";
 import LazyImage from "./components/lazy-loading/lazy-image";
-import Categories from "./components/home-page/categories";
-import Featured from "./components/featured-product";
+import Categories from "./(home)/_components/categories";
+import Featured from "./(home)/_components/featured-product";
 import Banner from "./(home)/_components/banner";
-import { Button } from "@/components/ui/button";
-import Image from "next/image";
 export default function Home() {
   return (
     <div className="homepage">
 
       <div className="component-wrapper">
-        <Banner/>
+        <Banner />
       </div>
-      
-      <div className="container">
-        {/* Category Section */}
-        <section>
-          <div className="category-wrapper">
-            <h2 className="text-center mt-10 text-4xl text-primary font-crimson mb-5">Shop by Category</h2>
-            <div className="mb-10">
-              <Categories />
-            </div>
-          </div>
-        </section>
-        {/* End */}
 
-        {/* Our Brand Section */}
-        <section>
-          <div className="our-story my-20">
-            <div className="grid grid-cols-12 sm:gap-10 gap-0">
-              <div className="sm:col-span-6 col-span-12">
-                <div className="parent-wrapper flex justify-center">
-                  <div className="image relative h-[545px] sm:w-96 w-full sm:mx-auto mx-0">
-                    <LazyImage src='/uploads/images/homepage/pendants-overlay.jpg' alt='image' width={375} className="sm:w-2/4 w-full" height={545} />
-                  </div>
-                </div>
-              </div>
-              <div className="sm:col-span-6 col-span-12">
-                <div className="content-wrapper text-accent h-full flex flex-col justify-center">
-                  <h2 className="font-crimson md:text-4xl sm:text-3xl text-2xl text-primary sm:pt-0 pt-4">Story of Our Brand</h2>
-                  <p className="font-roboto text-base">We are passionate about creating beautiful, high-quality jewelry that reflects your unique style. Our founder, Pratik Soni, has been creating jewelry since He was young and started the brand to share his passion with the world. We hand-select the finest materials to create stylish designs that are both beautiful and affordable.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-        {/* End */}
-
+      <div className="component-wrapper mb-10">
+        <Categories />
       </div>
+
       {/* Banner Section */}
       <section>
-        <div className="content-wrapper relative" style={{
-          backgroundImage: "url(/uploads/images/banners/solitaire-banner.png)",
-          width: "100%",
-          height: "60vh",
-          backgroundRepeat: "no-repeat",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}>
-        </div>
+        <Link href='/solitaire-rings'>
+          <div className="content-wrapper relative" style={{
+            backgroundImage: "url(/uploads/images/banners/solitaire-banner.png)",
+            width: "100%",
+            height: "60vh",
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}>
+          </div>
+        </Link>
       </section>
       {/* End */}
 

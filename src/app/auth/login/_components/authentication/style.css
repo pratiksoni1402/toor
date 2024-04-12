@@ -1,0 +1,31 @@
+/* Login Form Styling */
+.login-page section {
+  @apply pt-14
+}
+
+.login-page .login-form-wrapper .heading h1 {
+  @apply text-accent font-crimson text-center text-2xl py-5
+}
+
+
+.login-page .login-form-wrapper .login-form form {
+  @apply mx-5 flex flex-col
+}
+
+.login-page .login-form-wrapper .login-form form input {
+  @apply h-10 px-2 mb-3 bg-white border border-primary font-roboto rounded-sm
+}
+
+.login-page .login-form-wrapper .login-form form input:focus {
+  @apply outline-0
+}
+
+.login-page .login-form-wrapper .login-form form button {
+  @apply mt-8 mb-3 font-roboto text-base bg-primary-foreground text-accent hover:bg-primary hover:text-white rounded-sm
+}
+
+.login-page .login-form-wrapper .login-form form button:hover {
+  @apply bg-primary font-semibold
+}
+
+/* End */
