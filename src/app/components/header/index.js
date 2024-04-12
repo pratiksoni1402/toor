@@ -1,4 +1,3 @@
-'use client'
 import Cartcount from "./cart-count";
 import Megamenu from "./mega-menu";
 import Wishlistcount from "./wishlist-count";
@@ -16,7 +15,7 @@ export default function Header() {
             <div className="top-bar bg-transparent grid grid-cols-3  justify-between items-center">
               <div className="col-span-1">
                 <div className='mobile-menu'>
-                    {/* <Mobilemenu /> */}
+                    <Mobilemenu />
                 </div>
               </div>
               <div className=" col-span-1">
@@ -36,7 +35,7 @@ export default function Header() {
               </div>
             </div>
           </section>
-          <section className="mega-menu lg:block md:hidden hidden">
+          <section className="lg:block md:hidden hidden">
             <Megamenu />
           </section>
         </div>

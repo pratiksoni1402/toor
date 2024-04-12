@@ -9,7 +9,7 @@ export default async function Myaccount() {
   console.log("this is session", session);
 
   if (!session.user) {
-    return redirect('/auth/login')
+    return redirect('/auth')
   }
   
   return (

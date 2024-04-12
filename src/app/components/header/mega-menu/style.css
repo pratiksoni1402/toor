@@ -1,5 +1,5 @@
 .mega-menu{
-  @apply flex justify-center border-b border-primary
+  @apply flex justify-center border-b 
 } 
 
 .mega-menu .menu-trigger{

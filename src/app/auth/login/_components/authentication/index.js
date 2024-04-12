@@ -19,7 +19,7 @@ export default function LoginUser() {
           router.push('/my-account')
         } else if (response.data.errorMessage) {
           console.log(response.data.errorMessage)
-          toast.error(response.data.errorMessage,{
+          toast.error(response.data.errorMessage, {
             duration: 3000,
             style: {
               border: '1px solid #754b2f',
@@ -43,16 +43,24 @@ export default function LoginUser() {
   return (
     <div className="login-page">
       <section>
-        <div className="login-form-wrapper  lg:w-3/4 sm:w-3/4 w-full mx-auto">
+        <div className="login-form-wrapper lg:w-3/4 sm:w-3/4 w-full mx-auto">
           <div className='heading'>
-            <h1>
-              Login Here.
-            </h1>
+            <h2 className="text-center font-crimson text-2xl text-primary">OR</h2>
+
+            <span className="text-center font-roboto text-base block text-primary pb-3">Login Here.</span>
           </div>
           <div className="login-form">
             <form onSubmit={handleSubmit(onSubmit)} className=''>
-              <input type="text" placeholder="Username / Email" {...register("email", { required: true })} />
-              <input type="password" placeholder="Password" {...register("password", { required: true })} />
+              <div className='field-wrapper'>
+                <input type="text" placeholder="Email" {...register("email", { required: true })} />
+                {errors.email && <span className='error-message'>This field is required</span>}
+              </div>
+
+              <div className='field-wrapper'>
+                <input type="password" placeholder="Password" {...register("password", { required: true })} />
+                {errors.password && <span className='error-message'>This field is required</span>}
+              </div>
+              
               <Button type="submit">Login</Button>
             </form>
           </div>

@@ -1,20 +1,20 @@
 export const dynamic = 'force-dynamic';
 export const fetchCache = 'force-no-store';
 export const revalidate = 0;
-import LoginUser from "./login/_components/authentication";
+import Login from "./login";
 import UserRegistrationForm from "./register";
 export default function AuthorizeUser() {
   return (
     <div className="authorization-page">
       <div className="container">
-        <div className="grid grid-cols-2 gap-5">
+        <div className="grid grid-cols-2">
           <div className="col">
-            <div className="component-wrapper">
-              <LoginUser />
+            <div className="component-wrapper h-full mt-10">
+              <Login />
             </div>
           </div>
           <div className="col">
-            <div className="component-wrapper">
+            <div className="component-wrapper border-l">
               <UserRegistrationForm />
             </div>
           </div>

@@ -9,12 +9,12 @@ export default async function Changepassword() {
   console.log("this is session", session);
 
   if (!session.user) {
-    return redirect('/auth/login')
+    return redirect('/auth')
   }
-  
+
   return (
     <div>
-      <Updatepassword/>
+      <Updatepassword />
     </div>
   )
 }

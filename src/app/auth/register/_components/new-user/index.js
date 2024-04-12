@@ -100,36 +100,40 @@ export default function RegisterForm() {
 
               <div className='grid grid-cols-2 gap-5'>
                 <div className='col'>
-                  <div>
-
-                  <input type="text" placeholder="First Name" {...register("firstName", { required: true })} />
-                  {errors.firstName && <span className='error-message'>This field is required</span>}
+                  <div className='field-wrapper'>
+                    <input type="text" placeholder="First Name" {...register("firstName", { required: true })} />
+                    {errors.firstName && <span className='error-message'>This field is required</span>}
                   </div>
                 </div>
                 <div className='col'>
-                  <div>
-
-                  <input type="text" placeholder="Last Name" {...register("lastName", { required: true })} />
-                  {errors.lastName && <span className='error-message'>This field is required</span>}
+                  <div className='field-wrapper'>
+                    <input type="text" placeholder="Last Name" {...register("lastName", { required: true })} />
+                    {errors.lastName && <span className='error-message'>This field is required</span>}
                   </div>
                 </div>
               </div>
 
+              <div className='field-wrapper'>
+                <input type="text" placeholder="Username" {...register("userName", { required: true, pattern: /^[a-zA-Z0-9]+([._]?[a-zA-Z0-9]+)*$/ })} onBlur={(event) => handleUsername(event.target.value)} />
+                {errors.userName && <span className='error-message'>This field is required</span>}
+              </div>
 
+              <div className='field-wrapper'>
+                <input type="email" placeholder="Email" {...register("email", {
+                  required: true, pattern: /^[a-z0-9]+@[a-z]+\.[a-z]{2,3}$/i
+                })} onBlur={(event) => handleEmail(event.target.value)} />
+                {errors.email && <span className='error-message'>This field is required</span>}
+              </div>
 
-              <input type="text" placeholder="Username" {...register("userName", { required: true, pattern: /^[a-zA-Z0-9]+([._]?[a-zA-Z0-9]+)*$/ })} onBlur={(event) => handleUsername(event.target.value)} />
-              {errors.userName && <span className='error-message'>This field is required</span>}
+              <div className='field-wrapper'>
+                <input type="password" placeholder="Password" {...register("password", { required: true, })} />
+                {errors.password && <span className='error-message'>This field is required</span>}
+              </div>
 
-              <input type="email" placeholder="Email" {...register("email", {
-                required: true, pattern: /^[a-z0-9]+@[a-z]+\.[a-z]{2,3}$/i
-              })} onBlur={(event) => handleEmail(event.target.value)} />
-              {errors.email && <span className='error-message'>This field is required</span>}
-
-              <input type="password" placeholder="Password" {...register("password", { required: true, })} />
-              {errors.password && <span className='error-message'>This field is required</span>}
-
-              <input type="password" placeholder="Confirm Password" {...register("confirmPassword", { required: true, })} />
-              {errors.confirmPassword && <span className='error-message'>This field is required</span>}
+              <div className='field-wrapper'>
+                <input type="password" placeholder="Confirm Password" {...register("confirmPassword", { required: true, })} />
+                {errors.confirmPassword && <span className='error-message'>This field is required</span>}
+              </div>
 
               <div className='password-standard font-andika text-accent text-base leading-5 md:hidden'>
                 <span className="block">Password must be minimum 8 characters long</span>

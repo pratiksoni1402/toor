@@ -1,4 +1,5 @@
 import Link from "next/link"
+import LogoutUser from "../logout"
 import './style.css'
 export default function Sidemenu() {
   return (
@@ -8,9 +9,8 @@ export default function Sidemenu() {
           <ul>
             <li><Link href='/my-account'>Edit Profile</Link></li>
             <li><Link href='/my-account/previous-orders'>Order History</Link></li>
-            <li><Link href='/my-account/change-password'>Change Password</Link></li>
-            {/* <li><Link href='/'>Manage Addresses</Link></li> */}
-            <li><Link href='/'>Logout</Link></li>
+            <li><Link href='/my-account/update-password'>Update Password</Link></li>
+            <li><LogoutUser /></li>
           </ul>
         </div>
       </div>
