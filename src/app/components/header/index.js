@@ -4,18 +4,27 @@ import Wishlistcount from "./wishlist-count";
 import { Mobilemenu } from "./mobile-menu";
 import Useraccount from "./user-account";
 import Link from "next/link";
+// import Modal from "./modal-test";
+// import useModalStore from '@/lib/store';
 import './style.css'
 
 export default function Header() {
+  // const openSignupModal = useModalStore((state) => state.openSignupModal);
   return (
     <div className="app-header ">
       <div className="container">
         <div className="header-wrapper pt-3">
           <section>
-            <div className="top-bar bg-transparent grid grid-cols-3  justify-between items-center">
+            <div className="top-bar bg-transparent grid grid-cols-4  justify-between items-center">
               <div className="col-span-1">
                 <div className='mobile-menu '>
-                    <Mobilemenu />
+                  <Mobilemenu />
+                </div>
+              </div>
+              <div className="col-span-1">
+                <div className='hover:cursor-pointer'>
+
+                  {/* <Modal /> */}
                 </div>
               </div>
               <div className=" col-span-1">
