@@ -1,3 +1,6 @@
+.profile-component .profile-wrapper{
+  @apply mb-10
+}
 .profile-component .profile-wrapper .heading h1{
 @apply text-center text-primary font-crimson text-3xl my-3
 }

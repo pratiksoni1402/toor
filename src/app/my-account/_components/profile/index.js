@@ -1,12 +1,58 @@
 'use client';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Button } from '@/components/ui/button';
+import axios from 'axios';
 import './style.css'
+import { useQuery, useQueryClient } from '@tanstack/react-query';
+import { ClipLoader } from 'react-spinners';
+import { HeartIcon, Loader2Icon } from 'lucide-react'
 export default function Profile() {
-  const { register, handleSubmit, formState: { errors } } = useForm();
-  const onSubmit = data => console.log(data);
-  console.log(errors);
+  const { register, handleSubmit, watch, formState: { errors } } = useForm();
+  const [province, setProvince] = useState();
+  const selectedCountry = watch("country");
+
+  // Fetching Country List
+  const { pending, data: countries, error } = useQuery({
+    queryKey: ['countrylist'],
+    queryFn: () =>
+      axios.get('/api/common/get-country')
+        .then((response) => {
+          console.log("Countries", response.data.getCountry)
+          return response.data.getCountry
+        })
+        .catch((error) => {
+          console.log("Error Occured", error)
+        })
+  })
+  // End
+  useEffect(() => {
+
+    if (selectedCountry) {
+      getStatesByCountry(selectedCountry);
+    }
+  }, [selectedCountry]);
+
+  const getStatesByCountry = (selectedCountry) => {
+    axios.post('/api/common/get-state', { country: selectedCountry })
+      .then((response) => {
+        return setProvince(response.data.getState)
+      })
+      .catch((error) => {
+        console.log("Error while fetching state", error)
+      })
+  };
+  const onSubmit = (data) => {
+    axios.post('/my-account/api/update-profile', data)
+      .then((response) => {
+        console.log("Message", response.data.updateProfile)
+      })
+      .catch((error) => {
+        console.log("Error Occured", error)
+      })
+
+  }
+
   return (
     <div className="profile-component">
       <div className="profile-wrapper">
@@ -29,21 +75,23 @@ export default function Profile() {
 
             <div className='sm:col-span-1 col-span-2'>
               <select {...register("country", { required: true })}>
-                <option value="Debit Card">Select Country</option>
-                <option value=" Credit Card"> Credit Card</option>
-                <option value=" UPI"> UPI</option>
-                <option value=" Net Banking"> Net Banking</option>
-                <option value=" Cash on Delivery"> Cash on Delivery</option>
+                {
+                  countries?.map((country) => (
+                    <option value={country.name} key={country.id}>{country.name}</option>
+                  ))
+                }
               </select>
             </div>
 
             <div className='sm:col-span-1 col-span-2'>
               <select {...register("State", { required: true })}>
-                <option value="Debit Card">Select State</option>
-                <option value=" Credit Card">Credit Card</option>
-                <option value=" UPI">UPI</option>
-                <option value=" Net Banking">Net Banking</option>
-                <option value=" Cash on Delivery">Cash on Delivery</option>
+                <option value='Select State' >Select State</option>
+
+                {
+                  province && province.map((state) => (
+                    <option value={state.name} key={state.id}>{state.name}</option>
+                  ))
+                }
               </select>
             </div>
 
@@ -52,17 +100,20 @@ export default function Profile() {
           <input type="text" placeholder="City" {...register("city", { required: true })} />
           {errors.city && <span className='error-message'>This field is required</span>}
 
-          <input type="text" placeholder="Landmark" {...register("landMark", { required: true })} />
-          {errors.landMark && <span className='error-message'>This field is required</span>}
-
           <input type="text" placeholder="Phone Number" {...register("phoneNumber", { required: true })} />
           {errors.phoneNumber && <span className='error-message'>This field is required</span>}
 
           <input type="text" placeholder="Area Pin Code" {...register("areaPinCode", { required: true })} />
           {errors.areaPinCode && <span className='error-message'>This field is required</span>}
 
-          <Button type="submit">Update Profile</Button>
-          
+          <input type="text" placeholder="Landmark" {...register("landMark", { required: true })} />
+          {errors.landMark && <span className='error-message'>This field is required</span>}
+
+          <Button type="submit">
+            <Loader2Icon className='animate-spin mr-1' />
+            Update Profile
+          </Button>
+
         </form>
       </div>
     </div>
