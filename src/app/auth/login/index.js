@@ -7,14 +7,12 @@ export default function Login() {
   return (
     <div className="login-page">
       <div className="background-image">
-        <div className="container">
           <div className="component-wrapper">
             <SingleSignIn />
           </div>
           <div className="component-wrapper">
             <LoginUser />
           </div>
-        </div>
       </div>
     </div>
   )

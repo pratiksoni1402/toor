@@ -8,7 +8,7 @@ export default function UserRegistrationForm() {
         <div className="lg:col-span-1 md:col-span-7 col-span-12">
           <div className="content-wrapper">
             <div className="component-wrapper pt-10">
-              <SingleSignOn />
+              {/* <SingleSignOn /> */}
             </div>
             <div className="seperator">
               <h2 className="text-center font-crimson text-2xl text-primary">OR</h2>

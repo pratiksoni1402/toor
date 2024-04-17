@@ -3,8 +3,6 @@ export const fetchCache = 'force-no-store';
 export const revalidate = 0;
 import prisma from "@/db";
 import { NextResponse } from 'next/server';
-import { getSession } from "@/lib/session";
-import bcrypt from 'bcrypt';
 export async function POST(request) {
   let isUserRegistered
   let fnSuccess = true
@@ -52,7 +50,7 @@ export async function POST(request) {
     responseData = {
       success: false,
       message: message,
-      data: null
+      // data: null
     }
   }
 

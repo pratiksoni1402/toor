@@ -44,14 +44,14 @@ export default function LogoutUser() {
     <div className="logout-btn">
       <AlertDialog>
         <AlertDialogTrigger>Logout</AlertDialogTrigger>
-        <AlertDialogContent className='w-[20%]'>
+        <AlertDialogContent className='xl:w-[25%] lg:w-[25%] md:w-[35%] sm:w-[40%] w-[90%]'>
           <AlertDialogHeader>
             <AlertDialogDescription className='font-roboto text-base text-accent'>
               Are you sure you want to logout ?
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
-            <AlertDialogAction className='w-full bg-primary hover:bg-primary-foreground text-white hover:text-accent font-roboto text-base' onClick={logoutuser}>Yes</AlertDialogAction>
+            <AlertDialogAction className='w-full md:mt-0 sm:mt-4 mt-4 bg-primary hover:bg-primary-foreground text-white hover:text-accent font-roboto text-base' onClick={logoutuser}>Yes</AlertDialogAction>
             <AlertDialogCancel className='w-full hover:bg-primary bg-primary-foreground border-primary-foreground hover:border-primary hover:text-white text-accent font-roboto text-base'>No</AlertDialogCancel>
           </AlertDialogFooter>
         </AlertDialogContent>

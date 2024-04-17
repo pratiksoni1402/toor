@@ -103,14 +103,14 @@ export default function RegisterForm() {
           <div className="create-account-form">
             <form onSubmit={handleSubmit(onSubmit)}>
 
-              <div className='grid grid-cols-2 gap-5'>
-                <div className='col'>
+              <div className='grid grid-cols-2 sm:gap-5 gap-0'>
+                <div className='sm:col-span-1 col-span-2'>
                   <div className='field-wrapper'>
                     <input type="text" placeholder="First Name" {...register("firstName", { required: true })} />
                     {errors.firstName && <span className='error-message'>This field is required</span>}
                   </div>
                 </div>
-                <div className='col'>
+                <div className='sm:col-span-1 col-span-2'>
                   <div className='field-wrapper'>
                     <input type="text" placeholder="Last Name" {...register("lastName", { required: true })} />
                     {errors.lastName && <span className='error-message'>This field is required</span>}
