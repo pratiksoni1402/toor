@@ -38,12 +38,13 @@ export async function POST(request) {
       if (registerUser) {
         session.user = {
           id: registerUser.id,
-          firstname: registerUser.firstName,
+          firstName: registerUser.firstName,
+          email: registerUser.sessionEmail,
         }
         await session.save();
 
         message="Registered successfully"
-        console.log("This is session", session);
+        console.log("This is session for user", session);
 
 
       } else {

@@ -8,14 +8,19 @@ import { Button } from '@/components/ui/button';
 import axios from 'axios';
 import { toast } from 'react-hot-toast';
 import { useRouter } from 'next/navigation';
+import { Loader2Icon } from 'lucide-react'
+
 import './style.css';
+
 export default function RegisterForm() {
+  const [loader, setLoader] = useState(false);
   const { register, handleSubmit, formState: { errors } } = useForm();
   const [isProcessing, setIsProcessing] = useState(false);
   const router = useRouter();
 
   // User Registration
   const onSubmit = (data) => {
+    setLoader(true)
     if (data.password === data.confirmPassword) {
       setIsProcessing(true)
       axios.post('/auth/register/api/register-user', data)
@@ -30,7 +35,7 @@ export default function RegisterForm() {
           console.log("Error", error)
         })
         .finally(() => {
-          setIsProcessing(false)
+          setLoader(false)
         })
     } else {
       toast.error('Password and Confirm Password Mismatch');
@@ -140,17 +145,15 @@ export default function RegisterForm() {
                 <span className='block'>Password must contain numbers, alphabets, special characters</span>
               </div>
               {
-                isProcessing ? (
-                  <div className='w-full'>
-                    <Button type="button" class="bg-indigo-500 ... w-full" disabled>
-                      <svg className="animate-spin h-5 w-5 mr-3 ..." viewBox="0 0 24 24">
-
-                      </svg>
-                      Processing...
-                    </Button>
-                  </div>
+                loader ? (
+                  <Button type="submit" disabled={true}>
+                    <Loader2Icon className='animate-spin mr-1' />
+                    Register
+                  </Button>
                 ) : (
-                  <Button type="submit">Create Account</Button>
+                  <Button type="submit">
+                    Register
+                  </Button>
                 )
               }
             </form>

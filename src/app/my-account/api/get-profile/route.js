@@ -4,11 +4,11 @@ export const revalidate = 0;
 import { getSession } from '@/lib/session';
 import prisma from '@/db';
 export async function GET() {
-  const session = getSession();
+  const session = await getSession();
   console.log("This is session", session);
   const getUserProfile = await prisma.useraccount.findFirst({
     where: {
-      email: session.email,
+      email: session.user?.email,
     },
     select:{
       firstName: true,

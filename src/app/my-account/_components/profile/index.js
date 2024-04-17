@@ -4,8 +4,9 @@ import { useForm } from 'react-hook-form';
 import { Button } from '@/components/ui/button';
 import axios from 'axios';
 import { useQuery } from '@tanstack/react-query';
-import {  Loader2Icon } from 'lucide-react'
+import { Loader2Icon } from 'lucide-react'
 import './style.css'
+import toast from 'react-hot-toast';
 export default function Profile() {
   const { register, handleSubmit, watch, setValue, formState: { errors } } = useForm();
   const [province, setProvince] = useState();
@@ -24,25 +25,6 @@ export default function Profile() {
           console.log("Error Occured", error)
         })
   })
-  // End
-
-  // Fetching States according to selected Country
-  useEffect(() => {
-
-    if (selectedCountry) {
-      getStatesByCountry(selectedCountry);
-    }
-  }, [selectedCountry]);
-
-  const getStatesByCountry = (selectedCountry) => {
-    axios.post('/api/common/get-state', { country: selectedCountry })
-      .then((response) => {
-        return setProvince(response.data.getState)
-      })
-      .catch((error) => {
-        console.log("Error while fetching state", error)
-      })
-  };
   // End
 
   // Fetching User Profile
@@ -74,7 +56,20 @@ export default function Profile() {
     setUpdateProfile(true)
     axios.post('/my-account/api/update-profile', data)
       .then((response) => {
-        console.log("Message", response.data.updateProfile)
+        if (response.data.successMessage)
+          toast.success(response.data.successMessage, {
+            duration: 3000,
+            style: {
+              border: '1px solid #754b2f',
+              padding: '8px',
+              color: '#f0e6e0',
+              backgroundColor: '#754b2f',
+            },
+            iconTheme: {
+              primary: '#f0e6e0',
+              secondary: '#754b2f',
+            },
+          })
       })
       .catch((error) => {
         console.log("Error Occured", error)
@@ -82,7 +77,6 @@ export default function Profile() {
       .finally(() => {
         setUpdateProfile(false)
       })
-
   }
   // End
 
@@ -119,15 +113,8 @@ export default function Profile() {
             </div>
 
             <div className='sm:col-span-1 col-span-2'>
-              <select {...register("state", { required: true })}>
-                <option value='Select State' >Select State</option>
-
-                {
-                  province && province.map((state) => (
-                    <option value={state.name} key={state.id}>{state.name}</option>
-                  ))
-                }
-              </select>
+              <input type="text" placeholder="State" {...register("state", { required: true })} />
+              {errors.state && <span className='error-message'>This field is required</span>}
             </div>
 
           </div>

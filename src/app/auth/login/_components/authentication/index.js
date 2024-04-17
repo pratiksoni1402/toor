@@ -2,17 +2,20 @@
 export const dynamic = 'force-dynamic';
 export const fetchCache = 'force-no-store';
 export const revalidate = 0;
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Button } from '@/components/ui/button';
 import axios from 'axios';
 import { toast } from 'react-hot-toast';
+import { Loader2Icon } from 'lucide-react'
 import { useRouter } from 'next/navigation';
 import './style.css';
 export default function LoginUser() {
   const { register, handleSubmit, formState: { errors } } = useForm();
+  const [login, setLogin] = useState(false);
   const router = useRouter();
   const onSubmit = (data) => {
+    setLogin(true);
     axios.post('/auth/login/api/authorization', data)
       .then((response) => {
         if (response.data.successMessage) {
@@ -37,6 +40,9 @@ export default function LoginUser() {
       .catch((error) => {
         console.log('Error occured while login', error)
       })
+      .finally(() => {
+        setLogin(false);
+      })
 
   }
 
@@ -60,8 +66,19 @@ export default function LoginUser() {
                 <input type="password" placeholder="Password" {...register("password", { required: true })} />
                 {errors.password && <span className='error-message'>This field is required</span>}
               </div>
-              
-              <Button type="submit">Login</Button>
+
+              {
+                login ? (
+                  <Button type="submit" disabled={true}>
+                    <Loader2Icon className='animate-spin mr-1' />
+                    Login
+                  </Button>
+                ) : (
+                  <Button type="submit">
+                    Login
+                  </Button>
+                )
+              }
             </form>
           </div>
         </div>
