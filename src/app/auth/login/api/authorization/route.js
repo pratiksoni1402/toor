@@ -23,17 +23,14 @@ export async function POST(request) {
 
       if (!authorization) {
         fnStatus = false;
-        // Changed to proper response format
-        return new Response(JSON.stringify({ errorMessage: "Invalid Email" }));
+        return Response.json({ errorMessage: "Invalid Email" });
       }
     }
-
     const verifyPassword = await bcrypt.compare(requestBody.password, authorization.password);
 
     if (!verifyPassword) {
       console.log("Invalid password");
-      // Changed to proper response format
-      return new Response(JSON.stringify({ errorMessage: "Invalid Password" }));
+      return Response.json({ errorMessage: "Invalid Password" });
     }
 
     if (authorization && verifyPassword) {
@@ -45,14 +42,10 @@ export async function POST(request) {
       };
       await session.save();
     }
-    console.log("This is login session", session)
-    console.log("Login successful", { authorization: authorization });
-    // Changed to proper response format
-    return new Response(JSON.stringify({ successMessage: "Login successful" }));
+    return Response.json({ successMessage: "Login successful" });
 
   } catch (error) {
     console.error("Error:", error);
-    // Returning error message in response
-    return new Response(JSON.stringify({ errorMessage: "Internal Server Error" }));
+    return Response.json({ errorMessage: "Internal Server Error" });
   }
 }
