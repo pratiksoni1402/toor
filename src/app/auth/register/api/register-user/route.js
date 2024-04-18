@@ -15,7 +15,7 @@ export async function POST(request) {
 
   try {
     const requestBody = await request.json();
-    const saltRound = 18;
+    const saltRound = 14;
     const encryptedPassword = await bcrypt.hash(requestBody.password, saltRound);
 
     // Creating User Account

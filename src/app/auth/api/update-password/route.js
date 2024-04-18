@@ -33,7 +33,7 @@ export async function POST(request) {
   // End
 
   // Excrypting the new password
-  const saltRound = 10;
+  const saltRound = 14;
   const encryptPassword = await bcrypt.hash(requestBody.newPassword, saltRound);
   // console.log("New password encrypted", encryptPassword);
   // End

@@ -33,7 +33,7 @@ export default function Useraccount() {
           console.log("Error while fetching session data", error)
         })
   })
-  // Emd
+  // End
 
   // Extracting Firstname and lastname from session
   const fallbackFirstName = sessionData?.user?.firstName
