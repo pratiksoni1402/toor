@@ -39,11 +39,13 @@ export async function POST(request) {
     if (authorization && verifyPassword) {
       session.user = {
         id: authorization.id,
-        name: authorization.name,
+        firstName: authorization.firstName,
+        lastName: authorization.lastName,
+        email: authorization.email,
       };
       await session.save();
     }
-
+    console.log("This is login session", session)
     console.log("Login successful", { authorization: authorization });
     // Changed to proper response format
     return new Response(JSON.stringify({ successMessage: "Login successful" }));

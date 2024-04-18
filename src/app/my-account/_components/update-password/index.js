@@ -14,7 +14,7 @@ export default function Updatepassword() {
   const onSubmit = (data) => {
     setLoader(true)
     if (data.newPassword === data.confirmPassword) {
-      axios.post('/api/common/update-password', data)
+      axios.post('/auth/api/update-password', data)
         .then((response) => {
           if (response.data.successMessage) {
             toast.success(response.data.successMessage)

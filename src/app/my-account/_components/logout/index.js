@@ -16,7 +16,7 @@ import { toast } from "react-hot-toast";
 export default function LogoutUser() {
   const router = useRouter();
   const logoutuser = () => {
-    axios.post('/api/common/user-logout')
+    axios.post('/auth/api/user-logout')
       .then((response) => {
         if (response.data.successMessage) {
           toast.success(response.data.successMessage, {

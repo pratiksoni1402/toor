@@ -39,7 +39,9 @@ export async function POST(request) {
         session.user = {
           id: registerUser.id,
           firstName: registerUser.firstName,
+          lastName: registerUser.lastName,
           email: registerUser.sessionEmail,
+
         }
         await session.save();
 
