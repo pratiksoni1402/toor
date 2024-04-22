@@ -4,7 +4,7 @@ export const revalidate = 0;
 
 import Dynamic from 'next/dynamic'
 import React from "react";
-import Productlisting from "./_components/product-listing";
+import ProductListing from "./_components/product-listing";
 import MobileFilters from './_components/mobile-filters';
 
 const Productfilters = Dynamic(() => import("./_components/filters"), {
@@ -37,7 +37,7 @@ export default function Listing({ params }) {
             </div>
             <div className="col-span-12">
               <div className="component-wrapper mt-5">
-                <Productlisting />
+                <ProductListing />
               </div>
             </div>
           </div>

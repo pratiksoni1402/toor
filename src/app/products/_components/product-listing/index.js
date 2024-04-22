@@ -10,11 +10,12 @@ import axios from "axios";
 import { PRODUCT_MEDIA } from "@/lib/constants/images";
 import { useSearchParams, usePathname, useRouter } from "next/navigation";
 
-export default function Productlisting() {
+export default function ProductListing() {
   const searchParams = useSearchParams()
-
+  
   const { isPending, data: products, isError } = useQuery({
     queryKey: ['products', {
+      // 'style': searchParams.get('style'),
       'gender': searchParams.get('gender'),
       'metal-type': searchParams.get('metal-type'),
       'metal-color': searchParams.get('metal-color'),
@@ -23,6 +24,7 @@ export default function Productlisting() {
     }],
     queryFn: ({ queryKey }) =>
       axios.post('/products/api/get-products', {
+        style: searchParams.get('style'),
         filters: queryKey[1]
       })
         .then((response) => {
@@ -44,7 +46,7 @@ export default function Productlisting() {
                         <div className="product">
                           <div className="image relative sm:h-72 h-32">
                             <LazyImage src={`${PRODUCT_MEDIA}/${item.image}`} alt='image' width={288} height={288} className="hover:scale-110 hover:ease-in-out hover:transition-all sm:w-[288px] sm:h-[288px] h-[300px]" />
-                            <span className="absolute right-5 top-5">
+                            <span className="absolute right-2 top-4">
                               <Button className='bg-transparent border-0 text-primary' type='button'>
                                 <Heart size={20} />
                               </Button>

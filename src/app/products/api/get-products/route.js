@@ -7,6 +7,7 @@ export async function POST(request) {
   const requestBody = await request.json();
   console.log("Received data from URL in requestBody", requestBody)
   let filters = {}
+  let style = requestBody?.style
 
   console.log("requestbody", requestBody)
 
@@ -30,7 +31,7 @@ export async function POST(request) {
     filters['weight'] = requestBody.filters['weight']
   }
 
-  const allProduct = await Products(filters);
+  const allProduct = await Products(filters, style);
   return Response.json({ allProduct });
 
 }

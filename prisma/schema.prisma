@@ -39,22 +39,35 @@ model Megamenu {
 
 // All Products Model
 model Product {
-  id                   Int     @id @default(autoincrement())
-  sku                  String  @db.VarChar(50)
-  name                 String  @db.VarChar(100)
-  totalWeight          Decimal @map("total_weight") @db.Decimal()
-  makingChargesPerGram Int     @map("making_charges_per_gram") @db.Int
-  goldRate             Int     @map("gold_rate") @db.Int
-  price                Int     @db.Int
-  description          String  @db.Text
-  filterByGender       String  @map("filter_by_gender") @db.VarChar(20)
-  metalType            String  @map("metal_type") @db.VarChar(30)
-  metalColor           String? @map("metal_color") @db.VarChar(50)
-  ringSize             String  @map("ring_size") @db.Text
-  type                 String  @db.VarChar(20)
-  image                String  @db.VarChar(30)
+  id                   Int      @id @default(autoincrement())
+  category_id          Int      @db.Int
+  sku                  String   @db.VarChar(50)
+  name                 String   @db.VarChar(100)
+  totalWeight          Decimal  @map("total_weight") @db.Decimal()
+  makingChargesPerGram Int      @map("making_charges_per_gram") @db.Int
+  goldRate             Int      @map("gold_rate") @db.Int
+  price                Int      @db.Int
+  description          String   @db.Text
+  filterByGender       String   @map("filter_by_gender") @db.VarChar(20)
+  metalType            String   @map("metal_type") @db.VarChar(30)
+  metalColor           String?  @map("metal_color") @db.VarChar(50)
+  ringSize             String   @map("ring_size") @db.Text
+  type                 String   @db.VarChar(20)
+  image                String   @db.VarChar(30)
+  category             Category @relation(fields: [category_id], references: [id])
 
   @@map("product")
+}
+
+model Category {
+  id      Int       @id @default(autoincrement())
+  name    String    @db.VarChar(50)
+  slug    String    @db.VarChar(50)
+  title   String    @db.VarChar(50)
+  tagline String    @db.Text
+  product Product[]
+
+  @@map("category")
 }
 
 model Country {

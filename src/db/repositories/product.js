@@ -2,8 +2,10 @@ import prisma from "@/db";
 
 export const productSelect = {
   id: true,
+  categoryId: true,
   sku: true,
   name: true,
+  filterByStyle: true,
   totalWeight: true,
   makingChargesPerGram: true,
   goldRate: true,
@@ -17,9 +19,11 @@ export const productSelect = {
   image: true,
 }
 
-export async function Products(filters = {}) {
+export async function Products(filters = {}, style) {
+  console.log('Style in final stage', style)
   console.log('This is filter', filters)
   let where = `1=1`;
+
 
   // Gender Query
   if (filters?.gender) {
@@ -51,6 +55,6 @@ export async function Products(filters = {}) {
   }
   // End
 
-    return await prisma.$queryRawUnsafe(`SELECT * FROM product WHERE ${where}`);
+    return await prisma.$queryRawUnsafe(`SELECT *  FROM product WHERE ${where} `);
 }
 
