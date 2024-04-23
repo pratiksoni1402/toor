@@ -43,7 +43,8 @@ model Product {
   category_id          Int      @db.Int
   sku                  String   @db.VarChar(50)
   name                 String   @db.VarChar(100)
-  totalWeight          Decimal  @map("total_weight") @db.Decimal()
+  filterByStyle        String   @map("filter_by_style") @db.VarChar(20)
+  totalWeight          Decimal  @map("total_weight") @db.Decimal(5, 3)
   makingChargesPerGram Int      @map("making_charges_per_gram") @db.Int
   goldRate             Int      @map("gold_rate") @db.Int
   price                Int      @db.Int

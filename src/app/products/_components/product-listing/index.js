@@ -15,7 +15,7 @@ export default function ProductListing() {
   
   const { isPending, data: products, isError } = useQuery({
     queryKey: ['products', {
-      // 'style': searchParams.get('style'),
+      'style': searchParams.get('style'),
       'gender': searchParams.get('gender'),
       'metal-type': searchParams.get('metal-type'),
       'metal-color': searchParams.get('metal-color'),
@@ -24,7 +24,6 @@ export default function ProductListing() {
     }],
     queryFn: ({ queryKey }) =>
       axios.post('/products/api/get-products', {
-        style: searchParams.get('style'),
         filters: queryKey[1]
       })
         .then((response) => {

@@ -11,6 +11,10 @@ export async function POST(request) {
 
   console.log("requestbody", requestBody)
 
+  if (requestBody?.filters?.style) {
+    filters.style = requestBody.filters.style
+  }
+
   if (requestBody?.filters?.gender) {
     filters.gender = requestBody.filters.gender
   }
@@ -31,7 +35,7 @@ export async function POST(request) {
     filters['weight'] = requestBody.filters['weight']
   }
 
-  const allProduct = await Products(filters, style);
+  const allProduct = await Products(filters);
   return Response.json({ allProduct });
 
 }
