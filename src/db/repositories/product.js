@@ -3,19 +3,9 @@ import prisma from "@/db";
 export const productSelect = {
   id: true,
   categoryId: true,
-  sku: true,
   name: true,
   filterByStyle: true,
-  totalWeight: true,
-  makingChargesPerGram: true,
-  goldRate: true,
   price: true,
-  description: true,
-  filterByGender: true,
-  metalType: true,
-  metalColor: true,
-  ringSize: true,
-  type: true,
   image: true
 }
 

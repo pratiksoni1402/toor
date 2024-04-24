@@ -7,6 +7,13 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+
 import { ChevronDown } from 'lucide-react';
 import { useRouter } from "next/navigation";
 import { usePathname, useSearchParams } from "next/navigation";
@@ -100,8 +107,8 @@ export default function Productfilters({ className, ...props }) {
   }
 
   return (
-    <div className="filter-component">
-      <div className="customization">
+    <div className="filter-component bg-white">
+      {/* <div className="customization">
         <div className="font-roboto text-base">
           <section>
             <div className="customization">
@@ -339,10 +346,117 @@ export default function Productfilters({ className, ...props }) {
               </div>
 
             </div>
-            {/* <div className="clear-filter-btn text-center pt-5 mb-5 mt-7" >
-              <Button className='rounded-none bg-primary text-white text-base font-roboto hover:bg-accent hover:text-white' onClick={resetFilter}>Clear Filter</Button>
-            </div> */}
           </section>
+        </div>
+      </div> */}
+      <div className="grid grid-cols-3 gap-5">
+        <div className="col">
+          <div className='content-wrapper'>
+            <Accordion type="single" collapsible className="w-full">
+              <AccordionItem value="item-1">
+                <AccordionTrigger>Gender</AccordionTrigger>
+                <AccordionContent>
+                  <div>
+
+                    <div class="flex items-center">
+                      <input type="radio" id="male" hidden name="gender" value="male" onChange={() => filterProducts('gender', 'male')} />
+                      <label for="male" class="flex radio-label hover:cursor-pointer font-roboto text-sm items-center px-1">
+                        <span class="custom-radio"></span>
+                        Men
+                      </label>
+                    </div>
+
+                    <div className="flex items-center">
+                      <input type="radio" id="female" name="gender" hidden value="female" onChange={() => filterProducts('gender', 'female')} />
+                      <label htmlFor="female" className="flex radio-label hover:cursor-pointer font-roboto text-sm items-center px-1">
+                        <span class="custom-radio"></span>
+                        Women
+                      </label>
+                    </div>
+
+                  </div>
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
+
+          </div>
+        </div>
+
+        <div className="col">
+          <div className='content-wrapper'>
+            <Accordion type="single" collapsible className="w-full">
+              <AccordionItem value="item-1">
+                <AccordionTrigger>Metal Color</AccordionTrigger>
+                <AccordionContent>
+                  <div>
+
+                    <div class="flex items-center">
+                      <input type="checkbox" id="platinum" name="gender" value="platinum" onChange={() => filterProducts('metal-color', 'platinum')} />
+                      <label for="platinum" class="flex checkbox-label hover:cursor-pointer font-roboto text-sm items-center px-1">
+                        <span class="custom-checkbox"></span>
+                        Platinum
+                      </label>
+                    </div>
+
+                    <div className="flex items-center">
+                      <input type="checkbox" id="yellow-gold" name="gender" value="yellow-gold" onChange={() => filterProducts('metal-color', 'yellow-gold')} />
+                      <label htmlFor="yellow-gold" className="flex checkbox-label hover:cursor-pointer font-roboto text-sm items-center px-1">
+                        <span class="custom-checkbox"></span>
+                        Yellow Gold
+                      </label>
+                    </div>
+
+                    <div className="flex items-center">
+                      <input type="checkbox" id="rose-gold" name="gender" value="rose-gold" onChange={() => filterProducts('metal-color', 'rose-gold')} />
+                      <label htmlFor="rose-gold" className="flex checkbox-label hover:cursor-pointer font-roboto text-sm items-center px-1">
+                        <span class="custom-checkbox"></span>
+                        Rose Gold
+                      </label>
+                    </div>
+
+                  </div>
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
+          </div>
+        </div>
+        <div className="col">
+          <div className='content-wrapper'>
+            <Accordion type="single" collapsible className="w-full">
+              <AccordionItem value="item-1">
+                <AccordionTrigger>Finish</AccordionTrigger>
+                <AccordionContent>
+                  <div>
+
+                    <div className="flex items-center">
+                      <input type="checkbox" id="18k" name="gender" value="18k" onChange={() => filterProducts('metal-type', '18k')} />
+                      <label htmlFor="18k" className="flex checkbox-label hover:cursor-pointer font-roboto text-sm items-center px-1">
+                        <span class="custom-checkbox"></span>
+                        Dual Tone
+                      </label>
+                    </div>
+
+                    <div className="flex items-center">
+                      <input type="checkbox" id="22k" name="gender" value="22k" onChange={() => filterProducts('metal-type', '22k')} />
+                      <label htmlFor="22k" className="flex checkbox-label hover:cursor-pointer font-roboto text-sm items-center px-1">
+                        <span class="custom-checkbox"></span>
+                        Hammered
+                      </label>
+                    </div>
+
+                    <div className="flex items-center">
+                      <input type="checkbox" id="22k" name="gender" value="22k" onChange={() => filterProducts('metal-type', '22k')} />
+                      <label htmlFor="22k" className="flex checkbox-label hover:cursor-pointer font-roboto text-sm items-center px-1">
+                        <span class="custom-checkbox"></span>
+                        Brushed
+                      </label>
+                    </div>
+
+                  </div>
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
+          </div>
         </div>
       </div>
     </div >

@@ -23,11 +23,11 @@
 }
 
 .footer .upper-footer-wrapper .upper-footer .info-section ul li {
-  @apply pb-1
+  @apply pl-2 
 }
 
 .footer .upper-footer-wrapper .upper-footer .info-section ul li a {
-  @apply block hover:font-semibold hover:text-accent text-base
+  @apply block hover:font-semibold hover:text-accent text-base 
 }
 
 .footer .upper-footer-wrapper .upper-footer .info-section ul li a {
