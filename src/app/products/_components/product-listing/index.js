@@ -9,10 +9,11 @@ import { Button } from "@/components/ui/button";
 import axios from "axios";
 import { PRODUCT_MEDIA } from "@/lib/constants/images";
 import { useSearchParams, usePathname, useRouter } from "next/navigation";
+import { FadeLoader } from "react-spinners";
 
 export default function ProductListing() {
   const searchParams = useSearchParams()
-  
+
   const { isPending, data: products, isError } = useQuery({
     queryKey: ['products', {
       'style': searchParams.get('style'),
@@ -30,6 +31,12 @@ export default function ProductListing() {
           return response.data.allProduct
         })
   })
+  if (!products) {
+    return (
+        <div className='loading h-screen w-full flex justify-center items-center'><FadeLoader color="#754b2f" />
+        </div>
+    )
+  }
 
   return (
     <div className="product-listing-component">
