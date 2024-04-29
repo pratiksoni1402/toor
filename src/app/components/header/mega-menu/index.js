@@ -40,21 +40,15 @@ export default function Megamenu() {
                       </Link>
                     </li>
 
-                    <li className="product-list" onMouseEnter={() => setRingHovered(`${CATEGORY_MEDIA}/ring-solitaire.jpg`)} onMouseLeave={() => setRingHovered('/uploads/images/category-images/silver.png')} >
-                      <Link href='/products?style=solitaire-rings' className="flex items-center">
-                        <span>Solitaire</span>
+                    <li className="product-list" onMouseEnter={() => setRingHovered(`${CATEGORY_MEDIA}/ring-couple.jpg`)} onMouseLeave={() => setRingHovered('/uploads/images/category-images/silver.png')} >
+                      <Link href='/products?style=couple-bands' className="flex items-center">
+                        <span>Couple Rings</span>
                       </Link>
                     </li>
 
                     <li className="product-list" onMouseEnter={() => setRingHovered(`${CATEGORY_MEDIA}/ring-casual.jpg`)} onMouseLeave={() => setRingHovered('/uploads/images/category-images/silver.png')} >
                       <Link href='/products?style=casual-rings' className="flex items-center">
                         <span>Casual</span>
-                      </Link>
-                    </li>
-
-                    <li className="product-list" onMouseEnter={() => setRingHovered(`${CATEGORY_MEDIA}/ring-men.jpg`)} onMouseLeave={() => setRingHovered('/uploads/images/category-images/silver.png')} >
-                      <Link href='/products?style=mens-rings' className="flex items-center">
-                        <span>Mens Rings</span>
                       </Link>
                     </li>
 
@@ -70,11 +64,6 @@ export default function Megamenu() {
                       </Link>
                     </li>
 
-                    <li className="product-list" onMouseEnter={() => setRingHovered(`${CATEGORY_MEDIA}/ring-couple.jpg`)} onMouseLeave={() => setRingHovered('/uploads/images/category-images/silver.png')} >
-                      <Link href='/products?style=couple-bands' className="flex items-center">
-                        <span>Couple Rings</span>
-                      </Link>
-                    </li>
                   </ul>
                 </div>
 

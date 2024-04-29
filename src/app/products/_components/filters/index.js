@@ -13,7 +13,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-
+import Image from "next/image";
 import { Label } from "@/components/ui/label"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 
@@ -21,9 +21,10 @@ import { Checkbox } from "@/components/ui/checkbox";
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
-
-// Import Swiper styles
+import { Pagination, Navigation } from 'swiper/modules';
 import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
 
 import { ChevronDown } from 'lucide-react';
 import { useRouter } from "next/navigation";
@@ -368,7 +369,7 @@ export default function Productfilters({ className, ...props }) {
           </section>
         </div>
       </div> */}
-      <div className="grid grid-cols-5 gap-5">
+      <div className="grid grid-cols-4 gap-5">
 
         <div className="col">
           <div className='content-wrapper'>
@@ -379,35 +380,7 @@ export default function Productfilters({ className, ...props }) {
                   <div className="swiper-box">
                     <Swiper
                       spaceBetween={5}
-                      // slidesPerView={3}
-                      onSlideChange={() => console.log('slide change')}
-                      onSwiper={(swiper) => console.log(swiper)}
-                      breakpoints={{
-                        280: {
-                          width: 280,
-                          slidesPerView: 1,
-                        },
-                        576: {
-                          width: 576,
-                          slidesPerView: 2,
-                        },
-                        768: {
-                          width: 768,
-                          slidesPerView: 2,
-                        },
-                        992: {
-                          width: 992,
-                          slidesPerView: 2,
-                        },
-                        1200: {
-                          width: 1200,
-                          slidesPerView: 3,
-                        },
-                        1400: {
-                          width: 1400,
-                          slidesPerView: 3,
-                        },
-                      }}
+                      slidesPerView={'auto'}
                     >
                       <SwiperSlide>
                         <div className="flex items-center justify-center">
@@ -445,42 +418,16 @@ export default function Productfilters({ className, ...props }) {
                 <AccordionContent>
                   <div className="swiper-box">
                     <Swiper
-                      spaceBetween={5}
-                      // slidesPerView={3}
-                      onSlideChange={() => console.log('slide change')}
-                      onSwiper={(swiper) => console.log(swiper)}
-                      breakpoints={{
-                        280: {
-                          width: 280,
-                          slidesPerView: 1,
-                        },
-                        576: {
-                          width: 576,
-                          slidesPerView: 2,
-                        },
-                        768: {
-                          width: 768,
-                          slidesPerView: 2,
-                        },
-                        992: {
-                          width: 992,
-                          slidesPerView: 2,
-                        },
-                        1200: {
-                          width: 1200,
-                          slidesPerView: 3,
-                        },
-                        1400: {
-                          width: 1400,
-                          slidesPerView: 3,
-                        },
-                      }}
+                      spaceBetween={30}
+                      slidesPerView={'auto'}
                     >
                       <SwiperSlide>
                         <div>
                           <input type="checkbox" id="platinum" name="gender" value="platinum" onChange={() => filterProducts('metal-color', 'platinum')} />
                           <label for="platinum" className="flex flex-col justify-center items-center checkbox-label hover:cursor-pointer font-roboto text-sm px-1">
-                            <span className="custom-checkbox"></span>
+                            <span className="custom-checkbox">
+                              <Image src='/uploads/images/swatch/platinum.svg' alt='Platinum' width={25} height={25} />
+                            </span>
                             Platinum
                           </label>
                         </div>
@@ -506,6 +453,36 @@ export default function Productfilters({ className, ...props }) {
                         </div>
                       </SwiperSlide>
 
+                      <SwiperSlide>
+                        <div>
+                          <input type="checkbox" id="rose-gold" name="gender" value="rose-gold" onChange={() => filterProducts('metal-color', 'rose-gold')} />
+                          <label htmlFor="rose-gold" className="flex flex-col justify-center items-center  checkbox-label hover:cursor-pointer font-roboto text-sm  px-1 whitespace-nowrap">
+                            <span class="custom-checkbox"></span>
+                            Yellow/Rose Gold
+                          </label>
+                        </div>
+                      </SwiperSlide>
+
+                      <SwiperSlide>
+                        <div>
+                          <input type="checkbox" id="rose-gold" name="gender" value="rose-gold" onChange={() => filterProducts('metal-color', 'rose-gold')} />
+                          <label htmlFor="rose-gold" className="flex flex-col justify-center items-center  checkbox-label hover:cursor-pointer font-roboto text-sm px-1 whitespace-nowrap">
+                            <span class="custom-checkbox"></span>
+                            White/Rose Gold
+                          </label>
+                        </div>
+                      </SwiperSlide>
+
+                      <SwiperSlide>
+                        <div>
+                          <input type="checkbox" id="rose-gold" name="gender" value="rose-gold" onChange={() => filterProducts('metal-color', 'rose-gold')} />
+                          <label htmlFor="rose-gold" className="flex flex-col justify-center items-center  checkbox-label hover:cursor-pointer font-roboto text-sm px-1 whitespace-nowrap">
+                            <span class="custom-checkbox"></span>
+                            White/Yellow Gold
+                          </label>
+                        </div>
+                      </SwiperSlide>
+
                     </Swiper>
                   </div>
                 </AccordionContent>
@@ -514,7 +491,7 @@ export default function Productfilters({ className, ...props }) {
           </div>
         </div>
 
-        <div className="col">
+        {/* <div className="col">
           <div className='content-wrapper'>
             <Accordion type="single" collapsible className="w-full" value={isMetalFinish} onValueChange={setIsMetalFinish}>
               <AccordionItem value="item-3">
@@ -523,35 +500,7 @@ export default function Productfilters({ className, ...props }) {
                   <div className="swiper-box">
                     <Swiper
                       spaceBetween={5}
-                      // slidesPerView={3}
-                      onSlideChange={() => console.log('slide change')}
-                      onSwiper={(swiper) => console.log(swiper)}
-                      breakpoints={{
-                        280: {
-                          width: 280,
-                          slidesPerView: 1,
-                        },
-                        576: {
-                          width: 576,
-                          slidesPerView: 2,
-                        },
-                        768: {
-                          width: 768,
-                          slidesPerView: 2,
-                        },
-                        992: {
-                          width: 992,
-                          slidesPerView: 2,
-                        },
-                        1200: {
-                          width: 1200,
-                          slidesPerView: 3,
-                        },
-                        1400: {
-                          width: 1400,
-                          slidesPerView: 3,
-                        },
-                      }}
+                      slidesPerView={'auto'}
                     >
                       <SwiperSlide>
                         <div className="flex items-center">
@@ -589,7 +538,7 @@ export default function Productfilters({ className, ...props }) {
               </AccordionItem>
             </Accordion>
           </div>
-        </div>
+        </div> */}
 
         <div className="col">
           <div className='content-wrapper'>
@@ -600,35 +549,7 @@ export default function Productfilters({ className, ...props }) {
                   <div className="swiper-box">
                     <Swiper
                       spaceBetween={5}
-                      // slidesPerView={3}
-                      onSlideChange={() => console.log('slide change')}
-                      onSwiper={(swiper) => console.log(swiper)}
-                      breakpoints={{
-                        280: {
-                          width: 280,
-                          slidesPerView: 1,
-                        },
-                        576: {
-                          width: 576,
-                          slidesPerView: 2,
-                        },
-                        768: {
-                          width: 768,
-                          slidesPerView: 2,
-                        },
-                        992: {
-                          width: 992,
-                          slidesPerView: 2,
-                        },
-                        1200: {
-                          width: 1200,
-                          slidesPerView: 3,
-                        },
-                        1400: {
-                          width: 1400,
-                          slidesPerView: 3,
-                        },
-                      }}
+                      slidesPerView={'auto'}
                     >
                       <SwiperSlide>
                         <div className="flex items-center">
@@ -687,35 +608,7 @@ export default function Productfilters({ className, ...props }) {
                   <div className="swiper-box">
                     <Swiper
                       spaceBetween={5}
-                      // slidesPerView={3}
-                      onSlideChange={() => console.log('slide change')}
-                      onSwiper={(swiper) => console.log(swiper)}
-                      breakpoints={{
-                        280: {
-                          width: 280,
-                          slidesPerView: 1,
-                        },
-                        576: {
-                          width: 576,
-                          slidesPerView: 2,
-                        },
-                        768: {
-                          width: 768,
-                          slidesPerView: 2,
-                        },
-                        992: {
-                          width: 992,
-                          slidesPerView: 2,
-                        },
-                        1200: {
-                          width: 1200,
-                          slidesPerView: 3,
-                        },
-                        1400: {
-                          width: 1400,
-                          slidesPerView: 3,
-                        },
-                      }}
+                      slidesPerView={'auto'}
                     >
                       <SwiperSlide>
                         <div className="flex items-center">

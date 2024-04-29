@@ -19,11 +19,11 @@ input[type="checkbox"] {
 }
 
 .custom-checkbox {
-  @apply block w-4 h-4 border-2 border-[#ccc] relative 
-
+  @apply block  border border-transparent p-1 relative 
 }
+
 input[type="checkbox"]:checked + .checkbox-label .custom-checkbox {
-  @apply bg-primary 
+  @apply bg-primary border rounded-full p-1
 
 }
 
@@ -31,17 +31,21 @@ input[type="checkbox"]:checked + .checkbox-label .custom-checkbox{
   @apply after:content-[''] after:text-sm after:text-accent after:absolute after:bg-primary after:top-1/2 after:left-1/2 after:-translate-x-1/2 after:-translate-y-1/2
 
 }
+
+ .filter-component .content-wrapper .swiper-box{
+  @apply w-full
+ }
 /* .filter-component .content-wrapper .swiper-box .swiper .swiper-wrapper{
   @apply justify-center
 } */
 
-.filter-component .content-wrapper .swiper-box .swiper .swiper-wrapper .swiper-slide-active{
+/* .filter-component .content-wrapper .swiper-box .swiper .swiper-wrapper .swiper-slide-active{
   @apply !w-20
-}
+} */
 
-.filter-component .content-wrapper .swiper-box .swiper .swiper-wrapper .swiper-slide-next{
+/* .filter-component .content-wrapper .swiper-box .swiper .swiper-wrapper .swiper-slide-next{
  @apply !w-24
-}
+} */
 
 .filter-component .content-wrapper .swiper-box .swiper .swiper-wrapper .swiper-slide{
   @apply !w-[70px]
