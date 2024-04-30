@@ -2,25 +2,21 @@ import prisma from "@/db";
 
 export const productSelect = {
   id: true,
-  sku: true,
+  categoryId: true,
   name: true,
-  totalWeight: true,
-  makingChargesPerGram: true,
-  goldRate: true,
+  filterByStyle: true,
   price: true,
-  description: true,
-  filterByGender: true,
-  metalType: true,
-  metalColor: true,
-  ringSize: true,
-  type: true,
-  image: true,
+  image: true
 }
 
 export async function Products(filters = {}) {
   console.log('This is filter', filters)
   let where = `1=1`;
 
+
+  if(filters?.style){
+    where += ` AND filter_by_style = '${filters.style}'`;
+  }
   // Gender Query
   if (filters?.gender) {
     where += ` AND filter_by_gender = '${filters.gender}'`;
@@ -51,6 +47,7 @@ export async function Products(filters = {}) {
   }
   // End
 
-  return await prisma.$queryRawUnsafe(`SELECT * FROM product WHERE ${where}`);
+    return await prisma.$queryRawUnsafe(`SELECT id, name, price, image, filter_by_style AS filterByStyle FROM product WHERE ${where}`);
+
 }
 

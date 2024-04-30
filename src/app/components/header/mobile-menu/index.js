@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button"
 import { Menu } from 'lucide-react';
+import TabList from "./menu-section";
 import {
   Sheet,
   SheetClose,
@@ -15,23 +16,23 @@ export function Mobilemenu() {
   return (
     <Sheet>
       <SheetTrigger asChild>
-        <Button variant="outline" className=' rounded-none border-0 bg-transparent font-andika text-accent text-base'>
+        <Button variant="outline" className=' rounded-none border-0 bg-transparent font-roboto text-accent text-base'>
           <Menu />
         </Button>
       </SheetTrigger>
       <SheetContent>
         <SheetHeader>
-          <SheetTitle>Edit profile</SheetTitle>
+          <SheetTitle className='text-primary font-crimson text-3xl text-center border-b'>SS Jewels</SheetTitle>
           <SheetDescription>
-            Make changes to your profile here. Click save when youre done.
+            {/* Make changes to your profile here. Click save when youre done. */}
           </SheetDescription>
         </SheetHeader>
-        <div className="">
-
+        <div className="menu-content w-full">
+          <TabList />
         </div>
         <SheetFooter>
           <SheetClose asChild>
-            <Button type="submit">Save changes</Button>
+            {/* <Button type="submit">Save changes</Button> */}
           </SheetClose>
         </SheetFooter>
       </SheetContent>

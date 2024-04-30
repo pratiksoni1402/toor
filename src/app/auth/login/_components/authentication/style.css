@@ -1,0 +1,31 @@
+.login-page .login-form-wrapper .heading h1 {
+  @apply text-primary font-roboto text-sm text-center text-2xl py-5
+}
+
+.login-page .login-form-wrapper .login-form form {
+  @apply mx-5 flex flex-col
+}
+
+.login-page .login-form-wrapper .login-form form .field-wrapper{
+  @apply mb-4
+} 
+
+.login-page .login-form-wrapper .login-form form .field-wrapper input {
+  @apply h-10 px-2 bg-white border border-primary font-roboto rounded-sm w-full
+}
+
+.login-page .login-form-wrapper .login-form form .field-wrapper input:focus {
+  @apply outline-0
+}
+
+.login-page .login-form-wrapper .login-form form button {
+  @apply my-5 font-roboto text-base bg-primary-foreground text-accent hover:bg-primary hover:text-white rounded-sm
+}
+
+.login-page .login-form-wrapper .login-form form button:hover {
+  @apply bg-primary font-semibold
+}
+
+.login-page .login-form-wrapper .login-form form .error-message {
+  @apply  font-roboto text-sm text-red-600  block
+}

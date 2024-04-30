@@ -1,0 +1,40 @@
+.footer .upper-footer-wrapper {
+  @apply border-t py-12
+}
+
+.footer .upper-footer-wrapper .upper-footer .about-brand {
+  @apply flex justify-center
+}
+
+.footer .upper-footer-wrapper .upper-footer .about-brand .image {
+  @apply relative h-[200px] w-3/5
+}
+
+.footer .upper-footer-wrapper .upper-footer .heading {
+  @apply text-center text-accent font-semibold font-roboto text-base
+}
+
+.footer .upper-footer-wrapper .upper-footer .info-section {
+  @apply justify-center flex font-roboto text-base text-accent
+}
+
+.footer .upper-footer-wrapper .upper-footer .info-section ul {
+  @apply py-3
+}
+
+.footer .upper-footer-wrapper .upper-footer .info-section ul li {
+  @apply pl-2 
+}
+
+.footer .upper-footer-wrapper .upper-footer .info-section ul li a {
+  @apply block hover:font-semibold hover:text-accent text-base 
+}
+
+.footer .upper-footer-wrapper .upper-footer .info-section ul li a {
+  @apply before:block
+  before:content-[attr(title)]
+  before:h-0
+  before:font-bold
+  before:overflow-hidden
+  before:invisible;
+}

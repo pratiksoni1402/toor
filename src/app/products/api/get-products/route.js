@@ -7,8 +7,13 @@ export async function POST(request) {
   const requestBody = await request.json();
   console.log("Received data from URL in requestBody", requestBody)
   let filters = {}
+  let style = requestBody?.style
 
   console.log("requestbody", requestBody)
+
+  if (requestBody?.filters?.style) {
+    filters.style = requestBody.filters.style
+  }
 
   if (requestBody?.filters?.gender) {
     filters.gender = requestBody.filters.gender

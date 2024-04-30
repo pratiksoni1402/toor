@@ -1,0 +1,31 @@
+.jewelry-care-guide .content-wrapper{
+  @apply mb-7 
+  }
+  
+  .jewelry-care-guide .content-wrapper section{
+  @apply text-accent
+  }
+  
+  .jewelry-care-guide .content-wrapper section h1{
+    @apply text-center font-crimson text-3xl my-3
+  }
+  
+  .jewelry-care-guide .content-wrapper section h2{
+    @apply font-crimson text-2xl font-semibold mt-4 mb-1
+  }
+  
+  .jewelry-care-guide .content-wrapper section ul{
+  @apply list-inside list-disc
+  }
+  
+  .jewelry-care-guide .content-wrapper section ul li {
+    @apply font-roboto text-base mb-2
+  }
+  
+  .jewelry-care-guide .content-wrapper section ul li span{
+    @apply font-roboto font-semibold text-base
+  }
+  
+  .jewelry-care-guide .content-wrapper section p{
+    @apply text-base font-roboto
+  }

@@ -4,23 +4,26 @@ generator client {
 
 datasource db {
   provider = "mysql"
-  url      = env("DATABASE_URL")
+  url      = env("DATABASE")
 }
 
 // User Detail Model
 model Useraccount {
   id             Int     @id @default(autoincrement())
-  firstNname     String  @map("first_name") @db.VarChar(50)
-  lastNname      String  @map("last_name") @db.VarChar(50)
-  email          String  @db.VarChar(100)
-  password       String  @db.VarChar(100)
+  firstName      String  @map("first_name") @db.VarChar(50)
+  lastName       String  @map("last_name") @db.VarChar(50)
+  userName       String  @map("username") @db.VarChar(50)
+  email          String  @unique @db.VarChar(100)
+  password       String  @db.VarChar(250)
   phoneNumber    String? @map("phonenumber") @db.VarChar(20)
-  addressLineOne String? @map("address_line_one") @db.VarChar(150)
-  addressLineTwo String? @map("address_line_two") @db.VarChar(150)
+  addressLineOne String? @map("address_line_one") @db.VarChar(300)
+  addressLineTwo String? @map("address_line_two") @db.VarChar(300)
   country        String? @db.VarChar(50)
   state          String? @db.VarChar(50)
   city           String? @db.VarChar(50)
   pinCode        Int?    @map("pin_code") @db.Int
+  landmark       String? @db.VarChar(50)
+  sessionEmail   String  @map("sessionemail") @db.VarChar(100)
 
   @@map("user_account")
 }
@@ -30,40 +33,57 @@ model Megamenu {
   id          Int    @id @default(autoincrement())
   description String @db.VarChar(200)
   image       String @db.VarChar(50)
+
   @@map("mega_menu")
 }
 
 // All Products Model
 model Product {
-  id                   Int     @id @default(autoincrement())
-  sku                  String  @db.VarChar(50)
-  name                 String  @db.VarChar(100)
-  totalWeight          Decimal @map("total_weight") @db.Decimal()
-  makingChargesPerGram Int     @map("making_charges_per_gram") @db.Int
-  goldRate             Int     @map("gold_rate") @db.Int
-  price                Int     @db.Int
-  description          String  @db.Text
-  filterByGender       String  @map("filter_by_gender") @db.VarChar(20)
-  metalType            String  @map("metal_type") @db.VarChar(30)
-  metalColor           String? @map("metal_color") @db.VarChar(50)
-  ringSize             String  @map("ring_size") @db.Text
-  type                 String  @db.VarChar(20)
-  image                String  @db.VarChar(30)
+  id                   Int      @id @default(autoincrement())
+  category_id          Int      @db.Int
+  sku                  String   @db.VarChar(50)
+  name                 String   @db.VarChar(100)
+  filterByStyle        String   @map("filter_by_style") @db.VarChar(20)
+  totalWeight          Decimal  @map("total_weight") @db.Decimal(5, 3)
+  makingChargesPerGram Int      @map("making_charges_per_gram") @db.Int
+  goldRate             Int      @map("gold_rate") @db.Int
+  price                Int      @db.Int
+  description          String   @db.Text
+  filterByGender       String   @map("filter_by_gender") @db.VarChar(20)
+  metalType            String   @map("metal_type") @db.VarChar(30)
+  metalColor           String?  @map("metal_color") @db.VarChar(50)
+  ringSize             String   @map("ring_size") @db.Text
+  type                 String   @db.VarChar(20)
+  image                String   @db.VarChar(30)
+  category             Category @relation(fields: [category_id], references: [id])
 
   @@map("product")
 }
 
+model Category {
+  id      Int       @id @default(autoincrement())
+  name    String    @db.VarChar(50)
+  slug    String    @db.VarChar(50)
+  title   String    @db.VarChar(50)
+  tagline String    @db.Text
+  product Product[]
+
+  @@map("category")
+}
+
 model Country {
-  id   Int    @id @default(autoincrement())
-  name String @db.VarChar(100)
+  id     Int     @id @default(autoincrement())
+  name   String  @db.VarChar(100)
+  states State[]
 
   @@map("country")
 }
 
 model State {
-  id        Int    @id @default(autoincrement())
-  name      String @db.VarChar(100)
-  countryId Int    @map("country_id") @db.Int
+  id          Int     @id @default(autoincrement())
+  name        String  @db.VarChar(100)
+  country     Country @relation(fields: [id], references: [id])
+  countryName String  @map("countryname") @db.VarChar(50)
 
   @@map("state")
 }

@@ -9,12 +9,14 @@ import { Button } from "@/components/ui/button";
 import axios from "axios";
 import { PRODUCT_MEDIA } from "@/lib/constants/images";
 import { useSearchParams, usePathname, useRouter } from "next/navigation";
+import { FadeLoader } from "react-spinners";
 
-export default function Productlisting() {
+export default function ProductListing() {
   const searchParams = useSearchParams()
 
   const { isPending, data: products, isError } = useQuery({
     queryKey: ['products', {
+      'style': searchParams.get('style'),
       'gender': searchParams.get('gender'),
       'metal-type': searchParams.get('metal-type'),
       'metal-color': searchParams.get('metal-color'),
@@ -29,10 +31,11 @@ export default function Productlisting() {
           return response.data.allProduct
         })
   })
-
-  const addToWishlist = (event) => {
-    event.preventDefault()
-    alert('Default action prevented')
+  if (!products) {
+    return (
+        <div className='loading h-screen w-full flex justify-center items-center'><FadeLoader color="#754b2f" />
+        </div>
+    )
   }
 
   return (
@@ -49,21 +52,20 @@ export default function Productlisting() {
                         <div className="product">
                           <div className="image relative sm:h-72 h-32">
                             <LazyImage src={`${PRODUCT_MEDIA}/${item.image}`} alt='image' width={288} height={288} className="hover:scale-110 hover:ease-in-out hover:transition-all sm:w-[288px] sm:h-[288px] h-[300px]" />
-                            {/* <span className="absolute right-5 top-5">
-                              <Button className='bg-transparent border-0' type='button' onClick={addToWishlist}>
+                            <span className="absolute right-2 top-4">
+                              <Button className='bg-transparent border-0 text-primary' type='button'>
                                 <Heart size={20} />
                               </Button>
-                            </span> */}
+                            </span>
                           </div>
                           <div className="detail">
                             <div className="name">
-                              <span className="group-hover:text-primary group-hover:font-semibold text-accent leading-[21px] text-base font-andika block text-center">{item?.name}</span>
+                              <span className="group-hover:text-primary group-hover:font-semibold text-accent leading-[21px] text-base font-roboto block text-center">{item?.name}</span>
                             </div>
                             <div className="price flex items-center justify-center">
                               <span className="group-hover:text-primary group-hover:font-semibold "><IndianRupee size={14} /></span>
-                              <span className="group-hover:text-primary group-hover:font-semibold text-accent text-base font-andika font-semibold block text-center">{item?.price}</span>
+                              <span className="group-hover:text-primary group-hover:font-semibold text-accent text-base font-roboto font-semibold block text-center">{item?.price}</span>
                             </div>
-
                           </div>
                         </div>
                       </Link>

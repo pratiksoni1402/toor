@@ -5,12 +5,11 @@ input[type="radio"] {
 
 
 .custom-radio {
-  @apply inline-block w-4 h-4 border-2 border-[#ccc] rounded-full relative mr-1
+  @apply block w-6 h-6 border-2 border-[#ccc] rounded-full relative mr-1 hover:bg-primary p-1
 }
 
-
 input[type="radio"]:checked + .radio-label .custom-radio{
-  @apply after:content-[''] after:w-[10px] after:h-[10px] after:bg-primary after:rounded-full after:absolute after:top-1/2 after:left-1/2 after:-translate-x-1/2 after:-translate-y-1/2  
+  @apply after:content-[''] after:w-[20px] after:h-[20px] after:bg-primary after:rounded-full after:absolute after:top-1/2 after:left-1/2 after:-translate-x-1/2 after:-translate-y-1/2 p-1 border border-primary
 }
 
 /* Filter Component Checkbox Styling */
@@ -19,15 +18,44 @@ input[type="checkbox"] {
 }
 
 .custom-checkbox {
-  @apply inline-block w-4 h-4 border-2 border-[#ccc] relative mr-1
-
+  @apply block border-2 h-10 w-10 border-transparent p-1 relative hover:border-2 hover:border-primary hover:rounded-full 
 }
+
+.custom-checkbox img{
+  @apply w-full
+}
+
 input[type="checkbox"]:checked + .checkbox-label .custom-checkbox {
-  @apply bg-primary 
+  @apply border-2 border-primary rounded-full p-1
 
 }
 
 input[type="checkbox"]:checked + .checkbox-label .custom-checkbox{
-  @apply after:content-[''] after:text-sm after:text-accent after:absolute after:bg-primary after:top-1/2 after:left-1/2 after:-translate-x-1/2 after:-translate-y-1/2
+  @apply after:content-[''] after:text-sm after:text-accent after:absolute after:bg-primary after:top-1/2 after:left-1/2 after:-translate-x-1/2 after:-translate-y-1/2 
 
+}
+
+ .filter-component .content-wrapper .swiper-box{
+  @apply w-full
+ }
+/* .filter-component .content-wrapper .swiper-box .swiper .swiper-wrapper{
+  @apply justify-center
+} */
+
+/* .filter-component .content-wrapper .swiper-box .swiper .swiper-wrapper .swiper-slide-active{
+  @apply !w-20
+} */
+
+/* .filter-component .content-wrapper .swiper-box .swiper .swiper-wrapper .swiper-slide-next{
+ @apply !w-24
+} */
+/* .filter-component .content-wrapper .swiper-box{
+  @apply mt-3
+} */
+.filter-component .content-wrapper .metal-color{
+  @apply mt-4
+}
+
+.filter-component .content-wrapper .swiper-box .swiper .swiper-wrapper .swiper-slide{
+  @apply !w-[70px]
 }

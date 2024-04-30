@@ -1,0 +1,11 @@
+.update-password-component .form-wrapper .heading h1 {
+  @apply text-center text-primary font-crimson text-3xl my-3
+}
+
+.update-password-component .form-wrapper form input {
+  @apply w-full h-10 border my-3 outline-0 px-2 font-roboto text-accent bg-white
+}
+
+.update-password-component .form-wrapper form button {
+  @apply rounded-none w-full mt-5 bg-primary-foreground text-accent hover:bg-primary hover:text-white font-roboto text-base hover:transition hover:duration-500 mb-10
+}
