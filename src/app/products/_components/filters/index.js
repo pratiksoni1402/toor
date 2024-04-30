@@ -375,9 +375,9 @@ export default function Productfilters({ className, ...props }) {
           <div className='content-wrapper'>
             <Accordion type="single" collapsible className="w-full border-b-0" value={isOpen} onValueChange={setIsOpen}>
               <AccordionItem value="item-1">
-                <AccordionTrigger>Gender</AccordionTrigger>
+                <AccordionTrigger className='px-3 hover:no-underline'>Gender</AccordionTrigger>
                 <AccordionContent className='border-b-0'>
-                  <div className="swiper-box">
+                  <div className="swiper-box metal-color">
                     <Swiper
                       spaceBetween={5}
                       slidesPerView={'auto'}
@@ -414,7 +414,7 @@ export default function Productfilters({ className, ...props }) {
           <div className='content-wrapper'>
             <Accordion type="single" collapsible className="w-full" value={isVisible} onValueChange={setIsVisible}>
               <AccordionItem value="item-2">
-                <AccordionTrigger>Metal Color</AccordionTrigger>
+                <AccordionTrigger className='px-3 hover:no-underline'>Metal Color</AccordionTrigger>
                 <AccordionContent>
                   <div className="swiper-box">
                     <Swiper
@@ -426,7 +426,7 @@ export default function Productfilters({ className, ...props }) {
                           <input type="checkbox" id="platinum" name="gender" value="platinum" onChange={() => filterProducts('metal-color', 'platinum')} />
                           <label for="platinum" className="flex flex-col justify-center items-center checkbox-label hover:cursor-pointer font-roboto text-sm px-1">
                             <span className="custom-checkbox">
-                              <Image src='/uploads/images/swatch/platinum.svg' alt='Platinum' width={25} height={25} />
+                              <Image src='/uploads/images/swatch/platinum.svg' alt='Platinum' width={35} height={35} />
                             </span>
                             Platinum
                           </label>
@@ -437,7 +437,9 @@ export default function Productfilters({ className, ...props }) {
                         <div>
                           <input type="checkbox" id="yellow-gold" name="gender" value="yellow-gold" onChange={() => filterProducts('metal-color', 'yellow-gold')} />
                           <label htmlFor="yellow-gold" className="flex flex-col justify-center items-center  checkbox-label hover:cursor-pointer font-roboto text-sm px-1 whitespace-nowrap">
-                            <span class="custom-checkbox"></span>
+                            <span class="custom-checkbox">
+                            <Image src='/uploads/images/swatch/yellow-gold.svg' alt='Platinum' width={35} height={35} />
+                            </span>
                             Yellow Gold
                           </label>
                         </div>
@@ -447,7 +449,9 @@ export default function Productfilters({ className, ...props }) {
                         <div>
                           <input type="checkbox" id="rose-gold" name="gender" value="rose-gold" onChange={() => filterProducts('metal-color', 'rose-gold')} />
                           <label htmlFor="rose-gold" className="flex flex-col justify-center items-center  checkbox-label hover:cursor-pointer font-roboto text-sm  px-1">
-                            <span class="custom-checkbox"></span>
+                            <span class="custom-checkbox">
+                            <Image src='/uploads/images/swatch/rose-gold.svg' alt='Platinum' width={35} height={35} />
+                            </span>
                             Rose Gold
                           </label>
                         </div>
@@ -457,7 +461,9 @@ export default function Productfilters({ className, ...props }) {
                         <div>
                           <input type="checkbox" id="rose-gold" name="gender" value="rose-gold" onChange={() => filterProducts('metal-color', 'rose-gold')} />
                           <label htmlFor="rose-gold" className="flex flex-col justify-center items-center  checkbox-label hover:cursor-pointer font-roboto text-sm  px-1 whitespace-nowrap">
-                            <span class="custom-checkbox"></span>
+                            <span class="custom-checkbox">
+                            <Image src='/uploads/images/swatch/yellow-rose-gold.svg' alt='Platinum' width={35} height={35} />
+                            </span>
                             Yellow/Rose Gold
                           </label>
                         </div>
@@ -467,7 +473,9 @@ export default function Productfilters({ className, ...props }) {
                         <div>
                           <input type="checkbox" id="rose-gold" name="gender" value="rose-gold" onChange={() => filterProducts('metal-color', 'rose-gold')} />
                           <label htmlFor="rose-gold" className="flex flex-col justify-center items-center  checkbox-label hover:cursor-pointer font-roboto text-sm px-1 whitespace-nowrap">
-                            <span class="custom-checkbox"></span>
+                            <span class="custom-checkbox">
+                            <Image src='/uploads/images/swatch/white-rose-gold.svg' alt='Platinum' width={35} height={35} />
+                            </span>
                             White/Rose Gold
                           </label>
                         </div>
@@ -477,7 +485,9 @@ export default function Productfilters({ className, ...props }) {
                         <div>
                           <input type="checkbox" id="rose-gold" name="gender" value="rose-gold" onChange={() => filterProducts('metal-color', 'rose-gold')} />
                           <label htmlFor="rose-gold" className="flex flex-col justify-center items-center  checkbox-label hover:cursor-pointer font-roboto text-sm px-1 whitespace-nowrap">
-                            <span class="custom-checkbox"></span>
+                            <span class="custom-checkbox">
+                            <Image src='/uploads/images/swatch/white-yellow-gold.svg' alt='Platinum' width={35} height={35} />
+                            </span>
                             White/Yellow Gold
                           </label>
                         </div>
@@ -491,62 +501,13 @@ export default function Productfilters({ className, ...props }) {
           </div>
         </div>
 
-        {/* <div className="col">
-          <div className='content-wrapper'>
-            <Accordion type="single" collapsible className="w-full" value={isMetalFinish} onValueChange={setIsMetalFinish}>
-              <AccordionItem value="item-3">
-                <AccordionTrigger>Finish</AccordionTrigger>
-                <AccordionContent>
-                  <div className="swiper-box">
-                    <Swiper
-                      spaceBetween={5}
-                      slidesPerView={'auto'}
-                    >
-                      <SwiperSlide>
-                        <div className="flex items-center">
-                          <input type="checkbox" id="18k" name="gender" value="18k" onChange={() => filterProducts('metal-type', '18k')} />
-                          <label htmlFor="18k" className="flex flex-col checkbox-label hover:cursor-pointer font-roboto text-sm items-center px-1">
-                            <span class="custom-checkbox"></span>
-                            Dual Tone
-                          </label>
-                        </div>
-                      </SwiperSlide>
-
-                      <SwiperSlide>
-                        <div className="flex items-center">
-                          <input type="checkbox" id="22k" name="gender" value="22k" onChange={() => filterProducts('metal-type', '22k')} />
-                          <label htmlFor="22k" className="flex flex-col checkbox-label hover:cursor-pointer font-roboto text-sm items-center px-1">
-                            <span class="custom-checkbox"></span>
-                            Hammered
-                          </label>
-                        </div>
-                      </SwiperSlide>
-
-                      <SwiperSlide>
-                        <div className="flex items-center">
-                          <input type="checkbox" id="22k" name="gender" value="22k" onChange={() => filterProducts('metal-type', '22k')} />
-                          <label htmlFor="22k" className="flex flex-col checkbox-label hover:cursor-pointer font-roboto text-sm items-center px-1">
-                            <span class="custom-checkbox"></span>
-                            Brushed
-                          </label>
-                        </div>
-                      </SwiperSlide>
-
-                    </Swiper>
-                  </div>
-                </AccordionContent>
-              </AccordionItem>
-            </Accordion>
-          </div>
-        </div> */}
-
         <div className="col">
           <div className='content-wrapper'>
             <Accordion type="single" collapsible className="w-full" value={isMetalWeight} onValueChange={setIsMetalWeight}>
               <AccordionItem value="item-4">
-                <AccordionTrigger>Weight</AccordionTrigger>
+                <AccordionTrigger className='px-3 hover:no-underline'>Weight</AccordionTrigger>
                 <AccordionContent>
-                  <div className="swiper-box">
+                  <div className="swiper-box metal-color">
                     <Swiper
                       spaceBetween={5}
                       slidesPerView={'auto'}
@@ -603,11 +564,11 @@ export default function Productfilters({ className, ...props }) {
           <div className='content-wrapper'>
             <Accordion type="single" collapsible className="w-full" value={isPrice} onValueChange={setIsPrice}>
               <AccordionItem value="item-5">
-                <AccordionTrigger>Price</AccordionTrigger>
+                <AccordionTrigger className='px-3 hover:no-underline'>Price</AccordionTrigger>
                 <AccordionContent>
-                  <div className="swiper-box">
+                  <div className="swiper-box metal-color">
                     <Swiper
-                      spaceBetween={5}
+                      spaceBetween={7}
                       slidesPerView={'auto'}
                     >
                       <SwiperSlide>
