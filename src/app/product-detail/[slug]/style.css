@@ -1,0 +1,15 @@
+.product-detail-page{
+  @apply my-10
+}
+
+.product-detail-page .description{
+  @apply text-accent
+}
+
+.product-detail-page .description .details .caption{
+  @apply font-roboto text-base
+}
+
+.product-detail-page .description .details .value{
+  @apply font-roboto text-base font-semibold
+}

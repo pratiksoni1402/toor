@@ -3,7 +3,9 @@
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { PRODUCT_MEDIA } from "@/lib/constants/images";
-import LazyImage from "@/app/components/lazy-loading/lazy-image";
+import Image from "next/image";
+import ProductSkeleton from "../_component/skeleton";
+
 import {
   Select,
   SelectContent,
@@ -11,9 +13,14 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+
+import { Button } from "@/components/ui/button";
+import { IndianRupee } from 'lucide-react';
+import './style.css';
+import { useState } from "react";
+
 export default function ProductDetail({ params }) {
-  const value = params
-  console.log("This is param value", value);
+  const [isEngraving, setEngraving] = useState(false);
   const { data: product } = useQuery({
     queryKey: ['productDetail'],
     queryFn: () =>
@@ -25,57 +32,156 @@ export default function ProductDetail({ params }) {
           console.log("Error", error)
         })
   })
+  const ringSizeArray = product?.ringSize?.split(',')
+
+  const handleForm = () => {
+    setEngraving(!isEngraving)
+  }
+
+  if (!product) {
+    return (
+      <div>
+        <ProductSkeleton />
+      </div>
+    )
+  }
+
   return (
     <div className="product-detail-page">
       <div className="container">
         <div className="grid grid-cols-2 gap-5">
           <div className="col">
-            <div className="main-image relative h-[564px]">
-              <LazyImage src={`${PRODUCT_MEDIA}/${product?.image}`} alt={product?.name} width={564} height={564} />
+            <div className="main-image sticky top-5">
+              <Image src={`${PRODUCT_MEDIA}/${product?.image}`} alt={product?.name} width={564} height={564} />
             </div>
           </div>
           <div className="col">
             <div className="description">
               <div className="details">
                 <span className="caption">SKU:</span>
-                <span className="value">{product?.sku}</span>
+                <span className="value"> {product?.sku}</span>
               </div>
               <div className="details">
-                <span className="value">{product?.name}</span>
+                <span className="font-crimson font-medium text-3xl">{product?.name}</span>
               </div>
               <div className="details">
-                <div className="caption">{product?.description}</div>
+                <div className="leading-5 pb-2 font-roboto text-base">{product?.description}</div>
               </div>
-              <div className="details">
-                <span className="value">{product?.price}</span>
+              <div className="details flex items-center ">
+                <span><IndianRupee size={16} /></span>
+                <span className="text-lg font-roboto font-semibold">{product?.price}</span>
               </div>
               <div className="details">
                 <span className="caption">Making Charges:</span>
-                <span className="value">{product?.makingChargesPerGram}</span>
+                <span className="value"> {product?.makingChargesPerGram}</span>
               </div>
               <div className="details">
                 <span className="caption">Weight:</span>
-                <span className="value">{product?.totalWeight} </span>
+                <span className="value"> {product?.totalWeight} </span>
               </div>
               <div className="details">
                 <span className="caption">Metal Type:</span>
-                <span className="value">{product?.metalType}</span>
+                <span className="value"> {product?.metalType}</span>
               </div>
               <div className="details">
                 <span className="caption">Metal Color:</span>
-                <span className="value">{product?.metalColor}</span>
+                <span className="value"> {product?.metalColor}</span>
+              </div>
+              <div className="details flex items-center">
+                <span className="caption">Hallmark:</span>
+                <span className="value pl-1"> BIS Hallmarked</span>
+                <span className="pl-2">
+                  <Image src='/uploads/images/logo/bis-hallmark.svg' alt="BIS Hallmark" width={30} height={30} />
+                </span>
               </div>
               <div className="details ring-size">
+                <span className="caption pt-2">Ring Size:</span>
                 <Select>
                   <SelectTrigger className="w-[180px]">
-                    <SelectValue placeholder="Theme" />
+                    <SelectValue placeholder="Select Ring Size" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="light">Light</SelectItem>
-                    <SelectItem value="dark">Dark</SelectItem>
-                    <SelectItem value="system">System</SelectItem>
+                    {
+                      ringSizeArray?.map((size, index) => (
+                        <SelectItem value="light" key={size} className='hover:text-white text-accent'>{size}</SelectItem>
+
+                      ))
+                    }
                   </SelectContent>
                 </Select>
+              </div>
+            </div>
+            <div className="engraving pb-3 pt-4">
+              {
+                product?.isEngraveable == 0 ? (
+                  <div>
+                    <div>
+                      <input type="checkbox" checked={isEngraving} onClick={handleForm} id="engraving" name="gender" value="yellow-gold" />
+                      <label htmlFor="engraving" className="font-roboto hover:cursor-pointer text-base font-semibold text-accent pl-2">
+                        Add Engraving (Free)
+                      </label>
+                    </div>
+                    <div>
+                      {
+                        isEngraving && (
+                          <div className="flex items-center gap-5">
+                            <div>
+                              <Select>
+                                <SelectTrigger className="w-[180px]">
+                                  <SelectValue placeholder="Select Engraving Style" />
+                                </SelectTrigger>
+                                <SelectContent>
+                                  <SelectItem value="serif-style">Serif Style</SelectItem>
+                                  <SelectItem value="block-style">Block Style</SelectItem>
+                                  <SelectItem value="script-style">Script Style</SelectItem>
+                                </SelectContent>
+                              </Select>
+                            </div>
+                            <div>
+                              <input type="text" placeholder="Engraving Text" name="engraving text" className="h-10 pl-2 font-roboto outline-0 border border-primary rounded-md" />
+                            </div>
+                          </div>
+                        )
+                      }
+                    </div>
+                  </div>
+                ) : (
+                  <div className="hidden">
+
+                  </div>
+                )
+              }
+            </div>
+            <div className="actions mt-5">
+              <Button className='w-full bg-primary mb-5 hover:bg-primary-foreground text-white hover:text-accent font-roboto text-base'>ADD TO CART</Button>
+              <Button className='w-full bg-primary-foreground mb-5 hover:bg-primary hover:text-white text-accent font-roboto text-base'>ADD TO WISHLIST</Button>
+            </div>
+            <div className="shipping-wrapper py-5">
+              <div className="flex gap-5">
+                <div>
+                  <div className="transit flex flex-col justify-center items-center">
+                    <span className="p-3  border-2 border-[#3c2f27] rounded-full">
+                      <Image src='/uploads/images/logo/in-transit.svg' alt='Transit' className="w-8 h-8" width={20} height={32} />
+                    </span>
+                    <span>
+                      <Image src='/uploads/images/logo/shipping.svg' alt='Steps' className=" w-4 h-44" width={20} height={50} />
+                    </span>
+                  </div>
+                </div>
+                <div className="information">
+                  <div className="heading">
+                    <h2 className="font-crimson text-accent text-2xl">FREE 3 DAY SHIPPING</h2>
+                    <span className="font-roboto text-accent text-base">on all India Orders</span>
+                  </div>
+                  <div className="order mt-6">
+                    <h2 className="font-crimson text-accent  text-2xl">ORDER BY:</h2>
+                    <span className="font-roboto text-accent text-base">5PM EST Monday, February 12</span>
+                  </div>
+                  <div className="order mt-7">
+                    <h2 className="font-crimson text-accent  text-2xl">RECEIVE BY:</h2>
+                    <span className="font-roboto text-accent text-base">5PM EST THRUSDAY, February 15</span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

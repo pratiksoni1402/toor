@@ -13,6 +13,8 @@ export const selectDetail = {
   metalType: true,
   metalColor: true,
   ringSize: true,
+  isEngraveable:true,
+  maximumEngravingCharacter:true,
   image: true
 }
 
@@ -26,7 +28,7 @@ export async function Details(paramsValue) {
   }
   
   try {
-    const result = await prisma.$queryRawUnsafe(`SELECT id, name, description, price, making_charges_per_gram AS makingChargesPerGram, sku, total_weight AS totalWeight, gold_rate AS goldRate, metal_type AS metalType, metal_color AS metalColor, ring_size AS ringSize, image from product WHERE ${where}`);
+    const result = await prisma.$queryRawUnsafe(`SELECT id, name, description, price, making_charges_per_gram AS makingChargesPerGram, sku, total_weight AS totalWeight, gold_rate AS goldRate, metal_type AS metalType, metal_color AS metalColor, ring_size AS ringSize, image, is_engraveable AS isEngraveable, maximum_engraving_character AS maximumEngravingCharacter from product WHERE ${where}`);
     
     return result[0];
   } catch (error) {
@@ -34,9 +36,3 @@ export async function Details(paramsValue) {
     throw error;
   }
 }
-
-
-
-
-
-// (`SELECT id, name, description, price, making_charges_per_gram AS makingChargesPerGram, sku, total_weight AS totalWeight, gold_rate AS goldRate, metal_type AS metalType, metal_color AS metalColor, ring_size AS ringSize, image from product WHERE ${where}`)

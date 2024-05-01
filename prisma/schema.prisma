@@ -39,23 +39,25 @@ model Megamenu {
 
 // All Products Model
 model Product {
-  id                   Int      @id @default(autoincrement())
-  category_id          Int      @db.Int
-  sku                  String   @db.VarChar(50) 
-  name                 String   @db.VarChar(100)
-  filterByStyle        String   @map("filter_by_style") @db.VarChar(20)
-  totalWeight          Decimal  @map("total_weight") @db.Decimal(5, 3)
-  makingChargesPerGram Int      @map("making_charges_per_gram") @db.Int
-  goldRate             Int      @map("gold_rate") @db.Int
-  price                Int      @db.Int
-  description          String   @db.Text
-  filterByGender       String   @map("filter_by_gender") @db.VarChar(20)
-  metalType            String   @map("metal_type") @db.VarChar(30)
-  metalColor           String?  @map("metal_color") @db.VarChar(50)
-  ringSize             String   @map("ring_size") @db.Text
-  type                 String   @db.VarChar(20)
-  image                String   @db.VarChar(30)
-  category             Category @relation(fields: [category_id], references: [id])
+  id                        Int      @id @default(autoincrement())
+  category_id               Int      @db.Int
+  sku                       String   @db.VarChar(50)
+  name                      String   @db.VarChar(100)
+  filterByStyle             String   @map("filter_by_style") @db.VarChar(20)
+  totalWeight               Decimal  @map("total_weight") @db.Decimal(5, 3)
+  makingChargesPerGram      Int      @map("making_charges_per_gram") @db.Int
+  goldRate                  Int      @map("gold_rate") @db.Int
+  price                     Int      @db.Int
+  description               String   @db.Text
+  filterByGender            String   @map("filter_by_gender") @db.VarChar(20)
+  metalType                 String   @map("metal_type") @db.VarChar(30)
+  metalColor                String?  @map("metal_color") @db.VarChar(50)
+  ringSize                  String   @map("ring_size") @db.Text
+  isEngraveable             Int      @map("is_engraveable") @db.Int
+  maximumEngravingCharacter Int      @db.Int @map("maximum_engraving_character")
+  type                      String   @db.VarChar(20)
+  image                     String   @db.VarChar(30)
+  category                  Category @relation(fields: [category_id], references: [id])
 
   @@map("product")
 }
