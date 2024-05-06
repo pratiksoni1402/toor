@@ -93,7 +93,6 @@ model State {
 
 model Wishlist {
   id            Int     @id @default(autoincrement())
-  productId     Int     @map("productid") @db.Int
   sku           String  @db.VarChar(60)
   ringSize      Decimal @map("ring_size") @db.Decimal(5, 2)
   engravingText String  @db.VarChar(10)

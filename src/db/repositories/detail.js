@@ -31,8 +31,11 @@ export async function Details(paramsValue) {
     const result = await prisma.$queryRawUnsafe(`SELECT id, name, description, price, making_charges_per_gram AS makingChargesPerGram, sku, total_weight AS totalWeight, gold_rate AS goldRate, metal_type AS metalType, metal_color AS metalColor, ring_size AS ringSize, image, is_engraveable AS isEngraveable, maximum_engraving_character AS maximumEngravingCharacter from product WHERE ${where}`);
     
     return result[0];
-  } catch (error) {
+    
+  } 
+  catch (error) {
     console.error("Raw query failed. Error:", error);
     throw error;
   }
+
 }

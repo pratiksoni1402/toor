@@ -36,6 +36,7 @@ export default function ProductDetail({ params }) {
         })
   })
   const ringSizeArray = product?.ringSize?.split(',')
+
   const metalColorType = product?.metalColor?.split('-')
   const formattedColor = metalColorType?.map(metalColorType => metalColorType.charAt(0).toUpperCase() + metalColorType.slice(1)).join(' ');
 
@@ -44,7 +45,13 @@ export default function ProductDetail({ params }) {
   }
 
   const handleAddtoWishlist = () => {
-    axios.post('')
+    axios.post('/product-detail/api/add-to-wishlist')
+    .then((response) => {
+      console.log(response.data)
+    })
+    .catch((error) => {
+      console.log("Error", err)
+    })
   }
 
   if (!product) {
@@ -121,7 +128,7 @@ export default function ProductDetail({ params }) {
                   <SelectContent>
                     {
                       ringSizeArray?.map((size, index) => (
-                        <SelectItem value="light" key={size} className='hover:text-white text-accent'>{size}</SelectItem>
+                        <SelectItem value={size} key={size} className='hover:text-white text-accent'>{size}</SelectItem>
 
                       ))
                     }

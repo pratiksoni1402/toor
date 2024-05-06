@@ -22,6 +22,6 @@ export const wishlistSelect = {
   }
 }
 
-export async function addToWishlist(){
+export async function AddToWishlist(){
    
 }

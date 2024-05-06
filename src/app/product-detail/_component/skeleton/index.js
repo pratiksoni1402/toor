@@ -23,7 +23,7 @@ export default function ProductSkeleton() {
                 </div>
 
                 <div className="description mb-3">
-                  <Skeleton className="h-[30px] w-[700px] bg-primary-foreground" />
+                  <Skeleton className="h-[30px] w-[650px] bg-primary-foreground" />
                 </div>
 
                 <div className="price mb-3">
@@ -55,7 +55,7 @@ export default function ProductSkeleton() {
                 </div>
 
                 <div className="ring-size-select mb-5">
-                  <Skeleton className="h-[40px] w-[300px]  bg-primary-foreground" />
+                  <Skeleton className="h-[40px] w-[180px]  bg-primary-foreground" />
                 </div>
 
               </div>
