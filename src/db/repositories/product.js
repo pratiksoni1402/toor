@@ -27,6 +27,7 @@ export async function Products(filters = {}) {
   // Filter by Price
   if (filters['price']) {
     where += `AND price  >= '${filters['price'].split(',')[0]}' AND price <= '${filters['price'].split(',')[1]}'`;
+    
   }
   // End
 

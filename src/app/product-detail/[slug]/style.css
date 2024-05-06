@@ -13,3 +13,7 @@
 .product-detail-page .description .details .value{
   @apply font-roboto text-base font-semibold
 }
+
+/* .product-detail-page .engraving-section .engraving-checkbox{
+  @apply hidden h-5 w-5 border border-primary-foreground
+} */

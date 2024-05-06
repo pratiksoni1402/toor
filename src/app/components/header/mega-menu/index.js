@@ -41,7 +41,7 @@ export default function Megamenu() {
                     </li>
 
                     <li className="product-list" onMouseEnter={() => setRingHovered(`${CATEGORY_MEDIA}/ring-couple.jpg`)} onMouseLeave={() => setRingHovered('/uploads/images/category-images/silver.png')} >
-                      <Link href='/products?style=couple-bands' className="flex items-center">
+                      <Link href='/products?style=couple-rings' className="flex items-center">
                         <span>Couple Rings</span>
                       </Link>
                     </li>

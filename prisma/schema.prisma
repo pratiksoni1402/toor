@@ -39,25 +39,26 @@ model Megamenu {
 
 // All Products Model
 model Product {
-  id                        Int      @id @default(autoincrement())
-  category_id               Int      @db.Int
-  sku                       String   @db.VarChar(50)
-  name                      String   @db.VarChar(100)
-  filterByStyle             String   @map("filter_by_style") @db.VarChar(20)
-  totalWeight               Decimal  @map("total_weight") @db.Decimal(5, 3)
-  makingChargesPerGram      Int      @map("making_charges_per_gram") @db.Int
-  goldRate                  Int      @map("gold_rate") @db.Int
-  price                     Int      @db.Int
-  description               String   @db.Text
-  filterByGender            String   @map("filter_by_gender") @db.VarChar(20)
-  metalType                 String   @map("metal_type") @db.VarChar(30)
-  metalColor                String?  @map("metal_color") @db.VarChar(50)
-  ringSize                  String   @map("ring_size") @db.Text
-  isEngraveable             Int      @map("is_engraveable") @db.Int
-  maximumEngravingCharacter Int      @db.Int @map("maximum_engraving_character")
-  type                      String   @db.VarChar(20)
-  image                     String   @db.VarChar(30)
-  category                  Category @relation(fields: [category_id], references: [id])
+  id                        Int        @id @default(autoincrement())
+  category_id               Int        @db.Int
+  sku                       String     @db.VarChar(50)
+  name                      String     @db.VarChar(100)
+  filterByStyle             String     @map("filter_by_style") @db.VarChar(20)
+  totalWeight               Decimal    @map("total_weight") @db.Decimal(5, 3)
+  makingChargesPerGram      Int        @map("making_charges_per_gram") @db.Int
+  goldRate                  Int        @map("gold_rate") @db.Int
+  price                     Int        @db.Int
+  description               String     @db.Text
+  filterByGender            String     @map("filter_by_gender") @db.VarChar(20)
+  metalType                 String     @map("metal_type") @db.VarChar(30)
+  metalColor                String?    @map("metal_color") @db.VarChar(50)
+  ringSize                  String     @map("ring_size") @db.Text
+  isEngraveable             Int        @map("is_engraveable") @db.Int
+  maximumEngravingCharacter Int        @map("maximum_engraving_character") @db.Int
+  type                      String     @db.VarChar(20)
+  image                     String     @db.VarChar(30)
+  category                  Category   @relation(fields: [category_id], references: [id])
+  wishlist                  Wishlist[]
 
   @@map("product")
 }
@@ -89,3 +90,17 @@ model State {
 
   @@map("state")
 }
+
+model Wishlist {
+  id            Int     @id @default(autoincrement())
+  productId     Int     @map("productid") @db.Int
+  sku           String  @db.VarChar(60)
+  ringSize      Decimal @map("ring_size") @db.Decimal(5, 2)
+  engravingText String  @db.VarChar(10)
+  sessionId     String  @map("sessionid") @db.VarChar(100)
+  sessionEmail  String  @map("sessionemail") @db.VarChar(100)
+  product       Product @relation(fields: [id], references: [id])
+  
+  @@map("wishlist")
+}
+

@@ -1,4 +1,7 @@
 'use client'
+export const dynamic = 'force-dynamic';
+export const fetchCache = 'force-no-store';
+export const revalidate = 0;
 
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
@@ -33,9 +36,15 @@ export default function ProductDetail({ params }) {
         })
   })
   const ringSizeArray = product?.ringSize?.split(',')
+  const metalColorType = product?.metalColor?.split('-')
+  const formattedColor = metalColorType?.map(metalColorType => metalColorType.charAt(0).toUpperCase() + metalColorType.slice(1)).join(' ');
 
   const handleForm = () => {
     setEngraving(!isEngraving)
+  }
+
+  const handleAddtoWishlist = () => {
+    axios.post('')
   }
 
   if (!product) {
@@ -49,7 +58,7 @@ export default function ProductDetail({ params }) {
   return (
     <div className="product-detail-page">
       <div className="container">
-        <div className="grid grid-cols-2 gap-5">
+        <div className="grid sm:grid-cols-2 grid-cols-1 gap-5">
           <div className="col">
             <div className="main-image sticky top-5">
               <Image src={`${PRODUCT_MEDIA}/${product?.image}`} alt={product?.name} width={564} height={564} />
@@ -61,32 +70,40 @@ export default function ProductDetail({ params }) {
                 <span className="caption">SKU:</span>
                 <span className="value"> {product?.sku}</span>
               </div>
+
               <div className="details">
                 <span className="font-crimson font-medium text-3xl">{product?.name}</span>
               </div>
+
               <div className="details">
                 <div className="leading-5 pb-2 font-roboto text-base">{product?.description}</div>
               </div>
+
               <div className="details flex items-center ">
                 <span><IndianRupee size={16} /></span>
                 <span className="text-lg font-roboto font-semibold">{product?.price}</span>
               </div>
+
               <div className="details">
                 <span className="caption">Making Charges:</span>
-                <span className="value"> {product?.makingChargesPerGram}</span>
+                <span className="value"> {product?.makingChargesPerGram}/- per gram</span>
               </div>
+
               <div className="details">
                 <span className="caption">Weight:</span>
-                <span className="value"> {product?.totalWeight} </span>
+                <span className="value"> {product?.totalWeight} gram</span>
               </div>
+
               <div className="details">
                 <span className="caption">Metal Type:</span>
                 <span className="value"> {product?.metalType}</span>
               </div>
+
               <div className="details">
                 <span className="caption">Metal Color:</span>
-                <span className="value"> {product?.metalColor}</span>
+                <span className="value"> {formattedColor}</span>
               </div>
+
               <div className="details flex items-center">
                 <span className="caption">Hallmark:</span>
                 <span className="value pl-1"> BIS Hallmarked</span>
@@ -94,6 +111,7 @@ export default function ProductDetail({ params }) {
                   <Image src='/uploads/images/logo/bis-hallmark.svg' alt="BIS Hallmark" width={30} height={30} />
                 </span>
               </div>
+
               <div className="details ring-size">
                 <span className="caption pt-2">Ring Size:</span>
                 <Select>
@@ -111,13 +129,13 @@ export default function ProductDetail({ params }) {
                 </Select>
               </div>
             </div>
-            <div className="engraving pb-3 pt-4">
+            <div className="engraving-section pb-3 pt-4">
               {
                 product?.isEngraveable == 0 ? (
                   <div>
                     <div>
-                      <input type="checkbox" checked={isEngraving} onClick={handleForm} id="engraving" name="gender" value="yellow-gold" />
-                      <label htmlFor="engraving" className="font-roboto hover:cursor-pointer text-base font-semibold text-accent pl-2">
+                      <input type="checkbox" checked={isEngraving} className="engraving-checkbox" onClick={handleForm} id="engraving" name="gender" value="yellow-gold" />
+                      <label htmlFor="engraving" className="engraving-label font-roboto hover:cursor-pointer text-base font-semibold text-accent pl-2">
                         Add Engraving (Free)
                       </label>
                     </div>
@@ -154,7 +172,7 @@ export default function ProductDetail({ params }) {
             </div>
             <div className="actions mt-5">
               <Button className='w-full bg-primary mb-5 hover:bg-primary-foreground text-white hover:text-accent font-roboto text-base'>ADD TO CART</Button>
-              <Button className='w-full bg-primary-foreground mb-5 hover:bg-primary hover:text-white text-accent font-roboto text-base'>ADD TO WISHLIST</Button>
+              <Button className='w-full bg-primary-foreground mb-5 hover:bg-primary hover:text-white text-accent font-roboto text-base' onClick={handleAddtoWishlist}>ADD TO WISHLIST</Button>
             </div>
             <div className="shipping-wrapper py-5">
               <div className="flex gap-5">
