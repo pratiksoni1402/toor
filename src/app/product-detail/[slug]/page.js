@@ -44,13 +44,16 @@ export default function ProductDetail({ params }) {
     setEngraving(!isEngraving)
   }
 
-  const handleAddtoWishlist = () => {
-    axios.post('/product-detail/api/add-to-wishlist')
+  const handleAddtoWishlist = (id, sku) => {
+    axios.post('/product-detail/api/add-to-wishlist',{
+      id,
+      sku,
+    })
     .then((response) => {
       console.log(response.data)
     })
     .catch((error) => {
-      console.log("Error", err)
+      console.log("Error", error)
     })
   }
 
@@ -179,7 +182,7 @@ export default function ProductDetail({ params }) {
             </div>
             <div className="actions mt-5">
               <Button className='w-full bg-primary mb-5 hover:bg-primary-foreground text-white hover:text-accent font-roboto text-base'>ADD TO CART</Button>
-              <Button className='w-full bg-primary-foreground mb-5 hover:bg-primary hover:text-white text-accent font-roboto text-base' onClick={handleAddtoWishlist}>ADD TO WISHLIST</Button>
+              <Button className='w-full bg-primary-foreground mb-5 hover:bg-primary hover:text-white text-accent font-roboto text-base' onClick={() => handleAddtoWishlist(product?.id, product?.sku)}>ADD TO WISHLIST</Button>
             </div>
             <div className="shipping-wrapper py-5">
               <div className="flex gap-5">
