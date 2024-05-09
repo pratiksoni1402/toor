@@ -1,5 +1,4 @@
 import prisma from "@/db";
-// import { data } from "autoprefixer";
 import { getSession } from "@/lib/session";
 import { getSessionId } from "@/lib/session";
 export const wishlistSelect = {
@@ -40,12 +39,12 @@ export async function AddToWishlist(requestBody) {
   });
 
   console.log("Wishlist data in table with session id", { wishlist });
-  return Response.json({ wishlist });
+  return wishlist
 }
 // End
 
 // Fetch products from wishlist
-export async function GetDataFromWishlist(trailData) {
+export async function GetDataFromWishlist() {
   const sessionEmail = await getSession();
   const getData = await prisma.wishlist.findMany({
     where: {
@@ -57,7 +56,22 @@ export async function GetDataFromWishlist(trailData) {
 
   });
   console.log("Getting data from wishlist", { getData });
-  return Response.json({ getData })
+  return getData
+}
+// End
+
+// Delete Product from Wishlist
+export async function DeleteFromWishlist(requestBody) {
+  console.log("SKU in final stage", requestBody)
+  const sessionEmail = await getSession();
+  const deleteProduct = await prisma.wishlist.delete({
+    where: {
+      sessionEmail: sessionEmail?.user?.email,
+      sku: requestBody.sku
+    }
+  })
+  console.log("Product Removed Successfullt", deleteProduct)
+  return deleteProduct
 }
 // End
 

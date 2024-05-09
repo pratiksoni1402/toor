@@ -94,7 +94,7 @@ model State {
 model Wishlist {
   id            Int      @id @default(autoincrement())
   productId     Int      @map("product_id") @db.Int
-  sku           String   @db.VarChar(60)
+  sku           String   @db.VarChar(60) @unique
   ringSize      Decimal? @map("ring_size") @db.Decimal(5, 2)
   engravingText String?  @map("engraving_text") @db.VarChar(10)
   sessionId     String   @map("sessionid") @db.VarChar(100)
