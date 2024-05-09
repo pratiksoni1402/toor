@@ -4,11 +4,33 @@ import { useForm } from 'react-hook-form';
 import { IndianRupee } from "lucide-react";
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
+import { useQuery, useQueryClient } from '@tanstack/react-query';
+import axios from 'axios';
 import './style.css'
 export default function Bill() {
   const { register, handleSubmit, formState: { errors } } = useForm();
   const onSubmit = data => console.log(data);
-  console.log(errors);
+  let subTotal = 0;
+
+  const { data: billData } = useQuery({
+    queryKey: ['totalAmount'],
+    queryFn: () =>
+      axios.get('/cart/api/get-data')
+        .then((response) => {
+          return response.data.getCartProduct
+        })
+        .catch((error) => {
+          console.log("Error in Fetching Products", error)
+        })
+  })
+  
+        {
+          billData?.map((billing) => (
+  
+            subTotal += billing?.product?.price
+          ))
+        }
+
   return (
     <div className="total-bill-component">
       <div className="content-wrapper">
@@ -19,8 +41,8 @@ export default function Bill() {
           <div className="subtotal">
             <span>Subtotal:</span>
             <div className="price flex items-center">
-              <span><IndianRupee/></span>
-              <span>579000</span>
+              <span><IndianRupee /></span>
+              <span>{subTotal}</span>
             </div>
           </div>
           <div className="subtotal">
@@ -57,7 +79,7 @@ export default function Bill() {
             <span>Coupan Code</span>
           </div>
           <form onSubmit={handleSubmit(onSubmit)} className='form-wrapper'>
-            <input type="text" placeholder="Enter Coupan Code" {...register}/>
+            <input type="text" placeholder="Enter Coupan Code" {...register} />
             <div className='coupan-button'>
               <Button type='submit'>Apply</Button>
               <Button type='submit'>Remove</Button>

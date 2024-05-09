@@ -59,6 +59,7 @@ model Product {
   image                     String     @db.VarChar(30)
   category                  Category   @relation(fields: [category_id], references: [id])
   wishlist                  Wishlist[]
+  cart                      Cart[]
 
   @@map("product")
 }
@@ -94,7 +95,7 @@ model State {
 model Wishlist {
   id            Int      @id @default(autoincrement())
   productId     Int      @map("product_id") @db.Int
-  sku           String   @db.VarChar(60) @unique
+  sku           String   @unique @db.VarChar(60)
   ringSize      Decimal? @map("ring_size") @db.Decimal(5, 2)
   engravingText String?  @map("engraving_text") @db.VarChar(10)
   sessionId     String   @map("sessionid") @db.VarChar(100)
@@ -102,4 +103,17 @@ model Wishlist {
   product       Product? @relation(fields: [productId], references: [id])
 
   @@map("wishlist")
+}
+
+model Cart {
+  id            Int      @id @default(autoincrement())
+  productId     Int      @map("product_id") @db.Int
+  sku           String   @unique @db.VarChar(60)
+  ringSize      Decimal? @map("ring_size") @db.Decimal(5, 2)
+  engravingText String?  @map("engraving_text") @db.VarChar(10)
+  quantity      Int?      @db.Int
+  sessionId     String   @map("sessionid") @db.VarChar(100)
+  product       Product  @relation(fields: [productId], references: [id])
+
+  @@map("cart")
 }

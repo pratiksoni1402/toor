@@ -8,7 +8,7 @@ import axios from "axios";
 import { PRODUCT_MEDIA } from "@/lib/constants/images";
 import Image from "next/image";
 import ProductSkeleton from "../_component/skeleton";
-
+import { Loader2Icon } from "lucide-react";
 import {
   Select,
   SelectContent,
@@ -16,14 +16,16 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-
+import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { IndianRupee } from 'lucide-react';
 import './style.css';
 import { useState } from "react";
 
 export default function ProductDetail({ params }) {
+  const router = useRouter();
   const [isEngraving, setEngraving] = useState(false);
+  const [addTocart, setAddToCart] = useState(false);
   const { data: product } = useQuery({
     queryKey: ['productDetail'],
     queryFn: () =>
@@ -44,19 +46,41 @@ export default function ProductDetail({ params }) {
     setEngraving(!isEngraving)
   }
 
+  // Add To Wishlist
   const handleAddtoWishlist = (id, sku) => {
-    axios.post('/product-detail/api/add-to-wishlist',{
+    axios.post('/product-detail/api/add-to-wishlist', {
       id,
       sku,
     })
-    .then((response) => {
-      console.log(response.data)
-    })
-    .catch((error) => {
-      console.log("Error", error)
-    })
+      .then((response) => {
+        console.log(response.data)
+      })
+      .catch((error) => {
+        console.log("Error", error)
+      })
   }
+  // End
 
+  // Add To Cart
+  const handleAddtoCart = (id, sku) => {
+    setAddToCart(true);
+    axios.post('/product-detail/api/add-to-cart', {
+      id,
+      sku
+    })
+      .then((response) => {
+        router.push('/cart')
+      })
+      .catch((error) => {
+        console.log("Error while adding product to cart ", error)
+      })
+      .finally(() => {
+        setAddToCart(false)
+      })
+  }
+  // End
+
+  // Show Skeleton Till Product Detail Fetching 
   if (!product) {
     return (
       <div>
@@ -64,6 +88,7 @@ export default function ProductDetail({ params }) {
       </div>
     )
   }
+  // End
 
   return (
     <div className="product-detail-page">
@@ -181,7 +206,18 @@ export default function ProductDetail({ params }) {
               }
             </div>
             <div className="actions mt-5">
-              <Button className='w-full bg-primary mb-5 hover:bg-primary-foreground text-white hover:text-accent font-roboto text-base'>ADD TO CART</Button>
+
+              {
+                addTocart ? (
+                  <Button type='submit' className="w-full bg-primary mb-5 hover:bg-primary-foreground text-white hover:text-accent font-roboto text-base" disabled={true}>
+                    <Loader2Icon className='animate-spin mr-1' />
+                    ADD TO CART</Button>
+                ) : (
+                  <Button className='w-full bg-primary mb-5 hover:bg-primary-foreground text-white hover:text-accent font-roboto text-base' onClick={() => handleAddtoCart(product.id, product.sku)}>ADD TO CART</Button>
+                )
+              }
+
+
               <Button className='w-full bg-primary-foreground mb-5 hover:bg-primary hover:text-white text-accent font-roboto text-base' onClick={() => handleAddtoWishlist(product?.id, product?.sku)}>ADD TO WISHLIST</Button>
             </div>
             <div className="shipping-wrapper py-5">
