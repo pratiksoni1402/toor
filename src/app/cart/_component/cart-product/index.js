@@ -18,6 +18,8 @@ import { PRODUCT_MEDIA } from "@/lib/constants/images";
 import './syle.css';
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
+import CartProductSkeleton from "../product-skeleton";
+import './syle.css';
 
 export default function Cartproduct() {
   const { data: cartData } = useQuery({
@@ -31,6 +33,14 @@ export default function Cartproduct() {
           console.log("Error in Fetching Products", error)
         })
   })
+
+  if (!cartData) {
+    return (
+      <div>
+        <CartProductSkeleton />
+      </div>
+    )
+  }
 
   return (
     <div className="cart-product-component">
