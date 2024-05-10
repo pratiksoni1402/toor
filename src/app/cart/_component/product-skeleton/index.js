@@ -51,32 +51,32 @@ export default function CartProductSkeleton() {
               <div className="product-wrapper" key={items?.id}>
                 <div className="grid grid-cols-12 gap-5">
                   <div className="col-span-3">
-                    <div className="image-wrapper">
-                      <Skeleton className=" h-[300px] w-[300px] mt-1 bg-primary-foreground" />
+                    <div className="image-wrapper h-[300px] w-[300px]">
+                      <Skeleton className=" h-[200px] w-[200px] mt-1 bg-primary-foreground" />
                     </div>
                   </div>
                   <div className="col-span-7">
-                    <div className="detail">
+                    <div className="detail ">
                       <div className="name">
                         <Skeleton className=" h-[16px] w-[150px] mt-1 bg-primary-foreground" />
                       </div>
-                      <div className="description">
+                      <div className="description my-4">
+                        <Skeleton className=" h-[36px] w-[500px] mt-1 bg-primary-foreground" />
+                      </div>
+                      <div className="attribute sku mt-2">
                         <Skeleton className=" h-[16px] w-[150px] mt-1 bg-primary-foreground" />
                       </div>
-                      <div className="attribute">
+                      <div className="attribute mt-2">
                         <Skeleton className=" h-[16px] w-[150px] mt-1 bg-primary-foreground" />
                       </div>
-                      <div className="attribute">
+                      <div className="attribute mt-2">
                         <Skeleton className=" h-[16px] w-[150px] mt-1 bg-primary-foreground" />
                       </div>
-                      <div className="attribute">
-                        <Skeleton className=" h-[16px] w-[150px] mt-1 bg-primary-foreground" />
-                      </div>
-                      <div className="attribute">
+                      <div className="attribute mt-2">
                         <Skeleton className=" h-[16px] w-[150px] mt-1 bg-primary-foreground" />
                       </div>
                     </div>
-                    <div className='quantity-wrapper'>
+                    <div className='quantity-wrapper mt-2'>
                       <Skeleton className=" h-[16px] w-[150px] mt-1 bg-primary-foreground" />
                       <div className="quantity-variation">
                         <Skeleton className=" h-[16px] w-[150px] mt-1 bg-primary-foreground" />
