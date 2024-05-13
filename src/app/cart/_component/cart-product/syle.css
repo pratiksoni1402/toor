@@ -6,6 +6,10 @@
   @apply  relative h-60 
 }
 
+.cart-product-component .cart-items .product-wrapper .image-wrapper img{
+  @apply w-full
+}
+
 /* ----------------------------------- */
 /* Item Detail Styling */
 .cart-product-component .cart-items .product-wrapper .detail{
@@ -48,16 +52,19 @@
 
 /* ---------------------------------- */
 /* Pricing and Button Styling */
+.cart-product-component .cart-items .product-wrapper .pricing-and-actions{
+  @apply sm:block flex flex-row justify-between items-start
+}
 .cart-product-component .cart-items .product-wrapper .pricing{
-  @apply flex items-center font-semibold text-base justify-end font-roboto text-accent
+  @apply flex items-center font-semibold text-base justify-end font-roboto text-accent sm:order-1 order-2
 }
 
 .cart-product-component .cart-items .product-wrapper .user-actions{
-  @apply  mt-20 text-right flex flex-col
+  @apply  sm:mt-20 mt-0 flex flex-col sm:justify-end justify-start sm:text-right text-left 
 }
 
 .cart-product-component .cart-items .product-wrapper .user-actions button{
-  @apply rounded-none inline bg-white pr-0 font-roboto justify-end font-normal text-base text-accent text-right hover:underline hover:text-primary py-0
+  @apply rounded-none inline bg-white pr-0 font-roboto sm:justify-end justify-start sm:text-right text-left font-normal text-base text-accent hover:underline hover:text-primary py-0 hover:font-semibold
 }
 
 /* Pricing and Button Styling End */

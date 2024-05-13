@@ -41,7 +41,7 @@ export default function Megamenu() {
                     </li>
 
                     <li className="product-list" onMouseEnter={() => setRingHovered(`${CATEGORY_MEDIA}/ring-couple.jpg`)} onMouseLeave={() => setRingHovered('/uploads/images/category-images/silver.png')} >
-                      <Link href='/products?style=couple-bands' className="flex items-center">
+                      <Link href='/products?style=couple-rings' className="flex items-center">
                         <span>Couple Rings</span>
                       </Link>
                     </li>
@@ -115,18 +115,6 @@ export default function Megamenu() {
                       </div>
                     )
                   }
-                </div>
-                <div className="col-span-2">
-                  <h2 className="inner-heading">Shop By Price</h2>
-                  <ul className="product-list-wrapper">
-                    <li className="product-list"><Link href='/'>Under 10K</Link></li>
-                    <li className="product-list"><Link href='/'>10K - 20K</Link></li>
-                    <li className="product-list"><Link href='/'>20K - 30K</Link></li>
-                    <li className="product-list"><Link href='/'>30K - 60K</Link></li>
-                    <li className="product-list"><Link href='/'>60K - 90K</Link></li>
-                    <li className="product-list"><Link href='/'>90K - 1.5L</Link></li>
-                    <li className="product-list"><Link href='/'>Above 1.5L</Link></li>
-                  </ul>
                 </div>
 
               </div>
@@ -242,18 +230,6 @@ export default function Megamenu() {
                   }
                 </div>
 
-                <div className="col-span-2">
-                  <h2 className="inner-heading">Shop By Price</h2>
-                  <ul className="product-list-wrapper">
-                    <li className="product-list pt-3"><Link href='/'>Under 10K</Link></li>
-                    <li className="product-list pt-3"><Link href='/'>10K - 20K</Link></li>
-                    <li className="product-list pt-3"><Link href='/'>20K - 30K</Link></li>
-                    <li className="product-list pt-3"><Link href='/'>30K - 60K</Link></li>
-                    <li className="product-list pt-3"><Link href='/'>60K - 90K</Link></li>
-                    <li className="product-list pt-3"><Link href='/'>90K - 1.5L</Link></li>
-                    <li className="product-list pt-3"><Link href='/'>Above 1.5L</Link></li>
-                  </ul>
-                </div>
               </div>
             </NavigationMenuContent>
           </NavigationMenuItem>
@@ -342,19 +318,6 @@ export default function Megamenu() {
                       </div>
                     )
                   }
-                </div>
-
-                <div className="col-span-2">
-                  <h2 className="inner-heading">Shop By Price</h2>
-                  <ul className="product-list-wrapper">
-                    <li className="product-list pt-3"><Link href='/'>Under 50K</Link></li>
-                    <li className="product-list pt-3"><Link href='/'>50K - 60K</Link></li>
-                    <li className="product-list pt-3"><Link href='/'>60K - 70K</Link></li>
-                    <li className="product-list pt-3"><Link href='/'>70K - 90K</Link></li>
-                    <li className="product-list pt-3"><Link href='/'>90K - 1.5L</Link></li>
-                    <li className="product-list pt-3"><Link href='/'>1.5L - 2.0L</Link></li>
-                    <li className="product-list pt-3"><Link href='/'>Above 2.0L</Link></li>
-                  </ul>
                 </div>
 
               </div>
@@ -459,19 +422,6 @@ export default function Megamenu() {
                   }
                 </div>
 
-                <div className="col-span-2">
-                  <h2 className="inner-heading">Shop By Price</h2>
-                  <ul className="product-list-wrapper">
-                    <li className="product-list pt-3"><Link href='/'>Under 50K</Link></li>
-                    <li className="product-list pt-3"><Link href='/'>50K - 60K</Link></li>
-                    <li className="product-list pt-3"><Link href='/'>60K - 70K</Link></li>
-                    <li className="product-list pt-3"><Link href='/'>70K - 90K</Link></li>
-                    <li className="product-list pt-3"><Link href='/'>90K - 1.5L</Link></li>
-                    <li className="product-list pt-3"><Link href='/'>1.5L - 2.0L</Link></li>
-                    <li className="product-list pt-3"><Link href='/'>Above 2.0L</Link></li>
-                  </ul>
-                </div>
-
               </div>
             </NavigationMenuContent>
           </NavigationMenuItem>
@@ -484,74 +434,63 @@ export default function Megamenu() {
               <div className="section-two grid grid-cols-12 gap-5">
 
                 <div className="col-span-2">
-                  <h2 className="inner-heading">Shop By Style</h2>
+                  <h2 className="inner-heading">Gold Bars</h2>
                   <ul className="product-list-wrapper">
 
-                    <li className="product-list" onMouseEnter={() => setBraceletHovered(`${CATEGORY_MEDIA}/bracelet-chain.jpg`)} onMouseLeave={() => setBraceletHovered('/uploads/images/mega-menu/bracelet.jpg')}>
-                      <Link href='/' className="flex items-center">
-                        <span>Chain</span>
+                    <li className="product-list" onMouseEnter={() => setBraceletHovered(`${CATEGORY_MEDIA}/1gm-fine-gold-bar.jpg`)} onMouseLeave={() => setBraceletHovered('/uploads/images/mega-menu/main-gold-bar.jpg')}>
+                      <Link href='/' className="flex items-center" >
+                        <span>1gm Fine Gold</span>
                       </Link>
                     </li>
-                    <li className="product-list" onMouseEnter={() => setBraceletHovered(`${CATEGORY_MEDIA}/cuff-bracelet.jpg`)} onMouseLeave={() => setBraceletHovered('/uploads/images/mega-menu/bracelet.jpg')}>
+                    <li className="product-list" onMouseEnter={() => setBraceletHovered(`${CATEGORY_MEDIA}/2gm-fine-gold-bar.jpg`)} onMouseLeave={() => setBraceletHovered('/uploads/images/mega-menu/main-gold-bar.jpg')}>
                       <Link href='/' className="flex items-center" >
-                        <span>Cuff</span>
+                        <span>2gm Fine Gold</span>
                       </Link>
                     </li>
-                    <li className="product-list" onMouseEnter={() => setBraceletHovered(`${CATEGORY_MEDIA}/bracelet-gemstone.jpg`)} onMouseLeave={() => setBraceletHovered('/uploads/images/mega-menu/bracelet.jpg')}>
+                    <li className="product-list" onMouseEnter={() => setBraceletHovered(`${CATEGORY_MEDIA}/5gm-fine-gold-bar.png`)} onMouseLeave={() => setBraceletHovered('/uploads/images/mega-menu/main-gold-bar.jpg')}>
                       <Link href='/' className="flex items-center" >
-                        <span>Gemstone</span>
+                        <span>5gm Fine Gold</span>
                       </Link>
                     </li>
-                    <li className="product-list" onMouseEnter={() => setBraceletHovered(`${CATEGORY_MEDIA}/bracelet-cable.jpg`)} onMouseLeave={() => setBraceletHovered('/uploads/images/mega-menu/bracelet.jpg')}>
+                    <li className="product-list" onMouseEnter={() => setBraceletHovered(`${CATEGORY_MEDIA}/10gm-fine-gold-bar.jpg`)} onMouseLeave={() => setBraceletHovered('/uploads/images/mega-menu/main-gold-bar.jpg')}>
                       <Link href='/' className="flex items-center" >
-                        <span>Cable</span>
+                        <span>10gm Fine Gold</span>
                       </Link>
                     </li>
-                    <li className="product-list" onMouseEnter={() => setBraceletHovered(`${CATEGORY_MEDIA}/bracelet-hinged.jpg`)} onMouseLeave={() => setBraceletHovered('/uploads/images/mega-menu/bracelet.jpg')}>
+                    <li className="product-list" onMouseEnter={() => setBraceletHovered(`${CATEGORY_MEDIA}/20gm-fine-gold-bar.png`)} onMouseLeave={() => setBraceletHovered('/uploads/images/mega-menu/main-gold-bar.jpg')}>
                       <Link href='/' className="flex items-center" >
-                        <span>Hinged</span>
+                        <span>20gm Fine Gold</span>
                       </Link>
                     </li>
-                    <li className="product-list" onMouseEnter={() => setBraceletHovered(`${CATEGORY_MEDIA}/bracelet-open-bangle.jpg`)} onMouseLeave={() => setBraceletHovered('/uploads/images/mega-menu/bracelet.jpg')}>
+                    <li className="product-list" onMouseEnter={() => setBraceletHovered(`${CATEGORY_MEDIA}/50gm-fine-gold-bar.png`)} onMouseLeave={() => setBraceletHovered('/uploads/images/mega-menu/main-gold-bar.jpg')}>
                       <Link href='/' className="flex items-center" >
-                        <span>Open Bangle</span>
+                        <span>50gm Fine Gold</span>
                       </Link>
                     </li>
-                    <li className="product-list" onMouseEnter={() => setBraceletHovered(`${CATEGORY_MEDIA}/bracelet-bangle.jpg`)} onMouseLeave={() => setBraceletHovered('/uploads/images/mega-menu/bracelet.jpg')}>
+                    <li className="product-list" onMouseEnter={() => setBraceletHovered(`${CATEGORY_MEDIA}/100gm-fine-gold-bar.png`)} onMouseLeave={() => setBraceletHovered('/uploads/images/mega-menu/main-gold-bar.jpg')}>
                       <Link href='/' className="flex items-center" >
-                        <span>Bangle</span>
+                        <span>100gm Fine Gold</span>
                       </Link>
                     </li>
                   </ul>
                 </div>
 
                 <div className="col-span-2">
-                  <h2 className="inner-heading">Shop By Metal</h2>
+                  <h2 className="inner-heading">Silver Bars</h2>
                   <ul className="product-list-wrapper">
 
                     <li className="product-list pt-3" onMouseEnter={() => setBraceletHovered(`${CATEGORY_MEDIA}/bracelet-platinum.jpg`)} onMouseLeave={() => setBraceletHovered('/uploads/images/mega-menu/bracelet.jpg')}>
                       <Link href='/' className="flex items-center">
-                        <span>Platinum</span>
+                        <span>500gm Fine Silver</span>
                       </Link>
                     </li>
 
                     <li className="product-list pt-3" onMouseEnter={() => setBraceletHovered(`${CATEGORY_MEDIA}/bracelet-yellow-gold.jpg`)} onMouseLeave={() => setBraceletHovered('/uploads/images/mega-menu/bracelet.jpg')}>
                       <Link href='/' className="flex items-center">
-                        <span>Yellow Gold</span>
+                        <span>1kg Fine Silver</span>
                       </Link>
                     </li>
 
-                    <li className="product-list pt-3" onMouseEnter={() => setBraceletHovered(`${CATEGORY_MEDIA}/bracelet-rose-gold.jpg`)} onMouseLeave={() => setBraceletHovered('/uploads/images/mega-menu/bracelet.jpg')}>
-                      <Link href='/' className="flex items-center">
-                        <span>Rose Gold</span>
-                      </Link>
-                    </li>
-
-                    <li className="product-list pt-3" onMouseEnter={() => setBraceletHovered(`${CATEGORY_MEDIA}/bracelet-silver.jpg`)} onMouseLeave={() => setBraceletHovered('/uploads/images/mega-menu/bracelet.jpg')}>
-                      <Link href='/' className="flex items-center">
-                        <span>Silver</span>
-                      </Link>
-                    </li>
                   </ul>
                 </div>
 
@@ -575,15 +514,24 @@ export default function Megamenu() {
                 </div>
 
                 <div className="col-span-2">
-                  <h2 className="inner-heading">Shop By Price</h2>
+                  <h2 className="inner-heading">Gold Coins</h2>
                   <ul className="product-list-wrapper">
-                    <li className="product-list pt-3"><Link href='/'>Under 50K</Link></li>
-                    <li className="product-list pt-3"><Link href='/'>50K - 60K</Link></li>
-                    <li className="product-list pt-3"><Link href='/'>60K - 70K</Link></li>
-                    <li className="product-list pt-3"><Link href='/'>70K - 90K</Link></li>
-                    <li className="product-list pt-3"><Link href='/'>90K - 1.5L</Link></li>
-                    <li className="product-list pt-3"><Link href='/'>1.5L - 2.0L</Link></li>
-                    <li className="product-list pt-3"><Link href='/'>Above 2.0L</Link></li>
+                    <li className="product-list pt-3"><Link href='/'>0.5gm Fine Gold Coin</Link></li>
+                    <li className="product-list pt-3"><Link href='/'>1gm Fine Gold Coin</Link></li>
+                    <li className="product-list pt-3"><Link href='/'>2gm Fine Gold Coin</Link></li>
+                    <li className="product-list pt-3"><Link href='/'>5gm Fine Gold Coin</Link></li>
+                    <li className="product-list pt-3"><Link href='/'>10gm Fine Gold Coin</Link></li>
+                  </ul>
+                </div>
+
+                <div className="col-span-2">
+                  <h2 className="inner-heading">Silver Coins</h2>
+                  <ul className="product-list-wrapper">
+                    <li className="product-list pt-3"><Link href='/'>5gm Fine Silver Coin</Link></li>
+                    <li className="product-list pt-3"><Link href='/'>10gm Fine Silver Coin</Link></li>
+                    <li className="product-list pt-3"><Link href='/'>20gm Fine Silver Coin</Link></li>
+                    <li className="product-list pt-3"><Link href='/'>50gm Fine Silver Coin</Link></li>
+                    <li className="product-list pt-3"><Link href='/'>10gm Fine Silver Coin</Link></li>
                   </ul>
                 </div>
 

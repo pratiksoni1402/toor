@@ -4,11 +4,52 @@ import { useForm } from 'react-hook-form';
 import { IndianRupee } from "lucide-react";
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
+import { useQuery, useQueryClient } from '@tanstack/react-query';
+import axios from 'axios';
+import BillingSkeleton from '../billing-skeleton';
 import './style.css'
 export default function Bill() {
   const { register, handleSubmit, formState: { errors } } = useForm();
   const onSubmit = data => console.log(data);
-  console.log(errors);
+  let subTotal = 0;
+  let grandTotal = 0;
+  let taxRate = 1.5;
+  let taxAmount = 0;
+  let makingCharges = 0;
+  let roundOffAmount = 0
+
+  const { data: billData } = useQuery({
+    queryKey: ['totalAmount'],
+    queryFn: () =>
+      axios.get('/cart/api/get-data')
+        .then((response) => {
+          return response.data.getCartProduct
+        })
+        .catch((error) => {
+          console.log("Error in Fetching Products", error)
+        })
+  })
+
+  {
+    billData?.map((billing) => (
+      grandTotal += billing?.product?.price,
+
+      makingCharges += billing?.product?.makingChargesPerGram * billing?.product?.totalWeight
+
+    ))
+  }
+
+  taxAmount += Math.round((grandTotal * taxRate) / 100)
+  subTotal = Math.floor(grandTotal - (taxAmount * 2)) - makingCharges
+
+  if (!billData) {
+    return (
+      <div>
+        <BillingSkeleton />
+      </div>
+    )
+  }
+
   return (
     <div className="total-bill-component">
       <div className="content-wrapper">
@@ -19,36 +60,36 @@ export default function Bill() {
           <div className="subtotal">
             <span>Subtotal:</span>
             <div className="price flex items-center">
-              <span><IndianRupee/></span>
-              <span>579000</span>
+              <span><IndianRupee /></span>
+              <span>{subTotal}</span>
             </div>
           </div>
           <div className="subtotal">
             <span>CGST:</span>
             <div className="price">
               <span><IndianRupee /></span>
-              <span>2654</span>
+              <span>{taxAmount}</span>
             </div>
           </div>
           <div className="subtotal">
             <span>SGST:</span>
             <div className="price">
               <span><IndianRupee /></span>
-              <span>4590</span>
+              <span>{taxAmount}</span>
             </div>
           </div>
           <div className="subtotal">
             <span>Making Charges:</span>
             <div className="price">
               <span><IndianRupee /></span>
-              <span>9430</span>
+              <span>{makingCharges}</span>
             </div>
           </div>
           <div className="subtotal">
             <span>Coupan Discount:</span>
             <div className="price">
               <span><IndianRupee /></span>
-              <span>430</span>
+              <span>0</span>
             </div>
           </div>
         </div>
@@ -57,7 +98,7 @@ export default function Bill() {
             <span>Coupan Code</span>
           </div>
           <form onSubmit={handleSubmit(onSubmit)} className='form-wrapper'>
-            <input type="text" placeholder="Enter Coupan Code" {...register}/>
+            <input type="text" placeholder="Enter Coupan Code" {...register} />
             <div className='coupan-button'>
               <Button type='submit'>Apply</Button>
               <Button type='submit'>Remove</Button>
@@ -68,7 +109,7 @@ export default function Bill() {
           <span className='caption'>Grand Total:</span>
           <div className="variation">
             <span><IndianRupee size={14} /></span>
-            <span>430</span>
+            <span>{grandTotal}</span>
           </div>
         </div>
         <div className='checkout'>

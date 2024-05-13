@@ -46,7 +46,7 @@
 }
 
 .wishlist-product-component .content-wrapper .wishlist-items .product-wrapper .user-actions button{
-  @apply rounded-none inline bg-white pr-0 font-roboto justify-end font-normal text-base text-accent text-right hover:underline hover:text-primary
+  @apply rounded-none inline bg-white pr-0 font-roboto justify-end font-normal text-base text-accent text-right hover:underline hover:text-primary  hover:font-semibold   
 }
 
 .wishlist-product-component .content-wrapper .wishlist-items .product-wrapper .user-actions .alert-header{

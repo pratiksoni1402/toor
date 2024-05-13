@@ -6,7 +6,8 @@ export const productSelect = {
   name: true,
   filterByStyle: true,
   price: true,
-  image: true
+  image: true,
+  sku: true
 }
 
 export async function Products(filters = {}) {
@@ -26,6 +27,7 @@ export async function Products(filters = {}) {
   // Filter by Price
   if (filters['price']) {
     where += `AND price  >= '${filters['price'].split(',')[0]}' AND price <= '${filters['price'].split(',')[1]}'`;
+    
   }
   // End
 
@@ -47,7 +49,7 @@ export async function Products(filters = {}) {
   }
   // End
 
-    return await prisma.$queryRawUnsafe(`SELECT id, name, price, image, filter_by_style AS filterByStyle FROM product WHERE ${where}`);
+    return await prisma.$queryRawUnsafe(`SELECT id, name, price, image, sku, filter_by_style AS filterByStyle FROM product WHERE ${where}`);
 
 }
 
