@@ -116,18 +116,6 @@ export default function Megamenu() {
                     )
                   }
                 </div>
-                <div className="col-span-2">
-                  <h2 className="inner-heading">Shop By Price</h2>
-                  <ul className="product-list-wrapper">
-                    <li className="product-list"><Link href='/'>Under 10K</Link></li>
-                    <li className="product-list"><Link href='/'>10K - 20K</Link></li>
-                    <li className="product-list"><Link href='/'>20K - 30K</Link></li>
-                    <li className="product-list"><Link href='/'>30K - 60K</Link></li>
-                    <li className="product-list"><Link href='/'>60K - 90K</Link></li>
-                    <li className="product-list"><Link href='/'>90K - 1.5L</Link></li>
-                    <li className="product-list"><Link href='/'>Above 1.5L</Link></li>
-                  </ul>
-                </div>
 
               </div>
             </NavigationMenuContent>
@@ -242,18 +230,6 @@ export default function Megamenu() {
                   }
                 </div>
 
-                <div className="col-span-2">
-                  <h2 className="inner-heading">Shop By Price</h2>
-                  <ul className="product-list-wrapper">
-                    <li className="product-list pt-3"><Link href='/'>Under 10K</Link></li>
-                    <li className="product-list pt-3"><Link href='/'>10K - 20K</Link></li>
-                    <li className="product-list pt-3"><Link href='/'>20K - 30K</Link></li>
-                    <li className="product-list pt-3"><Link href='/'>30K - 60K</Link></li>
-                    <li className="product-list pt-3"><Link href='/'>60K - 90K</Link></li>
-                    <li className="product-list pt-3"><Link href='/'>90K - 1.5L</Link></li>
-                    <li className="product-list pt-3"><Link href='/'>Above 1.5L</Link></li>
-                  </ul>
-                </div>
               </div>
             </NavigationMenuContent>
           </NavigationMenuItem>
@@ -342,19 +318,6 @@ export default function Megamenu() {
                       </div>
                     )
                   }
-                </div>
-
-                <div className="col-span-2">
-                  <h2 className="inner-heading">Shop By Price</h2>
-                  <ul className="product-list-wrapper">
-                    <li className="product-list pt-3"><Link href='/'>Under 50K</Link></li>
-                    <li className="product-list pt-3"><Link href='/'>50K - 60K</Link></li>
-                    <li className="product-list pt-3"><Link href='/'>60K - 70K</Link></li>
-                    <li className="product-list pt-3"><Link href='/'>70K - 90K</Link></li>
-                    <li className="product-list pt-3"><Link href='/'>90K - 1.5L</Link></li>
-                    <li className="product-list pt-3"><Link href='/'>1.5L - 2.0L</Link></li>
-                    <li className="product-list pt-3"><Link href='/'>Above 2.0L</Link></li>
-                  </ul>
                 </div>
 
               </div>
@@ -457,19 +420,6 @@ export default function Megamenu() {
                       </div>
                     )
                   }
-                </div>
-
-                <div className="col-span-2">
-                  <h2 className="inner-heading">Shop By Price</h2>
-                  <ul className="product-list-wrapper">
-                    <li className="product-list pt-3"><Link href='/'>Under 50K</Link></li>
-                    <li className="product-list pt-3"><Link href='/'>50K - 60K</Link></li>
-                    <li className="product-list pt-3"><Link href='/'>60K - 70K</Link></li>
-                    <li className="product-list pt-3"><Link href='/'>70K - 90K</Link></li>
-                    <li className="product-list pt-3"><Link href='/'>90K - 1.5L</Link></li>
-                    <li className="product-list pt-3"><Link href='/'>1.5L - 2.0L</Link></li>
-                    <li className="product-list pt-3"><Link href='/'>Above 2.0L</Link></li>
-                  </ul>
                 </div>
 
               </div>

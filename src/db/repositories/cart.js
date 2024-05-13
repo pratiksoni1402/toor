@@ -46,7 +46,7 @@ export async function GetProductFromCart() {
     where: {
       sessionId: sessionId,
     },
-    include:{
+    include: {
       product: true,
     },
   })
@@ -54,3 +54,17 @@ export async function GetProductFromCart() {
   return fetchData
 }
 // End
+
+// Delete product From Cart
+export async function DeleteProductFromCart(requestBody) {
+  const sessionId = await getSessionId();
+  const deleteItem = await prisma.cart.delete({
+    where: {
+      sessionId: sessionId,
+      sku: requestBody.sku
+    }
+  })
+  console.log("Product Deleted Successfully", { deleteItem })
+  return deleteItem
+
+}

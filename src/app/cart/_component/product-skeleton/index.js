@@ -67,31 +67,31 @@ export default function CartProductSkeleton() {
                         <Skeleton className=" h-[16px] w-[150px] mt-1 bg-primary-foreground" />
                       </div>
                       <div className="attribute mt-2">
-                        <Skeleton className=" h-[16px] w-[150px] mt-1 bg-primary-foreground" />
+                        <Skeleton className=" h-[16px] w-[170px] mt-1 bg-primary-foreground" />
                       </div>
                       <div className="attribute mt-2">
-                        <Skeleton className=" h-[16px] w-[150px] mt-1 bg-primary-foreground" />
+                        <Skeleton className=" h-[16px] w-[130px] mt-1 bg-primary-foreground" />
                       </div>
                       <div className="attribute mt-2">
-                        <Skeleton className=" h-[16px] w-[150px] mt-1 bg-primary-foreground" />
+                        <Skeleton className=" h-[16px] w-[140px] mt-1 bg-primary-foreground" />
                       </div>
                     </div>
                     <div className='quantity-wrapper mt-2'>
-                      <Skeleton className=" h-[16px] w-[150px] mt-1 bg-primary-foreground" />
-                      <div className="quantity-variation">
-                        <Skeleton className=" h-[16px] w-[150px] mt-1 bg-primary-foreground" />
+                      <Skeleton className=" h-[16px] w-[100px] mt-1 bg-primary-foreground" />
+                      <div className="quantity-variation mt-2">
+                        <Skeleton className=" h-[36px] w-[140px] mt-1 bg-primary-foreground" />
                       </div>
                     </div>
                   </div>
                   <div className="col-span-2">
                     <div>
-                      <div className="pricing">
+                      <div className="pricing mb-5">
                         <Skeleton className=" h-[16px] w-[150px] mt-1 bg-primary-foreground" />
                       </div>
-                      <div className="user-actions">
-                        <Skeleton className=" h-[16px] w-[150px] mt-1 bg-primary-foreground" />
-                        <Skeleton className=" h-[16px] w-[150px] mt-1 bg-primary-foreground" />
-                        <Skeleton className=" h-[16px] w-[150px] mt-1 bg-primary-foreground" />
+                      <div className="user-actions mt-10 flex flex-col items-end">
+                        <Skeleton className=" h-[16px] w-[75px]  mt-4  bg-primary-foreground" />
+                        <Skeleton className=" h-[16px] w-[150px] mt-4 bg-primary-foreground" />
+                        <Skeleton className=" h-[16px] w-[150px] mt-4 bg-primary-foreground" />
                       </div>
                     </div>
                   </div>

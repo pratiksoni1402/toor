@@ -20,20 +20,48 @@ import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import CartProductSkeleton from "../product-skeleton";
 import './syle.css';
+import Link from "next/link";
+import { useState } from "react";
 
 export default function Cartproduct() {
+  const [quantityIncrease, setQuantityIncrease] = useState(1);
+
+  // Get Product From Cart Table
   const { data: cartData } = useQuery({
     queryKey: ['cart'],
     queryFn: () =>
       axios.get('/cart/api/get-data')
         .then((response) => {
-         return response.data.getCartProduct
+          return response.data.getCartProduct
         })
         .catch((error) => {
           console.log("Error in Fetching Products", error)
         })
   })
+  // End
 
+  // Delete Product From Cart
+  const handleProductDelete = (sku) => {
+    axios.post('/cart/api/delete-from-cart', {
+      sku,
+    })
+      .then((response) => {
+        return response.data.deleteProduct
+      })
+      .catch((error) => {
+        console.log("Error while deleting product", error)
+      })
+  }
+  // End
+
+  // Increase Product Quantity
+  const increaseQuantity = (sku) => {
+
+  }
+  // End
+
+
+  // Skeleton will show untill data gets completely fetched
   if (!cartData) {
     return (
       <div>
@@ -41,6 +69,7 @@ export default function Cartproduct() {
       </div>
     )
   }
+  // End
 
   return (
     <div className="cart-product-component">
@@ -49,13 +78,15 @@ export default function Cartproduct() {
           cartData?.map((items) => (
             <div className="product-wrapper" key={items?.sku}>
               <div className="grid grid-cols-12 gap-5">
-                <div className="col-span-3">
+
+                <div className="sm:col-span-3 col-span-12">
                   <div className="image-wrapper">
                     <Image src={`${PRODUCT_MEDIA}/${items?.product?.image}`} alt={items?.product?.name} width={300} height={300} />
                   </div>
                 </div>
-                <div className="col-span-7">
-                  <div className="detail">
+
+                <div className="sm:col-span-7 col-span-12">
+                  <div className="detail sm:pt-0 pt-12">
                     <div className="name">
                       <h2 className="">{items.product.name}</h2>
                     </div>
@@ -82,27 +113,28 @@ export default function Cartproduct() {
                   <div className='quantity-wrapper'>
                     <span className="caption font-semibold text-accent font-roboto text-base">Quantity</span>
                     <div className="quantity-variation">
-                      <Button>
+                      <Button onClick={() => increaseQuantity(items?.sku)}>
                         +
                       </Button>
-                      <span className="">5</span>
+                      <span className="">{quantityIncrease}</span>
                       <Button>
                         -
                       </Button>
                     </div>
                   </div>
                 </div>
-                <div className="col-span-2">
-                  <div>
+
+                <div className="sm:col-span-2 col-span-12">
+                  <div className="pricing-and-actions">
                     <div className="pricing">
                       <span><IndianRupee size={14} /></span>
                       <span>{items.product.price}</span>
                     </div>
                     <div className="user-actions">
-                      <Button>View</Button>
-                      <Button>Move to Wishlist</Button>
+                      <Link href={`${'/product-detail'}/${items?.sku}`} className="text-base font-roboto text-accent mb-[-4px] hover:underline hover:text-primary hover:font-semibold">View</Link>
+                      <Button className='mb-[-4px] px-0'>Move to Wishlist</Button>
                       <AlertDialog>
-                        <AlertDialogTrigger>
+                        <AlertDialogTrigger className="whitespace-nowrap">
                           Delete from Cart
                         </AlertDialogTrigger>
                         <AlertDialogContent className='bg-white rounded-none w-72'>
@@ -112,7 +144,7 @@ export default function Cartproduct() {
                             </AlertDialogTitle>
                           </AlertDialogHeader>
                           <AlertDialogFooter className='flex sm:justify-start justify-start flex-col space-x-0 sm:flex-col sm:space-x-0'>
-                            <AlertDialogAction className='rounded-none sm:mb-3 mb-2 hover:font-semibold inline bg-white font-roboto justify-end font-normal text-base text-accent bg-primary hover:text-accent hover:bg-primary-foreground text-white py-0'>
+                            <AlertDialogAction className='rounded-none sm:mb-3 mb-2 hover:font-semibold inline bg-white font-roboto justify-end font-normal text-base text-accent bg-primary hover:text-accent hover:bg-primary-foreground text-white py-0' onClick={() => handleProductDelete(items?.sku)}>
                               Remove
                             </AlertDialogAction>
                             <AlertDialogCancel className='rounded-none inline bg-white font-roboto hover:font-semibold  justify-end font-normal text-base text-accent bg-primary-foreground border-0 hover:bg-primary hover:text-white py-0'>
@@ -124,6 +156,7 @@ export default function Cartproduct() {
                     </div>
                   </div>
                 </div>
+
               </div>
             </div>
           ))

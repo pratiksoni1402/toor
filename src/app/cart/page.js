@@ -9,17 +9,17 @@ export default function Cart() {
       <div className="container">
         <div className="grid grid-cols-12 gap-5">
           <div className="col-span-12">
-            <div className="page-heading border-b">
-              <h1 className="font-crimson text-3xl text-center text-accent">Your Cart</h1>
+            <div className="page-heading ">
+              <h1 className="font-crimson text-4xl text-start pt-3 text-accent">Your Cart</h1>
             </div>
           </div>
-          <div className="col-span-9">
+          <div className="lg:col-span-9 md:col-span-12 sm:col-span-12 col-span-12">
             <div className="component-wrapper">
               <Cartproduct />
             </div>
           </div>
-          <div className="col-span-3">
-            <div className="component-wrapper sticky top-5">
+          <div className="lg:col-span-3 md:col-span-12 sm:col-span-12 col-span-12">
+            <div className="component-wrapper sticky top-5 pl-5">
               <Bill />
             </div>
           </div>

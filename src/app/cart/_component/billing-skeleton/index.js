@@ -61,7 +61,7 @@ export default function BillingSkeleton() {
                 <Skeleton className=" h-[16px] w-[150px] mt-1 bg-primary-foreground" />
               </div>
               <div className='coupan-text mt-4'>
-                <Skeleton className=" h-[36px] w-[280px] mt-1 bg-primary-foreground" />
+                <Skeleton className=" h-[36px] w-[260px] mt-1 bg-primary-foreground" />
               </div>
               <div className='coupan-text mt-4 flex items-center gap-5'>
                 <Skeleton className=" h-[36px] w-[280px] mt-1 bg-primary-foreground" />
@@ -75,7 +75,7 @@ export default function BillingSkeleton() {
             </div>
 
             <div className='checkout'>
-              <Skeleton className=" h-[36px] w-[280px] mt-2 bg-primary-foreground" />
+              <Skeleton className=" h-[36px] w-[260px] mt-2 bg-primary-foreground" />
             </div>
           </div>
         </div>

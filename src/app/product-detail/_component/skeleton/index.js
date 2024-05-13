@@ -8,7 +8,7 @@ export default function ProductSkeleton() {
           <div className="grid sm:grid-cols-2 grid-cols-1 gap-5">
             <div className="col">
               <div className="main-image sticky top-5 ">
-                <Skeleton className="h-[564px] w-[564px] bg-primary-foreground rounded-3xl" />
+                <Skeleton className="h-[500px] w-[500px] bg-primary-foreground rounded-3xl" />
               </div>
             </div>
             <div className="col">
@@ -65,11 +65,11 @@ export default function ProductSkeleton() {
               </div>
 
               <div className="added-to-cart mb-5">
-                <Skeleton className="h-[40px] w-[600px] bg-primary-foreground" />
+                <Skeleton className="h-[40px] w-[650px] bg-primary-foreground" />
               </div>
 
               <div className="added-to-bag mb-10">
-                <Skeleton className="h-[40px] w-[600px] bg-primary-foreground" />
+                <Skeleton className="h-[40px] w-[650px] bg-primary-foreground" />
               </div>
 
               <div className="shipping-wrapper py-5">
