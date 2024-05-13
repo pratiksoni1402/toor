@@ -16,7 +16,7 @@ import {
 } from "@/components/ui/alert-dialog";
 import { PRODUCT_MEDIA } from "@/lib/constants/images";
 import './syle.css';
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
 import axios from "axios";
 import CartProductSkeleton from "../product-skeleton";
 import './syle.css';
@@ -24,6 +24,7 @@ import Link from "next/link";
 import { useState } from "react";
 
 export default function Cartproduct() {
+  const queryClient = useQueryClient();
   const [quantityIncrease, setQuantityIncrease] = useState(1);
 
   // Get Product From Cart Table
@@ -46,7 +47,7 @@ export default function Cartproduct() {
       sku,
     })
       .then((response) => {
-        return response.data.deleteProduct
+        queryClient.invalidateQueries('cart')
       })
       .catch((error) => {
         console.log("Error while deleting product", error)
@@ -55,11 +56,59 @@ export default function Cartproduct() {
   // End
 
   // Increase Product Quantity
-  const increaseQuantity = (sku) => {
-
+  const increaseQuantity = (id, quantity) => {
+    const updateQuantity = quantity + 1;
+    axios.post('/cart/api/update-quantity', {
+      id,
+      quantity: updateQuantity,
+    })
+      .then((response) => {
+        // return response.data.getUpdatedQuantity
+        queryClient.invalidateQueries('cart')
+      })
+      .catch((error) => {
+        console.log("Error occured while updating quantity", error)
+      })
   }
   // End
 
+  // Decrease Product Quantity
+  const decreaseQuantity = (id, quantity) => {
+    if (quantity > 1) {
+      const decreaseVolume = quantity - 1;
+      axios.post('/cart/api/update-quantity', {
+        id,
+        quantity: decreaseVolume,
+      })
+        .then((response) => {
+          queryClient.invalidateQueries('cart')
+        })
+        .catch((error) => {
+          console.log("Error while updating Quantity", error)
+        })
+    }
+  }
+  // End
+
+  // Move Product From Cart To Wishlist
+  const moveToWishlist = (productId, quantity, sku, ringSize, engravingText) => {
+    axios.post('/cart/api/move-to-wishlist', {
+      productId,
+      sku,
+      ringSize,
+      engravingText,
+      quantity,
+    })
+      .then((response) => {
+        handleProductDelete(sku)
+        queryClient.invalidateQueries('cart')
+        // return response.data.moveProduct
+      })
+      .catch((error) => {
+        console.log("Error will moving product", error)
+      })
+  }
+  // End
 
   // Skeleton will show untill data gets completely fetched
   if (!cartData) {
@@ -113,11 +162,11 @@ export default function Cartproduct() {
                   <div className='quantity-wrapper'>
                     <span className="caption font-semibold text-accent font-roboto text-base">Quantity</span>
                     <div className="quantity-variation">
-                      <Button onClick={() => increaseQuantity(items?.sku)}>
+                      <Button onClick={() => increaseQuantity(items?.id, items?.quantity)}>
                         +
                       </Button>
-                      <span className="">{quantityIncrease}</span>
-                      <Button>
+                      <span className="">{items.quantity}</span>
+                      <Button onClick={() => decreaseQuantity(items?.id, items?.quantity)}>
                         -
                       </Button>
                     </div>
@@ -132,7 +181,7 @@ export default function Cartproduct() {
                     </div>
                     <div className="user-actions">
                       <Link href={`${'/product-detail'}/${items?.sku}`} className="text-base font-roboto text-accent mb-[-4px] hover:underline hover:text-primary hover:font-semibold">View</Link>
-                      <Button className='mb-[-4px] px-0'>Move to Wishlist</Button>
+                      <Button className='mb-[-4px] px-0' onClick={() => moveToWishlist(items?.productId, items?.quantity, items?.sku, items?.ringSize, items?.engravingText)}>Move to Wishlist</Button>
                       <AlertDialog>
                         <AlertDialogTrigger className="whitespace-nowrap">
                           Delete from Cart

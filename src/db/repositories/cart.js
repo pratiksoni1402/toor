@@ -1,6 +1,6 @@
 import prisma from "@/db";
-import { getSession } from "@/lib/session";
 import { getSessionId } from "@/lib/session";
+import { getSession } from "@/lib/session";
 export const cartSelect = {
   id: true,
   productId: true,
@@ -26,12 +26,17 @@ export const cartSelect = {
 // Add Product To Cart
 export async function AddtoCart(requestBody) {
   const sessionId = await getSessionId();
+  const sessionEmail = await getSession();
   console.log("This is session id", sessionId)
   const addProduct = await prisma.cart.create({
     data: {
-      productId: requestBody.id,
+      productId: requestBody.id || requestBody.productId,
       sku: requestBody.sku,
+      quantity: requestBody.quantity,
+      ringSize: requestBody.ringSize,
+      engravingText: requestBody.engravingText,
       sessionId: sessionId,
+      sessionEmail: sessionEmail?.user?.email,
     },
   })
   console.log("Successfully Added To cart", addProduct)
@@ -42,9 +47,11 @@ export async function AddtoCart(requestBody) {
 // Get Product From Cart Table
 export async function GetProductFromCart() {
   const sessionId = await getSessionId();
+  const sessionEmail = await getSession();
   const fetchData = await prisma.cart.findMany({
     where: {
       sessionId: sessionId,
+      sessionEmail: sessionEmail?.user?.email,
     },
     include: {
       product: true,
@@ -68,3 +75,19 @@ export async function DeleteProductFromCart(requestBody) {
   return deleteItem
 
 }
+// End
+
+// Update Product Quantity
+export async function UpdateProductQuantity(requestBody) {
+  const updateQuantity = await prisma.cart.update({
+    where: {
+      id: requestBody.id,
+    },
+    data: {
+      quantity: requestBody.quantity,
+    }
+  })
+  console.log("Product Quantity Update Successfully", { updateQuantity })
+  return updateQuantity
+}
+// End

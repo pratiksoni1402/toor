@@ -7,6 +7,7 @@ export const wishlistSelect = {
   sku: true,
   ringSize: true,
   engravingText: true,
+  quantity: true,
   sessionId: true,
   sessionEmail: true,
   product: {
@@ -31,8 +32,11 @@ export async function AddToWishlist(requestBody) {
 
   const wishlist = await prisma.wishlist.create({
     data: {
-      productId: requestBody.id,
+      productId: requestBody.id || requestBody.productId,
       sku: requestBody.sku,
+      quantity: requestBody.quantity,
+      ringSize: requestBody.ringSize,
+      engravingText: requestBody.engravingText,
       sessionId: sessionId,
       sessionEmail: sessionEmail.user?.email,
     },

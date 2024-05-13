@@ -98,6 +98,7 @@ model Wishlist {
   sku           String   @unique @db.VarChar(60)
   ringSize      Decimal? @map("ring_size") @db.Decimal(5, 2)
   engravingText String?  @map("engraving_text") @db.VarChar(10)
+  quantity      Int?     @db.Int
   sessionId     String   @map("sessionid") @db.VarChar(100)
   sessionEmail  String   @map("sessionemail") @db.VarChar(100)
   product       Product? @relation(fields: [productId], references: [id])
@@ -111,9 +112,10 @@ model Cart {
   sku           String   @unique @db.VarChar(60)
   ringSize      Decimal? @map("ring_size") @db.Decimal(5, 2)
   engravingText String?  @map("engraving_text") @db.VarChar(10)
-  quantity      Int?      @db.Int
+  quantity      Int?     @db.Int
   sessionId     String   @map("sessionid") @db.VarChar(100)
-  product       Product  @relation(fields: [productId], references: [id])
+  sessionEmail  String   @map("sessionemail") @db.VarChar(100)
+  product       Product?  @relation(fields: [productId], references: [id])
 
   @@map("cart")
 }

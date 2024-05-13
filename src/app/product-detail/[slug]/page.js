@@ -62,11 +62,12 @@ export default function ProductDetail({ params }) {
   // End
 
   // Add To Cart
-  const handleAddtoCart = (id, sku) => {
+  const handleAddtoCart = (id, sku, quantity = 1) => {
     setAddToCart(true);
     axios.post('/product-detail/api/add-to-cart', {
       id,
-      sku
+      sku,
+      quantity: quantity,
     })
       .then((response) => {
         router.push('/cart')
