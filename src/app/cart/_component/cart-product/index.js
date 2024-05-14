@@ -21,11 +21,12 @@ import axios from "axios";
 import CartProductSkeleton from "../product-skeleton";
 import './syle.css';
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Cartproduct() {
   const queryClient = useQueryClient();
   const [quantityIncrease, setQuantityIncrease] = useState(1);
+  const calculatedPrice = 0;
 
   // Get Product From Cart Table
   const { data: cartData } = useQuery({
@@ -110,6 +111,7 @@ export default function Cartproduct() {
   }
   // End
 
+
   // Skeleton will show untill data gets completely fetched
   if (!cartData) {
     return (
@@ -120,11 +122,13 @@ export default function Cartproduct() {
   }
   // End
 
+
   return (
     <div className="cart-product-component">
       <div className="cart-items ">
         {
           cartData?.map((items) => (
+
             <div className="product-wrapper" key={items?.sku}>
               <div className="grid grid-cols-12 gap-5">
 
@@ -151,7 +155,7 @@ export default function Cartproduct() {
                       <span className="variation">{items.product.metalColor}</span>
                     </div>
                     <div className="attribute">
-                      <span className="caption">Metal Type:</span>
+                      <span className="caption">Metal Purity:</span>
                       <span className="variation">{items.product.metalType}</span>
                     </div>
                     <div className="attribute">
@@ -177,7 +181,7 @@ export default function Cartproduct() {
                   <div className="pricing-and-actions">
                     <div className="pricing">
                       <span><IndianRupee size={14} /></span>
-                      <span>{items.product.price}</span>
+                      <span>{items.product.price * items?.quantity}</span>
                     </div>
                     <div className="user-actions">
                       <Link href={`${'/product-detail'}/${items?.sku}`} className="text-base font-roboto text-accent mb-[-4px] hover:underline hover:text-primary hover:font-semibold">View</Link>

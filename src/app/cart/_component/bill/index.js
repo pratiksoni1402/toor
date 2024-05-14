@@ -32,9 +32,9 @@ export default function Bill() {
 
   {
     billData?.map((billing) => (
-      grandTotal += billing?.product?.price,
+      grandTotal += billing?.product?.price * billing?.quantity,
 
-      makingCharges += billing?.product?.makingChargesPerGram * billing?.product?.totalWeight
+      makingCharges += (billing?.product?.makingChargesPerGram * billing?.product?.totalWeight * billing?.quantity) 
 
     ))
   }

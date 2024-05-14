@@ -68,5 +68,5 @@
 }
 
 .total-bill-component .content-wrapper .checkout .checkout-link{
-  @apply bg-primary-foreground hover:bg-primary font-normal hover:font-semibold hover:text-white block py-3
+  @apply bg-primary-foreground hover:bg-primary font-normal hover:font-semibold hover:text-white block pt-[10px] leading-normal text-base h-10
 }
