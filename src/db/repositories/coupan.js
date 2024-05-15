@@ -7,12 +7,13 @@ export const discountCoupan = {
   activeFrom: true,
   activeTill: true,
   type: true,
+  autoApply: true,
 }
 
 export async function GetCoupanDiscount() {
-  const getCoupan = await prisma.coupan.find({
+  const getCoupan = await prisma.coupan.findUnique({
     where: {
-      autoApply: 1, 
+      autoApply: 1,
     },
   })
   console.log("Coupan Fetched Successfully", getCoupan)

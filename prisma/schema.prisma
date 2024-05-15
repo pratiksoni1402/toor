@@ -125,7 +125,7 @@ model Coupan {
   name       String   @db.VarChar(50)
   code       String   @db.VarChar(50)
   value      Int      @db.Int
-  autoApply  Int      @map("auto_apply") @db.Int
+  autoApply  Int      @map("auto_apply") @db.Int @unique
   activeFrom DateTime @map("active_from") @db.Timestamp()
   activeTill DateTime @map("active_till") @db.Timestamp()
   type       String   @db.VarChar(50)
