@@ -51,7 +51,7 @@ export default function Useraccount() {
           status ? (
             <Link href='/my-account'>
               <Avatar>
-                <AvatarFallback>{shortName}</AvatarFallback>
+                <AvatarFallback>{shortName || ''}</AvatarFallback>
               </Avatar>
             </Link>
           ) : (

@@ -36,7 +36,7 @@
 }
 
 .total-bill-component .content-wrapper .coupan-section .form-wrapper input{
-  @apply block w-full outline-0 h-10 text-accent  mt-2 mb-5 border px-1 bg-white
+  @apply block w-full outline-0 h-10 text-accent  mt-2 mb-5 border px-1 bg-white font-roboto text-sm
 }
 
 .total-bill-component .content-wrapper .coupan-section .form-wrapper input:focus{

@@ -1,5 +1,5 @@
 'use client'
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { IndianRupee } from "lucide-react";
 import { Button } from '@/components/ui/button';
@@ -9,7 +9,7 @@ import axios from 'axios';
 import BillingSkeleton from '../billing-skeleton';
 import './style.css'
 export default function Bill() {
-  const { register, handleSubmit, formState: { errors } } = useForm();
+  const { register, handleSubmit, setValue, formState: { errors } } = useForm();
   const onSubmit = data => console.log(data);
   let subTotal = 0;
   let grandTotal = 0;
@@ -17,12 +17,15 @@ export default function Bill() {
   let taxAmount = 0;
   let makingCharges = 0;
   let roundOffAmount = 0
+  let amountDiscount = 0;
+
 
   const { data: billData } = useQuery({
     queryKey: ['totalAmount'],
     queryFn: () =>
       axios.get('/cart/api/get-data')
         .then((response) => {
+
           return response.data.getCartProduct
         })
         .catch((error) => {
@@ -30,11 +33,29 @@ export default function Bill() {
         })
   })
 
+  // const { data: discountCoupan } = useQuery({
+  //   queryKey: ['coupan'],
+  //   queryFn: () =>
+  //     axios.get('/cart/api/discount-coupan')
+  //       .then((response) => {
+  //         if (response.data.getDiscount.autoApply == 1) {
+  //           setValue('coupanCode', response.data.getDiscount.code)
+  //         }
+  //         return response.data.getDiscount
+  //       })
+  //       .catch((error) => {
+  //         console.log("Error while applying coupan", error)
+  //       })
+  // })
+
+  // console.log("Coupan Value", discountCoupan?.getDiscount?.type)
+
+
   {
     billData?.map((billing) => (
       grandTotal += billing?.product?.price * billing?.quantity,
 
-      makingCharges += (billing?.product?.makingChargesPerGram * billing?.product?.totalWeight * billing?.quantity) 
+      makingCharges += (billing?.product?.makingChargesPerGram * billing?.product?.totalWeight * billing?.quantity)
 
     ))
   }
@@ -83,28 +104,29 @@ export default function Bill() {
             <div className="price">
               <span><IndianRupee /></span>
               <span>{makingCharges}</span>
+
             </div>
           </div>
-          <div className="subtotal">
+          {/* <div className="subtotal">
             <span>Coupan Discount:</span>
             <div className="price">
               <span><IndianRupee /></span>
-              <span>0</span>
+              <span>{discountCoupan?.getDiscount?.value}</span>
             </div>
-          </div>
+          </div> */}
         </div>
-        <div className='coupan-section'>
+        {/* <div className='coupan-section'>
           <div className='heading pt-3'>
             <span>Coupan Code</span>
           </div>
           <form onSubmit={handleSubmit(onSubmit)} className='form-wrapper'>
-            <input type="text" placeholder="Enter Coupan Code" {...register} />
+            <input type="text" placeholder="Enter Coupan Code" {...register('coupanCode')} />
             <div className='coupan-button'>
               <Button type='submit'>Apply</Button>
               <Button type='submit'>Remove</Button>
             </div>
           </form>
-        </div>
+        </div> */}
         <div className="grand-total">
           <span className='caption'>Grand Total:</span>
           <div className="variation">
