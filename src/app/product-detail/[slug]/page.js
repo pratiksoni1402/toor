@@ -21,11 +21,16 @@ import { Button } from "@/components/ui/button";
 import { IndianRupee } from 'lucide-react';
 import './style.css';
 import { useState } from "react";
+import toast from "react-hot-toast";
 
 export default function ProductDetail({ params }) {
   const router = useRouter();
   const [isEngraving, setEngraving] = useState(false);
   const [addTocart, setAddToCart] = useState(false);
+  const [addToWishlist, setAddToWishlist] = useState(false);
+  const [selectedRingSize, setSelectedRingSize] = useState('');
+
+  // Fetch Product and its Detail
   const { data: product } = useQuery({
     queryKey: ['productDetail'],
     queryFn: () =>
@@ -36,18 +41,31 @@ export default function ProductDetail({ params }) {
         .catch((error) => {
           console.log("Error", error)
         })
-  })
-  const ringSizeArray = product?.ringSize?.split(',')
+  });
+  // End
 
+
+  const ringSizeArray = product?.ringSize?.split(',')
   const metalColorType = product?.metalColor?.split('-')
   const formattedColor = metalColorType?.map(metalColorType => metalColorType.charAt(0).toUpperCase() + metalColorType.slice(1)).join(' ');
 
+  // Handle Opening and Closing of Engraving Form
   const handleForm = () => {
     setEngraving(!isEngraving)
   }
+  // End
+
+  // Handle Ring Size if Applicable
+  const handleRingSize = (size) => {
+    setSelectedRingSize(size);
+  }
+  console.log(`Selected Ring Size ${selectedRingSize}`)
+  // End
+
 
   // Add To Wishlist
   const handleAddtoWishlist = (id, sku) => {
+    setAddToWishlist(true);
     axios.post('/product-detail/api/add-to-wishlist', {
       id,
       sku,
@@ -58,26 +76,55 @@ export default function ProductDetail({ params }) {
       .catch((error) => {
         console.log("Error", error)
       })
+      .finally(() => {
+        setAddToWishlist(false);
+      })
   }
+
   // End
 
   // Add To Cart
-  const handleAddtoCart = (id, sku, quantity = 1) => {
-    setAddToCart(true);
-    axios.post('/product-detail/api/add-to-cart', {
-      id,
-      sku,
-      quantity: quantity,
-    })
-      .then((response) => {
-        router.push('/cart')
+  const handleAddtoCart = (id, sku, selectedRingSize, quantity = 1) => {
+    // console.log("This is selected ring size", selectedRingSize)
+    !selectedRingSize ? (
+      setAddToCart(false),
+      toast.error("Please Select Ring Size", {
+        duration: 3000,
+        style: {
+          border: '1px solid #754b2f',
+          padding: '8px',
+          color: '#ffffff',
+          fontSize: "14px",
+          backgroundColor: '#754b2f',
+          fontFamily: "sans-serif"
+        },
+        iconTheme: {
+          primary: '#ffffff',
+          secondary: '#754b2f',
+        },
       })
-      .catch((error) => {
-        console.log("Error while adding product to cart ", error)
+    ) : (
+
+      setAddToCart(true),
+      axios.post('/product-detail/api/add-to-cart', {
+        id,
+        sku,
+        ringSize: parseFloat(selectedRingSize),
+        quantity: quantity,
       })
-      .finally(() => {
-        setAddToCart(false)
-      })
+        .then((response) => {
+          router.push('/cart')
+        })
+        .catch((error) => {
+          console.log("Error while adding product to cart ", error)
+        })
+        .finally(() => {
+          setAddToCart(false)
+        })
+    )
+
+
+
   }
   // End
 
@@ -100,6 +147,7 @@ export default function ProductDetail({ params }) {
               <Image src={`${PRODUCT_MEDIA}/${product?.image}`} alt={product?.name} width={564} height={564} />
             </div>
           </div>
+
           <div className="col">
             <div className="description">
               <div className="details">
@@ -150,7 +198,7 @@ export default function ProductDetail({ params }) {
 
               <div className="details ring-size">
                 <span className="caption pt-2">Ring Size:</span>
-                <Select>
+                <Select onValueChange={handleRingSize}>
                   <SelectTrigger className="w-[180px]">
                     <SelectValue placeholder="Select Ring Size" />
                   </SelectTrigger>
@@ -170,7 +218,7 @@ export default function ProductDetail({ params }) {
                 product?.isEngraveable == 0 ? (
                   <div>
                     <div>
-                      <input type="checkbox" checked={isEngraving} className="engraving-checkbox" onClick={handleForm} id="engraving" name="gender" value="yellow-gold" />
+                      <input type="checkbox" checked={isEngraving} className="engraving-checkbox" onChange={handleForm} id="engraving" name="gender" value="yellow-gold" />
                       <label htmlFor="engraving" className="engraving-label font-roboto hover:cursor-pointer text-base font-semibold text-accent pl-2">
                         Add Engraving (Free)
                       </label>
@@ -185,14 +233,14 @@ export default function ProductDetail({ params }) {
                                   <SelectValue placeholder="Select Engraving Style" />
                                 </SelectTrigger>
                                 <SelectContent>
-                                  <SelectItem value="serif-style">Serif Style</SelectItem>
-                                  <SelectItem value="block-style">Block Style</SelectItem>
-                                  <SelectItem value="script-style">Script Style</SelectItem>
+                                  <SelectItem value="serif-style times-new-roman">Serif Style</SelectItem>
+                                  <SelectItem value="block-style lora">Block Style</SelectItem>
+                                  <SelectItem value="script-style hind">Script Style</SelectItem>
                                 </SelectContent>
                               </Select>
                             </div>
                             <div>
-                              <input type="text" placeholder="Engraving Text" name="engraving text" className="h-10 pl-2 font-roboto outline-0 border border-primary rounded-md" />
+                              <input type="text" placeholder="Engraving Text" name="engraving text" className="h-10 pl-2 font-crimson outline-0 border border-primary rounded-md" />
                             </div>
                           </div>
                         )
@@ -210,16 +258,25 @@ export default function ProductDetail({ params }) {
 
               {
                 addTocart ? (
-                  <Button type='submit' className="w-full bg-primary mb-5 hover:bg-primary-foreground text-white hover:text-accent font-roboto text-base" disabled={true}>
+                  <Button type='submit' className="w-full  rounded-none bg-secondary mb-5 border border-secondary text-white hover:text-accent font-roboto text-base" disabled={true}>
                     <Loader2Icon className='animate-spin mr-1' />
                     ADD TO CART</Button>
                 ) : (
-                  <Button className='w-full bg-primary mb-5 hover:bg-primary-foreground text-white hover:text-accent font-roboto text-base' onClick={() => handleAddtoCart(product.id, product.sku)}>ADD TO CART</Button>
+                  <Button className='w-full  rounded-none bg-primary mb-5 hover:bg-secondary text-white font-roboto text-base' onClick={() => handleAddtoCart(product.id, product.sku, selectedRingSize)}>ADD TO CART</Button>
                 )
               }
 
+              {
+                addToWishlist ? (
+                  <Button className='w-full bg-white border rounded-none mb-5 bg-secondary border-secondary hover:text-white text-accent font-roboto text-base' disabled={true}>
+                    <Loader2Icon className='animate-spin mr-1' />
+                    ADD TO WISHLIST
+                  </Button>
+                ) : (
+                  <Button className='w-full bg-white border border-accent rounded-none mb-5 hover:bg-secondary hover:border-secondary hover:text-white text-accent font-roboto text-base' onClick={() => handleAddtoWishlist(product?.id, product?.sku)}>ADD TO WISHLIST</Button>
+                )
+              }
 
-              <Button className='w-full bg-primary-foreground mb-5 hover:bg-primary hover:text-white text-accent font-roboto text-base' onClick={() => handleAddtoWishlist(product?.id, product?.sku)}>ADD TO WISHLIST</Button>
             </div>
             <div className="shipping-wrapper py-5">
               <div className="flex gap-5">
