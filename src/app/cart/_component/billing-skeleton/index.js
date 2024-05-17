@@ -46,17 +46,17 @@ export default function BillingSkeleton() {
                 </div>
               </div>
 
-              <div className="discount flex mt-2  justify-between items-center">
+              {/* <div className="discount flex mt-2  justify-between items-center">
                 <div>
                   <Skeleton className=" h-[16px] w-[110px] mt-1 bg-primary-foreground" />
                 </div>
                 <div className="price">
                   <Skeleton className=" h-[16px] w-[90px] mt-1  bg-primary-foreground" />
                 </div>
-              </div>
+              </div> */}
             </div>
 
-            <div className='coupan-section '>
+            {/* <div className='coupan-section '>
               <div className='heading pt-3 flex justify-center'>
                 <Skeleton className=" h-[16px] w-[150px] mt-1 bg-primary-foreground" />
               </div>
@@ -67,7 +67,7 @@ export default function BillingSkeleton() {
                 <Skeleton className=" h-[36px] w-[280px] mt-1 bg-primary-foreground" />
                 <Skeleton className=" h-[36px] w-[280px] mt-1 bg-primary-foreground" />
               </div>
-            </div>
+            </div> */}
 
             <div className="grand-total my-2">
               <Skeleton className=" h-[16px] w-[100px] mt-1 bg-primary-foreground" />

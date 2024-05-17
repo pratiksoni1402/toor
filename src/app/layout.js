@@ -1,7 +1,7 @@
 import QueryClientProvider from "@/provider/query-client";
 import Header from "./components/header";
 import Footer from "./components/footer";
-import { TANGERINE, CRIMSON, ROBOTO } from "./fonts";
+import { TANGERINE, CRIMSON, ROBOTO, LORA, HIND, KALAM } from "./fonts";
 import { Toaster } from "react-hot-toast";
 
 import "./globals.css";
@@ -13,7 +13,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${CRIMSON.variable} ${ROBOTO.variable} ${TANGERINE.variable}`}>
+      <body className={`${CRIMSON.variable} ${ROBOTO.variable} ${TANGERINE.variable} ${LORA.variable} ${HIND.variable} ${KALAM.variable}`} >
         <QueryClientProvider>
           <Toaster />
           <Header />
