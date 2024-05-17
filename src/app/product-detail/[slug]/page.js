@@ -29,6 +29,10 @@ export default function ProductDetail({ params }) {
   const [addTocart, setAddToCart] = useState(false);
   const [addToWishlist, setAddToWishlist] = useState(false);
   const [selectedRingSize, setSelectedRingSize] = useState('');
+  const [engravingChecked, setEngravingChecked] = useState(false);
+  const [selectedFont, setSelectedFont] = useState('');
+  const [engravingText, setEngravingText] = useState('');
+  const [error, setError] = useState('');
 
   // Fetch Product and its Detail
   const { data: product } = useQuery({
@@ -50,10 +54,14 @@ export default function ProductDetail({ params }) {
   const formattedColor = metalColorType?.map(metalColorType => metalColorType.charAt(0).toUpperCase() + metalColorType.slice(1)).join(' ');
 
   // Handle Opening and Closing of Engraving Form
-  const handleForm = () => {
+  const handleForm = (event) => {
     setEngraving(!isEngraving)
+    const { checked } = event.target;
+    setEngravingChecked(checked);
   }
   // End
+
+
 
   // Handle Ring Size if Applicable
   const handleRingSize = (size) => {
@@ -62,7 +70,14 @@ export default function ProductDetail({ params }) {
   console.log(`Selected Ring Size ${selectedRingSize}`)
   // End
 
+  // Handle Font Change
+  const handleFontChange = (value) => {
+    setSelectedFont(value);
+    console.log("Font is selected", value)
+  }
+  // End
 
+  console.log("This is engraved text", engravingText)
   // Add To Wishlist
   const handleAddtoWishlist = (id, sku) => {
     setAddToWishlist(true);
@@ -85,24 +100,18 @@ export default function ProductDetail({ params }) {
 
   // Add To Cart
   const handleAddtoCart = (id, sku, selectedRingSize, quantity = 1) => {
-    // console.log("This is selected ring size", selectedRingSize)
+
     !selectedRingSize ? (
       setAddToCart(false),
-      toast.error("Please Select Ring Size", {
-        duration: 3000,
-        style: {
-          border: '1px solid #754b2f',
-          padding: '8px',
-          color: '#ffffff',
-          fontSize: "14px",
-          backgroundColor: '#754b2f',
-          fontFamily: "sans-serif"
-        },
-        iconTheme: {
-          primary: '#ffffff',
-          secondary: '#754b2f',
-        },
-      })
+      toast.error("Please Select Ring Size")
+
+    ) : engravingChecked == true && engravingText == '' ? (
+      setAddToCart(false),
+      toast.error("Engraving Text Field cannot be Empty")
+
+    ) : engravingChecked == true && engravingText.length > 10 ? (
+      setAddToCart(false),
+      toast.error("Maximum 10 Characters are allowed")
     ) : (
 
       setAddToCart(true),
@@ -110,21 +119,13 @@ export default function ProductDetail({ params }) {
         id,
         sku,
         ringSize: parseFloat(selectedRingSize),
+        engravingText: engravingText,
         quantity: quantity,
       })
-        .then((response) => {
-          router.push('/cart')
-        })
-        .catch((error) => {
-          console.log("Error while adding product to cart ", error)
-        })
-        .finally(() => {
-          setAddToCart(false)
-        })
+        .then((response) => router.push('/cart'))
+        .catch((error) => console.log("Error while adding product to cart ", error))
+        .finally(() => setAddToCart(false))
     )
-
-
-
   }
   // End
 
@@ -179,7 +180,7 @@ export default function ProductDetail({ params }) {
               </div>
 
               <div className="details">
-                <span className="caption">Metal Type:</span>
+                <span className="caption">Metal Purity:</span>
                 <span className="value"> {product?.metalType}</span>
               </div>
 
@@ -199,7 +200,7 @@ export default function ProductDetail({ params }) {
               <div className="details ring-size">
                 <span className="caption pt-2">Ring Size:</span>
                 <Select onValueChange={handleRingSize}>
-                  <SelectTrigger className="w-[180px]">
+                  <SelectTrigger className="w-[180px] rounded-none font-roboto text-base border-primary">
                     <SelectValue placeholder="Select Ring Size" />
                   </SelectTrigger>
                   <SelectContent>
@@ -217,31 +218,33 @@ export default function ProductDetail({ params }) {
               {
                 product?.isEngraveable == 0 ? (
                   <div>
-                    <div>
-                      <input type="checkbox" checked={isEngraving} className="engraving-checkbox" onChange={handleForm} id="engraving" name="gender" value="yellow-gold" />
-                      <label htmlFor="engraving" className="engraving-label font-roboto hover:cursor-pointer text-base font-semibold text-accent pl-2">
+                    <div class="checkbox-container">
+                      <input type="checkbox" checked={isEngraving} className="engraving-checkbox" onChange={handleForm} id="engraving" name="engraving" value="text" />
+                      <label htmlFor="engraving" className="engraving-label font-roboto hover:cursor-pointer text-base font-semibold text-accent">
                         Add Engraving (Free)
                       </label>
                     </div>
+
                     <div>
                       {
                         isEngraving && (
-                          <div className="flex items-center gap-5">
+                          <div className="flex items-center gap-5 mt-2 mb-4">
                             <div>
-                              <Select>
-                                <SelectTrigger className="w-[180px]">
+                              <Select onValueChange={handleFontChange}>
+                                <SelectTrigger className="w-[180px] border-primary text-base font-roboto text-accent rounded-none">
                                   <SelectValue placeholder="Select Engraving Style" />
                                 </SelectTrigger>
                                 <SelectContent>
-                                  <SelectItem value="serif-style times-new-roman">Serif Style</SelectItem>
-                                  <SelectItem value="block-style lora">Block Style</SelectItem>
-                                  <SelectItem value="script-style hind">Script Style</SelectItem>
+                                  <SelectItem value="script" >Script Style</SelectItem>
+                                  <SelectItem value="serif">Serif Style</SelectItem>
+                                  <SelectItem value="block">Block Style</SelectItem>
                                 </SelectContent>
                               </Select>
                             </div>
                             <div>
-                              <input type="text" placeholder="Engraving Text" name="engraving text" className="h-10 pl-2 font-crimson outline-0 border border-primary rounded-md" />
+                              <input type="text" placeholder="Engraving Text" name="engraving text" onChange={(e) => setEngravingText(e.target.value)} className={`h-10 pl-2 outline-0 border border-primary rounded-none ${selectedFont === 'script' ? 'font-hind' : ''} ${selectedFont === 'serif' ? 'font-kalam' : ''} ${selectedFont === 'block' ? 'font-lora' : ''}`} value={engravingText} />
                             </div>
+                            {error && <div className="error" style={{ color: 'red' }}>{error}</div>}
                           </div>
                         )
                       }
@@ -254,7 +257,7 @@ export default function ProductDetail({ params }) {
                 )
               }
             </div>
-            <div className="actions mt-5">
+            <div className="actions ">
 
               {
                 addTocart ? (
