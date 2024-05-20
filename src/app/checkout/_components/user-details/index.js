@@ -8,29 +8,24 @@ import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 import './style.css'
 export default function Userdetails() {
-  const [upiForm, setUpiForm] = useState(false);
-  const [cardForm, setCardForm] = useState(false);
   const [showForm, setShowForm] = useState(false);
-  const [province, setProvince] = useState();
-  const { register, watch, handleSubmit, formState: { errors } } = useForm();
-  const selectedCountry = watch("country");
+  const { register, setValue, handleSubmit, formState: { errors } } = useForm();
 
-  const onSubmit = data => console.log(data);
-  console.log(errors);
+  const onSubmit = (data) => {
+    axios.post('/checkout/api/place-order', data)
+      .then((response) => {
+        console.log("Order Placed", response.data.orderPlaced)
+      })
+      .catch((error) => {
+        console.log("Error while placing order", error)
+      })
+  }
 
   // Handle Toggle of Billing Details
   const handleSwitchToggle = () => {
     setShowForm(!showForm);
   }
   // End
-
-  const showUpiForm = () => {
-    setUpiForm(!upiForm)
-  }
-
-  const showCardForm = () => {
-    setCardForm(!cardForm)
-  }
 
   // Fetch Country 
   const { isPending, data: fetchCountry, isError } = useQuery({
@@ -46,24 +41,27 @@ export default function Userdetails() {
   })
   // End
 
-  useEffect(() => {
+  // Fetch Customer Detail To Prefill The Form
+  const { data: userDetail } = useQuery({
+    queryKey: ['customerData'],
+    queryFn: () =>
+      axios.get('/my-account/api/get-profile')
+        .then((response) => {
+          setValue('shippingFirstName', response.data.getUserProfile.firstName)
+          setValue('shippingLastName', response.data.getUserProfile.lastName)
+          setValue('shippingAddressLineOne', response.data.getUserProfile.addressLineOne)
+          setValue('shippingAddressLineTwo', response.data.getUserProfile.addressLineTwo)
+          setValue('shippingCountry', response.data.getUserProfile.country)
+          setValue('shippingState', response.data.getUserProfile.state)
+          setValue('shippingCity', response.data.getUserProfile.city)
+          setValue('shippingNearestLandmark', response.data.getUserProfile.landmark)
+          setValue('shippingPhoneNumber', response.data.getUserProfile.phoneNumber)
+          setValue('shippingAreaPinCode', response.data.getUserProfile.pinCode)
+          return response.data.getUserProfile
+        })
+        .catch((error) => console.log("Error while fetching data", error))
 
-    if (selectedCountry) {
-      getStatesByCountry(selectedCountry);
-    }
-  }, [selectedCountry]);
-
-  const getStatesByCountry = (selectedCountry) => {
-    axios.post('/api/common/get-state', { country: selectedCountry })
-      .then((response) => {
-        return setProvince(response.data.getState)
-      })
-      .catch((error) => {
-        console.log("Error while fetching state", error)
-      })
-  };
-
-
+  })
 
   return (
     <div className="user-details-component">
@@ -72,23 +70,23 @@ export default function Userdetails() {
 
           <div className='Shipping-detail-form'>
             <div className='title text-accent text-2xl font-crimson'>Shipping Detail</div>
-            <input type="text" placeholder="First Name" {...register("firstName", { required: true })} />
-            {errors.firstName && <span className='error-message'>This field is required</span>}
-            <input type="text" placeholder="Last Name" {...register("Last Name", { required: true })} />
-            {errors.firstName && <span className='error-message'>This field is required</span>}
+            <input type="text" placeholder="First Name" {...register("shippingFirstName", { required: true })} />
+            {errors.shippingFirstName && <span className='error-message'>This field is required</span>}
 
-            <input type="email" placeholder="Email " {...register("Email ", {
-              required: true, pattern: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/i
-            })} />
-            {errors.firstName && <span className='error-message'>This field is required</span>}
+            <input type="text" placeholder="Last Name" {...register("shippingLastName", { required: true })} />
+            {errors.shippingLastName && <span className='error-message'>This field is required</span>}
 
-            <input type="text" placeholder="Address Line One" {...register("Address Line One", { required: true })} />
-            {errors.firstName && <span className='error-message'>This field is required</span>}
-            <input type="text" placeholder="Address Line Two" {...register("Address Line Two", {})} className='mb-5' />
+
+            <input type="text" placeholder="Address Line One" {...register("shippingAddressLineOne", { required: true })} />
+            {errors.shippingAddressLineOne && <span className='error-message'>This field is required</span>}
+
+            <input type="text" placeholder="Address Line Two" {...register("shippingAddressLineTwo", {})} className='mb-5' />
+            {errors.shippingAddressLineTwo && <span className='error-message'>This field is required</span>}
+
             <div className='grid grid-cols-2 gap-5'>
               <div className='sm:col-span-1 col-span-2'>
 
-                <select {...register("country", { required: true })}>
+                <select {...register("shippingCountry", { required: true })}>
                   <option value="Female" disabled={true}>Select Country</option>
                   {
                     fetchCountry && fetchCountry?.map((country) => (
@@ -96,35 +94,27 @@ export default function Userdetails() {
                     ))
                   }
                 </select>
-                {errors.firstName && <span className='error-message'>This field is required</span>}
+                {errors.shippingCountry && <span className='error-message'>This field is required</span>}
 
               </div>
               <div className='sm:col-span-1 col-span-2'>
+                <input type="text" placeholder="State" {...register("shippingState", { required: true })} />
 
-                <select {...register("State", { required: true })}>
-                  <option value="state">Select State</option>
-                  {
-                    province && province.map((state) => (
-                      <option value={state.name} key={state.id}>{state.name}</option>
-
-                    ))
-                  }
-                </select>
-                {errors.firstName && <span className='error-message'>This field is required</span>}
+                {errors.shippingState && <span className='error-message'>This field is required</span>}
 
               </div>
             </div>
-            <input type="text" placeholder="City" {...register("City", { required: true })} />
-            {errors.firstName && <span className='error-message'>This field is required</span>}
+            <input type="text" placeholder="City" {...register("shippingCity", { required: true })} />
+            {errors.shippingCity && <span className='error-message'>This field is required</span>}
 
-            <input type="text" placeholder="Nearest Landmark" {...register("Nearest Landmark", { required: true })} />
-            {errors.firstName && <span className='error-message'>This field is required</span>}
+            <input type="text" placeholder="Nearest Landmark" {...register("shippingNearestLandmark", { required: true })} />
+            {errors.shippingNearestLandmark && <span className='error-message'>This field is required</span>}
 
-            <input type="text" placeholder="Phone Number" {...register("Phone Number", { required: true })} />
-            {errors.firstName && <span className='error-message'>This field is required</span>}
+            <input type="text" placeholder="Phone Number" {...register("shippingPhoneNumber", { required: true })} />
+            {errors.shippingPhoneNumber && <span className='error-message'>This field is required</span>}
 
-            <input type="text" placeholder="Area Pin Code" {...register("Area Pin Code", { required: true })} />
-            {errors.firstName && <span className='error-message'>This field is required</span>}
+            <input type="text" placeholder="Area Pin Code" {...register("shippingAreaPinCode", { required: true })} />
+            {errors.shippingAreaPinCode && <span className='error-message'>This field is required</span>}
 
           </div>
 
@@ -143,21 +133,21 @@ export default function Userdetails() {
             {showForm && (
               <div className='Shipping-detail-form'>
                 <div className='title text-accent text-2xl font-crimson'>Billing Detail</div>
-                <input type="text" placeholder="First Name" {...register("firstName", { required: true })} />
+                <input type="text" placeholder="First Name" {...register("billingFirstName", { required: true })} />
                 {errors.firstName && <span className='error-message'>This field is required</span>}
 
-                <input type="text" placeholder="Last Name" {...register("Last Name", { required: true })} />
+                <input type="text" placeholder="Last Name" {...register("billingLastName", { required: true })} />
                 {errors.firstName && <span className='error-message'>This field is required</span>}
 
-                <input type="email" placeholder="Email " {...register("Email ", {
+                <input type="email" placeholder="Email " {...register("email ", {
                   required: true, pattern: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/i
                 })} />
                 {errors.firstName && <span className='error-message'>This field is required</span>}
 
-                <input type="text" placeholder="Address Line One" {...register("Address Line One", { required: true })} />
+                <input type="text" placeholder="Address Line One" {...register("billingAddressLineOne", { required: true })} />
                 {errors.firstName && <span className='error-message'>This field is required</span>}
 
-                <input type="text" placeholder="Address Line Two" {...register("Address Line Two", {})} />
+                <input type="text" placeholder="Address Line Two" {...register("billingAddressLineTwo", {})} />
                 <div className='grid grid-cols-2 gap-5'>
                   <div className='sm:col-span-1 col-span-2'>
                     <select {...register("country", { required: true })}>
@@ -172,29 +162,21 @@ export default function Userdetails() {
 
                   </div>
                   <div className='sm:col-span-1 col-span-2'>
-                    <select {...register("State", { required: true })}>
-                      <option value="state">Select State</option>
-                      {
-                        province && province.map((state) => (
-                          <option value={state.name} key={state.id}>{state.name}</option>
-
-                        ))
-                      }
-                    </select>
-                    {errors.firstName && <span className='error-message'>This field is required</span>}
+                    <input type="text" placeholder="State" {...register("billingState", { required: true })} />
+                    {errors.state && <span className='error-message'>This field is required</span>}
 
                   </div>
                 </div>
-                <input type="text" placeholder="City" {...register("City", { required: true })} />
+                <input type="text" placeholder="City" {...register("billingCity", { required: true })} />
                 {errors.firstName && <span className='error-message'>This field is required</span>}
 
-                <input type="text" placeholder="Nearest Landmark" {...register("Nearest Landmark", { required: true })} />
+                <input type="text" placeholder="Nearest Landmark" {...register("billingNearestLandmark", { required: true })} />
                 {errors.firstName && <span className='error-message'>This field is required</span>}
 
-                <input type="text" placeholder="Phone Number" {...register("Phone Number", { required: true })} />
+                <input type="text" placeholder="Phone Number" {...register("billingPhoneNumber", { required: true })} />
                 {errors.firstName && <span className='error-message'>This field is required</span>}
 
-                <input type="text" placeholder="Area Pin Code" {...register("Area Pin Code", { required: true })} />
+                <input type="text" placeholder="Area Pin Code" {...register("billingAreaPinCode", { required: true })} />
                 {errors.firstName && <span className='error-message'>This field is required</span>}
 
               </div>
@@ -207,63 +189,18 @@ export default function Userdetails() {
             </div>
             <div className='methods'>
 
-              <div className='upi-payment-method'>
-                <div>
-                  <input {...register("testingOne")} id='upi' name='payment-method-group' type="radio" value="testingOne" onClick={showUpiForm} />
-                  <label htmlFor="upi" className=' px-1 font-roboto text-accent text-base'>UPI</label>
-                </div>
-                <div className='payment-form'>
-                  {
-                    upiForm && (
-                      <div className='grid grid-cols-12 items-center'>
-                        <div className='col-span-8'>
-                          <input type="text" className='![border-r-0]' placeholder="Enter UPI/VPA" {...register("Enter UPI/VPA", {})} />
-                        </div>
-                        <div className='col-span-4'>
-                          <Button className=' rounded-none bg-primary-foreground text-accent font-roboto text-base hover:bg-primary hover:text-white'>Verify</Button>
-                        </div>
-
-
-                      </div>
-                    )}
-                </div>
-              </div>
-
               <div className='card-payment-method'>
                 <div className='flex items-center'>
-                  <input {...register("testingThree")} id='card' name='payment-method-group' type="radio" value="testingThree" onClick={showCardForm} />
-                  <label htmlFor="card" className=' px-1 font-roboto text-accent text-base'>Credit/Debit Card</label>
-                </div>
-                <div className='payment-form'>
-                  {
-                    cardForm && (
-                      <div className='card-payment mb-10'>
-                        <div className='grid grid-cols-12'>
-                          <div className='col-span-12'>
-                            <input type="text" placeholder="Card Number" {...register("cardNumber", { required: true, pattern: /^(?:4[0-9]{12}(?:[0-9]{3})?|[25][1-7][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35\d{3})\d{11})$/i })} />
-                            <input type="text" placeholder="Name on Card" {...register("nameOnCard", { required: true })} />
-                          </div>
-                          <div className='col-span-12'>
-                            <div className='grid grid-cols-2 sm:gap-5 gap-0'>
-                              <div className='sm:col-span-1 col-span-2'>
-                                <input type="text" placeholder="Expiry Date" {...register("expiryDate", { required: true })} />
-                              </div>
-                              <div className='sm:col-span-1 col-span-2'>
-                                <input type="text" placeholder="CVV" {...register("cvv", { required: true })} />
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    )
-                  }
+                  <input {...register("card")} id='card' name='payment-method-group' type="radio" value="testingThree" />
+                  <label htmlFor="card" className=' hover:cursor-pointer px-1 font-roboto text-accent text-base'>Credit/Debit Card</label>
                 </div>
               </div>
 
-              <div className='mb-10'>
-                <input {...register("testingTwo")} id='cod' name='payment-method-group' type="radio" value="testingTwo" />
-                <label htmlFor="cod" className=' px-1 font-roboto text-accent text-base'>Cash on Delivery</label>
+              <div className='cash-payment-method'>
+                <input {...register("cash")} id='cod' name='payment-method-group' type="radio" value="testingTwo" />
+                <label htmlFor="cod" className=' hover:cursor-pointer px-1 font-roboto text-accent text-base'>Cash on Delivery</label>
               </div>
+
             </div>
           </div>
 

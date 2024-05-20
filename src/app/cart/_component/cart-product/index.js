@@ -159,6 +159,14 @@ export default function Cartproduct() {
                       <span className="variation">{items.product.metalType}</span>
                     </div>
                     <div className="attribute">
+                      <span className="caption">Ring Size:</span>
+                      <span className="variation">{items.ringSize}</span>
+                    </div>
+                    <div className="attribute">
+                      <span className="caption">Engraving Text:</span>
+                      <span className="variation">{items.engravingText}</span>
+                    </div>
+                    <div className="attribute">
                       <span className="caption">Weight:</span>
                       <span className="variation">{items.product.totalWeight} grams</span>
                     </div>
