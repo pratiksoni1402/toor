@@ -33,7 +33,9 @@ export const OrderData = {
 }
 
 export async function PlacingOrder(requestBody) {
-  const sessionId = getSessionId();
+  const sessionId = await getSessionId();
+  const sessionEmail = await getSession();
+  console.log("This is session Email", sessionEmail.user.email)
   let cartData = await prisma.cart.findMany({
     where: {
       sessionId: sessionId,
@@ -45,6 +47,10 @@ export async function PlacingOrder(requestBody) {
           price: true,
           metalColor: true,
           metalType: true,
+          image: true,
+          makingChargesPerGram: true,
+          totalWeight: true,
+          goldRate: true,
         }
       }
     }
@@ -56,50 +62,67 @@ export async function PlacingOrder(requestBody) {
     quantity: item.quantity,
     sku: item.sku,
     name: item.product.name,
-    price: item.product.price,
+    totalPrice: item.product.price,
     image: item.product.image,
-    total_price: item.quantity * item.product.price * item.product.makingChargesPerGram,
+    itemWeight: item.product.totalWeight,
+    makingCharges: item.product.makingChargesPerGram * item.quantity * item.product.totalWeight,
+    individualPrice: ((item.quantity * item.product.price) + (item.product.makingChargesPerGram * item.quantity)),
   }));
   // End
 
+  console.log("This are the orders", { orderItems })
   // Calculate Tax and total price
-  const totalPrice = orderItems.reduce((acc, currentItem) => acc + currentItem.total_price, 0);
-  const central = 9;
-  const state = 9;
-  const CGST = (totalPrice * central) / 100;
-  const SGST = (totalPrice * state) / 100;
-  const subTotal = (totalPrice - (CGST + SGST));
+  const grandTotal = orderItems.reduce((acc, currentItem) => acc + currentItem.totalPrice, 0);
+  console.log("This is total price", grandTotal)
+
+  const totalMakingCharges = orderItems.reduce((total, item) => total += item.makingCharges, 0);
+  console.log("This is making charges",totalMakingCharges);
+
+
+  const central = 1.5;
+  const state = 1.5;
+
+  const CGST = Math.floor((grandTotal * central) / 100);
+  console.log("This is CGST", CGST)
+
+  const SGST = Math.floor((grandTotal * state) / 100);
+  console.log("This is SGST", SGST)
+
+  const subTotal = Math.floor(grandTotal - (CGST + SGST) - totalMakingCharges);
+  console.log("This is subtotal", subTotal)
   // End
 
   // Inserting the order in Database
   const Orders = await prisma.orders.create({
     data: {
-      shippingFirstName: requestBody.shipping_first_name,
-      shippingLastName: requestBody.shipping_last_name,
-      shippingAddressOne: requestBody.shipping_address_one,
-      shippingAddressTwo: requestBody.shipping_address_two,
-      shippingCountry: requestBody.shipping_country,
-      shippingState: requestBody.shipping_state,
-      shippingCity: requestBody.shipping_city,
-      shippingPinCode: parseInt(requestBody.shipping_pincode),
-      shippingLandmark: requestBody.shipping_landmark,
-      shippingPhoneNumber: parseInt(requestBody.shipping_phone_number),
-      billingFirstName: requestBody.billing_first_name || null,
-      billingLastName: requestBody.billing_last_name || null,
-      billingAddressOne: requestBody.billing_address_one || null,
-      billingAddressTwo: requestBody.billing_address_two || null,
-      billingCountry: requestBody.billing_country || null,
-      billingState: requestBody.billing_state || null,
-      billingCity: requestBody.billing_city || null,
-      billingPinCode: parseInt(requestBody.billing_pincode) || null,
-      billingLandmark: requestBody.billing_landmark || null,
-      billingPhoneNumber: parseInt(requestBody.billing_phone_number) || null,
-      paymentMode: requestBody.payment_mode,
+      shippingFirstName: requestBody.shippingFirstName,
+      shippingLastName: requestBody.shippingLastName,
+      shippingAddressOne: requestBody.shippingAddressLineOne,
+      shippingAddressTwo: requestBody.shippingAddressLineTwo,
+      shippingCountry: requestBody.shippingCountry,
+      shippingState: requestBody.shippingState,
+      shippingCity: requestBody.shippingCity,
+      shippingPincode: parseInt(requestBody.shippingPincode),
+      shippingLandmark: requestBody.shippingLandmark,
+      shippingPhoneNumber: parseInt(requestBody.shippingPhoneNumber),
+      billingFirstName: requestBody.billingFirstName || null,
+      billingLastName: requestBody.billingLastName || null,
+      billingAddressOne: requestBody.billingAddressLineOne || null,
+      billingAddressTwo: requestBody.billingAddressLineTwo || null,
+      billingCountry: requestBody.billingCountry || null,
+      billingState: requestBody.billingState || null,
+      billingCity: requestBody.billingCity || null,
+      billingPincode: parseInt(requestBody.billingPincode) || null,
+      billingLandmark: requestBody.billingLandmark || null,
+      billingPhoneNumber: parseInt(requestBody.billingPhoneNumber) || null,
+      paymentMode: requestBody.paymentMode,
+      subTotal: subTotal,
       taxCgst: CGST,
       taxSgst: SGST,
-      subtotal: subTotal,
-      total: totalPrice,
-      sessionEmail: sessionEmail.user_details?.email,
+      makingCharges: totalMakingCharges,
+      totalPrice: grandTotal,
+      total: grandTotal,
+      sessionEmail: sessionEmail.user.email,
       orderitems: {
         create: orderItems,
       },

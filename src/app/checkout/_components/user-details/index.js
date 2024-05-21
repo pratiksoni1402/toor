@@ -54,9 +54,9 @@ export default function Userdetails() {
           setValue('shippingCountry', response.data.getUserProfile.country)
           setValue('shippingState', response.data.getUserProfile.state)
           setValue('shippingCity', response.data.getUserProfile.city)
-          setValue('shippingNearestLandmark', response.data.getUserProfile.landmark)
+          setValue('shippingLandmark', response.data.getUserProfile.landmark)
           setValue('shippingPhoneNumber', response.data.getUserProfile.phoneNumber)
-          setValue('shippingAreaPinCode', response.data.getUserProfile.pinCode)
+          setValue('shippingPincode', response.data.getUserProfile.pinCode)
           return response.data.getUserProfile
         })
         .catch((error) => console.log("Error while fetching data", error))
@@ -107,13 +107,13 @@ export default function Userdetails() {
             <input type="text" placeholder="City" {...register("shippingCity", { required: true })} />
             {errors.shippingCity && <span className='error-message'>This field is required</span>}
 
-            <input type="text" placeholder="Nearest Landmark" {...register("shippingNearestLandmark", { required: true })} />
+            <input type="text" placeholder="Nearest Landmark" {...register("shippingLandmark", { required: true })} />
             {errors.shippingNearestLandmark && <span className='error-message'>This field is required</span>}
 
             <input type="text" placeholder="Phone Number" {...register("shippingPhoneNumber", { required: true })} />
             {errors.shippingPhoneNumber && <span className='error-message'>This field is required</span>}
 
-            <input type="text" placeholder="Area Pin Code" {...register("shippingAreaPinCode", { required: true })} />
+            <input type="text" placeholder="Area Pin Code" {...register("shippingPincode", { required: true })} />
             {errors.shippingAreaPinCode && <span className='error-message'>This field is required</span>}
 
           </div>
@@ -170,13 +170,13 @@ export default function Userdetails() {
                 <input type="text" placeholder="City" {...register("billingCity", { required: true })} />
                 {errors.firstName && <span className='error-message'>This field is required</span>}
 
-                <input type="text" placeholder="Nearest Landmark" {...register("billingNearestLandmark", { required: true })} />
+                <input type="text" placeholder="Nearest Landmark" {...register("billingLandmark", { required: true })} />
                 {errors.firstName && <span className='error-message'>This field is required</span>}
 
                 <input type="text" placeholder="Phone Number" {...register("billingPhoneNumber", { required: true })} />
                 {errors.firstName && <span className='error-message'>This field is required</span>}
 
-                <input type="text" placeholder="Area Pin Code" {...register("billingAreaPinCode", { required: true })} />
+                <input type="text" placeholder="Area Pin Code" {...register("billingPincode", { required: true })} />
                 {errors.firstName && <span className='error-message'>This field is required</span>}
 
               </div>
@@ -189,16 +189,25 @@ export default function Userdetails() {
             </div>
             <div className='methods'>
 
-              <div className='card-payment-method'>
-                <div className='flex items-center'>
-                  <input {...register("card")} id='card' name='payment-method-group' type="radio" value="testingThree" />
-                  <label htmlFor="card" className=' hover:cursor-pointer px-1 font-roboto text-accent text-base'>Credit/Debit Card</label>
-                </div>
+              <div>
+                <input {...register("paymentMode", { required: true })} type="radio" id='debit-card' value="Debit Card" />
+                <label htmlFor="debit-card" className='pl-1 font-roboto text-base text-accent hover:cursor-pointer'>Debit Card</label>
               </div>
-
-              <div className='cash-payment-method'>
-                <input {...register("cash")} id='cod' name='payment-method-group' type="radio" value="testingTwo" />
-                <label htmlFor="cod" className=' hover:cursor-pointer px-1 font-roboto text-accent text-base'>Cash on Delivery</label>
+              <div>
+                <input {...register("paymentMode", { required: true })} id='credit-card' type="radio" value=" Credit Card" />
+                <label htmlFor="credit-card" className='pl-1 font-roboto text-base text-accent hover:cursor-pointer'>Credit Card</label>
+              </div>
+              <div>
+                <input {...register("paymentMode", { required: true })} id='upi' type="radio" value=" UPI" />
+                <label htmlFor="upi" className='pl-1 font-roboto text-base text-accent hover:cursor-pointer'>UPI</label>
+              </div>
+              <div>
+                <input {...register("paymentMode", { required: true })} id='net-banking' type="radio" value=" Net Banking" />
+                <label htmlFor="net-banking" className='pl-1 font-roboto text-base text-accent hover:cursor-pointer'>Net Banking</label>
+              </div>
+              <div>
+                <input {...register("paymentMode", { required: true })} id='cod' type="radio" value=" Cash on Delivery" />
+                <label htmlFor="cod" className='pl-1 font-roboto text-base text-accent hover:cursor-pointer'>Cash on Delivery</label>
               </div>
 
             </div>

@@ -152,13 +152,14 @@ model Orders {
   billingCountry      String?      @map("billing_country") @db.VarChar(50)
   billingState        String?      @map("billing_state") @db.VarChar(50)
   billingCity         String?      @map("billing_city") @db.VarChar(50)
-  billingCincode      Int?         @map("billing_pincode") @db.Int
+  billingPincode      Int?         @map("billing_pincode") @db.Int
   billingLandmark     String?      @map("billing_landmark") @db.VarChar(50)
   billingPhoneNumber  Int?         @map("billing_phone_number") @db.Int
   paymentMode         String       @map("payment_mode") @db.VarChar(50)
-  subtotal            Decimal      @map("subtotal") @db.Decimal(10, 2)
+  subTotal            Decimal      @map("subtotal") @db.Decimal(10, 2)
   taxCgst             Decimal      @map("tax_cgst") @db.Decimal(10, 2)
   taxSgst             Decimal      @map("tax_sgst") @db.Decimal(10, 2)
+  makingCharges       Int          @map("making_charges") @db.Int
   total               Decimal      @map("total") @db.Decimal(10, 2)
   orderDate           DateTime     @default(now()) @map("order_date")
   sessionEmail        String       @map("session_email") @db.VarChar(100)
@@ -168,17 +169,18 @@ model Orders {
 }
 
 model Orderitems {
-  id            Int     @id @default(autoincrement())
-  orderId       Int?    @map("order_id") @db.Int
-  name          String  @db.VarChar(100)
-  sku           String  @db.VarChar(50)
-  engravingText String  @map("engraving_text") @db.VarChar(10)
-  price         Decimal @db.Decimal(10, 2)
-  quantity      Int     @db.Int
-  ringSize      Decimal @map("ring_size") @db.Decimal(5, 2)
-  totalPrice    Int     @map("total_price") @db.Int()
-  image         String  @db.VarChar(30)
-  orders        Orders? @relation(fields: [orderId], references: [id])
+  id            Int      @id @default(autoincrement())
+  orderId       Int?     @map("order_id") @db.Int
+  name          String   @db.VarChar(100)
+  sku           String   @db.VarChar(50)
+  engravingText String?  @map("engraving_text") @db.VarChar(10)
+  price         Decimal  @db.Decimal(10, 2)
+  quantity      Int      @db.Int
+  ringSize      Decimal? @map("ring_size") @db.Decimal(5, 2)
+  totalPrice    Int      @map("total_price") @db.Int()
+  image         String   @db.VarChar(30)
+  subtotal      Decimal  @map("subtotal") @db.Decimal(10, 2)
+  orders        Orders?  @relation(fields: [orderId], references: [id])
 
   @@map("order_items")
 }
