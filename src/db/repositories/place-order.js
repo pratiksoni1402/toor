@@ -130,6 +130,6 @@ export async function PlacingOrder(requestBody) {
   });
   // End
 
-  return Response.json({ Orders });
+  return Orders 
 
 }

@@ -7,13 +7,15 @@ import { Button } from '@/components/ui/button';
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 import './style.css'
+import { useRouter } from 'next/navigation';
 export default function Userdetails() {
   const [showForm, setShowForm] = useState(false);
   const { register, setValue, handleSubmit, formState: { errors } } = useForm();
-
+  const router = useRouter();
   const onSubmit = (data) => {
     axios.post('/checkout/api/place-order', data)
       .then((response) => {
+        router.push(`/order-receipt/${response.data.orderPlaced.id}`)
         console.log("Order Placed", response.data.orderPlaced)
       })
       .catch((error) => {
