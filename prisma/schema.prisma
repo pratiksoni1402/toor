@@ -165,7 +165,7 @@ model Orders {
   sessionEmail        String       @map("session_email") @db.VarChar(100)
   orderitems          Orderitems[]
 
-  @@map("orders")
+  @@map("tbl_order")
 }
 
 model Orderitems {
@@ -179,7 +179,8 @@ model Orderitems {
   ringSize      Decimal? @map("ring_size") @db.Decimal(5, 2)
   totalPrice    Int      @map("total_price") @db.Int()
   image         String   @db.VarChar(30)
-  subtotal      Decimal  @map("subtotal") @db.Decimal(10, 2)
+  itemWeight    Decimal  @map("item_weight") @db.Decimal(10, 2)
+  makingCharges Decimal  @db.Decimal(10, 2) @map("making_charges")
   orders        Orders?  @relation(fields: [orderId], references: [id])
 
   @@map("order_items")

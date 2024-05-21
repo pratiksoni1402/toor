@@ -62,17 +62,17 @@ export async function PlacingOrder(requestBody) {
     quantity: item.quantity,
     sku: item.sku,
     name: item.product.name,
-    totalPrice: item.product.price,
+    price: item.product.price,
     image: item.product.image,
     itemWeight: item.product.totalWeight,
     makingCharges: item.product.makingChargesPerGram * item.quantity * item.product.totalWeight,
-    individualPrice: ((item.quantity * item.product.price) + (item.product.makingChargesPerGram * item.quantity)),
+    totalPrice: ((item.quantity * item.product.price) + (item.product.makingChargesPerGram * item.quantity)),
   }));
   // End
 
   console.log("This are the orders", { orderItems })
   // Calculate Tax and total price
-  const grandTotal = orderItems.reduce((acc, currentItem) => acc + currentItem.totalPrice, 0);
+  const grandTotal = orderItems.reduce((acc, currentItem) => acc + currentItem.price, 0);
   console.log("This is total price", grandTotal)
 
   const totalMakingCharges = orderItems.reduce((total, item) => total += item.makingCharges, 0);
@@ -120,7 +120,7 @@ export async function PlacingOrder(requestBody) {
       taxCgst: CGST,
       taxSgst: SGST,
       makingCharges: totalMakingCharges,
-      totalPrice: grandTotal,
+      // totalPrice: grandTotal,
       total: grandTotal,
       sessionEmail: sessionEmail.user.email,
       orderitems: {
