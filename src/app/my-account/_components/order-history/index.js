@@ -14,63 +14,6 @@ import './style.css'
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 
-const invoices = [
-  {
-    invoice: "INV001",
-    paymentStatus: "Paid",
-    totalAmount: "$250.00",
-    paymentMethod: "Credit Card",
-  },
-  {
-    invoice: "INV002",
-    paymentStatus: "Pending",
-    totalAmount: "$150.00",
-    paymentMethod: "PayPal",
-  },
-  {
-    invoice: "INV003",
-    paymentStatus: "Unpaid",
-    totalAmount: "$350.00",
-    paymentMethod: "Bank Transfer",
-  },
-  {
-    invoice: "INV004",
-    paymentStatus: "Paid",
-    totalAmount: "$450.00",
-    paymentMethod: "Credit Card",
-  },
-  {
-    invoice: "INV005",
-    paymentStatus: "Paid",
-    totalAmount: "$550.00",
-    paymentMethod: "PayPal",
-  },
-  {
-    invoice: "INV006",
-    paymentStatus: "Pending",
-    totalAmount: "$200.00",
-    paymentMethod: "Bank Transfer",
-  },
-  {
-    invoice: "INV007",
-    paymentStatus: "Unpaid",
-    totalAmount: "$300.00",
-    paymentMethod: "Credit Card",
-  },
-  {
-    invoice: "INV007",
-    paymentStatus: "Unpaid",
-    totalAmount: "$300.00",
-    paymentMethod: "Credit Card",
-  },
-  {
-    invoice: "INV007",
-    paymentStatus: "Unpaid",
-    totalAmount: "$300.00",
-    paymentMethod: "Credit Card",
-  },
-]
-
 export default function Orderhistory() {
   const { data: pastOrders } = useQuery({
     queryKey: ['orders'],
@@ -107,7 +50,7 @@ export default function Orderhistory() {
                   <TableCell className="text-base text-accent font-roboto">{orderList.paymentMode}</TableCell>
                   <TableCell className="text-base text-accent font-roboto">{orderList.total}</TableCell>
                   <TableCell className="text-right px-0">
-                    <Link href='/' className="text-base font-roboto bg-primary hover:bg-secondary text-white px-4 py-2">View</Link>
+                    <Link href={`/past-order-receipt/${orderList.id}`} className="text-base font-roboto bg-primary hover:bg-secondary text-white px-4 py-2">View</Link>
                   </TableCell>
                 </TableRow>
               ))

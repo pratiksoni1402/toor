@@ -25,3 +25,16 @@ export async function GetAllPastOrders() {
   console.log("Detail fetched Successfully");
   return orderDetail
 }
+
+export async function GetPastOrdersDetails(requestBody){
+  const getPastOrderDetail = await prisma.orders.findUnique({
+    where:{
+      id: parseInt(requestBody.params.id),
+    },
+    include:{
+      orderitems:true,
+    },
+  })
+  console.log("Product Detail Fetched Successfully")
+  return getPastOrderDetail
+}

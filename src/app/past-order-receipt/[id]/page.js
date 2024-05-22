@@ -10,24 +10,20 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/components/ui/table"
-import Image from "next/image"
-import { IndianRupee } from "lucide-react"
+} from "@/components/ui/table";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
+import { IndianRupee } from "lucide-react";
+import Image from "next/image";
 import { PRODUCT_MEDIA } from "@/lib/constants/images";
-export default function OrderReceipt({ params }) {
-
-  const { data: orderReceipt } = useQuery({
-    queryKey: ['receipt'],
+export default function PastOrderReceipt({ params }) {
+  const { data: pastOrderDetail } = useQuery({
+    queryKey: ['pastOrder'],
     queryFn: () =>
-      axios.post(`/order-receipt/api/receipt/${params['id']}`)
-        .then((response) => { return response.data.orderDetail })
-        .catch((error) => console.log("Error", error))
+      axios.post(`/past-order-receipt/api/get-past-order-detail/${params['id']}`)
+        .then((response) => { return response.data.getDetail })
+        .catch((error) => console.log("Error while fetching Part Order detail", error))
   })
-
-  console.log("Order Data", orderReceipt)
-  console.log("Printing First Name", orderReceipt?.shippingFirstName ?? '')
   return (
     <div className="order-receipt pb-20 pt-10">
       <div className="container">
@@ -38,15 +34,9 @@ export default function OrderReceipt({ params }) {
               <div className="order-receipt-wrapper bg-white">
                 <div className="grid grid-cols-12">
                   <div className="col-span-12">
-                    <div className="order-status pl-4">
-                      <h2 className=" font-crimson text-[#248232] pb-3 text-center pt-3 sm:text-3xl text-2xl">Thanks for your Order, {orderReceipt?.shippingFirstName}</h2>
-                      <p className="text-base font-roboto text-accent">Tracking information will be emailed as soon as your order shipped.</p>
-                    </div>
-                  </div>
-                  <div className="col-span-12">
-                    <div className="order-number text-base pl-4 font-roboto text-accent">
+                    <div className="order-number text-xl text-center pl-4 pt-5 font-roboto text-accent">
                       <span>Order ID:</span>
-                      <span className="font-semibold pl-1">{orderReceipt?.id}</span>
+                      <span className="font-semibold pl-1">{pastOrderDetail?.id}</span>
                     </div>
                   </div>
                   <div className="col-span-12">
@@ -59,35 +49,35 @@ export default function OrderReceipt({ params }) {
                             </div>
                             <div className="name font-roboto text-base text-accent pl-4">
                               <span className="caption">Name:</span>
-                              <span className="value font-semibold pl-1">{orderReceipt?.shippingFirstName}</span>
+                              <span className="value font-semibold pl-1">{pastOrderDetail?.shippingFirstName}</span>
                             </div>
                             <div className="address font-roboto text-base text-accent pl-4">
                               <span className="caption">Address:</span>
-                              <span className="value font-semibold pl-1">{orderReceipt?.shippingAddressOne}</span>
+                              <span className="value font-semibold pl-1">{pastOrderDetail?.shippingAddressOne}</span>
                             </div>
                             <div className="state font-roboto text-base text-accent pl-4">
                               <span className="caption">Country:</span>
-                              <span className="value font-semibold pl-1">{orderReceipt?.shippingCountry}</span>
+                              <span className="value font-semibold pl-1">{pastOrderDetail?.shippingCountry}</span>
                             </div>
                             <div className="state font-roboto text-base text-accent pl-4">
                               <span className="caption">State:</span>
-                              <span className="value font-semibold pl-1">{orderReceipt?.shippingState}</span>
+                              <span className="value font-semibold pl-1">{pastOrderDetail?.shippingState}</span>
                             </div>
                             <div className="city font-roboto text-base text-accent pl-4">
                               <span className="caption">City:</span>
-                              <span className="value font-semibold pl-1">{orderReceipt?.shippingCity}</span>
+                              <span className="value font-semibold pl-1">{pastOrderDetail?.shippingCity}</span>
                             </div>
                             <div className="pincode font-roboto text-base text-accent pl-4">
                               <span className="caption">Pincode:</span>
-                              <span className="value font-semibold pl-1">{orderReceipt?.shippingPincode}</span>
+                              <span className="value font-semibold pl-1">{pastOrderDetail?.shippingPincode}</span>
                             </div>
                             <div className="contact-number font-roboto text-base text-accent pl-4">
                               <span className="caption">Phone Number:</span>
-                              <span className="value font-semibold pl-1">{orderReceipt?.shippingPhoneNumber}</span>
+                              <span className="value font-semibold pl-1">{pastOrderDetail?.shippingPhoneNumber}</span>
                             </div>
                             <div className="contact-number font-roboto text-base text-accent pl-4">
                               <span className="caption">Landmark:</span>
-                              <span className="value font-semibold pl-1">{orderReceipt?.shippingLandmark}</span>
+                              <span className="value font-semibold pl-1">{pastOrderDetail?.shippingLandmark}</span>
                             </div>
                           </div>
                         </div>
@@ -132,7 +122,7 @@ export default function OrderReceipt({ params }) {
                               Payment Method
                             </div>
                             <div className="name font-roboto text-base text-accent pl-4">
-                              <span className="value font-semibold pl-1">{orderReceipt?.paymentMode}</span>
+                              <span className="value font-semibold pl-1">{pastOrderDetail?.paymentMode}</span>
                             </div>
                           </div>
                         </div>
@@ -157,32 +147,42 @@ export default function OrderReceipt({ params }) {
                 <div className="product-wrapper">
                   <Table className=' '>
                     <TableHeader className=' bg-secondary hover:bg-secondary '>
-                      <TableRow className=' hover: bg-secondary'>
+                      <TableRow className=' hover:bg-secondary '>
                         <TableHead className="w-[100px] text-white font-roboto font-semibold text-base">S.No</TableHead>
                         <TableHead className=' text-white font-roboto font-semibold text-base'>Image</TableHead>
                         <TableHead className=' text-white font-roboto font-semibold text-base'>Name</TableHead>
+                        <TableHead className=' text-white font-roboto font-semibold text-base whitespace-nowrap'>Ring Size</TableHead>
+                        {/* <TableHead className=' text-white font-roboto font-semibold text-base whitespace-nowrap'>Engraving Text</TableHead> */}
+                        <TableHead className=' text-white font-roboto font-semibold text-base whitespace-nowrap'>Metal Color</TableHead>
+                        <TableHead className=' text-white font-roboto font-semibold text-base whitespace-nowrap'>Purity</TableHead>
                         <TableHead className=' text-white font-roboto font-semibold text-base'>Quantity</TableHead>
                         <TableHead className=" text-white font-roboto font-semibold text-base text-right">Amount</TableHead>
                       </TableRow>
                     </TableHeader>
                     <TableBody className='border-b border-[#e5e5e5]'>
                       {
-                        orderReceipt?.orderitems?.map((items, index) => (
-
-                          <TableRow key={orderReceipt.id}>
+                        pastOrderDetail?.orderitems?.map((item, index) => (
+                          <TableRow key={item.id}>
                             <TableCell className="text-accent font-roboto font-semibold text-base ">{index + 1}</TableCell>
                             <TableCell>
-                              <Image src={`${PRODUCT_MEDIA}/${items?.image}`} alt='' width={75} height={75} />
+                              <Image src={`${PRODUCT_MEDIA}/${item.image}`} alt='' width={85} height={85} />
                             </TableCell>
-                            <TableCell className='text-accent font-roboto font-semibold text-base whitespace-nowrap'>{items?.name}</TableCell>
-                            <TableCell className='text-accent font-roboto font-semibold text-base'>{items?.quantity}</TableCell>
-                            <TableCell className='text-accent font-roboto font-semibold text-base'><div className="flex items-center justify-end">
-                              <span className=""><IndianRupee width={14} /></span>
-                              <span>{items?.price}</span>
-                            </div></TableCell>
+                            <TableCell className='text-accent font-roboto font-semibold text-base whitespace-nowrap'>{item?.name}</TableCell>
+                            <TableCell className='text-accent font-roboto font-semibold text-base whitespace-nowrap'>{item?.ringSize}</TableCell>
+                            {/* <TableCell className='text-accent font-roboto font-semibold text-base whitespace-nowrap'>{item?.engravingText}</TableCell> */}
+                            <TableCell className='text-accent font-roboto font-semibold text-base whitespace-nowrap'>{item?.engravingText}</TableCell>
+                            <TableCell className='text-accent font-roboto font-semibold text-base whitespace-nowrap'>{item?.engravingText}</TableCell>
+                            <TableCell className='text-accent font-roboto font-semibold text-base'>{item?.quantity}</TableCell>
+                            <TableCell className='text-accent font-roboto font-semibold text-base'>
+                              <div className="flex items-center justify-end">
+                                <span className=""><IndianRupee width={14} /></span>
+                                <span>{item?.price}</span>
+                              </div>
+                            </TableCell>
                           </TableRow>
                         ))
                       }
+
                     </TableBody>
                   </Table>
                 </div>
@@ -193,35 +193,35 @@ export default function OrderReceipt({ params }) {
                     <div>Sub-Total:</div>
                     <div className="flex items-center">
                       <span className=""><IndianRupee width={14} /></span>
-                      <span>{orderReceipt?.subTotal}</span>
+                      <span></span>
                     </div>
                   </div>
                   <div className="sub-total flex py-2 justify-between px-2 font-roboto text-[#4b4537]">
                     <div>Central GST:</div>
                     <div className="flex items-center">
                       <span className=""><IndianRupee width={14} /></span>
-                      <span>{orderReceipt?.taxCgst}</span>
+                      <span></span>
                     </div>
                   </div>
                   <div className="sub-total flex pb-3 justify-between px-2 font-roboto text-[#4b4537]">
                     <div>State GST:</div>
                     <div className="flex items-center">
                       <span className=""><IndianRupee width={14} /></span>
-                      <span>{orderReceipt?.taxSgst}</span>
+                      <span></span>
                     </div>
                   </div>
                   <div className="sub-total flex pb-3 justify-between px-2 font-roboto text-[#4b4537]">
                     <div>Making Charges:</div>
                     <div className="flex items-center">
                       <span className=""><IndianRupee width={14} /></span>
-                      <span>{orderReceipt?.makingCharges}</span>
+                      <span></span>
                     </div>
                   </div>
                   <div className="total-price flex font-semibold pt-3 pb-5 border-t border-secondary justify-between px-2 font-roboto text-[#4b4537]">
                     <div>Grand Total:</div>
                     <div className="flex items-center">
                       <span className="svg-stroking"><IndianRupee width={14} /></span>
-                      <span>{orderReceipt?.total}</span>
+                      <span></span>
                     </div>
                   </div>
                 </div>
