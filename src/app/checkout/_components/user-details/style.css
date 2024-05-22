@@ -3,14 +3,14 @@
 }
 
 .user-details-component .form-wrapper form input:focus{
-  @apply border border-primary
+  @apply border border-secondary
 }
 .user-details-component .form-wrapper form select{
   @apply w-full h-10 placeholder:text-accent font-roboto  bg-white border px-2 text-accent hover:cursor-pointer
 }
 
 .user-details-component .form-wrapper form select:focus{
-  @apply outline-0 cursor-pointer border border-primary
+  @apply outline-0 cursor-pointer border border-secondary
 }
 
 .user-details-component .form-wrapper form select option{

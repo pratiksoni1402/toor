@@ -72,10 +72,10 @@ export default function Bill() {
   }
 
   return (
-    <div className="total-bill-component">
+    <div className="total-bill-component border border-secondary mb-10">
       <div className="content-wrapper">
         <div className="summary">
-          <span className="heading">Order Summary</span>
+          <span className="heading text-2xl">Order Summary</span>
         </div>
         <div className="calculation">
           <div className="subtotal">

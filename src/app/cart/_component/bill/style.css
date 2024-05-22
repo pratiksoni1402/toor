@@ -1,8 +1,3 @@
-
-.total-bill-component .content-wrapper{
-  @apply  border
-}
-
 .total-bill-component .content-wrapper .summary{
   @apply text-center py-3
 }
@@ -64,9 +59,9 @@
 }
 
 .total-bill-component .content-wrapper .checkout{
-  @apply font-roboto w-full px-5 text-accent text-center mt-8 mb-4
+  @apply font-roboto w-full px-5 text-center mt-8 mb-4
 }
 
 .total-bill-component .content-wrapper .checkout .checkout-link{
-  @apply bg-primary-foreground hover:bg-primary font-normal hover:font-semibold hover:text-white block pt-[10px] leading-normal text-base h-10
+  @apply bg-secondary hover:bg-primary font-normal hover:font-semibold text-white block pt-[10px] leading-normal text-base h-10
 }

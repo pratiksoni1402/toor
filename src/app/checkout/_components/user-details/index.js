@@ -67,11 +67,11 @@ export default function Userdetails() {
 
   return (
     <div className="user-details-component">
-      <div className='form-wrapper'>
+      <div className='form-wrapper mx-5'>
         <form onSubmit={handleSubmit(onSubmit)}>
 
           <div className='Shipping-detail-form'>
-            <div className='title text-accent text-2xl font-crimson'>Shipping Detail</div>
+            <div className='title text-primary text-2xl font-crimson py-3'>Shipping Detail</div>
             <input type="text" placeholder="First Name" {...register("shippingFirstName", { required: true })} />
             {errors.shippingFirstName && <span className='error-message'>This field is required</span>}
 
@@ -85,7 +85,7 @@ export default function Userdetails() {
             <input type="text" placeholder="Address Line Two" {...register("shippingAddressLineTwo", {})} className='mb-5' />
             {errors.shippingAddressLineTwo && <span className='error-message'>This field is required</span>}
 
-            <div className='grid grid-cols-2 gap-5'>
+            <div className='grid grid-cols-2 gap-5 my-3'>
               <div className='sm:col-span-1 col-span-2'>
 
                 <select {...register("shippingCountry", { required: true })}>
@@ -100,7 +100,7 @@ export default function Userdetails() {
 
               </div>
               <div className='sm:col-span-1 col-span-2'>
-                <input type="text" placeholder="State" {...register("shippingState", { required: true })} />
+                <input type="text" placeholder="State" {...register("shippingState", { required: true })} className='!my-0'/>
 
                 {errors.shippingState && <span className='error-message'>This field is required</span>}
 
@@ -150,7 +150,7 @@ export default function Userdetails() {
                 {errors.firstName && <span className='error-message'>This field is required</span>}
 
                 <input type="text" placeholder="Address Line Two" {...register("billingAddressLineTwo", {})} />
-                <div className='grid grid-cols-2 gap-5'>
+                <div className='grid grid-cols-2 gap-5 my-3'>
                   <div className='sm:col-span-1 col-span-2'>
                     <select {...register("country", { required: true })}>
                       <option value="Female" disabled={true}>Select Country</option>
@@ -164,7 +164,7 @@ export default function Userdetails() {
 
                   </div>
                   <div className='sm:col-span-1 col-span-2'>
-                    <input type="text" placeholder="State" {...register("billingState", { required: true })} />
+                    <input type="text" placeholder="State" {...register("billingState", { required: true })}  className='!my-0'/>
                     {errors.state && <span className='error-message'>This field is required</span>}
 
                   </div>
@@ -216,7 +216,7 @@ export default function Userdetails() {
           </div>
 
           <div className='place-order-button'>
-            <Button type="submit" className='w-full rounded-none bg-primary-foreground text-accent font-roboto text-base hover:bg-primary hover:text-white'>Place order </Button>
+            <Button type="submit" className='w-full rounded-none hover:bg-primary font-roboto text-base bg-secondary text-white mb-10 mt-7'>Place order </Button>
           </div>
 
         </form>

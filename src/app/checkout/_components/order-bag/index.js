@@ -18,12 +18,12 @@ export default function Orderbag() {
   })
   // End
   return (
-    <div className="order-bag-component">
-      <div className='title text-accent text-2xl font-crimson'>Order Bag</div>
+    <div className="order-bag-component border border-secondary bg-white">
+      <div className='title text-primary text-2xl font-crimson py-3 px-5'>Your Items</div>
       {
         checkout?.map((items) => (
 
-          <div className="product-wrapper mb-5 border-b" key={items.id}>
+          <div className="product-wrapper py-5 px-5" key={items.id}>
             <div className="grid grid-cols-12 gap-5">
               <div className="sm:col-span-3 col-span-12">
                 <div className="image-wrapper ">

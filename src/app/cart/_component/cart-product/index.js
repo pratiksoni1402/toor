@@ -124,8 +124,8 @@ export default function Cartproduct() {
 
 
   return (
-    <div className="cart-product-component">
-      <div className="cart-items ">
+    <div className="cart-product-component border border-secondary mb-10">
+      <div className="cart-items px-5">
         {
           cartData?.map((items) => (
 
@@ -205,10 +205,10 @@ export default function Cartproduct() {
                             </AlertDialogTitle>
                           </AlertDialogHeader>
                           <AlertDialogFooter className='flex sm:justify-start justify-start flex-col space-x-0 sm:flex-col sm:space-x-0'>
-                            <AlertDialogAction className='rounded-none sm:mb-3 mb-2 hover:font-semibold inline bg-white font-roboto justify-end font-normal text-base text-accent bg-primary hover:text-accent hover:bg-primary-foreground text-white py-0' onClick={() => handleProductDelete(items?.sku)}>
+                            <AlertDialogAction className='rounded-none sm:mb-3 mb-2 hover:font-semibold inline bg-white font-roboto justify-end font-normal text-base text-accent bg-primary hover:bg-secondary text-white py-0' onClick={() => handleProductDelete(items?.sku)}>
                               Remove
                             </AlertDialogAction>
-                            <AlertDialogCancel className='rounded-none inline bg-white font-roboto hover:font-semibold  justify-end font-normal text-base text-accent bg-primary-foreground border-0 hover:bg-primary hover:text-white py-0'>
+                            <AlertDialogCancel className='rounded-none inline font-roboto hover:font-semibold  justify-end font-normal text-base text-accent bg-white border border-secondary hover:bg-secondary hover:text-white py-0'>
                               Cancel
                             </AlertDialogCancel>
                           </AlertDialogFooter>
