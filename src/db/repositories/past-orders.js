@@ -35,6 +35,6 @@ export async function GetPastOrdersDetails(requestBody){
       orderitems:true,
     },
   })
-  console.log("Product Detail Fetched Successfully")
+  console.log("Product Detail Fetched Successfully", getPastOrderDetail)
   return getPastOrderDetail
 }

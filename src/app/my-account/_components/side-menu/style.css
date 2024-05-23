@@ -7,7 +7,7 @@
 }
 
 .side-menu-component .menu-wrapper .menu ul li{
-  @apply py-2 hover:cursor-pointer  hover:font-semibold border-b-2 border-primary-foreground
+  @apply py-2 hover:cursor-pointer  hover:font-semibold border-b border-secondary
 }
 
 .side-menu-component .menu-wrapper .menu ul li a{

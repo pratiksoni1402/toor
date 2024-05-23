@@ -28,6 +28,27 @@ export default function OrderReceipt({ params }) {
 
   console.log("Order Data", orderReceipt)
   console.log("Printing First Name", orderReceipt?.shippingFirstName ?? '')
+
+  const orderDate = orderReceipt?.orderDate;
+  if (orderDate) {
+    const date = new Date(orderDate);
+
+    // Format the date
+    var formattedDate = `${date.toLocaleDateString()}`;
+    var formattedTime = `${date.toLocaleTimeString()}`;
+
+  }
+
+  const fullName = orderReceipt?.shippingFirstName + ' ' + orderReceipt?.shippingLastName;
+  const billingName = (orderReceipt?.billingFirstName ?? orderReceipt?.shippingFirstName) + ' ' + (orderReceipt?.billingLastName ?? orderReceipt?.shippingLastName);
+  const billingAddress = (orderReceipt?.billingAddressOne ?? orderReceipt?.shippingAddressOne);
+  const billingCountry = orderReceipt?.billingCountry ?? orderReceipt?.shippingCountry;
+  const billingState = orderReceipt?.billingState ?? orderReceipt?.shippingState;
+  const billingCity = orderReceipt?.billingCity ?? orderReceipt?.shippingCity;
+  const billingPincode = orderReceipt?.billingPincode ?? orderReceipt?.shippingPincode;
+  const billingPhoneNumber = orderReceipt?.billingPhoneNumber ?? orderReceipt?.shippingPhoneNumber;
+  const billingLandmark = orderReceipt?.billingLandmark ?? orderReceipt?.shippingLandmark
+
   return (
     <div className="order-receipt pb-20 pt-10">
       <div className="container">
@@ -59,7 +80,7 @@ export default function OrderReceipt({ params }) {
                             </div>
                             <div className="name font-roboto text-base text-accent pl-4">
                               <span className="caption">Name:</span>
-                              <span className="value font-semibold pl-1">{orderReceipt?.shippingFirstName}</span>
+                              <span className="value font-semibold pl-1">{fullName}</span>
                             </div>
                             <div className="address font-roboto text-base text-accent pl-4">
                               <span className="caption">Address:</span>
@@ -97,32 +118,36 @@ export default function OrderReceipt({ params }) {
                               Billing Address
                             </div>
                             <div className="name font-roboto text-base text-accent pl-4">
-                              <span className="caption">Name</span>
-                              <span className="value font-semibold pl-1"></span>
+                              <span className="caption">Name:</span>
+                              <span className="value font-semibold pl-1">{billingName}</span>
                             </div>
                             <div className="address font-roboto text-base text-accent pl-4">
                               <span className="caption">Address:</span>
-                              <span className="value font-semibold pl-1"></span>
+                              <span className="value font-semibold pl-1">{billingAddress}</span>
                             </div>
                             <div className="state font-roboto text-base text-accent pl-4">
                               <span className="caption">Country:</span>
-                              <span className="value font-semibold pl-1"></span>
+                              <span className="value font-semibold pl-1">{billingCountry}</span>
                             </div>
                             <div className="state font-roboto text-base text-accent pl-4">
                               <span className="caption">State:</span>
-                              <span className="value font-semibold pl-1"></span>
+                              <span className="value font-semibold pl-1">{billingState}</span>
                             </div>
                             <div className="city font-roboto text-base text-accent pl-4">
                               <span className="caption">City:</span>
-                              <span className="value font-semibold pl-1"></span>
+                              <span className="value font-semibold pl-1">{billingCity}</span>
                             </div>
                             <div className="pincode font-roboto text-base text-accent pl-4">
                               <span className="caption">Pincode:</span>
-                              <span className="value font-semibold pl-1"></span>
+                              <span className="value font-semibold pl-1">{billingPincode}</span>
                             </div>
                             <div className="contact-number font-roboto text-base text-accent pl-4">
                               <span className="caption">Phone Number:</span>
-                              <span className="value font-semibold pl-1"></span>
+                              <span className="value font-semibold pl-1">{billingPhoneNumber}</span>
+                            </div>
+                            <div className="contact-number font-roboto text-base text-accent pl-4">
+                              <span className="caption">Landmark:</span>
+                              <span className="value font-semibold pl-1">{billingLandmark}</span>
                             </div>
                           </div>
                         </div>
@@ -142,8 +167,8 @@ export default function OrderReceipt({ params }) {
                               Order Date & Time
                             </div>
                             <div className="name font-roboto text-base text-accent pl-4 mb-10 pb-5">
-                              <div className="value font-semibold pl-1">Date: </div>
-                              <div className="value font-semibold pl-1">Time: </div>
+                              <div className="value font-semibold pl-1">Date: {formattedDate}</div>
+                              <div className="value font-semibold pl-1">Time: {formattedTime}</div>
                             </div>
                           </div>
                         </div>
@@ -161,6 +186,8 @@ export default function OrderReceipt({ params }) {
                         <TableHead className="w-[100px] text-white font-roboto font-semibold text-base">S.No</TableHead>
                         <TableHead className=' text-white font-roboto font-semibold text-base'>Image</TableHead>
                         <TableHead className=' text-white font-roboto font-semibold text-base'>Name</TableHead>
+                        <TableHead className=' text-white font-roboto font-semibold text-base'>Ring Size</TableHead>
+                        <TableHead className=' text-white font-roboto font-semibold text-base'>Engraving Text</TableHead>
                         <TableHead className=' text-white font-roboto font-semibold text-base'>Quantity</TableHead>
                         <TableHead className=" text-white font-roboto font-semibold text-base text-right">Amount</TableHead>
                       </TableRow>
@@ -175,6 +202,8 @@ export default function OrderReceipt({ params }) {
                               <Image src={`${PRODUCT_MEDIA}/${items?.image}`} alt='' width={75} height={75} />
                             </TableCell>
                             <TableCell className='text-accent font-roboto font-semibold text-base whitespace-nowrap'>{items?.name}</TableCell>
+                            <TableCell className='text-accent font-roboto font-semibold text-base whitespace-nowrap'>{items?.ringSize}</TableCell>
+                            <TableCell className='text-accent font-roboto font-semibold text-base whitespace-nowrap'>{items?.engravingText}</TableCell>
                             <TableCell className='text-accent font-roboto font-semibold text-base'>{items?.quantity}</TableCell>
                             <TableCell className='text-accent font-roboto font-semibold text-base'><div className="flex items-center justify-end">
                               <span className=""><IndianRupee width={14} /></span>

@@ -51,6 +51,7 @@ export async function PlacingOrder(requestBody) {
           makingChargesPerGram: true,
           totalWeight: true,
           goldRate: true,
+
         }
       }
     }
@@ -65,6 +66,8 @@ export async function PlacingOrder(requestBody) {
     price: item.product.price,
     image: item.product.image,
     itemWeight: item.product.totalWeight,
+    ringSize: item.ringSize,
+    engravingText: item.engravingText,
     makingCharges: item.product.makingChargesPerGram * item.quantity * item.product.totalWeight,
     totalPrice: ((item.quantity * item.product.price) + (item.product.makingChargesPerGram * item.quantity)),
   }));
@@ -76,7 +79,7 @@ export async function PlacingOrder(requestBody) {
   console.log("This is total price", grandTotal)
 
   const totalMakingCharges = orderItems.reduce((total, item) => total += item.makingCharges, 0);
-  console.log("This is making charges",totalMakingCharges);
+  console.log("This is making charges", totalMakingCharges);
 
 
   const central = 1.5;
@@ -130,6 +133,6 @@ export async function PlacingOrder(requestBody) {
   });
   // End
 
-  return Orders 
+  return Orders
 
 }

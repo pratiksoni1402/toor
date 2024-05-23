@@ -24,6 +24,27 @@ export default function PastOrderReceipt({ params }) {
         .then((response) => { return response.data.getDetail })
         .catch((error) => console.log("Error while fetching Part Order detail", error))
   })
+
+  const orderDate = pastOrderDetail?.orderDate;
+  if (orderDate) {
+    const date = new Date(orderDate);
+
+    // Format the date
+    var formattedDate = `${date.toLocaleDateString()}`;
+    var formattedTime = `${date.toLocaleTimeString()}`;
+
+  }
+
+  const fullName = pastOrderDetail?.shippingFirstName + ' ' + pastOrderDetail?.shippingLastName;
+  const billingName = (pastOrderDetail?.billingFirstName ?? pastOrderDetail?.shippingFirstName) + ' ' + (pastOrderDetail?.billingLastName ?? pastOrderDetail?.shippingLastName);
+  const billingAddress = (pastOrderDetail?.billingAddressOne ?? pastOrderDetail?.shippingAddressOne);
+  const billingCountry = pastOrderDetail?.billingCountry ?? pastOrderDetail?.shippingCountry;
+  const billingState = pastOrderDetail?.billingState ?? pastOrderDetail?.shippingState;
+  const billingCity = pastOrderDetail?.billingCity ?? pastOrderDetail?.shippingCity;
+  const billingPincode = pastOrderDetail?.billingPincode ?? pastOrderDetail?.shippingPincode;
+  const billingPhoneNumber = pastOrderDetail?.billingPhoneNumber ?? pastOrderDetail?.shippingPhoneNumber;
+  const billingLandmark = pastOrderDetail?.billingLandmark ?? pastOrderDetail?.shippingLandmark;
+
   return (
     <div className="order-receipt pb-20 pt-10">
       <div className="container">
@@ -49,7 +70,7 @@ export default function PastOrderReceipt({ params }) {
                             </div>
                             <div className="name font-roboto text-base text-accent pl-4">
                               <span className="caption">Name:</span>
-                              <span className="value font-semibold pl-1">{pastOrderDetail?.shippingFirstName}</span>
+                              <span className="value font-semibold pl-1">{fullName}</span>
                             </div>
                             <div className="address font-roboto text-base text-accent pl-4">
                               <span className="caption">Address:</span>
@@ -88,31 +109,35 @@ export default function PastOrderReceipt({ params }) {
                             </div>
                             <div className="name font-roboto text-base text-accent pl-4">
                               <span className="caption">Name</span>
-                              <span className="value font-semibold pl-1"></span>
+                              <span className="value font-semibold pl-1">{billingName}</span>
                             </div>
                             <div className="address font-roboto text-base text-accent pl-4">
                               <span className="caption">Address:</span>
-                              <span className="value font-semibold pl-1"></span>
+                              <span className="value font-semibold pl-1">{billingAddress}</span>
                             </div>
                             <div className="state font-roboto text-base text-accent pl-4">
                               <span className="caption">Country:</span>
-                              <span className="value font-semibold pl-1"></span>
+                              <span className="value font-semibold pl-1">{billingCountry}</span>
                             </div>
                             <div className="state font-roboto text-base text-accent pl-4">
                               <span className="caption">State:</span>
-                              <span className="value font-semibold pl-1"></span>
+                              <span className="value font-semibold pl-1">{billingState}</span>
                             </div>
                             <div className="city font-roboto text-base text-accent pl-4">
                               <span className="caption">City:</span>
-                              <span className="value font-semibold pl-1"></span>
+                              <span className="value font-semibold pl-1">{billingCity}</span>
                             </div>
                             <div className="pincode font-roboto text-base text-accent pl-4">
                               <span className="caption">Pincode:</span>
-                              <span className="value font-semibold pl-1"></span>
+                              <span className="value font-semibold pl-1">{billingPincode}</span>
                             </div>
                             <div className="contact-number font-roboto text-base text-accent pl-4">
                               <span className="caption">Phone Number:</span>
-                              <span className="value font-semibold pl-1"></span>
+                              <span className="value font-semibold pl-1">{billingPhoneNumber}</span>
+                            </div>
+                            <div className="contact-number font-roboto text-base text-accent pl-4">
+                              <span className="caption">Landmark:</span>
+                              <span className="value font-semibold pl-1">{billingLandmark}</span>
                             </div>
                           </div>
                         </div>
@@ -132,8 +157,8 @@ export default function PastOrderReceipt({ params }) {
                               Order Date & Time
                             </div>
                             <div className="name font-roboto text-base text-accent pl-4 mb-10 pb-5">
-                              <div className="value font-semibold pl-1">Date: </div>
-                              <div className="value font-semibold pl-1">Time: </div>
+                              <div className="value font-semibold pl-1">Date: {formattedDate}</div>
+                              <div className="value font-semibold pl-1">Time: {formattedTime}</div>
                             </div>
                           </div>
                         </div>
@@ -153,8 +178,8 @@ export default function PastOrderReceipt({ params }) {
                         <TableHead className=' text-white font-roboto font-semibold text-base'>Name</TableHead>
                         <TableHead className=' text-white font-roboto font-semibold text-base whitespace-nowrap'>Ring Size</TableHead>
                         {/* <TableHead className=' text-white font-roboto font-semibold text-base whitespace-nowrap'>Engraving Text</TableHead> */}
-                        <TableHead className=' text-white font-roboto font-semibold text-base whitespace-nowrap'>Metal Color</TableHead>
-                        <TableHead className=' text-white font-roboto font-semibold text-base whitespace-nowrap'>Purity</TableHead>
+                        <TableHead className=' text-white font-roboto font-semibold text-base whitespace-nowrap'>Engraving Text</TableHead>
+                        {/* <TableHead className=' text-white font-roboto font-semibold text-base whitespace-nowrap'>Purity</TableHead> */}
                         <TableHead className=' text-white font-roboto font-semibold text-base'>Quantity</TableHead>
                         <TableHead className=" text-white font-roboto font-semibold text-base text-right">Amount</TableHead>
                       </TableRow>
@@ -169,9 +194,8 @@ export default function PastOrderReceipt({ params }) {
                             </TableCell>
                             <TableCell className='text-accent font-roboto font-semibold text-base whitespace-nowrap'>{item?.name}</TableCell>
                             <TableCell className='text-accent font-roboto font-semibold text-base whitespace-nowrap'>{item?.ringSize}</TableCell>
-                            {/* <TableCell className='text-accent font-roboto font-semibold text-base whitespace-nowrap'>{item?.engravingText}</TableCell> */}
                             <TableCell className='text-accent font-roboto font-semibold text-base whitespace-nowrap'>{item?.engravingText}</TableCell>
-                            <TableCell className='text-accent font-roboto font-semibold text-base whitespace-nowrap'>{item?.engravingText}</TableCell>
+                            {/* <TableCell className='text-accent font-roboto font-semibold text-base whitespace-nowrap'>{item?.metalType}</TableCell> */}
                             <TableCell className='text-accent font-roboto font-semibold text-base'>{item?.quantity}</TableCell>
                             <TableCell className='text-accent font-roboto font-semibold text-base'>
                               <div className="flex items-center justify-end">
