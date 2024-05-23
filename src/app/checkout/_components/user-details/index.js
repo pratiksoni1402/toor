@@ -1,5 +1,7 @@
 'use client'
 import React, { useEffect, useState } from 'react';
+import { Elements } from '@stripe/react-stripe-js';
+import { loadStripe } from '@stripe/stripe-js';
 import { useForm } from 'react-hook-form';
 import { Switch } from '@/components/ui/switch';
 import { Label } from '@/components/ui/label';
@@ -8,10 +10,15 @@ import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 import './style.css'
 import { useRouter } from 'next/navigation';
-export default function Userdetails() {
+import { PaymentElement } from '@stripe/react-stripe-js';
+
+function Userdetails({ stripePromise }) {
+
   const [showForm, setShowForm] = useState(false);
-  const { register, setValue, handleSubmit, formState: { errors } } = useForm();
+  const { register, setValue, watch, handleSubmit, formState: { errors } } = useForm();
   const router = useRouter();
+  const watchPaymentMethod = watch("paymentMode")
+
   const onSubmit = (data) => {
     axios.post('/checkout/api/place-order', data)
       .then((response) => {
@@ -22,6 +29,7 @@ export default function Userdetails() {
         console.log("Error while placing order", error)
       })
   }
+
 
   // Handle Toggle of Billing Details
   const handleSwitchToggle = () => {
@@ -100,7 +108,7 @@ export default function Userdetails() {
 
               </div>
               <div className='sm:col-span-1 col-span-2'>
-                <input type="text" placeholder="State" {...register("shippingState", { required: true })} className='!my-0'/>
+                <input type="text" placeholder="State" {...register("shippingState", { required: true })} className='!my-0' />
 
                 {errors.shippingState && <span className='error-message'>This field is required</span>}
 
@@ -164,7 +172,7 @@ export default function Userdetails() {
 
                   </div>
                   <div className='sm:col-span-1 col-span-2'>
-                    <input type="text" placeholder="State" {...register("billingState", { required: true })}  className='!my-0'/>
+                    <input type="text" placeholder="State" {...register("billingState", { required: true })} className='!my-0' />
                     {errors.state && <span className='error-message'>This field is required</span>}
 
                   </div>
@@ -193,20 +201,16 @@ export default function Userdetails() {
 
               <div>
                 <input {...register("paymentMode", { required: true })} type="radio" id='debit-card' value="Debit Card" />
-                <label htmlFor="debit-card" className='pl-1 font-roboto text-base text-accent hover:cursor-pointer'>Debit Card</label>
+                <label htmlFor="debit-card" className='pl-1 font-roboto text-base text-accent hover:cursor-pointer'>Debit/Credit Card</label>
+                {
+                  watchPaymentMethod == 'Debit Card' ? (
+                    <PaymentElement />
+                  ) : (
+                    <></>
+                  )
+                }
               </div>
-              <div>
-                <input {...register("paymentMode", { required: true })} id='credit-card' type="radio" value=" Credit Card" />
-                <label htmlFor="credit-card" className='pl-1 font-roboto text-base text-accent hover:cursor-pointer'>Credit Card</label>
-              </div>
-              <div>
-                <input {...register("paymentMode", { required: true })} id='upi' type="radio" value=" UPI" />
-                <label htmlFor="upi" className='pl-1 font-roboto text-base text-accent hover:cursor-pointer'>UPI</label>
-              </div>
-              <div>
-                <input {...register("paymentMode", { required: true })} id='net-banking' type="radio" value=" Net Banking" />
-                <label htmlFor="net-banking" className='pl-1 font-roboto text-base text-accent hover:cursor-pointer'>Net Banking</label>
-              </div>
+      
               <div>
                 <input {...register("paymentMode", { required: true })} id='cod' type="radio" value=" Cash on Delivery" />
                 <label htmlFor="cod" className='pl-1 font-roboto text-base text-accent hover:cursor-pointer'>Cash on Delivery</label>
@@ -222,5 +226,19 @@ export default function Userdetails() {
         </form>
       </div>
     </div >
+  )
+}
+
+export default function CheckoutForm(props) {
+  const stripePromise = loadStripe(props.stripePublicKey)
+
+  return (
+    <Elements stripe={stripePromise} options={{
+      mode: 'setup',
+      currency: 'inr',
+    }}>
+      <Userdetails {...props} stripePromise={stripePromise} />
+    </Elements>
+
   )
 }
