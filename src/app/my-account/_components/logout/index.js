@@ -51,8 +51,8 @@ export default function LogoutUser() {
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
-            <AlertDialogAction className='w-full md:mt-0 sm:mt-4 mt-4 bg-primary hover:bg-primary-foreground text-white hover:text-accent font-roboto text-base' onClick={logoutuser}>Yes</AlertDialogAction>
-            <AlertDialogCancel className='w-full hover:bg-primary bg-primary-foreground border-primary-foreground hover:border-primary hover:text-white text-accent font-roboto text-base'>No</AlertDialogCancel>
+            <AlertDialogAction className='w-full md:mt-0 sm:mt-4 mt-4 bg-secondary rounded-none hover:bg-primary text-white font-roboto text-base' onClick={logoutuser}>Yes</AlertDialogAction>
+            <AlertDialogCancel className='w-full hover:bg-primary bg-white rounded-none border-primary-foreground hover:border-primary hover:text-white text-accent font-roboto text-base'>No</AlertDialogCancel>
           </AlertDialogFooter>
         </AlertDialogContent>
       </AlertDialog>

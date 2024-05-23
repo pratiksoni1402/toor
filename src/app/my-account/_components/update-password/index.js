@@ -33,7 +33,7 @@ export default function Updatepassword() {
     }
   }
   return (
-    <div className="update-password-component">
+    <div className="update-password-component min-h-screen">
       <div className="form-wrapper">
         <div className='heading'>
           <h1>Update Password</h1>

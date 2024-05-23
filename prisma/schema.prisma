@@ -125,10 +125,63 @@ model Coupan {
   name       String   @db.VarChar(50)
   code       String   @db.VarChar(50)
   value      Int      @db.Int
-  autoApply  Int      @map("auto_apply") @db.Int @unique
+  autoApply  Int      @unique @map("auto_apply") @db.Int
   activeFrom DateTime @map("active_from") @db.Timestamp()
   activeTill DateTime @map("active_till") @db.Timestamp()
   type       String   @db.VarChar(50)
 
   @@map("coupan")
+}
+
+model Orders {
+  id                  Int          @id @default(autoincrement())
+  shippingFirstName   String       @map("shipping_first_name") @db.VarChar(50)
+  shippingLastName    String       @map("shipping_last_name") @db.VarChar(50)
+  shippingAddressOne  String       @map("shipping_address_one") @db.VarChar(200)
+  shippingAddressTwo  String       @map("shipping_address_two") @db.VarChar(200)
+  shippingCountry     String       @map("shipping_country") @db.VarChar(50)
+  shippingState       String       @map("shipping_state") @db.VarChar(50)
+  shippingCity        String       @map("shipping_city") @db.VarChar(50)
+  shippingPincode     Int          @map("shipping_pincode") @db.Int
+  shippingLandmark    String       @map("shipping_landmark") @db.VarChar(50)
+  shippingPhoneNumber Int          @map("shipping_phone_number") @db.Int
+  billingFirstName    String?      @map("billing_first_name") @db.VarChar(50)
+  billingLastName     String?      @map("billing_last_name") @db.VarChar(50)
+  billingAddressOne   String?      @map("billing_address_one") @db.VarChar(200)
+  billingAddressTwo   String?      @map("billing_address_two") @db.VarChar(200)
+  billingCountry      String?      @map("billing_country") @db.VarChar(50)
+  billingState        String?      @map("billing_state") @db.VarChar(50)
+  billingCity         String?      @map("billing_city") @db.VarChar(50)
+  billingPincode      Int?         @map("billing_pincode") @db.Int
+  billingLandmark     String?      @map("billing_landmark") @db.VarChar(50)
+  billingPhoneNumber  Int?         @map("billing_phone_number") @db.Int
+  paymentMode         String       @map("payment_mode") @db.VarChar(50)
+  subTotal            Decimal      @map("subtotal") @db.Decimal(10, 2)
+  taxCgst             Decimal      @map("tax_cgst") @db.Decimal(10, 2)
+  taxSgst             Decimal      @map("tax_sgst") @db.Decimal(10, 2)
+  makingCharges       Int          @map("making_charges") @db.Int
+  total               Decimal      @map("total") @db.Decimal(10, 2)
+  orderDate           DateTime     @default(now()) @map("order_date")
+  sessionEmail        String       @map("session_email") @db.VarChar(100)
+  orderitems          Orderitems[]
+
+  @@map("tbl_order")
+}
+
+model Orderitems {
+  id            Int      @id @default(autoincrement())
+  orderId       Int?     @map("order_id") @db.Int
+  name          String   @db.VarChar(100)
+  sku           String   @db.VarChar(50)
+  engravingText String?  @map("engraving_text") @db.VarChar(10)
+  price         Decimal  @db.Decimal(10, 2)
+  quantity      Int      @db.Int
+  ringSize      Decimal? @map("ring_size") @db.Decimal(5, 2)
+  totalPrice    Int      @map("total_price") @db.Int()
+  image         String   @db.VarChar(30)
+  itemWeight    Decimal  @map("item_weight") @db.Decimal(10, 2)
+  makingCharges Decimal  @db.Decimal(10, 2) @map("making_charges")
+  orders        Orders?  @relation(fields: [orderId], references: [id])
+
+  @@map("order_items")
 }

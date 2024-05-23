@@ -6,6 +6,10 @@
   @apply w-full h-10 border my-3 outline-0 px-2 font-roboto text-accent bg-white
 }
 
+.update-password-component .form-wrapper form input:focus {
+  @apply w-full h-10 border border-secondary my-3 outline-0 px-2 font-roboto text-accent bg-white
+}
+
 .update-password-component .form-wrapper form button {
-  @apply rounded-none w-full mt-5 bg-primary-foreground text-accent hover:bg-primary hover:text-white font-roboto text-base hover:transition hover:duration-500 mb-10
+  @apply rounded-none w-full mt-5 bg-secondary hover:bg-primary text-white font-roboto text-base hover:transition hover:duration-500 mb-10
 }

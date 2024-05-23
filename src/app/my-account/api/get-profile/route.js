@@ -10,7 +10,7 @@ export async function GET() {
     where: {
       email: session.user?.email,
     },
-    select:{
+    select: {
       firstName: true,
       lastName: true,
       addressLineOne: true,
@@ -24,5 +24,5 @@ export async function GET() {
     },
   })
   console.log("This is user profile", getUserProfile)
-  return Response.json({getUserProfile})
+  return Response.json({ getUserProfile })
 }

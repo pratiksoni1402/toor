@@ -9,7 +9,7 @@
 }
 
 .profile-component .profile-wrapper form input:focus{
-@apply border border-primary
+@apply border border-secondary
 }
 
 .profile-component .profile-wrapper form select{ 
@@ -17,11 +17,11 @@
 }
 
 .profile-component .profile-wrapper form select:focus{
-  @apply border border-primary
+  @apply border border-secondary
 }
 
 .profile-component .profile-wrapper form button{
-  @apply rounded-none w-full mt-5 bg-primary-foreground text-accent hover:bg-primary hover:text-white font-roboto text-base hover:transition hover:duration-500 
+  @apply rounded-none w-full mt-5 bg-secondary hover:bg-primary text-white font-roboto text-base hover:transition hover:duration-500 
 }
 
 .profile-component .profile-wrapper form .error-message{
