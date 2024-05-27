@@ -122,6 +122,9 @@ export default function Cartproduct() {
   }
   // End
 
+  const metalColorType = cartData?.product?.metalColor?.split('-')
+  const formattedColor = metalColorType?.map(metalColorType => metalColorType.charAt(0).toUpperCase() + metalColorType.slice(1)).join(' ');
+
 
   return (
     <div className="cart-product-component border border-secondary mb-10">
@@ -150,10 +153,10 @@ export default function Cartproduct() {
                       <span className="caption">SKU:</span>
                       <span className="variation">{items.sku}</span>
                     </div>
-                    <div className="attribute">
+                    {/* <div className="attribute">
                       <span className="caption">Metal Color:</span>
-                      <span className="variation">{items.product.metalColor}</span>
-                    </div>
+                      <span className="variation">{formattedColor}</span>
+                    </div> */}
                     <div className="attribute">
                       <span className="caption">Metal Purity:</span>
                       <span className="variation">{items.product.metalType}</span>

@@ -203,7 +203,7 @@ function Userdetails({ stripePromise }) {
                 <input {...register("paymentMode", { required: true })} type="radio" id='debit-card' value="Debit Card" />
                 <label htmlFor="debit-card" className='pl-1 font-roboto text-base text-accent hover:cursor-pointer'>Debit/Credit Card</label>
                 {
-                  watchPaymentMethod == 'Debit Card' ? (
+                  watchPaymentMethod == 'Debit Card' ? ( 
                     <PaymentElement />
                   ) : (
                     <></>
