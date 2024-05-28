@@ -59,6 +59,8 @@ export default function Wishlistproduct() {
       .then((response) => {
         deleteProduct(sku);
         queryClient.invalidateQueries('products');
+        queryClient.invalidateQueries('cartCount')
+
       })
       .catch((error) => {
         console.log("Error while moving product from wishlist to cart", error);

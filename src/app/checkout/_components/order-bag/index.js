@@ -72,7 +72,7 @@ export default function Orderbag() {
                 <div>
                   <div className="pricing">
                     <span><IndianRupee size={14} /></span>
-                    <span>56,250</span>
+                    <span>{items.product.price}</span>
                   </div>
                 </div>
               </div>

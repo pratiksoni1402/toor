@@ -49,6 +49,7 @@ export default function Cartproduct() {
     })
       .then((response) => {
         queryClient.invalidateQueries('cart')
+        queryClient.invalidateQueries('cartCount')
       })
       .catch((error) => {
         console.log("Error while deleting product", error)
@@ -102,6 +103,7 @@ export default function Cartproduct() {
     })
       .then((response) => {
         handleProductDelete(sku)
+        queryClient.invalidateQueries('wishlistCount')
         queryClient.invalidateQueries('cart')
         // return response.data.moveProduct
       })
@@ -121,6 +123,9 @@ export default function Cartproduct() {
     )
   }
   // End
+
+  const metalColorType = cartData?.product?.metalColor?.split('-')
+  const formattedColor = metalColorType?.map(metalColorType => metalColorType.charAt(0).toUpperCase() + metalColorType.slice(1)).join(' ');
 
 
   return (
@@ -150,10 +155,10 @@ export default function Cartproduct() {
                       <span className="caption">SKU:</span>
                       <span className="variation">{items.sku}</span>
                     </div>
-                    <div className="attribute">
+                    {/* <div className="attribute">
                       <span className="caption">Metal Color:</span>
-                      <span className="variation">{items.product.metalColor}</span>
-                    </div>
+                      <span className="variation">{formattedColor}</span>
+                    </div> */}
                     <div className="attribute">
                       <span className="caption">Metal Purity:</span>
                       <span className="variation">{items.product.metalType}</span>

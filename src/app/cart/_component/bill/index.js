@@ -7,8 +7,12 @@ import Link from 'next/link';
 import { useQuery, useQueryClient } from '@tanstack/react-query';
 import axios from 'axios';
 import BillingSkeleton from '../billing-skeleton';
+import { useRouter } from 'next/navigation';
+import { Loader2Icon } from 'lucide-react';
 import './style.css'
 export default function Bill() {
+  const [isLoading, setIsLoading] = useState(false);
+  const router = useRouter();
   const { register, handleSubmit, setValue, formState: { errors } } = useForm();
   const onSubmit = data => console.log(data);
   let subTotal = 0;
@@ -69,6 +73,15 @@ export default function Bill() {
         <BillingSkeleton />
       </div>
     )
+  }
+
+  const handleProceedToCheckout = () => {
+    setIsLoading(true);
+    setTimeout(() => {
+      setIsLoading(true);
+      router.push('/checkout');
+
+    }, 1000);
   }
 
   return (
@@ -135,7 +148,16 @@ export default function Bill() {
           </div>
         </div>
         <div className='checkout'>
-          <Link href='/checkout' className='checkout-link'>Proceed to Checkout</Link>
+          {
+            isLoading ? (
+              <Button className='rounded-none bg-primary text-base font-roboto text-white px-10 ' disabled={true}>
+                <Loader2Icon className='animate-spin mr-1' />
+                Proceed to Checkout
+              </Button>
+            ) : (
+              <Button className='rounded-none bg-secondary text-base font-roboto text-white px-10 hover:bg-primary' onClick={handleProceedToCheckout}>Proceed to Checkout</Button>
+            )
+          }
         </div>
       </div>
     </div>
