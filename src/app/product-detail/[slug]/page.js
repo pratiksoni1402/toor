@@ -3,7 +3,7 @@ export const dynamic = 'force-dynamic';
 export const fetchCache = 'force-no-store';
 export const revalidate = 0;
 
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
 import axios from "axios";
 import { PRODUCT_MEDIA } from "@/lib/constants/images";
 import Image from "next/image";
@@ -33,7 +33,7 @@ export default function ProductDetail({ params }) {
   const [selectedFont, setSelectedFont] = useState('');
   const [engravingText, setEngravingText] = useState('');
   const [error, setError] = useState('');
-
+  const queryClient = useQueryClient();
   // Fetch Product and its Detail
   const { data: product } = useQuery({
     queryKey: ['productDetail'],
@@ -78,6 +78,7 @@ export default function ProductDetail({ params }) {
   // End
 
   console.log("This is engraved text", engravingText)
+
   // Add To Wishlist
   const handleAddtoWishlist = (id, sku) => {
     setAddToWishlist(true);
@@ -86,6 +87,7 @@ export default function ProductDetail({ params }) {
       sku,
     })
       .then((response) => {
+        queryClient.invalidateQueries('wishlistCount');
         console.log(response.data)
       })
       .catch((error) => {
@@ -122,7 +124,9 @@ export default function ProductDetail({ params }) {
         engravingText: engravingText,
         quantity: quantity,
       })
-        .then((response) => router.push('/cart'))
+        .then((response) =>
+          router.push('/cart')),
+      queryClient.invalidateQueries('cartCount')
         .catch((error) => console.log("Error while adding product to cart ", error))
         .finally(() => setAddToCart(false))
     )

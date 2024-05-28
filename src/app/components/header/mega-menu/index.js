@@ -10,6 +10,7 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
+
 import Image from "next/image";
 import { useState } from "react";
 import { CATEGORY_MEDIA } from "@/lib/constants/images";
@@ -73,27 +74,36 @@ export default function Megamenu() {
 
                     <li className="product-list" onMouseEnter={() => setRingHovered(`${CATEGORY_MEDIA}/ring-platinum.jpg`)} onMouseLeave={() => setRingHovered('/uploads/images/category-images/silver.png')} >
                       <Link href='/platinum' className="flex items-center">
-                        <span>Platinum</span>
+                        <span>
+                          <Image src='/uploads/images/swatch/platinum.svg' alt="Platinum" width={20} height={20} />
+                        </span>
+                        <span className="pl-1">Platinum</span>
                       </Link>
                     </li>
 
                     <li className="product-list" onMouseEnter={() => setRingHovered(`${CATEGORY_MEDIA}/ring-yellow-gold.jpg`)} onMouseLeave={() => setRingHovered('/uploads/images/category-images/silver.png')} >
                       <Link href='/yellow-gold' className="flex items-center">
-                        <span>Yellow Gold</span>
+                        <span>
+                          <Image src='/uploads/images/swatch/yellow-gold.svg' alt="Platinum" width={20} height={20} />
+                        </span>
+                        <span className="pl-1">Yellow Gold</span>
                       </Link>
                     </li>
 
                     <li className="product-list" onMouseEnter={() => setRingHovered(`${CATEGORY_MEDIA}/ring-rose-gold.jpg`)} onMouseLeave={() => setRingHovered('/uploads/images/category-images/silver.png')} >
                       <Link href='/rose-gold' className="flex items-center">
-                        <span>Rose Gold</span>
+                        <span>
+                          <Image src='/uploads/images/swatch/rose-gold.svg' alt="Platinum" width={20} height={20} />
+                        </span>
+                        <span className="pl-1">Rose Gold</span>
                       </Link>
                     </li>
 
-                    <li className="product-list" onMouseEnter={() => setRingHovered(`${CATEGORY_MEDIA}/ring-silver.jpg`)} onMouseLeave={() => setRingHovered('/uploads/images/category-images/silver.png')} >
+                    {/* <li className="product-list" onMouseEnter={() => setRingHovered(`${CATEGORY_MEDIA}/ring-silver.jpg`)} onMouseLeave={() => setRingHovered('/uploads/images/category-images/silver.png')} >
                       <Link href='/silver' className="flex items-center">
                         <span>Silver</span>
                       </Link>
-                    </li>
+                    </li> */}
 
                   </ul>
                 </div>
@@ -115,6 +125,98 @@ export default function Megamenu() {
                       </div>
                     )
                   }
+                </div>
+
+                <div className="col-span-2">
+                  <h2 className="inner-heading">Gemstone Rings</h2>
+                  <ul className="product-list-wrapper">
+
+                    {/* <li className="product-list" onMouseEnter={() => setRingHovered(`${CATEGORY_MEDIA}/ring-platinum.jpg`)} onMouseLeave={() => setRingHovered('/uploads/images/category-images/silver.png')} >
+                      <Link href='/platinum' className="flex items-center">
+                        
+                        <span className="pl-1">Moissanite </span>
+                      </Link>
+                    </li> */}
+
+                    <li className="product-list" onMouseEnter={() => setRingHovered(`${CATEGORY_MEDIA}/ring-yellow-gold.jpg`)} onMouseLeave={() => setRingHovered('/uploads/images/category-images/silver.png')} >
+                      <Link href='/yellow-gold' className="flex items-center">
+                        <span>
+                          <Image src='/uploads/images/swatch/blue-sapphire.svg' alt="Platinum" width={20} height={20} />
+                        </span>
+                        <span className="pl-1">Blue Sapphire</span>
+                      </Link>
+                    </li>
+
+                    <li className="product-list" onMouseEnter={() => setRingHovered(`${CATEGORY_MEDIA}/ring-rose-gold.jpg`)} onMouseLeave={() => setRingHovered('/uploads/images/category-images/silver.png')} >
+                      <Link href='/rose-gold' className="flex items-center">
+                        <span>
+                          <Image src='/uploads/images/swatch/emerald.svg' alt="Platinum" width={20} height={20} />
+                        </span>
+                        <span className="pl-1">Emerald </span>
+                      </Link>
+                    </li>
+
+                    <li className="product-list" onMouseEnter={() => setRingHovered(`${CATEGORY_MEDIA}/ring-silver.jpg`)} onMouseLeave={() => setRingHovered('/uploads/images/category-images/silver.png')} >
+                      <Link href='/silver' className="flex items-center">
+                        <span>
+                          <Image src='/uploads/images/swatch/aquamarine.svg' alt="Platinum" width={20} height={20} />
+                        </span>
+                        <span className="pl-1">Aquamarine </span>
+                      </Link>
+                    </li>
+
+                    <li className="product-list" onMouseEnter={() => setRingHovered(`${CATEGORY_MEDIA}/ring-silver.jpg`)} onMouseLeave={() => setRingHovered('/uploads/images/category-images/silver.png')} >
+                      <Link href='/silver' className="flex items-center">
+                      <span>
+                          <Image src='/uploads/images/swatch/morganite.svg' alt="Platinum" width={20} height={20} />
+                        </span>
+                        <span className="pl-1">Morganite</span>
+                      </Link>
+                    </li>
+
+                    <li className="product-list" onMouseEnter={() => setRingHovered(`${CATEGORY_MEDIA}/ring-silver.jpg`)} onMouseLeave={() => setRingHovered('/uploads/images/category-images/silver.png')} >
+                      <Link href='/silver' className="flex items-center">
+                        <span>
+                          <Image src='/uploads/images/swatch/ruby.svg' alt="Platinum" width={20} height={20} />
+                        </span>
+                        <span className="pl-1">Ruby</span>
+                      </Link>
+                    </li>
+
+                    <li className="product-list" onMouseEnter={() => setRingHovered(`${CATEGORY_MEDIA}/ring-silver.jpg`)} onMouseLeave={() => setRingHovered('/uploads/images/category-images/silver.png')} >
+                      <Link href='/silver' className="flex items-center">
+                        <span>
+                          <Image src='/uploads/images/swatch/alexandrite.svg' alt="Platinum" width={20} height={20} />
+                        </span>
+                        <span className="pl-1">Alexendrite</span>
+                      </Link>
+                    </li>
+
+                    <li className="product-list" onMouseEnter={() => setRingHovered(`${CATEGORY_MEDIA}/ring-silver.jpg`)} onMouseLeave={() => setRingHovered('/uploads/images/category-images/silver.png')} >
+                      <Link href='/silver' className="flex items-center">
+                        <span>
+                          <Image src='/uploads/images/swatch/pink-sapphire.svg' alt="Platinum" width={20} height={20} />
+                        </span>
+                        <span className="pl-1">Pink Sapphire</span>
+                      </Link>
+                    </li>
+
+                    <li className="product-list" onMouseEnter={() => setRingHovered(`${CATEGORY_MEDIA}/ring-silver.jpg`)} onMouseLeave={() => setRingHovered('/uploads/images/category-images/silver.png')} >
+                      <Link href='/silver' className="flex items-center">
+                        <span>
+                          <Image src='/uploads/images/swatch/yellow-sapphire.svg' alt="Platinum" width={20} height={20} />
+                        </span>
+                        <span className="pl-1">Yellow Sapphire</span>
+                      </Link>
+                    </li>
+
+                  </ul>
+                </div>
+
+                <div className="col-span-2">
+                  <div className="image h-full">
+                    <Image src='/uploads/images/mega-menu/ring-banner-two.jpg' className="w-full h-[400px]" alt="Rings" width={564} height={705} />
+                  </div>
                 </div>
 
               </div>
@@ -230,11 +332,88 @@ export default function Megamenu() {
                   }
                 </div>
 
+                <div className="col-span-2">
+                  <h2 className="inner-heading">Gemstone Earrings</h2>
+                  <ul className="product-list-wrapper">
+
+
+                  <li className="product-list" onMouseEnter={() => setRingHovered(`${CATEGORY_MEDIA}/ring-yellow-gold.jpg`)} onMouseLeave={() => setRingHovered('/uploads/images/category-images/silver.png')} >
+                      <Link href='/yellow-gold' className="flex items-center">
+                        <span>
+                          <Image src='/uploads/images/swatch/blue-sapphire.svg' alt="Platinum" width={20} height={20} />
+                        </span>
+                        <span className="pl-1">Blue Sapphire</span>
+                      </Link>
+                    </li>
+
+                    <li className="product-list" onMouseEnter={() => setRingHovered(`${CATEGORY_MEDIA}/ring-rose-gold.jpg`)} onMouseLeave={() => setRingHovered('/uploads/images/category-images/silver.png')} >
+                      <Link href='/rose-gold' className="flex items-center">
+                        <span>
+                          <Image src='/uploads/images/swatch/emerald.svg' alt="Platinum" width={20} height={20} />
+                        </span>
+                        <span className="pl-1">Emerald </span>
+                      </Link>
+                    </li>
+
+                    <li className="product-list" onMouseEnter={() => setRingHovered(`${CATEGORY_MEDIA}/ring-silver.jpg`)} onMouseLeave={() => setRingHovered('/uploads/images/category-images/silver.png')} >
+                      <Link href='/silver' className="flex items-center">
+                        <span>
+                          <Image src='/uploads/images/swatch/aquamarine.svg' alt="Platinum" width={20} height={20} />
+                        </span>
+                        <span className="pl-1">Aquamarine </span>
+                      </Link>
+                    </li>
+
+                    <li className="product-list" onMouseEnter={() => setRingHovered(`${CATEGORY_MEDIA}/ring-silver.jpg`)} onMouseLeave={() => setRingHovered('/uploads/images/category-images/silver.png')} >
+                      <Link href='/silver' className="flex items-center">
+                      <span>
+                          <Image src='/uploads/images/swatch/morganite.svg' alt="Platinum" width={20} height={20} />
+                        </span>
+                        <span className="pl-1">Morganite</span>
+                      </Link>
+                    </li>
+
+                    <li className="product-list" onMouseEnter={() => setRingHovered(`${CATEGORY_MEDIA}/ring-silver.jpg`)} onMouseLeave={() => setRingHovered('/uploads/images/category-images/silver.png')} >
+                      <Link href='/silver' className="flex items-center">
+                        <span>
+                          <Image src='/uploads/images/swatch/ruby.svg' alt="Platinum" width={20} height={20} />
+                        </span>
+                        <span className="pl-1">Ruby</span>
+                      </Link>
+                    </li>
+
+                    <li className="product-list" onMouseEnter={() => setRingHovered(`${CATEGORY_MEDIA}/ring-silver.jpg`)} onMouseLeave={() => setRingHovered('/uploads/images/category-images/silver.png')} >
+                      <Link href='/silver' className="flex items-center">
+                        <span>
+                          <Image src='/uploads/images/swatch/pink-sapphire.svg' alt="Platinum" width={20} height={20} />
+                        </span>
+                        <span className="pl-1">Pink Sapphire</span>
+                      </Link>
+                    </li>
+
+                    <li className="product-list" onMouseEnter={() => setRingHovered(`${CATEGORY_MEDIA}/ring-silver.jpg`)} onMouseLeave={() => setRingHovered('/uploads/images/category-images/silver.png')} >
+                      <Link href='/silver' className="flex items-center">
+                        <span>
+                          <Image src='/uploads/images/swatch/yellow-sapphire.svg' alt="Platinum" width={20} height={20} />
+                        </span>
+                        <span className="pl-1">Yellow Sapphire</span>
+                      </Link>
+                    </li>
+
+                  </ul>
+                </div>
+
+                <div className="col-span-2">
+                  <div className="image h-full">
+                    <Image src='/uploads/images/mega-menu/earrings-banner.jpg' className="w-full h-[400px]" alt="Rings" width={564} height={705} />
+                  </div>
+                </div>
+
               </div>
             </NavigationMenuContent>
           </NavigationMenuItem>
 
-          <NavigationMenuItem>
+          {/* <NavigationMenuItem>
             <NavigationMenuTrigger className='menu-trigger'>
               <span title="Necklaces" className="make-bold-props ">Necklaces</span>
             </NavigationMenuTrigger>
@@ -322,7 +501,7 @@ export default function Megamenu() {
 
               </div>
             </NavigationMenuContent>
-          </NavigationMenuItem>
+          </NavigationMenuItem> */}
 
           <NavigationMenuItem>
             <NavigationMenuTrigger className='menu-trigger'>
@@ -422,13 +601,99 @@ export default function Megamenu() {
                   }
                 </div>
 
+                <div className="col-span-2">
+                  <h2 className="inner-heading">Gemstone Bracelets</h2>
+                  <ul className="product-list-wrapper">
+
+
+                  <li className="product-list" onMouseEnter={() => setRingHovered(`${CATEGORY_MEDIA}/ring-yellow-gold.jpg`)} onMouseLeave={() => setRingHovered('/uploads/images/category-images/silver.png')} >
+                      <Link href='/yellow-gold' className="flex items-center">
+                        <span>
+                          <Image src='/uploads/images/swatch/blue-sapphire.svg' alt="Platinum" width={20} height={20} />
+                        </span>
+                        <span className="pl-1">Blue Sapphire</span>
+                      </Link>
+                    </li>
+
+                    <li className="product-list" onMouseEnter={() => setRingHovered(`${CATEGORY_MEDIA}/ring-rose-gold.jpg`)} onMouseLeave={() => setRingHovered('/uploads/images/category-images/silver.png')} >
+                      <Link href='/rose-gold' className="flex items-center">
+                        <span>
+                          <Image src='/uploads/images/swatch/emerald.svg' alt="Platinum" width={20} height={20} />
+                        </span>
+                        <span className="pl-1">Emerald </span>
+                      </Link>
+                    </li>
+
+                    <li className="product-list" onMouseEnter={() => setRingHovered(`${CATEGORY_MEDIA}/ring-silver.jpg`)} onMouseLeave={() => setRingHovered('/uploads/images/category-images/silver.png')} >
+                      <Link href='/silver' className="flex items-center">
+                        <span>
+                          <Image src='/uploads/images/swatch/aquamarine.svg' alt="Platinum" width={20} height={20} />
+                        </span>
+                        <span className="pl-1">Aquamarine </span>
+                      </Link>
+                    </li>
+
+                    <li className="product-list" onMouseEnter={() => setRingHovered(`${CATEGORY_MEDIA}/ring-silver.jpg`)} onMouseLeave={() => setRingHovered('/uploads/images/category-images/silver.png')} >
+                      <Link href='/silver' className="flex items-center">
+                      <span>
+                          <Image src='/uploads/images/swatch/morganite.svg' alt="Platinum" width={20} height={20} />
+                        </span>
+                        <span className="pl-1">Morganite</span>
+                      </Link>
+                    </li>
+
+                    <li className="product-list" onMouseEnter={() => setRingHovered(`${CATEGORY_MEDIA}/ring-silver.jpg`)} onMouseLeave={() => setRingHovered('/uploads/images/category-images/silver.png')} >
+                      <Link href='/silver' className="flex items-center">
+                        <span>
+                          <Image src='/uploads/images/swatch/ruby.svg' alt="Platinum" width={20} height={20} />
+                        </span>
+                        <span className="pl-1">Ruby</span>
+                      </Link>
+                    </li>
+
+                    <li className="product-list" onMouseEnter={() => setRingHovered(`${CATEGORY_MEDIA}/ring-silver.jpg`)} onMouseLeave={() => setRingHovered('/uploads/images/category-images/silver.png')} >
+                      <Link href='/silver' className="flex items-center">
+                        <span>
+                          <Image src='/uploads/images/swatch/alexandrite.svg' alt="Platinum" width={20} height={20} />
+                        </span>
+                        <span className="pl-1">Alexendrite</span>
+                      </Link>
+                    </li>
+
+                    <li className="product-list" onMouseEnter={() => setRingHovered(`${CATEGORY_MEDIA}/ring-silver.jpg`)} onMouseLeave={() => setRingHovered('/uploads/images/category-images/silver.png')} >
+                      <Link href='/silver' className="flex items-center">
+                        <span>
+                          <Image src='/uploads/images/swatch/pink-sapphire.svg' alt="Platinum" width={20} height={20} />
+                        </span>
+                        <span className="pl-1">Pink Sapphire</span>
+                      </Link>
+                    </li>
+
+                    <li className="product-list" onMouseEnter={() => setRingHovered(`${CATEGORY_MEDIA}/ring-silver.jpg`)} onMouseLeave={() => setRingHovered('/uploads/images/category-images/silver.png')} >
+                      <Link href='/silver' className="flex items-center">
+                        <span>
+                          <Image src='/uploads/images/swatch/yellow-sapphire.svg' alt="Platinum" width={20} height={20} />
+                        </span>
+                        <span className="pl-1">Yellow Sapphire</span>
+                      </Link>
+                    </li>
+
+                  </ul>
+                </div>
+
+                <div className="col-span-2">
+                  <div className="image h-full">
+                    <Image src='/uploads/images/mega-menu/bracelets-banner.jpg' className="w-full h-[400px]" alt="Rings" width={564} height={705} />
+                  </div>
+                </div>
+
               </div>
             </NavigationMenuContent>
           </NavigationMenuItem>
 
-          <NavigationMenuItem>
+          {/* <NavigationMenuItem>
             <NavigationMenuTrigger className='menu-trigger'>
-              <span title="Bracelets" className="make-bold-props ">Pure Metals</span>
+              <span title="Pure Metals" className="make-bold-props ">Pure Metals</span>
             </NavigationMenuTrigger>
             <NavigationMenuContent className='menu-content'>
               <div className="section-two grid grid-cols-12 gap-5">
@@ -537,7 +802,7 @@ export default function Megamenu() {
 
               </div>
             </NavigationMenuContent>
-          </NavigationMenuItem>
+          </NavigationMenuItem> */}
 
         </NavigationMenuList>
       </NavigationMenu>

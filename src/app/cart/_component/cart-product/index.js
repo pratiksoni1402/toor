@@ -49,6 +49,7 @@ export default function Cartproduct() {
     })
       .then((response) => {
         queryClient.invalidateQueries('cart')
+        queryClient.invalidateQueries('cartCount')
       })
       .catch((error) => {
         console.log("Error while deleting product", error)
@@ -102,6 +103,7 @@ export default function Cartproduct() {
     })
       .then((response) => {
         handleProductDelete(sku)
+        queryClient.invalidateQueries('wishlistCount')
         queryClient.invalidateQueries('cart')
         // return response.data.moveProduct
       })
