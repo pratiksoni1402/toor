@@ -25,11 +25,9 @@ export default function Header() {
               </div>
               <div className="col-span-1">
                 <div className=" user-actions flex justify-end items-center">
-                  <div className='text-primary hover:border hover:border-primary rounded-full p-1 hover:bg-primary-foreground border border-transparent'>
-                    <Wishlistcount size={14} />
-                  </div>
-                  <div className=' hover:border hover:border-primary rounded-full p-1 hover:bg-primary-foreground border border-transparent text-primary '><Cartcount size={14} /></div>
-                  <div className=' hover:border hover:border-primary rounded-full p-1 hover:bg-primary-foreground border border-transparent text-primary'><Useraccount size={14} /></div>
+                  <div className='text-primary p-1'><Wishlistcount /></div>
+                  <div className='p-1 text-primary'><Cartcount /></div>
+                  <div className='p-1 text-primary'><Useraccount /></div>
                 </div>
               </div>
             </div>

@@ -1,0 +1,6 @@
+.mobile-menu .content-wrapper .tabbing .tablist{
+  @apply flex flex-col justify-start
+}
+.mobile-menu .content-wrapper .tabbing .tablist .tablistvalue{
+  @apply text-primary bg-white justify-start
+}
