@@ -35,7 +35,7 @@ export default function SearchBar() {
           className="bg-white hover:bg-white text-primary pl-0 justify-start"
           onClick={handleSearch} // Handle search button click
         >
-          <Search className="border-b border-t border-r h-10 w-7" />
+          <Search className="border-b border-t border-r h-10 w-7 pr-1" />
         </Button>
       </div>
     </div>
