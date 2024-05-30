@@ -7,6 +7,7 @@ import LazyImage from "./components/lazy-loading/lazy-image";
 import Categories from "./(home)/_components/categories";
 import Featured from "./(home)/_components/featured-product";
 import Banner from "./(home)/_components/banner";
+// import ParallaxText from "./(home)/_components/moving-banner";
 export default function Home() {
   return (
     <div className="homepage">
@@ -125,6 +126,9 @@ export default function Home() {
         </section>
         {/* End */}
 
+        {/* <section>
+          <ParallaxText />
+        </section> */}
       </div>
     </div>
   );

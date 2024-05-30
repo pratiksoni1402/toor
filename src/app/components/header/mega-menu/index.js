@@ -99,12 +99,6 @@ export default function Megamenu() {
                       </Link>
                     </li>
 
-                    {/* <li className="product-list" onMouseEnter={() => setRingHovered(`${CATEGORY_MEDIA}/ring-silver.jpg`)} onMouseLeave={() => setRingHovered('/uploads/images/category-images/silver.png')} >
-                      <Link href='/silver' className="flex items-center">
-                        <span>Silver</span>
-                      </Link>
-                    </li> */}
-
                   </ul>
                 </div>
 
@@ -522,7 +516,7 @@ export default function Megamenu() {
                         <span>Cuff</span>
                       </Link>
                     </li>
-                    
+
                     <li className="product-list" onMouseEnter={() => setBraceletHovered(`${CATEGORY_MEDIA}/bracelet-cable.jpg`)} onMouseLeave={() => setBraceletHovered('/uploads/images/mega-menu/bracelet.jpg')}>
                       <Link href='/' className="flex items-center" >
                         <span>Cable</span>
