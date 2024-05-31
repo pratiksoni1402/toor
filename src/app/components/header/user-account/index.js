@@ -51,12 +51,12 @@ export default function Useraccount() {
           status ? (
             <Link href='/my-account' className=' flex flex-col justify-center items-center ml-1 pt-1'>
               <CircleUserRound size={22} />
-              <span className='text-sm font-roboto hover:font-semibold  hover:underline  make-bold-props' title='My Account'>My Account</span>
+              <span className='md:block sm:hidden hidden text-sm font-roboto hover:font-semibold  hover:underline  make-bold-props' title='My Account'>My Account</span>
             </Link>
           ) : (
             <Link href='/auth' className=' flex flex-col justify-center items-center ml-1 pt-1'>
               <CircleUserRound size={22} />
-              <span className='text-sm font-roboto hover:underline  hover:font-semibold make-bold-props' title='My Account'>My Account</span>
+              <span className='md:block sm:hidden hidden text-sm font-roboto hover:underline  hover:font-semibold make-bold-props' title='My Account'>My Account</span>
 
             </Link>
           )

@@ -24,7 +24,7 @@ export default function Cartcount() {
 
         <Link href='/cart' className=' flex flex-col justify-center items-center '>
           <ShoppingCart />
-        <span className='text-sm font-roboto hover:font-semibold make-bold-props text-center hover:underline ' title={`Cart ({count})`}>Cart ({count})</span>
+        <span className='md:block sm:hidden hidden text-sm font-roboto hover:font-semibold make-bold-props text-center hover:underline ' title={`Cart ({count})`}>Cart ({count})</span>
         </Link>
 
       </div>

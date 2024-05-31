@@ -18,13 +18,12 @@ export default function Wishlistcount() {
   })
   return (
     <div className="wishlist-count">
-      <div className="wrapper mr-[-10px]">
+      <div className="wrapper md:mr-[-10px] sm:mr-2 mr-[6px]">
 
         <Link href='/wishlist' className=' flex flex-col justify-center items-center'>
           <Heart />
-        <span className='text-sm font-roboto hover:underline hover:font-semibold make-bold-props text-center' title={`Wishlist ({count})`}>Wishlist ({count})</span>
+          <span className='md:block sm:hidden hidden text-sm font-roboto hover:underline hover:font-semibold make-bold-props text-center' title={`Wishlist ({count})`}>Wishlist ({count})</span>
         </Link>
-
 
       </div>
     </div>

@@ -46,25 +46,39 @@ export default function Megamenu() {
                       </Link>
                     </li>
 
-                    <li className="product-list" onMouseEnter={() => setRingHovered(`${CATEGORY_MEDIA}/ring-casual.jpg`)} onMouseLeave={() => setRingHovered('/uploads/images/category-images/silver.png')} >
-                      <Link href='/products?style=casual-rings' className="flex items-center">
-                        <span>Casual</span>
-                      </Link>
-                    </li>
-
-                    <li className="product-list" onMouseEnter={() => setRingHovered(`${CATEGORY_MEDIA}/ring-navratna.jpg`)} onMouseLeave={() => setRingHovered('/uploads/images/category-images/silver.png')} >
+                    {/* <li className="product-list" onMouseEnter={() => setRingHovered(`${CATEGORY_MEDIA}/ring-navratna.jpg`)} onMouseLeave={() => setRingHovered('/uploads/images/category-images/silver.png')} >
                       <Link href='/products?style=navratna-rings' className="flex items-center">
-                        <span>Navratna</span>
+                        <span>Classic</span>
                       </Link>
-                    </li>
+                    </li> */}
 
                     <li className="product-list" onMouseEnter={() => setRingHovered(`${CATEGORY_MEDIA}/ring-mangalsutra.jpg`)} onMouseLeave={() => setRingHovered('/uploads/images/category-images/silver.png')} >
                       <Link href='/products?style=mangalsutra-rings' className="flex items-center">
-                        <span className="whitespace-nowrap">Mangalsutra Rings</span>
+                        <span className="whitespace-nowrap">Three Stone Rings</span>
                       </Link>
                     </li>
 
                   </ul>
+                  <div className="grid grid-cols-1">
+                    <div className="shop-by-gender">
+                      <h2 className="inner-heading">Shop By Gender</h2>
+                      <ul className="product-list-wrapper">
+
+                        <li className="product-list" onMouseEnter={() => setRingHovered(`${CATEGORY_MEDIA}/ring-engagement.jpg`)} onMouseLeave={() => setRingHovered('/uploads/images/category-images/silver.png')} >
+                          <Link href='/products?style=engagement-rings' className="flex items-center">
+                            <span>Women</span>
+                          </Link>
+                        </li>
+
+                        <li className="product-list" onMouseEnter={() => setRingHovered(`${CATEGORY_MEDIA}/ring-couple.jpg`)} onMouseLeave={() => setRingHovered('/uploads/images/category-images/silver.png')} >
+                          <Link href='/products?style=couple-rings' className="flex items-center">
+                            <span>Men</span>
+                          </Link>
+                        </li>
+
+                      </ul>
+                    </div>
+                  </div>
                 </div>
 
                 <div className="col-span-2">
@@ -99,6 +113,38 @@ export default function Megamenu() {
                     </li>
 
                   </ul>
+                  <div className="grid grid-cols-1">
+                    <div className="shop-by-gender">
+                      <h2 className="inner-heading">Featured</h2>
+                      <ul className="product-list-wrapper">
+
+                        <li className="product-list" onMouseEnter={() => setRingHovered(`${CATEGORY_MEDIA}/ring-engagement.jpg`)} onMouseLeave={() => setRingHovered('/uploads/images/category-images/silver.png')} >
+                          <Link href='/products?style=engagement-rings' className="flex items-center">
+                            <span>Unique Rings</span>
+                          </Link>
+                        </li>
+
+                        <li className="product-list" onMouseEnter={() => setRingHovered(`${CATEGORY_MEDIA}/ring-couple.jpg`)} onMouseLeave={() => setRingHovered('/uploads/images/category-images/silver.png')} >
+                          <Link href='/products?style=couple-rings' className="flex items-center">
+                            <span>Gold Rings</span>
+                          </Link>
+                        </li>
+
+                        <li className="product-list" onMouseEnter={() => setRingHovered(`${CATEGORY_MEDIA}/ring-couple.jpg`)} onMouseLeave={() => setRingHovered('/uploads/images/category-images/silver.png')} >
+                          <Link href='/products?style=couple-rings' className="flex items-center">
+                            <span>Eternity Rings</span>
+                          </Link>
+                        </li>
+
+                        <li className="product-list" onMouseEnter={() => setRingHovered(`${CATEGORY_MEDIA}/ring-couple.jpg`)} onMouseLeave={() => setRingHovered('/uploads/images/category-images/silver.png')} >
+                          <Link href='/products?style=couple-rings' className="flex items-center">
+                            <span>Luxury High Rings</span>
+                          </Link>
+                        </li>
+
+                      </ul>
+                    </div>
+                  </div>
                 </div>
 
                 <div className="col-span-3">
@@ -223,7 +269,7 @@ export default function Megamenu() {
 
                     <li className="product-list">
                       <Link href='/engagement-rings' className="flex items-center" onMouseEnter={() => setEarringHovered(`${CATEGORY_MEDIA}/all-earring.jpg`)} onMouseLeave={() => setEarringHovered('/uploads/images/mega-menu/earring.jpg')} >
-                        <span>All Earrings</span>
+                        <span>Studs</span>
                       </Link>
                     </li>
 
@@ -403,96 +449,6 @@ export default function Megamenu() {
               </div>
             </NavigationMenuContent>
           </NavigationMenuItem>
-
-          {/* <NavigationMenuItem>
-            <NavigationMenuTrigger className='menu-trigger'>
-              <span title="Necklaces" className="make-bold-props ">Necklaces</span>
-            </NavigationMenuTrigger>
-            <NavigationMenuContent className=' menu-content'>
-              <div className="section-two grid grid-cols-12 gap-5">
-
-                <div className="col-span-2">
-                  <h2 className="inner-heading">Shop By Style</h2>
-                  <ul className="product-list-wrapper">
-
-                    <li className="product-list" onMouseEnter={() => setNecklaceHovered(`${CATEGORY_MEDIA}/necklace-collar.jpg`)} onMouseLeave={() => setNecklaceHovered('/uploads/images/mega-menu/necklace.jpg')}>
-                      <Link href='/' className="flex items-center">
-                        <span>Collar</span>
-                      </Link>
-                    </li>
-
-                    <li className="product-list" onMouseEnter={() => setNecklaceHovered(`${CATEGORY_MEDIA}/necklace-layered.jpg`)} onMouseLeave={() => setNecklaceHovered('/uploads/images/mega-menu/necklace.jpg')}>
-                      <Link href='/' className="flex items-center">
-                        <span>Layered</span>
-                      </Link>
-                    </li>
-
-                    <li className="product-list" onMouseEnter={() => setNecklaceHovered(`${CATEGORY_MEDIA}/necklace-locket.jpg`)} onMouseLeave={() => setNecklaceHovered('/uploads/images/mega-menu/necklace.jpg')}>
-                      <Link href='/' className="flex items-center">
-                        <span>Locket</span>
-                      </Link>
-                    </li>
-
-                    <li className="product-list" onMouseEnter={() => setNecklaceHovered(`${CATEGORY_MEDIA}/necklace-delicate.jpg`)} onMouseLeave={() => setNecklaceHovered('/uploads/images/mega-menu/necklace.jpg')}>
-                      <Link href='/' className="flex items-center">
-                        <span>Delicate</span>
-                      </Link>
-                    </li>
-                  </ul>
-                </div>
-
-                <div className="col-span-2">
-                  <h2 className="inner-heading">Shop By Metal</h2>
-                  <ul className="product-list-wrapper">
-
-                    <li className="product-list pt-3" onMouseEnter={() => setNecklaceHovered(`${CATEGORY_MEDIA}/necklace-platinum.jpg`)} onMouseLeave={() => setNecklaceHovered('/uploads/images/mega-menu/necklace.jpg')}>
-                      <Link href='/' className="flex items-center">
-                        <span>Platinum</span>
-                      </Link>
-                    </li>
-
-                    <li className="product-list pt-3" onMouseEnter={() => setNecklaceHovered(`${CATEGORY_MEDIA}/necklace-yellow-gold.jpg`)} onMouseLeave={() => setNecklaceHovered('/uploads/images/mega-menu/necklace.jpg')}>
-                      <Link href='/' className="flex items-center">
-                        <span>Yellow Gold</span>
-                      </Link>
-                    </li>
-
-                    <li className="product-list pt-3" onMouseEnter={() => setNecklaceHovered(`${CATEGORY_MEDIA}/necklace-rose-gold.jpg`)} onMouseLeave={() => setNecklaceHovered('/uploads/images/mega-menu/necklace.jpg')}>
-                      <Link href='/' className="flex items-center">
-                        <span>Rose Gold</span>
-                      </Link>
-                    </li>
-
-                    <li className="product-list pt-3" onMouseEnter={() => setNecklaceHovered(`${CATEGORY_MEDIA}/necklace-silver.jpg`)} onMouseLeave={() => setNecklaceHovered('/uploads/images/mega-menu/necklace.jpg')}>
-                      <Link href='/' className="flex items-center">
-                        <span>Silver</span>
-                      </Link>
-                    </li>
-                  </ul>
-                </div>
-
-                <div className="col-span-4">
-                  {
-                    necklaceHovered ? (
-
-                      <div className="category-wrapper py-5 flex justify-center h-full items-center">
-                        <div className="image">
-                          <Image src={necklaceHovered} alt="Necklace" width={400} height={400} />
-                        </div>
-                      </div>
-                    ) : (
-                      <div className="category-wrapper py-5 flex justify-center h-full items-center">
-                        <div className="image">
-                          <Image src='/uploads/images/mega-menu/necklace.jpg' alt="Necklace" width={400} height={400} />
-                        </div>
-                      </div>
-                    )
-                  }
-                </div>
-
-              </div>
-            </NavigationMenuContent>
-          </NavigationMenuItem> */}
 
           <NavigationMenuItem>
             <NavigationMenuTrigger className='menu-trigger'>
@@ -703,7 +659,7 @@ export default function Megamenu() {
 
                   <div className="grid grid-cols-1">
                     <div className="content-wrapper">
-                    <h2 className="inner-heading">Gifts</h2>
+                      <h2 className="inner-heading">Gifts</h2>
                       <ul className="product-list-wrapper">
                         <li className="product-list" onMouseEnter={() => setRingHovered(`${CATEGORY_MEDIA}/20gm-fine-gold-bar.png`)} onMouseLeave={() => setRingHovered('/uploads/images/category-images/silver.png')} >
                           <Link href='/products?style=engagement-rings' className="flex items-center">
@@ -722,44 +678,71 @@ export default function Megamenu() {
                             <span>For Kids</span>
                           </Link>
                         </li>
-                        
+
                       </ul>
                     </div>
                   </div>
                 </div>
 
                 <div className="col-span-2">
-                  <h2 className="inner-heading">Shop By Metal</h2>
+                  <h2 className="inner-heading">Accessories</h2>
                   <ul className="product-list-wrapper">
 
                     <li className="product-list" onMouseEnter={() => setRingHovered(`${CATEGORY_MEDIA}/ring-platinum.jpg`)} onMouseLeave={() => setRingHovered('/uploads/images/category-images/silver.png')} >
                       <Link href='/platinum' className="flex items-center">
-                        <span>
-                          <Image src='/uploads/images/swatch/platinum.svg' alt="Platinum" width={20} height={20} />
-                        </span>
-                        <span className="pl-1">Platinum</span>
+                        <span>Nose Pins</span>
                       </Link>
                     </li>
 
                     <li className="product-list" onMouseEnter={() => setRingHovered(`${CATEGORY_MEDIA}/ring-yellow-gold.jpg`)} onMouseLeave={() => setRingHovered('/uploads/images/category-images/silver.png')} >
                       <Link href='/yellow-gold' className="flex items-center">
-                        <span>
-                          <Image src='/uploads/images/swatch/yellow-gold.svg' alt="Platinum" width={20} height={20} />
-                        </span>
-                        <span className="pl-1">Yellow Gold</span>
+                        <span>Anklets</span>
                       </Link>
                     </li>
 
                     <li className="product-list" onMouseEnter={() => setRingHovered(`${CATEGORY_MEDIA}/ring-rose-gold.jpg`)} onMouseLeave={() => setRingHovered('/uploads/images/category-images/silver.png')} >
                       <Link href='/rose-gold' className="flex items-center">
-                        <span>
-                          <Image src='/uploads/images/swatch/rose-gold.svg' alt="Platinum" width={20} height={20} />
-                        </span>
-                        <span className="pl-1">Rose Gold</span>
+                        <span>Evil Eye</span>
+                      </Link>
+                    </li>
+
+                    <li className="product-list" onMouseEnter={() => setRingHovered(`${CATEGORY_MEDIA}/ring-rose-gold.jpg`)} onMouseLeave={() => setRingHovered('/uploads/images/category-images/silver.png')} >
+                      <Link href='/rose-gold' className="flex items-center">
+                        <span>Pendants</span>
                       </Link>
                     </li>
 
                   </ul>
+                  <div className="grid grid-cols-1">
+
+                    <h2 className="inner-heading">Silver Sets</h2>
+                    <ul className="product-list-wrapper">
+
+                      <li className="product-list" onMouseEnter={() => setRingHovered(`${CATEGORY_MEDIA}/ring-yellow-gold.jpg`)} onMouseLeave={() => setRingHovered('/uploads/images/category-images/silver.png')} >
+                        <Link href='/yellow-gold' className="flex items-center">
+                          <span>Thali</span>
+                        </Link>
+                      </li>
+
+                      <li className="product-list" onMouseEnter={() => setRingHovered(`${CATEGORY_MEDIA}/ring-rose-gold.jpg`)} onMouseLeave={() => setRingHovered('/uploads/images/category-images/silver.png')} >
+                        <Link href='/rose-gold' className="flex items-center">
+                          <span>Glass Sets</span>
+                        </Link>
+                      </li>
+
+                      <li className="product-list" onMouseEnter={() => setRingHovered(`${CATEGORY_MEDIA}/ring-platinum.jpg`)} onMouseLeave={() => setRingHovered('/uploads/images/category-images/silver.png')} >
+                        <Link href='/platinum' className="flex items-center">
+                          <span>Thali and Bowl Sets</span>
+                        </Link>
+                      </li>
+
+                      <li className="product-list" onMouseEnter={() => setRingHovered(`${CATEGORY_MEDIA}/ring-rose-gold.jpg`)} onMouseLeave={() => setRingHovered('/uploads/images/category-images/silver.png')} >
+                        <Link href='/rose-gold' className="flex items-center">
+                          <span>Glass and Jug Sets</span>
+                        </Link>
+                      </li>
+                    </ul>
+                  </div>
                 </div>
 
                 <div className="col-span-3">
