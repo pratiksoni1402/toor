@@ -4,6 +4,7 @@ import Wishlistcount from "./wishlist-count";
 import { Mobilemenu } from "./mobile-menu";
 import Useraccount from "./user-account";
 import Link from "next/link";
+import SearchBar from "./search-bar";
 import './style.css'
 
 export default function Header() {
@@ -13,9 +14,14 @@ export default function Header() {
         <div className="header-wrapper pt-3">
           <section>
             <div className="top-bar bg-transparent grid grid-cols-3  justify-between items-center">
-              <div className="col-span-1">
+              <div className="col-span-1 xl:hidden lg:hidden md:block block">
                 <div className='mobile-menu '>
                   <Mobilemenu />
+                </div>
+              </div>
+              <div className="col-span-1 xl:block lg:block md:hidden hidden">
+                <div className='search-bar'>
+                  <SearchBar />
                 </div>
               </div>
               <div className=" col-span-1">
@@ -25,11 +31,9 @@ export default function Header() {
               </div>
               <div className="col-span-1">
                 <div className=" user-actions flex justify-end items-center">
-                  <div className='text-primary hover:border hover:border-primary rounded-full p-1 hover:bg-primary-foreground border border-transparent'>
-                    <Wishlistcount size={14} />
-                  </div>
-                  <div className=' hover:border hover:border-primary rounded-full p-1 hover:bg-primary-foreground border border-transparent text-primary '><Cartcount size={14} /></div>
-                  <div className=' hover:border hover:border-primary rounded-full p-1 hover:bg-primary-foreground border border-transparent text-primary'><Useraccount size={14} /></div>
+                  <div className='text-primary p-1'><Wishlistcount /></div>
+                  <div className='p-1 text-primary'><Cartcount /></div>
+                  <div className='p-1 text-primary'><Useraccount /></div>
                 </div>
               </div>
             </div>

@@ -1,6 +1,6 @@
 'use client'
 import Link from 'next/link';
-import { ShoppingBag } from 'lucide-react';
+import { ShoppingCart } from 'lucide-react';
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 import { useState } from 'react';
@@ -12,8 +12,8 @@ export default function Cartcount() {
     queryFn: () =>
       axios.get('/components/header/cart-count/api/get-cart-count')
         .then((response) => {
-          setEmptyCount(response.data.getCartCount) 
-          return response.data.getCartCount 
+          setEmptyCount(response.data.getCartCount)
+          return response.data.getCartCount
         })
         .catch((error) => console.log("Error while fetching count", error))
   })
@@ -21,20 +21,11 @@ export default function Cartcount() {
   return (
     <div className="cart-count">
       <div className="wrapper">
-        {
-          isEmptyCount == '' ? (
-            <Link href='/cart'>
-              <ShoppingBag />
-            </Link>
-          ) : (
-            <Link href='/cart'>
-              <div className='relative'>
-                <ShoppingBag fill='#754b2f' />
-                <div className='absolute top-[1px] text-white left-[8px] text-sm'>{count}</div>
-              </div>
-            </Link>
-          )
-        }
+
+        <Link href='/cart' className=' flex flex-col justify-center items-center '>
+          <ShoppingCart />
+        <span className='md:block sm:hidden hidden text-sm font-roboto hover:font-semibold make-bold-props text-center hover:underline ' title={`Cart ({count})`}>Cart ({count})</span>
+        </Link>
 
       </div>
     </div>

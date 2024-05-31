@@ -1,14 +1,14 @@
 export const dynamic = 'force-dynamic';
 export const fetchCache = 'force-no-store';
 export const revalidate = 0;
-// import Userdetails from "./_components/user-details";
-import { loadStripe } from '@stripe/stripe-js';
+import Userdetails from "./_components/user-details";
+// import { loadStripe } from '@stripe/stripe-js';
 import Orderbag from "./_components/order-bag";
 import { redirect } from "next/navigation";
 import { getSession } from "@/lib/session";
-import CheckoutForm from "./_components/user-details";
-const publicKey = (process.env.STRIPE_PUBLIC_KEY)
-console.log("This is public key", publicKey)
+// import CheckoutForm from "./_components/user-details";
+// const publicKey = (process.env.STRIPE_PUBLIC_KEY)
+// console.log("This is public key", publicKey)
 export default async function Checkout() {
   const session = await getSession();
   if (!session.user) {
@@ -20,8 +20,8 @@ export default async function Checkout() {
         <div className="grid grid-cols-12 md:gap-5 sm:gap-0 gap-0">
           <div className="lg:col-span-6 md:col-span-12 sm:col-span-12 col-span-12 lg:order-1 md:order-2 sm:order-2 order-2">
             <div className="component-wrapper border border-secondary bg-white my-5">
-              {/* <Userdetails /> */}
-              <CheckoutForm stripePublicKey={publicKey} />
+              <Userdetails />
+              {/* <CheckoutForm stripePublicKey={publicKey} /> */}
             </div>
           </div>
           <div className="lg:col-span-6 md:col-span-12 sm:col-span-12 col-span-12 lg:order-2 md:order-1 sm:order-1 order-1">

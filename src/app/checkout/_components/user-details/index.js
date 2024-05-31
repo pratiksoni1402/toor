@@ -12,7 +12,7 @@ import './style.css'
 import { useRouter } from 'next/navigation';
 import { PaymentElement } from '@stripe/react-stripe-js';
 
-function Userdetails({ stripePromise }) {
+export default function Userdetails() { //{ stripePromise }
 
   const [showForm, setShowForm] = useState(false);
   const { register, setValue, watch, handleSubmit, formState: { errors } } = useForm();
@@ -202,13 +202,13 @@ function Userdetails({ stripePromise }) {
               <div>
                 <input {...register("paymentMode", { required: true })} type="radio" id='debit-card' value="Debit Card" />
                 <label htmlFor="debit-card" className='pl-1 font-roboto text-base text-accent hover:cursor-pointer'>Debit/Credit Card</label>
-                {
+                {/* {
                   watchPaymentMethod == 'Debit Card' ? ( 
                     <PaymentElement />
                   ) : (
                     <></>
                   )
-                }
+                } */}
               </div>
       
               <div>
@@ -229,16 +229,16 @@ function Userdetails({ stripePromise }) {
   )
 }
 
-export default function CheckoutForm(props) {
-  const stripePromise = loadStripe(props.stripePublicKey)
+// export default function CheckoutForm(props) {
+//   const stripePromise = loadStripe(props.stripePublicKey)
 
-  return (
-    <Elements stripe={stripePromise} options={{
-      mode: 'setup',
-      currency: 'inr',
-    }}>
-      <Userdetails {...props} stripePromise={stripePromise} />
-    </Elements>
+//   return (
+//     <Elements stripe={stripePromise} options={{
+//       mode: 'setup',
+//       currency: 'inr',
+//     }}>
+//       <Userdetails {...props} stripePromise={stripePromise} />
+//     </Elements>
 
-  )
-}
+//   )
+// }

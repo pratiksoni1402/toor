@@ -18,21 +18,12 @@ export default function Wishlistcount() {
   })
   return (
     <div className="wishlist-count">
-      <div className="wrapper">
-        {
-          wishlistCount == '' ? (
-            <Link href='/wishlist'>
-              <Heart />
-            </Link>
-          ) : (
-            <Link href='/wishlist'>
-              <div className='relative'>
-                <Heart fill='#754b2f' size={26}/>
-                <div className='absolute top-[1px] text-white left-[9px] text-sm'>{count}</div>
-              </div>
-            </Link>
-          )
-        }
+      <div className="wrapper md:mr-[-10px] sm:mr-2 mr-[6px]">
+
+        <Link href='/wishlist' className=' flex flex-col justify-center items-center'>
+          <Heart />
+          <span className='md:block sm:hidden hidden text-sm font-roboto hover:underline hover:font-semibold make-bold-props text-center' title={`Wishlist ({count})`}>Wishlist ({count})</span>
+        </Link>
 
       </div>
     </div>
