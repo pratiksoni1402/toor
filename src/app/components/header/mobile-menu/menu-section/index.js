@@ -6,7 +6,6 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 import './style.css';
-
 export default function TabList() {
   // State to manage the active tab and whether to show the tab list or content
   const [activeTab, setActiveTab] = useState(null);
