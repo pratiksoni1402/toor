@@ -52,11 +52,11 @@ export default function ProductListing() {
                         <div className="product">
                           <div className="image relative sm:h-72 h-32">
                             <LazyImage src={`${PRODUCT_MEDIA}/${item.image}`} alt='image' width={288} height={288} className="hover:scale-110 hover:ease-in-out hover:transition-all sm:w-[288px] sm:h-[288px] h-[300px]" />
-                            <span className="absolute right-2 top-4">
+                            {/* <span className="absolute right-2 top-4">
                               <Button className='bg-transparent border-0 text-primary' type='button'>
                                 <Heart size={20} />
                               </Button>
-                            </span>
+                            </span> */}
                           </div>
                           <div className="detail">
                             <div className="name">
