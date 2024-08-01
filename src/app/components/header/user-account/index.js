@@ -3,11 +3,10 @@ import Link from 'next/link';
 import { CircleUserRound } from 'lucide-react';
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
-import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 export default function Useraccount() {
 
   // Checking user is logged in or not
-  const { isPending, data: status, isError } = useQuery({
+  const { data: status} = useQuery({
     queryKey: ['loginstatus'],
     queryFn: () =>
       axios.post('/auth/api/login-check')
