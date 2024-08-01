@@ -20,7 +20,7 @@
 }
 
 .homepage-banner .banner-detail .heading {
-  @apply text-h1 xl:text-[45px] pb-5 font-crimson text-primary;
+  @apply text-3xl font-light xl:text-[45px] pb-5 font-jost text-primary;
 }
 
 .homepage-banner .banner-detail .description {

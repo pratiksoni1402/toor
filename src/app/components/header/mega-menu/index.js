@@ -26,7 +26,7 @@ export default function Megamenu() {
 
           <NavigationMenuItem>
             <NavigationMenuTrigger className='menu-trigger' title='Rings'>
-              <span title="Rings" className="make-bold-props">Rings</span>
+              <span title="Rings" className="make-bold-props font-jost text-lg  hover:!font-normal">Rings</span>
             </NavigationMenuTrigger>
             <NavigationMenuContent className='menu-content'>
               <div className=" grid grid-cols-12 gap-5">
@@ -45,12 +45,6 @@ export default function Megamenu() {
                         <span>Couple Rings</span>
                       </Link>
                     </li>
-
-                    {/* <li className="product-list" onMouseEnter={() => setRingHovered(`${CATEGORY_MEDIA}/ring-navratna.jpg`)} onMouseLeave={() => setRingHovered('/uploads/images/category-images/silver.png')} >
-                      <Link href='/products?style=navratna-rings' className="flex items-center">
-                        <span>Classic</span>
-                      </Link>
-                    </li> */}
 
                     <li className="product-list" onMouseEnter={() => setRingHovered(`${CATEGORY_MEDIA}/ring-mangalsutra.jpg`)} onMouseLeave={() => setRingHovered('/uploads/images/category-images/silver.png')} >
                       <Link href='/products?style=mangalsutra-rings' className="flex items-center">
@@ -258,7 +252,7 @@ export default function Megamenu() {
 
           <NavigationMenuItem>
             <NavigationMenuTrigger className=' menu-trigger'>
-              <span title="Earrings" className="make-bold-props ">Earrings</span>
+              <span title="Earrings" className="make-bold-props font-jost text-lg  hover:!font-normal">Earrings</span>
             </NavigationMenuTrigger>
             <NavigationMenuContent className='w-full menu-content'>
               <div className="section-one grid grid-cols-12 gap-5">
@@ -452,7 +446,7 @@ export default function Megamenu() {
 
           <NavigationMenuItem>
             <NavigationMenuTrigger className='menu-trigger'>
-              <span title="Bracelets" className="make-bold-props ">Bracelets</span>
+              <span title="Bracelets" className="make-bold-props font-jost text-lg  hover:!font-normal">Bracelets</span>
             </NavigationMenuTrigger>
             <NavigationMenuContent className='menu-content'>
               <div className="section-two grid grid-cols-12 gap-5">
@@ -623,7 +617,7 @@ export default function Megamenu() {
 
           <NavigationMenuItem>
             <NavigationMenuTrigger className='menu-trigger'>
-              <span title="Jewellery & Pure Metals" className="make-bold-props gap-5">Jewellery & Pure Metals</span>
+              <span title="Jewellery & Pure Metals" className="make-bold-props gap-5  font-jost text-lg hover:!font-normal">Jewellery & Pure Metals</span>
             </NavigationMenuTrigger>
             <NavigationMenuContent className='menu-content'>
               <div className=" grid grid-cols-12 gap-5">

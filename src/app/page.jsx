@@ -1,13 +1,14 @@
 'use client'
+
 export const dynamic = 'force-dynamic';
 export const fetchCache = 'force-no-store';
 export const revalidate = 0;
+
 import Link from "next/link";
 import LazyImage from "./components/lazy-loading/lazy-image";
 import Categories from "./(home)/_components/categories";
 import Featured from "./(home)/_components/featured-product";
-import Banner from "./(home)/_components/banner";
-// import ParallaxText from "./(home)/_components/moving-banner";
+import Banner from  "./(home)/_components/banner"
 export default function Home() {
   return (
     <div className="homepage">

@@ -26,7 +26,7 @@ export default function Header() {
               </div>
               <div className=" col-span-1">
                 <Link href='/'>
-                  <h1 className="font-crimson sm:text-4xl text-center text-2xl sm:text-center text-primary">SS Jewels</h1>
+                  <h1 className="font-jost font-light sm:text-3xl text-center text-2xl sm:text-center text-primary">SS Jewels</h1>
                 </Link>
               </div>
               <div className="col-span-1">
