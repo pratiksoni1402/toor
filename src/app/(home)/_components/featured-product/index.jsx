@@ -1,163 +1,110 @@
-// Import Swiper React components
 'use client'
-import { Swiper, SwiperSlide } from 'swiper/react';
-import LazyImage from '@/app/components/lazy-loading/lazy-image';
-import Link from 'next/link';
-import 'swiper/css';
+
+import Link from 'next/link'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { BREAKPOINTS } from '@/app/_lib/constant/breakpoints'
+import { Scrollbar } from 'swiper/modules'
+import Image from 'next/image'
+
+import 'swiper/css'
+import 'swiper/css/pagination'
+import 'swiper/css/scrollbar'
+
 export default function Featured() {
   return (
-    <Swiper
-      spaceBetween={20}
-      slidesPerView={5}
-      // navigation
-      // pagination={{ clickable: true }}
-      scrollbar={{ draggable: true }}
-      autoplay={{ pauseOnMouseEnter: true }}
-      breakpoints={{
-        280: {
-          width: 280,
-          slidesPerView: 1,
-        },
-        576: {
-          width: 576,
-          slidesPerView: 2,
-        },
-        768: {
-          width: 768,
-          slidesPerView: 4,
-        },
-        992: {
-          width: 992,
-          slidesPerView: 4,
-        },
-        1200: {
-          width: 1200,
-          slidesPerView: 5,
-        },
-        1400: {
-          width: 1400,
-          slidesPerView: 5,
-        },
-      }}
-    >
+    <>
+      <section className="our-favorites-section">
+        <div className="container">
+          <div className="our-favorites-wrapper">
+            <h1 className="main-heading">Our Favorites</h1>
+            <Swiper
+              scrollbar={{
+                hide: true,
+              }}
+              modules={[Scrollbar]}
+              navigation={{
+                prevEl: '.btn-prev-style-filters',
+                nextEl: '.btn-next-style-filters',
+              }}
+              spaceBetween={20}
+              slidesPerView={1.5}
+              centeredSlides={true}
+              centeredSlidesBounds={true}
+              centerInsufficientSlides={true}
+              breakpoints={{
+                [BREAKPOINTS['2XL']]: {
+                  slidesPerView: 4,
+                },
+                [BREAKPOINTS['XL']]: {
+                  slidesPerView: 4,
+                },
+                [BREAKPOINTS['LG']]: {
+                  slidesPerView: 4,
+                },
+                [BREAKPOINTS['MD']]: {
+                  slidesPerView: 3,
+                },
+                [BREAKPOINTS['SM']]: {
+                  slidesPerView: 2,
+                },
+              }}
+            >
+              {[
+                {
+                  image: '/uploads/images/products/product-3.jpg',
+                  alt: 'favorite-product',
+                  name: 'Rose Gold Rings',
+                  link: '/rose-gold-engagement-rings/',
+                },
+                {
+                  image: '/uploads/images/products/product-4.jpg',
+                  alt: 'favorite-product',
+                  name: 'Oval Rings',
+                  link: '/oval-engagement-rings/',
+                },
 
-      <SwiperSlide>
-        <div className='product-wrapper w-full'>
-          <Link href='/featured-product'>
-            <div className='product'>
-              <div className='image relative h-[250px]'>
-                <LazyImage src='/uploads/images/products/ENG-W-YG-015.jpg' alt='image' width={250} height={250} />
-              </div>
-              <div className='name text-accent text-base font-roboto text-center'>Rose Gold Earrings</div>
-              <div className='price text-accent font-roboto text-base  text-center'>45700</div>
-            </div>
-          </Link>
+                {
+                  image: '/uploads/images/products/product-2.jpg',
+                  alt: 'favorite-product',
+                  name: 'Cushion-cut Rings',
+                  link: '/cushion-cut-engagement-rings/',
+                },
+                {
+                  image: '/uploads/images/products/product-1.jpg',
+                  alt: 'favorite-product',
+                  name: 'Princess-cut Rings',
+                  link: '/princess-cut-engagement-rings/',
+                },
+              ].map((favorite, index) => (
+                <SwiperSlide key={index}>
+                  <Link
+                    href={favorite.link}
+                    title={favorite.name}
+                    className="group zoom-image"
+                    prefetch={false}
+                  >
+                    <div className="product-container">
+                      <Image
+                        src={favorite.image}
+                        loading="eager"
+                        layout="fill"
+                        quality={100}
+                        alt={favorite.alt}
+                      />
+                    </div>
+                    <div
+                      className="product-name transition-all group-hover:font-bold make-bold-props"
+                      title={favorite.name}
+                    >
+                      {favorite.name}
+                    </div>
+                  </Link>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </div>
         </div>
-      </SwiperSlide>
-      <SwiperSlide>
-        <div className='product-wrapper w-full'>
-          <Link href='/featured-product'>
-            <div className='product'>
-              <div className='image relative h-[250px]'>
-                <LazyImage src='/uploads/images/products/ENG-W-YG-016.jpg' alt='image' width={250} height={250} />
-              </div>
-              <div className='name text-accent font-roboto  text-base text-center'>Rose Gold Earrings</div>
-              <div className='price text-accent font-roboto  text-base text-center'>45700</div>
-            </div>
-          </Link>
-        </div>
-      </SwiperSlide>
-      <SwiperSlide>
-        <div className='product-wrapper w-full'>
-          <Link href='/featured-product'>
-            <div className='product'>
-              <div className='image relative h-[250px]'>
-                <LazyImage src='/uploads/images/products/ENG-W-YG-004.jpg' alt='image' width={250} height={250} />
-              </div>
-              <div className='text-accent font-roboto text-center text-base  name'>Rose Gold Earrings</div>
-              <div className='text-accent font-roboto text-center  text-base price'>45700</div>
-            </div>
-          </Link>
-        </div>
-      </SwiperSlide>
-      <SwiperSlide>
-        <div className='product-wrapper w-full'>
-          <Link href='/featured-product'>
-            <div className='product'>
-              <div className='image relative h-[250px]'>
-                <LazyImage src='/uploads/images/products/ENG-W-YG-005.jpg' alt='image' width={250} height={250} />
-              </div>
-              <div className='text-accent font-roboto text-center  text-base name'>Rose Gold Earrings</div>
-              <div className='text-accent font-roboto text-center text-base  price'>45700</div>
-            </div>
-          </Link>
-        </div>
-      </SwiperSlide>
-      <SwiperSlide>
-        <div className='product-wrapper w-full'>
-          <Link href='/featured-product'>
-            <div className='product'>
-              <div className='image relative h-[250px]'>
-                <LazyImage src='/uploads/images/products/ENG-W-YG-006.jpg' alt='image' width={250} height={250} />
-              </div>
-              <div className='text-accent font-roboto text-center  text-base name'>Rose Gold Earrings</div>
-              <div className='text-accent font-roboto text-center  text-base price'>45700</div>
-            </div>
-          </Link>
-        </div>
-      </SwiperSlide>
-      <SwiperSlide>
-        <div className='product-wrapper w-full'>
-          <Link href='/featured-product'>
-            <div className='product'>
-              <div className='image relative h-[250px]'>
-                <LazyImage src='/uploads/images/products/ENG-W-YG-007.jpg' alt='image' width={250} height={250} />
-              </div>
-              <div className='text-accent font-roboto text-center  text-base name'>Rose Gold Earrings</div>
-              <div className='text-accent font-roboto text-center text-base  price'>45700</div>
-            </div>
-          </Link>
-        </div>
-      </SwiperSlide>
-      <SwiperSlide>
-        <div className='product-wrapper w-full'>
-          <Link href='/featured-product'>
-            <div className='product'>
-              <div className='image relative h-[250px]'>
-                <LazyImage src='/uploads/images/products/ENG-W-YG-013.jpg' alt='image' width={250} height={250} />
-              </div>
-              <div className='text-accent font-roboto text-center  text-base name'>Rose Gold Earrings</div>
-              <div className='text-accent font-roboto text-center  text-base price'>45700</div>
-            </div>
-          </Link>
-        </div>
-      </SwiperSlide>
-      <SwiperSlide>
-        <div className='product-wrapper w-full'>
-          <Link href='/featured-product'>
-            <div className='product'>
-              <div className='image relative h-[250px]'>
-                <LazyImage src='/uploads/images/products/ENG-W-YG-011.jpg' alt='image' width={250} height={250} />
-              </div>
-              <div className='text-accent font-roboto text-center  text-base name'>Rose Gold Earrings</div>
-              <div className='text-accent font-roboto text-center  text-base price'>45700</div>
-            </div>
-          </Link>
-        </div>
-      </SwiperSlide>
-      <SwiperSlide>
-        <div className='product-wrapper w-full'>
-          <Link href='/featured-product'>
-            <div className='product'>
-              <div className='image relative h-[250px]'>
-                <LazyImage src='/uploads/images/products/ENG-W-YG-010.jpg' alt='image' width={250} height={250} />
-              </div>
-              <div className='text-accent font-roboto text-center text-base name'>Rose Gold Earrings</div>
-              <div className='text-accent font-roboto text-center text-base price'>45700</div>
-            </div>
-          </Link>
-        </div>
-      </SwiperSlide>
-    </Swiper>
-  );
-};
+      </section>
+    </>
+  )
+}

@@ -34,7 +34,7 @@ export default function Megamenu() {
                   <h2 className="inner-heading">Shop By Style</h2>
                   <ul className="product-list-wrapper">
 
-                    <li className="product-list" onMouseEnter={() => setRingHovered(`${CATEGORY_MEDIA}/ring-engagement.jpg`)} onMouseLeave={() => setRingHovered('/uploads/images/category-images/silver.png')} >
+                    <li className="product-list font-jost" onMouseEnter={() => setRingHovered(`${CATEGORY_MEDIA}/ring-engagement.jpg`)} onMouseLeave={() => setRingHovered('/uploads/images/category-images/silver.png')} >
                       <Link href='/products?style=engagement-rings' className="flex items-center">
                         <span>Engagement</span>
                       </Link>
@@ -251,8 +251,8 @@ export default function Megamenu() {
           </NavigationMenuItem>
 
           <NavigationMenuItem>
-            <NavigationMenuTrigger className=' menu-trigger'>
-              <span title="Earrings" className="make-bold-props font-jost text-lg  hover:!font-normal">Earrings</span>
+            <NavigationMenuTrigger className=' menu-trigger !font-light font-jost '>
+              <span title="Earrings" className="make-bold-props text-lg">Earrings</span>
             </NavigationMenuTrigger>
             <NavigationMenuContent className='w-full menu-content'>
               <div className="section-one grid grid-cols-12 gap-5">

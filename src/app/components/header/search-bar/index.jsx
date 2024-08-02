@@ -22,21 +22,21 @@ export default function SearchBar() {
     <div className="search-bar">
       <div className="content-wrapper text-primary flex items-center">
         {/* Input field with value and onChange handler */}
+        <Button
+          className="bg-white hover:bg-white rounded-none text-primary pl-0 justify-start border-b ml-0"
+          onClick={handleSearch} // Handle search button click
+        >
+          <Search className=" h-10 w-7"/>
+        </Button>
         <input
           type="text"
           name="text"
           value={searchQuery} // Bind value to searchQuery state
           onChange={handleChange} // Handle input change
           placeholder="Search"
-          className="border border-r-0 h-10 w-60 pl-2 font-roboto text-base text-accent ml-2 focus:outline-0"
+          className="border border-r-0 border-t-0 border-l-0 h-10 w-60 font-roboto text-base text-accent focus:outline-0"
         />
         {/* Button with onClick handler */}
-        <Button
-          className="bg-white hover:bg-white text-primary pl-0 justify-start"
-          onClick={handleSearch} // Handle search button click
-        >
-          <Search className="border-b border-t border-r h-10 w-7 pr-1" />
-        </Button>
       </div>
     </div>
   );
