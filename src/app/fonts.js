@@ -1,4 +1,4 @@
-import { Tangerine, Crimson_Pro, Roboto, Hind, Lora, Kalam } from "next/font/google";
+import { Tangerine, Crimson_Pro, Roboto, Hind, Lora, Kalam, Jost } from "next/font/google";
 
 export const TANGERINE = Tangerine({
     subsets: ['latin'],
@@ -21,7 +21,7 @@ export const ROBOTO = Roboto({
     display: 'swap',
     weight: ['400', '500', '700', '900'],
     style: ['normal'],
-    variable: '--text-font-roboto',
+    variable: '--font-roboto',
 });
 
 export const HIND = Hind({
@@ -46,6 +46,14 @@ export const KALAM = Kalam({
     weight:['300', '400', '700'],
     style:['normal'],
     variable:'--engrave-font-kalam',
+});
+
+export const JOST = Jost({
+    subsets:['latin'],
+    display:'swap',
+    weight:['100', '200', '300', '400', '500', '600', '700', '800', '900'],
+    style:['normal'],
+    variable:'--font-jost',
 });
 
 

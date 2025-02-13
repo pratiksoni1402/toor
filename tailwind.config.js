@@ -141,7 +141,8 @@ module.exports = {
       },
       fontFamily: {
         ['crimson']: ['var(--heading-font-crimson)'],
-        ['roboto']: ['var(--text-font-roboto)'],
+        ['roboto']: ['var(--font-roboto)'],
+        ['jost']: ['var(--font-jost)'],
         ['tangerine']: ['var(--logo-font-tangerine)'],
         ['hind']: ['var(--engrave-font-hind)'],
         ['lora']: ['var(--engrave-font-lora)'],
